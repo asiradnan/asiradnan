@@ -23,7 +23,7 @@ I recently started diving into the world of web development. From making things 
 
 
 
-### Skills 📜
+#### Skills 📜
 ##### Programming
 - Python
 - C++
@@ -46,7 +46,7 @@ I recently started diving into the world of web development. From making things 
 - Currently focusing on mastering existing skills, no new pursuits at the moment.
 
 
-### 📫 How to reach me?
+#### 📫 How to reach me?
 - [Linkedin](https://www.linkedin.com/in/asiradnan/)
 - [Facebook](https://www.facebook.com/asiradnan23/)
    
