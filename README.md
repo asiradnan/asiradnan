@@ -1,34 +1,33 @@
-
 # Hi 👋 I'm Asir! 
 
 I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BSc in CS. Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions.
 
 
-## I am a -
-### 💻 Passionate Coder
+### I am a -
+#### 💻 Passionate Coder
 
 Whether it's algorithms, data structures, or diving into the world of web development, every line of code is an opportunity to learn and grow.
 
-### ⚔️ Competitive Programming Enthusiast
+#### ⚔️ Competitive Programming Enthusiast
 
 Competitive programming is my playground. I believe in the power of challenges to sharpen my skills. Regularly participating and pushing my limits in competitive programming is not just a hobby but my top priority.
-####  Current Ratings: 
+#####  Current Ratings: 
 - [1306 - Codeforces ](https://codeforces.com/profile/asiradnan)
 - [1599 - CodeChef ](https://www.codechef.com/users/asiradnan)
 
 And solved more than **1200** problems on different judges including [374 problems on Beecrowd](https://www.beecrowd.com.br/judge/en/profile/655116).
 
-### 🕸️ Newly Web Developer
+#### 🕸️ Newly Web Developer
 
 I recently started diving into the world of web development. From making things look good on the front to making them work behind the scenes, I'm having a blast learning it all.
 
 
 
-## Skills 📜
-### Programming
+#### Skills 📜
+##### Programming
 - Python
 - C++
-### Web Technologies
+##### Web Technologies
 
 - HTML
 - CSS, Bootstrap 
@@ -37,17 +36,17 @@ I recently started diving into the world of web development. From making things 
 - MySQL
 - JSON, API 
 
-### System
+##### System
 - Git, GitHub
 - Linux
-### Others
+##### Others
 - OpenCV (Python)
 - Microsoft - Word, Powerpoint, Excel 
-### What I'm currently learning 📚
+##### What I'm currently learning 📚
 - Currently focusing on mastering existing skills, no new pursuits at the moment.
 
 
-## 📫 How to reach me?
+#### 📫 How to reach me?
 - [Linkedin](https://www.linkedin.com/in/asiradnan/)
 - [Facebook](https://www.facebook.com/asiradnan23/)
    
