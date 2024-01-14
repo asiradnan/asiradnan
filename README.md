@@ -9,11 +9,11 @@ I'm Asir Adnan, currently sailing through the exciting seas of computer science 
 
 Whether it's algorithms, data structures, or diving into the world of web development, every line of code is an opportunity to learn and grow.
 
-### 🚀 Competitive Programming Aficionado
+### ⚔️ Competitive Programming Enthusiast
 
 Competitive programming is my playground. I believe in the power of challenges to sharpen my skills. Regularly participating and pushing my limits in competitive programming is not just a hobby but my top priority.
 
-### 🌐 Newly Web Developer
+### 🕸️ Newly Web Developer
 
 I recently started diving into the world of web development. From making things look good on the front to making them work behind the scenes, I'm having a blast learning it all.
 
@@ -39,10 +39,11 @@ I recently started diving into the world of web development. From making things 
 - OpenCV (Python)
 - Microsoft - Word, Powerpoint, Excel 
 ### What I'm currently learning 📚
-- Nothing
+- Currently focusing on mastering existing skills, no new pursuits at the moment.
 
 
 ## 📫 How to reach me?
 - [Linkedin](https://www.linkedin.com/in/asiradnan/)
 - [Facebook](https://www.facebook.com/asiradnan23/)
+
 You can ask me anything. I am looking forward to absorb knowledge 🧠  gain experience 🏭 collaborate 🤝 and build amazing products for the world 🌍!
