@@ -1,16 +1,48 @@
 
-# Hey! 👋 
+# Hi 👋 I'm Asir! 
+
+I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BSc in CS. Coding is not just my skill; it's my adrenaline, and I thrive on the sheer joy of crafting solutions.
 
 
-## ☕︎ About Me
-I'm a undergrad student who is passionate about coding and creating.
+## I am a -
+### 💻 Passionate Coder
 
-I regularly practice solving problems and regularly participate in the competitive programming contests.
+Whether it's algorithms, data structures, or diving into the world of web development, every line of code is an opportunity to learn and grow.
 
-I am very interested and optimistic about solving real world problems and creating real world things!
+### 🚀 Competitive Programming Aficionado
+
+Competitive programming is my playground. I believe in the power of challenges to sharpen my skills. Regularly participating and pushing my limits in competitive programming is not just a hobby but my top priority.
+
+### 🌐 Newly Web Developer
+
+I recently started diving into the world of web development. From making things look good on the front to making them work behind the scenes, I'm having a blast learning it all.
 
 
 
-## 💡 Skills
-C++, Python, Javascript, HTML, CSS, Django, MySQL
+## Skills 📜
+### Programming
+- Python
+- C++
+### Web Technologies
 
+- HTML
+- CSS, Bootstrap 
+- Javascript, Vue JS 
+- Django
+- MySQL
+- JSON, API 
+
+### System
+- Git, GitHub
+- Linux
+### Others
+- OpenCV (Python)
+- Microsoft - Word, Powerpoint, Excel 
+### What I'm currently learning 📚
+- Nothing
+
+
+## 📫 How to reach me?
+- [Linkedin](https://www.linkedin.com/in/asiradnan/)
+- [Facebook](https://www.facebook.com/asiradnan23/)
+You can ask me anything. I am looking forward to absorb knowledge 🧠  gain experience 🏭 collaborate 🤝 and build amazing products for the world 🌍!
