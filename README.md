@@ -1,7 +1,7 @@
 
 # Hi 👋 I'm Asir! 
 
-I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BSc in CS. Coding is not just my skill; it's my adrenaline, and I thrive on the sheer joy of crafting solutions.
+I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BSc in CS. Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions.
 
 
 ## I am a -
@@ -46,4 +46,4 @@ I recently started diving into the world of web development. From making things 
 - [Linkedin](https://www.linkedin.com/in/asiradnan/)
 - [Facebook](https://www.facebook.com/asiradnan23/)
    
-You can ask me anything. I am looking forward to absorb knowledge 🧠  gain experience 🏭 collaborate 🤝 and build amazing products for the world 🌍!
+You can ask me anything. I am looking forward to absorb knowledge, gain experience, collaborate and build amazing products for the world!
