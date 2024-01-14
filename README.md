@@ -23,7 +23,7 @@ I recently started diving into the world of web development. From making things 
 
 
 
-#### Skills 📜
+### Skills 📜
 ##### Programming
 - Python
 - C++
