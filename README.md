@@ -3,7 +3,8 @@
 I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BS in Computer Science. Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions.
 
 <details>
-   <summary>More about me!</summary>
+   <summary>More about me?</summary>
+   
 ### I am a -
 #### 💻 Passionate Coder
 
