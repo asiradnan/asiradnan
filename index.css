@@ -1,0 +1,58 @@
+@media screen and (max-width:1200px) {
+    #desktop-image{
+        display: none;
+    }
+    main#index{
+        display: grid;
+        grid-template-rows: auto auto auto;
+        width: 100%;
+    }
+    #mainpic{
+        display: block;
+        margin: auto;
+        border: none;
+        height: 300px;
+        width: 300px;
+        border-radius: 300px;
+        background-color: rgb(230, 184, 56);
+    }  
+}
+@media screen and (min-width:1200px) {
+    
+    #mobile-image{
+        display: none;
+    }
+    #desktop-image{
+        justify-self: center;
+        align-self: center;
+    }
+    main#index{
+        display: grid;
+        grid-template-columns: 33% 34% 33%;
+        height: calc(100% - 100px);
+    }
+    #mainpic{
+        display: block;
+        margin: auto;
+        border: none;
+        height: 450px;
+        width: 450px;
+        border-radius: 450px;
+        background-color: rgb(230, 184, 56);
+    }
+}
+
+#left{
+    justify-self: center;
+    align-self: center;
+    font-size: 30px;
+}
+#right{
+    justify-self: center;
+    align-self: center;
+    font-style: italic;
+    font-size: 35px;
+}
+#mainname{
+    font-size: 75px;
+}
