@@ -3,15 +3,15 @@ body{
 }
 #header1{
     display: grid;
-    grid-template-columns: 25% auto;
-    height: 80px;
+    grid-template-columns: 35% auto;
+    height: 70px;
 }
 #topname{
     justify-self: left;
     align-self: center;
     margin: 0 0 0 30px;
     font-weight: 900;
-    font-size: 50px;
+    font-size: 35px;
 }
 #toplinks {
     display: grid;
@@ -20,7 +20,7 @@ body{
     justify-items: center;
     align-items: center;
     font-weight: 500;
-    font-size: 25px;
+    font-size: 20px;
 }
 #toplinks a,#toplinks2 a{
     color: black;

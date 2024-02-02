@@ -16,9 +16,11 @@
         border-radius: 300px;
         background-color: rgb(230, 184, 56);
     }  
+    footer{
+        text-align: center;
+    }
 }
-@media screen and (min-width:1200px) {
-    
+@media screen and (min-width:1200px) { 
     #mobile-image{
         display: none;
     }
@@ -29,7 +31,7 @@
     main#index{
         display: grid;
         grid-template-columns: 33% 34% 33%;
-        height: calc(100% - 100px);
+        height: calc(100% - 125px);
     }
     #mainpic{
         display: block;
@@ -41,7 +43,6 @@
         background-color: rgb(230, 184, 56);
     }
 }
-
 #left{
     justify-self: center;
     align-self: center;
@@ -51,8 +52,16 @@
     justify-self: center;
     align-self: center;
     font-style: italic;
-    font-size: 35px;
+    font-size: 37px;
 }
 #mainname{
-    font-size: 75px;
+    font-size: 85px;
+}
+#footer{
+    justify-self: center;
+}
+footer a img{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
 }
