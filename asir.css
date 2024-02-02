@@ -1,5 +1,4 @@
 body{
-    text-align: center;
     font-family: Inter;
 }
 #header1{
@@ -47,21 +46,7 @@ body{
 #toplinks a#selected::before, #toplinks2 a#selected::before{
     display: none;
 }
-.toplinks2on{
-    display: grid;
-    grid-template-rows: auto auto auto auto auto auto;
-    width: 95%;
-    height: calc(95% - 80px);
-    position: absolute;
-    top: 80px;
-    gap: 20px 5px;
-    justify-items: left;
-    align-items: center;
-    font-weight: 500;
-    font-size: 35px;
-    background-color: white;
-    padding-left: 30px;
-}
+
 .toplinks2off{
     display: none;
 }
@@ -82,40 +67,101 @@ body{
 }
 #header2{
     display: grid;
-    grid-template-columns: minmax(200px,400px) auto;
+    grid-template-columns: 400px auto;
     height: 80px;
-}
-@media screen and (min-width:1200px) {
-    #header2{
-        display: none;
-    }
 }
 @media screen and (max-width:1200px) {
     #header1{
         display: none;
     }
-}
-@media screen and (max-width:700px) {
     .toplinks2on{
-        font-size: 20px;
-        gap: 1px 1px;
+        display: grid;
+        grid-template-rows: auto auto auto auto auto auto;
+        width: 95%;
+        height: calc(100% + 80px);
+        border: 1px solid white;
+        position: absolute;
+        top: 70px;
+        justify-items: left;
+        align-items: center;
+        font-weight: 500;
+        font-size: 30px;
+        background-color: white;
+        padding-left: 30px;
+    }
+    #desktop-image{
+        display: none;
+    }
+    #header2{
+        display: grid;
+        grid-template-columns: 70% 29%;
+        width: 99%;
+    }
+    #topname{
+        font-size: 30px;
+    }
+    main#index{
+        display: grid;
+        grid-template-rows: auto auto auto;
+        width: 100%;
+    }
+    #mainpic{
+        display: block;
+        margin: auto;
+        border: none;
+        height: 300px;
+        width: 300px;
+        border-radius: 300px;
+        background-color: rgb(230, 184, 56);
+    }
+    #menu{
+        height: 30px;
+        width: 30px;
+    }
+    #menu:hover{
+        cursor: pointer;
     }
 }
-main#index{
-    display: grid;
-    grid-template-columns: 33% 34% 33%;
-    height: calc(100% - 100px);
+@media screen and (min-width:1200px) {
+    #header2{
+        display: none;
+    }
+    #mobile-image{
+        display: none;
+    }
+    #desktop-image{
+        justify-self: center;
+        align-self: center;
+    }
+    main#index{
+        display: grid;
+        grid-template-columns: 33% 34% 33%;
+        height: calc(100% - 100px);
+    }
+    #mainpic{
+        display: block;
+        margin: auto;
+        border: none;
+        height: 450px;
+        width: 450px;
+        border-radius: 450px;
+        background-color: rgb(230, 184, 56);
+    }
 }
-main#index #left{
+
+#left{
     justify-self: center;
     align-self: center;
+    font-size: 25px;
 }
-#mainpic{
-    display: block;
-    margin: auto;
-    border: none;
-    border-radius: 400px;
-    background-color: rgb(230, 184, 56);
+#right{
+    justify-self: center;
+    align-self: center;
+    font-style: italic;
+    font-size: 30px;
+}
+#mainname{
+    font-size: 70px;
 }
 table{
     margin: auto;
