@@ -2,13 +2,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./asir.css">
     <title>Asir Adnan</title>
 </head>
 <body>
-    <h1>Welcome</h1>
-    I am ofcourse your all time favourite Asir Adnan!
+    <header id="header1">
+        <h2 id="topname">asir adnan</h2>
+        <div id="toplinks">
+            <a href="#p_info"  id="selected" onmouseover="this.style.textDecoration='none'">Home</a>
+            <a href="#academics">Academics</a>
+            <a href="#fav">Projects</a>
+            <a href="#fav">Competitive Programming</a>      
+            <a href="#fav">Thoughts</a>
+            <a href="#fav">Blogs</a>
+            <!-- <a href="https://github.com/asiradnan" target="_blank">GitHub</a> -->
+        </div>
+    </header>
+    <header id="header2">
+        <h2 id="topname">asir adnan</h2>
+        <button id="menu" onclick="navBarToggle()"><img src="./Icons/menu.png"></button>
+        <div id="toplinks2" class="toplinks2off">
+            <br>
+            <a href="#p_info" id="selected">Home</a>
+            <a href="#academics">Academics</a>
+            <a href="#fav">Projects</a>
+            <a href="#fav">Competitive Programming</a>      
+            <a href="#fav">Thoughts</a>
+            <a href="#fav">Blogs</a>
+            <!-- <a href="https://github.com/asiradnan" target="_blank">GitHub</a> -->
+        </div>
+    </header>
     
+    I am ofcourse your all time favourite Asir Adnan!
     <table>
         <thead>
             <h2>My projects</h2>
@@ -17,7 +45,6 @@
             <tr>
                 <th rowspan="2">Tic-Tac-Toe game</th> 
                 <td> Main Link - <a href="https://asiradnan.github.io/Tic-Tac-Toe/" target="_blank">Check the game!</a></td>
-
             </tr>
             <tr>
                 <td> Source Link - <a href="https://github.com/asiradnan/Tic-Tac-Toe" target="_blank">See the codes!</a></td>
@@ -25,13 +52,13 @@
             <tr>
                 <th rowspan="2">Calculator</th> 
                 <td> Main Link - <a href="https://asiradnan.github.io/Calculator/" target="_blank">Check the Calculator!</a></td>
-
             </tr>
             <tr>
                 <td> Source Link - <a href="https://github.com/asiradnan/Calculator" target="_blank">See the codes!</a></td>
             </tr>
         </tbody>
     </table>
-    
+
 </body>
+<script src="asir.js"></script>
 </html>
