@@ -38,11 +38,14 @@ body{
     left: 0;
     background-color: #000;
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
   }
   
 #toplinks a:hover::before, #toplinks2 a:hover::before  {
     transform: scaleX(1);
+}
+#toplinks a#selected::before, #toplinks2 a#selected::before{
+    display: none;
 }
 .toplinks2on{
     display: grid;
@@ -66,8 +69,8 @@ body{
     font-weight: 700;
 }
 #menu{
-    height: 50px;
-    width: 50px;
+    height: 45px;
+    width: 45px;
     justify-self: right;
     align-self: center;
     background: none;
@@ -79,15 +82,15 @@ body{
 }
 #header2{
     display: grid;
-    grid-template-columns: 400px auto;
+    grid-template-columns: minmax(200px,400px) auto;
     height: 80px;
 }
-@media screen and (min-width:800px) {
+@media screen and (min-width:1200px) {
     #header2{
         display: none;
     }
 }
-@media screen and (max-width:800px) {
+@media screen and (max-width:1200px) {
     #header1{
         display: none;
     }
