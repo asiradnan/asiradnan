@@ -49,13 +49,13 @@
         background-color: rgb(230, 184, 56);
     }
     #mainname{
-        font-size: 85px;
+        font-size: 80px;
     }
 }
 #left{
     justify-self: center;
     align-self: center;
-    font-size: 30px;
+    font-size: 23px;
 }
 #right{
     justify-self: center;
