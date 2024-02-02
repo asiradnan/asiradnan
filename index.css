@@ -19,6 +19,12 @@
     footer{
         text-align: center;
     }
+    p{
+        text-align: center;
+    }
+    #mainname{
+        font-size: 60px;
+    }
 }
 @media screen and (min-width:1200px) { 
     #mobile-image{
@@ -42,6 +48,9 @@
         border-radius: 450px;
         background-color: rgb(230, 184, 56);
     }
+    #mainname{
+        font-size: 85px;
+    }
 }
 #left{
     justify-self: center;
@@ -54,9 +63,7 @@
     font-style: italic;
     font-size: 37px;
 }
-#mainname{
-    font-size: 85px;
-}
+
 #footer{
     justify-self: center;
 }

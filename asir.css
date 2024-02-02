@@ -77,7 +77,7 @@ body{
         display: grid;
         grid-template-rows: auto auto auto auto auto auto;
         width: 95%;
-        height: calc(100% + 80px);
+        height: 50%;
         border: 1px solid white;
         position: absolute;
         top: 70px;
