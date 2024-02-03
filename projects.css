@@ -13,7 +13,7 @@ main{
         display: grid;
         grid-template-columns: 40% 60%;
         grid-auto-rows: 45vw;
-        margin: 15px;
+        margin: 15px 0 0 0;
         width: 100%;
     }
     #p_head{
@@ -38,7 +38,7 @@ main{
         border-radius: 5px;
     }
     main{
-        margin: 15px;
+        margin: 10px;
     }
     h1{
         text-align: center;
