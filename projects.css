@@ -13,7 +13,8 @@ main{
         display: grid;
         grid-template-columns: 40% 60%;
         grid-auto-rows: 45vw;
-        margin: 10px;
+        margin: 15px;
+        width: 100%;
     }
     #p_head{
         font-weight: 700;
@@ -24,7 +25,7 @@ main{
     #des{
         font-size: 3vw;
         margin-top: 2vw;
-        margin-bottom: 2.5vw;
+        margin-bottom: 6vw;
     }
     button{
         background-color: white;
@@ -35,6 +36,9 @@ main{
         margin: 0.5vw;
         border: 2px dotted black;
         border-radius: 5px;
+    }
+    main{
+        margin: 15px;
     }
 }
 @media screen and (min-width:1200px){
