@@ -18,12 +18,16 @@
     }  
     footer{
         text-align: center;
+        margin-top: 25px;
     }
     p{
         text-align: center;
     }
     #mainname{
         font-size: 60px;
+    }
+    #right p{
+        margin: 10px 0 10px 0 ;
     }
 }
 @media screen and (min-width:1200px) { 
@@ -43,25 +47,29 @@
         display: block;
         margin: auto;
         border: none;
-        height: 450px;
-        width: 450px;
-        border-radius: 450px;
+        height: 420px;
+        width: 420px;
+        border-radius: 420px;
         background-color: rgb(230, 184, 56);
     }
     #mainname{
-        font-size: 80px;
+        font-size: 75px;
+    }
+    #right p{
+        margin: 15px 0 15px 0 ;
     }
 }
 #left{
     justify-self: center;
     align-self: center;
-    font-size: 23px;
+    font-size: 20px;
 }
 #right{
     justify-self: center;
     align-self: center;
     font-style: italic;
-    font-size: 37px;
+    font-size: 36px;
+    text-decoration: underline dotted blue;
 }
 
 #footer{
