@@ -86,7 +86,7 @@ body{
         align-items: center;
         font-weight: 500;
         font-size: 27px;
-        background-color: white;
+        background-color: rgb(255, 255, 255);
         padding-left: 10px;
     }
     #menu{
