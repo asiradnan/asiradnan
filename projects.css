@@ -49,7 +49,7 @@ main{
 @media screen and (min-width:1200px){
     #p_head{
         font-weight: 700;
-        font-size: 3.2vw;
+        font-size: 2.5vw;
         margin-bottom: 1vw;
         margin-top: 2.5vw;
     }
@@ -84,7 +84,7 @@ main{
     }
     h1{
         text-align: center;
-        font-size: 4.5vw;
+        font-size: 4vw;
     }
     
 }
