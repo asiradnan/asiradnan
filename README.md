@@ -29,6 +29,7 @@ I recently started diving into the world of web development. From making things 
 ##### Programming
 - Python
 - C++
+- Java
 ##### Web Technologies
 
 - HTML
