@@ -14,10 +14,10 @@ Whether it's algorithms, data structures, or diving into the world of web develo
 
 Competitive programming is my playground. I believe in the power of challenges to sharpen my skills. Regularly participating and pushing my limits in competitive programming is not just a hobby but my top priority.
 #####  Current Ratings: 
-- [1306 - Codeforces ](https://codeforces.com/profile/asiradnan)
+- [1301 - Codeforces ](https://codeforces.com/profile/asiradnan)
 - [1599 - CodeChef ](https://www.codechef.com/users/asiradnan)
 
-And solved more than **1200** problems on different judges including [374 problems on Beecrowd](https://www.beecrowd.com.br/judge/en/profile/655116).
+And solved more than **1300** problems on different judges including [800+ problems on Codeforces ](https://codeforces.com/profile/asiradnan), [70+ on CSES](https://cses.fi/user/171849), [180+ on CodeChef ](https://www.codechef.com/users/asiradnan) and [370+ problems on Beecrowd](https://www.beecrowd.com.br/judge/en/profile/655116).
 
 #### 🕸️ Newly Web Developer
 
