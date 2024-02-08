@@ -73,9 +73,12 @@
     align-self: center;
     font-style: italic;
     font-size: 36px;
-    text-decoration: underline dotted blue;
+    
 }
-
+#right p::first-letter{
+    font-weight: bold;
+    font-size: 46px;
+}
 #footer{
     justify-self: center;
 }
