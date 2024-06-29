@@ -1,0 +1,114 @@
+body{
+    font-family: Inter;
+}
+#header1{
+    display: grid;
+    grid-template-columns: 35% auto;
+    height: 70px;
+}
+#topname{
+    justify-self: left;
+    align-self: center;
+    margin: 0 0 0 30px;
+    font-weight: 900;
+    font-size: 35px;
+}
+#toplinks {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 5px 5px;
+    justify-items: center;
+    align-items: center;
+    font-weight: 500;
+    font-size: 20px;
+}
+#toplinks a,#toplinks2 a{
+    color: black;
+    text-decoration: none;  
+    position: relative; 
+}
+#toplinks a::before, #toplinks2 a::before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  
+#toplinks a:hover::before, #toplinks2 a:hover::before  {
+    transform: scaleX(1);
+}
+#toplinks a.active::before, #toplinks2 a.active::before{
+    display: none;
+}
+.toplinks2off{
+    display: none;
+}
+a.active{
+    font-weight: 700;
+}
+#menu{
+    height: 45px;
+    width: 45px;
+    justify-self: right;
+    align-self: center;
+    background: none;
+    border: none;
+}
+#menu img{
+    height: 90%;
+    width: 90%;
+}
+#header2{
+    display: grid;
+    grid-template-columns: 400px auto;
+    height: 80px;
+}
+@media screen and (max-width:1200px){
+    #header1{
+        display: none;
+    }
+    .toplinks2on{
+        display: grid;
+        grid-template-rows: auto auto auto auto auto auto;
+        width: 95%;
+        min-height: 50%;
+        height: 400px;
+        border: 1px solid white;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        justify-items: left;
+        align-items: center;
+        font-weight: 500;
+        font-size: 20px;
+        background-color: rgb(255, 255, 255);
+        padding: 10px;
+    }
+    #menu{
+        height: 30px;
+        width: 30px;
+    }
+    #menu:hover{
+        cursor: pointer;
+    }
+    #header2{
+        display: grid;
+        grid-template-columns: 70% 29%;
+        width: 99%;
+    }
+    #topname{
+        font-size: 30px;
+        margin-left: 10px;
+    }
+}
+@media screen and (min-width:1200px) {
+    #header2{
+        display: none;
+    }
+}

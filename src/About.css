@@ -1,0 +1,17 @@
+@media screen and (max-width:1200px) {
+    #about_paragraph{
+        font-size: 18px;
+        padding: 0 15px 0 15px;
+    }
+}
+
+@media screen and (min-width:1200px) {
+    #about_paragraph{
+        font-size: 22px;
+        padding: 0 50px 0 50px;
+    }
+}
+#about_paragraph a{
+    color: darkslateblue;
+    text-decoration: none;
+}
