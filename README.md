@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Hi 👋 I'm Asir! 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BS in Computer Science. Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions.
 
-## Available Scripts
+<details>
+   <summary>More about me?</summary>
+   
+### I am a -
+#### 💻 Passionate Coder
 
-In the project directory, you can run:
+Whether it's algorithms, data structures, or diving into the world of web development, every line of code is an opportunity to learn and grow.
 
-### `npm start`
+#### ⚔️ Competitive Programming Enthusiast
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Competitive programming is my playground. I believe in the power of challenges to sharpen my skills. Regularly participating and pushing my limits in competitive programming is not just a hobby but my top priority.
+#####  Current Ratings: 
+- [1301 - Codeforces ](https://codeforces.com/profile/asiradnan)
+- [1599 - CodeChef ](https://www.codechef.com/users/asiradnan)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+And solved more than **1300** problems on different judges including [800+ problems on Codeforces ](https://codeforces.com/profile/asiradnan), [70+ on CSES](https://cses.fi/user/171849), [180+ on CodeChef ](https://www.codechef.com/users/asiradnan) and [370+ problems on Beecrowd](https://www.beecrowd.com.br/judge/en/profile/655116).
 
-### `npm test`
+#### 🕸️ Newly Web Developer
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I recently started diving into the world of web development. From making things look good on the front to making them work behind the scenes, I'm having a blast learning it all.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Skills 📜
+##### Programming
+- Python
+- C++
+- Java
+##### Web Technologies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- HTML
+- CSS, Bootstrap 
+- Javascript, Vue JS 
+- Django
+- MySQL
+- JSON, API 
 
-### `npm run eject`
+##### System
+- Git, GitHub
+- Linux
+##### Others
+- OpenCV (Python)
+- Microsoft - Word, Powerpoint, Excel 
+##### What I'm currently learning 📚
+- Currently focusing on mastering existing skills, no new pursuits at the moment.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 📫 How to reach me?
+- [Linkedin](https://www.linkedin.com/in/asiradnan/)
+- [Facebook](https://www.facebook.com/asiradnan23/)
+   
+You can ask me anything. I am looking forward to absorb knowledge, gain experience, collaborate and build amazing products for the world!
+</details>

@@ -1,7 +1,7 @@
 {
   "name": "try",
   "version": "0.1.0",
-  "homepage": "https://asiradnan.github.io/Test",
+  "homepage": "https://asiradnan.github.io/asiradnan",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
