@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/asiradnan/static/css/main.a1803e09.css",
-    "main.js": "/asiradnan/static/js/main.ae88f2a4.js",
-    "static/js/453.75856c62.chunk.js": "/asiradnan/static/js/453.75856c62.chunk.js",
+    "main.js": "/asiradnan/static/js/main.f7c51774.js",
+    "static/js/453.ebd288e7.chunk.js": "/asiradnan/static/js/453.ebd288e7.chunk.js",
     "static/media/me_resized.png": "/asiradnan/static/media/me_resized.6840f13000fde690fc12.png",
     "static/media/me_mobile.png": "/asiradnan/static/media/me_mobile.c268089c51fc90b081e3.png",
     "static/media/todo.png": "/asiradnan/static/media/todo.af2e027724e9e40daa3e.png",
@@ -16,11 +16,11 @@
     "static/media/hello-world.png": "/asiradnan/static/media/hello-world.b9cc4343c9929c74cb53.png",
     "index.html": "/asiradnan/index.html",
     "main.a1803e09.css.map": "/asiradnan/static/css/main.a1803e09.css.map",
-    "main.ae88f2a4.js.map": "/asiradnan/static/js/main.ae88f2a4.js.map",
-    "453.75856c62.chunk.js.map": "/asiradnan/static/js/453.75856c62.chunk.js.map"
+    "main.f7c51774.js.map": "/asiradnan/static/js/main.f7c51774.js.map",
+    "453.ebd288e7.chunk.js.map": "/asiradnan/static/js/453.ebd288e7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a1803e09.css",
-    "static/js/main.ae88f2a4.js"
+    "static/js/main.f7c51774.js"
   ]
 }
