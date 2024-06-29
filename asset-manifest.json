@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a1803e09.css",
+    "main.js": "/static/js/main.c27777eb.js",
+    "static/js/453.75856c62.chunk.js": "/static/js/453.75856c62.chunk.js",
+    "static/media/me_resized.png": "/static/media/me_resized.6840f13000fde690fc12.png",
+    "static/media/me_mobile.png": "/static/media/me_mobile.c268089c51fc90b081e3.png",
+    "static/media/todo.png": "/static/media/todo.af2e027724e9e40daa3e.png",
+    "static/media/refresh.png": "/static/media/refresh.a5d2973dd266c98e6cae.png",
+    "static/media/calc.png": "/static/media/calc.cac949e646c74a5da54a.png",
+    "static/media/idea.png": "/static/media/idea.681e5c1bbea51890d94f.png",
+    "static/media/weather.jpg": "/static/media/weather.08f9249f885d8f547892.jpg",
+    "static/media/tictactoe.png": "/static/media/tictactoe.2b910857799d6b2b6a76.png",
+    "static/media/hiking.png": "/static/media/hiking.43606a9d95aadcc77677.png",
+    "static/media/contest.png": "/static/media/contest.906e1dce9f85d04b05a1.png",
+    "static/media/hello-world.png": "/static/media/hello-world.b9cc4343c9929c74cb53.png",
+    "index.html": "/index.html",
+    "main.a1803e09.css.map": "/static/css/main.a1803e09.css.map",
+    "main.c27777eb.js.map": "/static/js/main.c27777eb.js.map",
+    "453.75856c62.chunk.js.map": "/static/js/453.75856c62.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a1803e09.css",
+    "static/js/main.c27777eb.js"
+  ]
+}
