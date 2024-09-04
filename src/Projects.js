@@ -20,7 +20,7 @@ function Projects(){
                 <div class="about">
                     <p id="p_head">Copy Paste</p>
                     <p id="des">Easier way to send text or file from one device to another. </p>
-                    <a href="https://copypaste.asiradnan.com" target="_blank"><button>Try now!</button></a>
+                    <a href="https://copypasta.asiradnan.com" target="_blank"><button>Try now!</button></a>
                     <a href="https://github.com/asiradnan/copypaste" target="_blank"><button>Source Code</button></a>
                 </div>            
             </div>   
