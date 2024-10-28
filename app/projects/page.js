@@ -18,7 +18,7 @@ export const metadata = {
 function Projects(){
     return(
         <>
-        <h1>Web Projects</h1>
+        <h1 id="web">Web Projects</h1>
         <div className="projectsMain">
             <div className="project">
                 <div className="pic">
