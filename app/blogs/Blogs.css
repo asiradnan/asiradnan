@@ -1,0 +1,8 @@
+.blogsMain{
+    height: 90%;
+    display: grid;
+    background-color: aliceblue;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+}
