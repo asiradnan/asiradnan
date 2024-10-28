@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     unoptimized: true, // Disable default image optimization
   },
+  output: 'export',
   basePath: '/asiradnan'
 };
 

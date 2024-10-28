@@ -6,6 +6,7 @@ import contest from "@/public/pics/contest.png"
 import refresh from "@/public/pics/refresh.png"
 import hiking from "@/public/pics/hiking.png"
 
+
 export const metadata = {
     title: "Competitive Programming - Asir Adnan",
     description: "Competitive Programming of Asir Adnan's portfolio",
