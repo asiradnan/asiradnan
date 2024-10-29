@@ -15,7 +15,7 @@ export default function Header(){
     }
     return(
         <>
-            <header id="header1">
+        <header id="header1">
             <h1 id="topname">asiradnan</h1>
             <div id="toplinks">
                 <Link href="/" className={currentPath === "/" ? "active" : ""}> Home</Link>
@@ -30,8 +30,6 @@ export default function Header(){
             <h1 id="topname">asiradnan</h1>
             <button id="menu" onClick={navBarToggle} aria-label="Toggle menu"><Image src={menuIcon} alt="toggle Icon" /></button>
             <div id="toplinks2" className={toplink}> 
-              
-                <br/>
                 <Link href="/" className={currentPath === "/" ? "active" : ""}> Home</Link>
                 <Link href="/about" className={currentPath === "/about" ? "active" : ""}>About</Link>
                 <Link href="/skills" className={currentPath === "/skills" ? "active" : ""}>Skills</Link>
