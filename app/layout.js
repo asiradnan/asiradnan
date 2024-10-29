@@ -26,6 +26,24 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Asir Adnan",
+            url: "https://asiradnan.com",
+            sameAs: [
+              "https://www.facebook.com/asiradnan23", 
+              "https://github.com/asiradnan",              
+              "https://www.linkedin.com/in/asiradnan", 
+              "https://www.youtube.com/@AsironScreen",             ],
+            image: logo_image.src,
+            description: "Asir Adnan's portfolio showcasing projects and professional experience.",
+          })}
+        </script>
+      </head>
+      
       <body className={inter.className}>
         <Header />
         {children}
