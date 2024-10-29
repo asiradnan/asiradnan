@@ -2,7 +2,6 @@ import "./Skills.css"
 
 export const metadata = {
     title: "Skills - Asir Adnan",
-    description: "Skills page of Asir Adnan's portfolio",
   };
 
 export default function Skills(){

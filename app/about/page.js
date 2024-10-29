@@ -3,7 +3,6 @@ import Link from "next/link";
 
 export const metadata = {
     title: "About - Asir Adnan",
-    description: "About page of Asir Adnan's portfolio",
   };
 
 export default function About(){

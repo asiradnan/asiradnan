@@ -12,7 +12,6 @@ import copypasteIcon from "@/public/pics/copypaste.png"
 
 export const metadata = {
     title: "Projects - Asir Adnan",
-    description: "Projects of Asir Adnan's portfolio",
   };
 
 function Projects(){
