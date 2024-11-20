@@ -7,11 +7,21 @@
 
 @media screen and (min-width:1200px) {
     #about_paragraph{
-        font-size: 22px;
-        padding: 0 50px 0 50px;
+        font-size: 35px;
+        width: 60%;
     }
 }
 #about_paragraph a{
     color: darkslateblue;
     text-decoration: none;
+}
+#about_div{
+    height: calc(100% - 71px);
+    grid-template-rows: 50px auto;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+h2{
+    font-size: 45px;
 }

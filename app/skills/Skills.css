@@ -1,63 +1,49 @@
-@media screen and (max-width:1200px) {
-    .skillsMain{
-        margin-top: 20px;
-    }
-    .skill{
-        padding: 30px 10px 30px 10px;
-        font-size: 28px;
-    }
-    .skill p{
-        margin: 25px 0 25px 0;
-        font-size: 22px;
-    }
+.header {
+    text-align: center;
+    padding: 1rem;
 }
 
-@media screen and (min-width:1200px) {
-    .skillsMain{
-        margin-top: 30px;
-    }
-    .skill{
-        padding: 40px;
-        font-size: 32px;
-    }
-    .skill p{
-        margin: 25px 0 25px 0;
-        font-size: 25px;
-    }
+.title {
+    margin: 0;
+    font-size: 2.5rem;
 }
-.skill{
-    text-align: center; 
+
+/* Main Container */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
 }
-.skill p{
-    color: cadetblue;
+
+/* Skill Section */
+.skill {
+    border: 1px solid #000;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-/* .best{
-    color:darkgreen;
+
+.skill:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.better{
-    color: rgb(206, 255, 47);
+
+.skill h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid #000;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
-.good{
-    color: lightsalmon;
-} */
-/* .skillsMain span{
-    
-} */
- table{
-    width: 80%;
-    max-width: 800px;
-    font-family: sans-serif;
-    color: black;
-    margin: auto;
-    text-align: center;
- }
- table,td,tr{
-    border: 1px solid black;
-    border-collapse: collapse;
- }
- td{
-    width: 70%;
- }
- tr{
-    height: 40px;;
- }
+
+.skill ul {
+    list-style-type: square;
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.skill li {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
