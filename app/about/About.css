@@ -1,8 +1,12 @@
 @media screen and (max-width:1200px) {
     #about_paragraph{
-        font-size: 18px;
+        font-size: 28px;
         padding: 0 15px 0 15px;
     }
+    h2{
+        font-size: 38px;
+    }
+    
 }
 
 @media screen and (min-width:1200px) {
@@ -10,6 +14,10 @@
         font-size: 35px;
         width: 60%;
     }
+    h2{
+        font-size: 45px;
+    }
+    
 }
 #about_paragraph a{
     color: darkslateblue;
@@ -21,7 +29,4 @@
     display: grid;
     align-items: center;
     justify-items: center;
-}
-h2{
-    font-size: 45px;
 }
