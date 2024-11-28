@@ -3,19 +3,17 @@
         font-size: 28px;
         padding: 0 15px 0 15px;
     }
-    h2{
-        font-size: 38px;
-    }
-    
+      
+    .title {
+        margin: 0;
+        font-size: 2rem;
+      }
 }
 
 @media screen and (min-width:1200px) {
     #about_paragraph{
         font-size: 35px;
         width: 60%;
-    }
-    h2{
-        font-size: 45px;
     }
     
 }
@@ -24,9 +22,16 @@
     text-decoration: none;
 }
 #about_div{
-    height: calc(100% - 71px);
-    grid-template-rows: 50px auto;
     display: grid;
     align-items: center;
     justify-items: center;
 }
+.header {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: unset;
+  }
+  .title {
+    margin: 0;
+    font-size: 2.5rem;
+  }
