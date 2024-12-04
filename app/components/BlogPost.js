@@ -1,7 +1,8 @@
+import Image from "next/image";
 export default function BlogPost({ post }) {
   return (
     <article className="post-card">
-      <img 
+      <Image 
         src={post.image} 
         alt={post.title}
         className="post-image"

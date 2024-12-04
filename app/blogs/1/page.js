@@ -4,7 +4,7 @@ import Image from 'next/image';
 import image from "@/public/blogImages/localhost.jpg"
 
 export default async function Detail() {
-    const post = posts[1];
+    const post = posts[0];
     return (
         <div className="article-container">
             <article className="blog-post">
