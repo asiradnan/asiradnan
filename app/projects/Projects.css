@@ -18,7 +18,6 @@
   font-size: 2.5rem;
 }
 
-
 .project {
   background: #f8fafc;
   border-radius: 16px;
@@ -58,11 +57,27 @@
   padding: 1.8rem;
 }
 
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
 #p_head {
   font-size: 1.6rem;
   font-weight: 700;
   color: #1e293b;
-  margin-bottom: 0.8rem;
+  margin: 0;
+}
+
+.category-tag {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background-color: #e2e8f0;
+  color: #64748b;
+  border-radius: 9999px;
+  font-weight: 600;
 }
 
 #des {
@@ -114,6 +129,31 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
+.categories {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.category-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #f1f5f9;
+  color: #64748b;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.category-btn.active {
+  background-color: #000;
+  color: white;
+}
 
 @media (max-width: 768px) {
   .projectsMain {
@@ -128,4 +168,18 @@
   .button-container button {
     font-size: 0.8rem;
   }
+  
+  .categories {
+    flex-wrap: wrap;
+  }
+
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .category-tag {
+    margin-top: 0.5rem;
+  }
 }
+
