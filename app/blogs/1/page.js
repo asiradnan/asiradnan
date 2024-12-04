@@ -25,12 +25,12 @@ export default async function Detail() {
 
                 <div className="post-content">
                     <p className="post-intro">
-                        In local development, we often use localhost to access our local development environment. However, did you know that localhost and 127.0.0.1 are not the same? In this article, we'll explore the differences between these two.
+                        In local development, we often use localhost to access our local development environment. However, did you know that localhost and 127.0.0.1 are not the same? In this article, we&apos;ll explore the differences between these two.
                     </p>
 
                     <h2>127.0.0.1 vs localhost</h2>
-                    <p>We have human friendly domain names accross the web to point different IP addresses, for example "google.com" points to many IP addresses and one of them is 142.250.193.174. You can write this directly in your browser to access google (try this now). <br></br>
-                    127.0.0.1 is the IP address to identify our local machine. 'localhost' is used same way as domain to give 127.0.0.1 a human readable name. And just as usual domains are changeable, you can change this one too! As it's your local machine, only "you" can change it and only "you" will see the reflection.</p>
+                    <p>We have human friendly domain names accross the web to point different IP addresses, for example &quot;google.com&quot; points to many IP addresses and one of them is 142.250.193.174. You can write this directly in your browser to access google (try this now). <br></br>
+                    127.0.0.1 is the IP address to identify our local machine. &apos;localhost&apos; is used same way as domain to give 127.0.0.1 a human readable name. And just as usual domains are changeable, you can change this one too! As it&apos;s your local machine, only &quot;you&quot; can change it and only &quot;you&quot; will see the reflection.</p>
 
                     <h2>Change your local hostname for experiment</h2>
                     <p>
