@@ -6,6 +6,6 @@ export const posts = [
     slug: "minimalist-design-principles",
     date: "December 4, 2024",
     image: image1,
-    excerpt: "Exploring the core principles of minimalist design and how to apply them effectively in modern web development."
+    excerpt: "In local development, we often use localhost to access our local development environment. However, did you know that localhost and 127.0.0.1 are not the same?"
   },
 ];
