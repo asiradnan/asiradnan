@@ -20,7 +20,7 @@ function Footer(){
             <a href="https://youtube.com/@AsironScreen?si=KEwE1loeWyuPD94J" target="_blank"><Image src={youtube} alt="youtube icon"/></a>
             <a href="https://web.facebook.com/asiradnan23/" target="_blank"><Image src={facebook} alt="facebook icon"/></a>
             <a onClick={email} href="#"><Image src={mail} alt="email icon"/></a>
-            <a href="/AsirAdnan_Nov_2024.pdf" target="_blank"><Image src={cv} alt="cv icon"/></a>
+            <a href="/AsirAdnan_Jan_2025.pdf" target="_blank"><Image src={cv} alt="cv icon"/></a>
         </footer>
     );
 }
