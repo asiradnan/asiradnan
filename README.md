@@ -1,6 +1,9 @@
 # Hi 👋 I'm Asir! 
 
-I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BS in Computer Science. Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions.
+I'm a passionate Fullstack Web Developer and Android Developer with over two years of self-driven experience building web and Android apps that tackle real-world challenges! 
+I build Android applications with Kotlin and develop web apps using Python and JavaScript, using the most efficient frameworks out there!
+I am currently sailing through the exciting seas of computer science at BRAC University, where I'm in my final semester of pursuing a BS in Computer Science. 
+Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions. Oh, and I’m always up for a good programming contest!
 
 <details>
    <summary>More about me?</summary>
