@@ -1,10 +1,54 @@
-# Hi 👋 I'm Asir! 
+<div align="center">
 
-I'm a passionate Fullstack Web and Android Developer with over two years of self-driven experience tackling real-world challenges.
-I build Android applications with Kotlin and develop web apps using Python and JavaScript, using the most efficient frameworks out there!
-Currently, I am sailing through the exciting seas of computer science at BRAC University, where I'm in my final year of pursuing a BS in Computer Science. 
-Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions. Oh, and I’m always up for a good programming contest!
+# Hey, I'm Asir Adnan!  👋
 
+</div>
+
+<div align="center" style="margin-bottom: 20px;">
+<a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=28&duration=2000&pause=1000&center=true&vCenter=true&width=700&lines=Full+Stack+%7C+Android+Developer;FastAPI+%7C+Kotlin+%7C+Django+%7C+Next.js+%7C+MERN;Building%2C+Breaking%2C+Learning...;Fueled+by+tea+and+Enthusiasm!&color=009688" alt="Typing SVG" />
+</a>
+
+  <br/>
+</div>
+<div align="center">
+
+  ## Full Stack & Android Developer
+
+</div>
+<!-- 
+## 🔥 About Me
+- 🎓 **Computer Science Student at BRAC University**
+- 📱 **Android Developer** proficient in **Kotlin**, building scalable and efficient mobile applications.
+- 🌐 **Full-Stack Web Developer** with expertise in **FastAPI, Django, Next.js, and the MERN stack**.
+- ⚔️ **Competitive Programmer**, participated in **ICPC Regional** and **NCPC Regional**, solving **1300+ problems** across platforms. -->
+
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=nginx,linux"/>
+</p>
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=fastapi,django,nextjs,express,nodejs"/>
+</p>
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=python,c,cpp,java,kotlin,js,solidity"/>
+</p>
+
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=html,css,bootstrap,tailwind,react,sqlite,mysql,postgres,mongodb"/>
+</p>
+
+## Connect:
+<p align="center">
+    <a href="https://linkedin.com/in/asiradnan">
+    <img src="https://skillicons.dev/icons?i=linkedin"/>
+    </a>
+    <a href="mailto:asiradnan23@gmail.com">
+    <img src="https://skillicons.dev/icons?i=gmail"/>
+    </a>
+</p>
+  
+
+---
 <details>
    <summary>More about me?</summary>
    
@@ -55,7 +99,9 @@ I am passionate about building high-performance Android apps with Kotlin, focusi
 
 ## How to reach me?
 - [Linkedin](https://www.linkedin.com/in/asiradnan/)
+- [Email](mailto:asiradnan23@gmail.com)
 - [Facebook](https://www.facebook.com/asiradnan23/)
    
-You can ask me anything. I am looking forward to absorb knowledge, gain experience, collaborate and build amazing products for the world!
+You can ask me anything about app or web development and artificial intelligence! I am looking forward to absorb knowledge, gain experience, collaborate and build amazing products for the world.
 </details>
+
