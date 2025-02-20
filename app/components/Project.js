@@ -11,6 +11,7 @@ import wishIcon from "@/public/pics/sendwish.png"
 import qrIcon from "@/public/pics/qr.png"
 import copypasteIcon from "@/public/pics/copypaste.png"
 import redballIcon from "@/public/pics/redball.png"
+import greaterNumberGame from "@/public/pics/GreaterNumberGame.png"
 
 const projects = [
     {
@@ -92,6 +93,14 @@ const projects = [
         liveLink: "https://youtu.be/1JfK-jljfNw?si=-umm4iTdmRqVXQeG",
         sourceLink: "https://github.com/asiradnan/Red-Ball-Detection",
         category: "Others"
+    },
+    {
+        icon: greaterNumberGame,
+        title: "Greater Number Game",
+        description: "A simple and fun Android game where players guess which of the two numbers is greater.",
+        liveLink: "https://github.com/asiradnan/Greater-Number-Game/releases/download/v1.0.0/GreaterNumberGame.apk",
+        sourceLink: "https://github.com/asiradnan/Greater-Number-Game",
+        category: "Android"
     }
 ]
 export default function ProjectcList(){
@@ -104,7 +113,7 @@ export default function ProjectcList(){
     return(
         <>
             <header className="header">
-                <h1 className="title">Web Projects</h1>
+                <h1 className="title">Projects</h1>
                 <div className="categories">
                     {categories.map(category => (
                         <button 
