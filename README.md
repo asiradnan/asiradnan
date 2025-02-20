@@ -1,57 +1,107 @@
-# Hi 👋 I'm Asir! 
+<div align="center">
 
-I'm Asir Adnan, currently sailing through the exciting seas of computer science at BRAC University, where I'm in my third year of pursuing a BS in Computer Science. Coding is not just my skill, it's my adrenaline and I thrive on the sheer joy of crafting solutions.
+# Hey, I'm Asir Adnan!  👋
 
+</div>
+
+<div align="center" style="margin-bottom: 20px;">
+<a href="https://git.io/typing-svg">
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=28&duration=2000&pause=1000&center=true&vCenter=true&width=700&lines=Full+Stack+%7C+Android+Developer;FastAPI+%7C+Kotlin+%7C+Django+%7C+Next.js+%7C+MERN;Building%2C+Breaking%2C+Learning...;Fueled+by+tea+and+Enthusiasm!&color=009688" alt="Typing SVG" />
+</a>
+
+  <br/>
+</div>
+<div align="center">
+
+  ## Full Stack & Android Developer
+
+</div>
+<!-- 
+## 🔥 About Me
+- 🎓 **Computer Science Student at BRAC University**
+- 📱 **Android Developer** proficient in **Kotlin**, building scalable and efficient mobile applications.
+- 🌐 **Full-Stack Web Developer** with expertise in **FastAPI, Django, Next.js, and the MERN stack**.
+- ⚔️ **Competitive Programmer**, participated in **ICPC Regional** and **NCPC Regional**, solving **1300+ problems** across platforms. -->
+
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=nginx,linux"/>
+</p>
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=fastapi,django,nextjs,express,nodejs"/>
+</p>
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=python,c,cpp,java,kotlin,js,solidity"/>
+</p>
+
+<p align="center">
+    <img src="https://skillicons.dev/icons?i=html,css,bootstrap,tailwind,react,sqlite,mysql,postgres,mongodb"/>
+</p>
+
+## Connect:
+<p align="center">
+    <a href="https://linkedin.com/in/asiradnan">
+    <img src="https://skillicons.dev/icons?i=linkedin"/>
+    </a>
+    <a href="mailto:asiradnan23@gmail.com">
+    <img src="https://skillicons.dev/icons?i=gmail"/>
+    </a>
+</p>
+  
+
+---
 <details>
    <summary>More about me?</summary>
    
-### I am a -
-#### 💻 Passionate Coder
+## I am a -
+### 💻 Passionate Coder
 
-Whether it's algorithms, data structures, or diving into the world of web development, every line of code is an opportunity to learn and grow.
+Whether it's algorithms, data structures, or diving into the world of software development, every line of code is an opportunity to learn and grow.
 
-#### ⚔️ Competitive Programming Enthusiast
+### ⚔️ Competitive Programming Enthusiast
 
 Competitive programming is my playground. I believe in the power of challenges to sharpen my skills. Regularly participating and pushing my limits in competitive programming is not just a hobby but my top priority.
-#####  Current Ratings: 
+####  Current Ratings: 
 - [1301 - Codeforces ](https://codeforces.com/profile/asiradnan)
 - [1599 - CodeChef ](https://www.codechef.com/users/asiradnan)
 
 And solved more than **1300** problems on different judges including [800+ problems on Codeforces ](https://codeforces.com/profile/asiradnan), [70+ on CSES](https://cses.fi/user/171849), [180+ on CodeChef ](https://www.codechef.com/users/asiradnan) and [370+ problems on Beecrowd](https://www.beecrowd.com.br/judge/en/profile/655116).
 
-#### 🕸️ Newly Web Developer
+### 🛠️  Software & Android Developer
+I am passionate about building high-performance Android apps with Kotlin, focusing on sleek UI/UX and optimized architecture. Skilled in fullstack development using Python, JavaScript, Django, FastAPI, Next.js, and MERN, crafting scalable applications with seamless front-end and back-end integration.
 
-I recently started diving into the world of web development. From making things look good on the front to making them work behind the scenes, I'm having a blast learning it all.
-
-
-
-### Skills 📜
-##### Programming
+## Skills
+#### Programming
 - Python
 - C++
-- Java
-##### Web Technologies
+- Kotlin
+- JavaScript
+#### Web Technologies
 
 - HTML
-- CSS, Bootstrap 
-- Javascript, Vue JS 
-- Django
-- MySQL
-- JSON, API 
+- CSS, Bootstrap, Tailwind CSS, Shadcn  UI
+- Javascript, React.js
+- **Django, FastAPI, Next.js, MERN**
+- SQLite, MySQL, PostgreSQL, MongoDB
+- JSON, RestAPI 
 
-##### System
+#### Android Development
+
+- Kotlin
+- Material UI
+
+#### System
 - Git, GitHub
 - Linux
-##### Others
-- OpenCV (Python)
-- Microsoft - Word, Powerpoint, Excel 
-##### What I'm currently learning 📚
-- Currently focusing on mastering existing skills, no new pursuits at the moment.
+  
+#### What I'm currently learning 📚
+- Currently focusing on mastering Androidoid Development with Kotlin.
 
 
-### 📫 How to reach me?
+## How to reach me?
 - [Linkedin](https://www.linkedin.com/in/asiradnan/)
+- [Email](mailto:asiradnan23@gmail.com)
 - [Facebook](https://www.facebook.com/asiradnan23/)
    
-You can ask me anything. I am looking forward to absorb knowledge, gain experience, collaborate and build amazing products for the world!
+You can ask me anything about app or web development and artificial intelligence! I am looking forward to absorb knowledge, gain experience, collaborate and build amazing products for the world.
 </details>
+
