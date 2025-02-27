@@ -12,6 +12,7 @@ import qrIcon from "@/public/pics/qr.png"
 import copypasteIcon from "@/public/pics/copypaste.png"
 import redballIcon from "@/public/pics/redball.png"
 import greaterNumberGame from "@/public/pics/GreaterNumberGame.png"
+import periodicTable from "@/public/pics/PeriodicTable.png"
 
 const projects = [
     {
@@ -100,6 +101,14 @@ const projects = [
         description: "A simple and fun Android game where players guess which of the two numbers is greater.",
         liveLink: "https://github.com/asiradnan/Greater-Number-Game/releases/download/v1.0.0/GreaterNumberGame.apk",
         sourceLink: "https://github.com/asiradnan/Greater-Number-Game",
+        category: "Android"
+    },
+    {
+        icon: periodicTable,
+        title: "Periodic Table",
+        description: "An Android app a list of 118 elements, each with detailed information in Bangla/English language.",
+        liveLink: "https://github.com/asiradnan/Periodic-Table/releases/download/v1.0.0/periodicTable.apk",
+        sourceLink: "https://github.com/asiradnan/Periodic-Table",
         category: "Android"
     }
 ]
