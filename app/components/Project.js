@@ -13,6 +13,7 @@ import copypasteIcon from "@/public/pics/copypaste.png"
 import redballIcon from "@/public/pics/redball.png"
 import greaterNumberGame from "@/public/pics/GreaterNumberGame.png"
 import periodicTable from "@/public/pics/PeriodicTable.png"
+import muslimApp from "@/public/pics/MuslimApp.jpg"
 
 const projects = [
     {
@@ -96,11 +97,11 @@ const projects = [
         category: "Others"
     },
     {
-        icon: greaterNumberGame,
-        title: "Greater Number Game",
-        description: "A simple and fun Android game where players guess which of the two numbers is greater.",
-        liveLink: "https://github.com/asiradnan/Greater-Number-Game/releases/download/v1.0.0/GreaterNumberGame.apk",
-        sourceLink: "https://github.com/asiradnan/Greater-Number-Game",
+        icon: muslimApp,
+        title: "Muslim App",
+        description: "Muslim App is a feature-rich Kotlin-based Android application designed to help Muslims track their daily religious duties effectively.",
+        liveLink: "https://github.com/asiradnan/MuslimAppAndroid/releases/download/v1.0.0/muslimApp.apk",
+        sourceLink: "https://github.com/asiradnan/MuslimAppAndroid",
         category: "Android"
     },
     {
@@ -110,7 +111,16 @@ const projects = [
         liveLink: "https://github.com/asiradnan/Periodic-Table/releases/download/v1.0.0/periodicTable.apk",
         sourceLink: "https://github.com/asiradnan/Periodic-Table",
         category: "Android"
-    }
+    },
+    {
+        icon: greaterNumberGame,
+        title: "Greater Number Game",
+        description: "A simple and fun Android game where players guess which of the two numbers is greater.",
+        liveLink: "https://github.com/asiradnan/Greater-Number-Game/releases/download/v1.0.0/GreaterNumberGame.apk",
+        sourceLink: "https://github.com/asiradnan/Greater-Number-Game",
+        category: "Android"
+    },
+    
 ]
 export default function ProjectcList(){
     const [selectedCategory, setSelectedCategory] = useState("All")
