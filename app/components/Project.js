@@ -14,6 +14,7 @@ import redballIcon from "@/public/pics/redball.png"
 import greaterNumberGame from "@/public/pics/GreaterNumberGame.png"
 import periodicTable from "@/public/pics/PeriodicTable.png"
 import muslimApp from "@/public/pics/MuslimApp.jpg"
+import vangtiChai from "@/public/pics/VangtiChai.png"
 
 const projects = [
     {
@@ -118,6 +119,14 @@ const projects = [
         description: "A simple and fun Android game where players guess which of the two numbers is greater.",
         liveLink: "https://github.com/asiradnan/Greater-Number-Game/releases/download/v1.0.0/GreaterNumberGame.apk",
         sourceLink: "https://github.com/asiradnan/Greater-Number-Game",
+        category: "Android"
+    },
+    {
+        icon: vangtiChai,
+        title: "Vangti Chai",
+        description: "An Android app built as one of my first practice projects in an Android development course. This app calculates the minimum number of currency notes needed to make up a given amount.",
+        liveLink: "https://github.com/asiradnan/Vangti-Chai/releases/download/v1.0.0/VangtiChai.apk",
+        sourceLink: "https://github.com/asiradnan/Vangti-Chai",
         category: "Android"
     },
     
