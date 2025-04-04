@@ -52,10 +52,10 @@ const projects = [
     {
         icon: todoIcon,
         title: "ToDo App",
-        description: "Fully working minimal ToDo List webapp. Made with Django.",
+        description: "A task management frontend that lets users securely create, update, filter, and track todos in real time.",
         liveLink: "https://todo.asiradnan.com/",
-        sourceLink: "https://github.com/asiradnan/ToDo",
-        category: "Full Stack"
+        sourceLink: "https://github.com/asiradnan/todo_nextjs_frontend",
+        category: "Front End"
     },
     {
         icon: tictactoeIcon,
