@@ -5,7 +5,7 @@ import todoIcon from "@/public/pics/todo.png"
 import tictactoeIcon from "@/public/pics/tictactoe.png"
 import calcIcon from "@/public/pics/calc.png"
 import weatherIcon from "@/public/pics/weather.png"
-import ytIcon from "@/public/pics/yt.jpeg"
+import ytIcon from "@/public/pics/yt.png"
 import urlIcon from "@/public/pics/url.png"
 import wishIcon from "@/public/pics/sendwish.png"
 import qrIcon from "@/public/pics/qr.png"
@@ -85,9 +85,9 @@ const projects = [
         icon: ytIcon,
         title: "YouTube Clone",
         description: "A clone I made practicing API and responsive CSS",
-        liveLink: "https://www.youtube.com/watch?v=NxVQ8UK-GCE",
+        liveLink: "https://yt.asiradnan.com",
         sourceLink: "https://github.com/asiradnan/YouTube-Clone",
-        category: "Front End"
+        category: "Full Stack"
     },
     {
         icon: redballIcon,
