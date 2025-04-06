@@ -15,6 +15,7 @@ import greaterNumberGame from "@/public/pics/GreaterNumberGame.png"
 import periodicTable from "@/public/pics/PeriodicTable.png"
 import muslimApp from "@/public/pics/MuslimApp.jpg"
 import vangtiChai from "@/public/pics/VangtiChai.png"
+import lethalHeight from "@/public/pics/lethal-height.png"
 
 const projects = [
     {
@@ -95,6 +96,14 @@ const projects = [
         description: "Red Ball detection from video or image using OpenCV and Python",
         liveLink: "https://youtu.be/1JfK-jljfNw?si=-umm4iTdmRqVXQeG",
         sourceLink: "https://github.com/asiradnan/Red-Ball-Detection",
+        category: "Others"
+    },
+    {
+        icon: lethalHeight,
+        title: "Lethal Height",
+        description: "A 2D shooting game built with Python and OpenGL featuring dynamic day-night cycles, and dual-player combat.",
+        liveLink: "https://github.com/asiradnan/Lethal-Height",
+        sourceLink: "https://github.com/asiradnan/Lethal-Height",
         category: "Others"
     },
     {
