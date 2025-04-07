@@ -56,7 +56,7 @@ const projects = [
         description: "A task management frontend that lets users securely create, update, filter, and track todos in real time.",
         liveLink: "https://todo.asiradnan.com/",
         sourceLink: "https://github.com/asiradnan/todo_nextjs_frontend",
-        category: "Front End"
+        category: "Full Stack"
     },
     {
         icon: tictactoeIcon,
