@@ -16,8 +16,17 @@ import periodicTable from "@/public/pics/PeriodicTable.png"
 import muslimApp from "@/public/pics/MuslimApp.jpg"
 import vangtiChai from "@/public/pics/VangtiChai.png"
 import lethalHeight from "@/public/pics/lethal-height.png"
+import college from "@/public/pics/college.png"
 
 const projects = [
+    {
+        icon: college,
+        title: "College Portal",
+        description: "CollegePortal is a web-based platform designed to streamline academic and administrative operations within a college environment.",
+        liveLink: "https://college.asiradnan.com",
+        sourceLink: "https://github.com/asiradnan/CollegePortal",
+        category: "Full Stack"
+    },
     {
         icon: copypasteIcon,
         title: "Copy Pasta",
