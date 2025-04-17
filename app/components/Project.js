@@ -17,6 +17,8 @@ import muslimApp from "@/public/pics/MuslimApp.jpg"
 import vangtiChai from "@/public/pics/VangtiChai.png"
 import lethalHeight from "@/public/pics/lethal-height.png"
 import college from "@/public/pics/college.png"
+import ams from "@/public/pics/ams.png"
+import soulSpeak from "@/public/pics/soulSpeak.png"
 
 const projects = [
     {
@@ -25,6 +27,22 @@ const projects = [
         description: "CollegePortal is a web-based platform designed to streamline academic and administrative operations within a college environment.",
         liveLink: "https://college.asiradnan.com",
         sourceLink: "https://github.com/asiradnan/CollegePortal",
+        category: "Full Stack"
+    },
+    {
+        icon: ams,
+        title: "Apartment MS",
+        description: "A modern, full-stack Apartment Management System (AMS) built with Next.js 15.",
+        liveLink: "https://ams.asiradnan.com",
+        sourceLink: "https://ams.asiradnan.com",
+        category: "Full Stack"
+    },
+    {
+        icon: soulSpeak,
+        title: "Soul Speak",
+        description: "A mental well-being application designed to provide a supportive platform for individuals to express themselves, connect with others, and embark on their journey towards healing.",
+        liveLink: "https://github.com/asiradnan/SoulSpeak",
+        sourceLink: "https://github.com/asiradnan/SoulSpeak",
         category: "Full Stack"
     },
     {
