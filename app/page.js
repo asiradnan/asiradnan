@@ -15,9 +15,9 @@ export default function Home() {
             <Image  id="mainpic" src={me_resized} alt="Profile Photo" />
         </div>
         <div id="right">
-            <p> CS Undergrad, </p>
-            <p>Competitive Programmer, </p>
-            <p>Web Developer.</p>
+            <p>Full Stack Developer.</p>
+            <p> Python Specialist, </p>
+            <p> Django, DRF, FastAPI. </p>
         </div>
     </main> 
     <Footer />
