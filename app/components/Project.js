@@ -21,12 +21,20 @@ import ams from "@/public/pics/ams.png"
 import soulSpeak from "@/public/pics/soulSpeak.png"
 
 const projects = [
+    // {
+    //     icon: college,
+    //     title: "College Portal",
+    //     description: "CollegePortal is a web-based platform designed to streamline academic and administrative operations within a college environment.",
+    //     liveLink: "https://college.asiradnan.com",
+    //     sourceLink: "https://github.com/asiradnan/CollegePortal",
+    //     category: "Full Stack"
+    // },
     {
-        icon: college,
-        title: "College Portal",
-        description: "CollegePortal is a web-based platform designed to streamline academic and administrative operations within a college environment.",
-        liveLink: "https://college.asiradnan.com",
-        sourceLink: "https://github.com/asiradnan/CollegePortal",
+        icon: wishIcon,
+        title: "Send Wishes",
+        description: "Send wishes to whoever you want without revealing your identity!",
+        liveLink: "https://sendwish.asiradnan.com",
+        sourceLink: "https://github.com/asiradnan/receiveemail",
         category: "Full Stack"
     },
     {
@@ -37,14 +45,14 @@ const projects = [
         sourceLink: "https://ams.asiradnan.com",
         category: "Full Stack"
     },
-    {
-        icon: soulSpeak,
-        title: "Soul Speak",
-        description: "A mental well-being application designed to provide a supportive platform for individuals to express themselves, connect with others, and embark on their journey towards healing.",
-        liveLink: "https://github.com/asiradnan/SoulSpeak",
-        sourceLink: "https://github.com/asiradnan/SoulSpeak",
-        category: "Full Stack"
-    },
+    // {
+    //     icon: soulSpeak,
+    //     title: "Soul Speak",
+    //     description: "A mental well-being application designed to provide a supportive platform for individuals to express themselves, connect with others, and embark on their journey towards healing.",
+    //     liveLink: "https://github.com/asiradnan/SoulSpeak",
+    //     sourceLink: "https://github.com/asiradnan/SoulSpeak",
+    //     category: "Full Stack"
+    // },
     {
         icon: copypasteIcon,
         title: "Copy Pasta",
@@ -59,14 +67,6 @@ const projects = [
         description: "Make customized qr code from any text or link!",
         liveLink: "https://qr.asiradnan.com",
         sourceLink: "https://github.com/asiradnan/qrcode",
-        category: "Full Stack"
-    },
-    {
-        icon: wishIcon,
-        title: "Send Wishes",
-        description: "Send wishes to whoever you want without revealing your identity!",
-        liveLink: "https://sendwish.asiradnan.com",
-        sourceLink: "https://github.com/asiradnan/receiveemail",
         category: "Full Stack"
     },
     {
