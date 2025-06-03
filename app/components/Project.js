@@ -21,20 +21,12 @@ import ams from "@/public/pics/ams.png"
 import soulSpeak from "@/public/pics/soulSpeak.png"
 
 const projects = [
-    // {
-    //     icon: college,
-    //     title: "College Portal",
-    //     description: "CollegePortal is a web-based platform designed to streamline academic and administrative operations within a college environment.",
-    //     liveLink: "https://college.asiradnan.com",
-    //     sourceLink: "https://github.com/asiradnan/CollegePortal",
-    //     category: "Full Stack"
-    // },
     {
-        icon: wishIcon,
-        title: "Send Wishes",
-        description: "Send wishes to whoever you want without revealing your identity!",
-        liveLink: "https://sendwish.asiradnan.com",
-        sourceLink: "https://github.com/asiradnan/receiveemail",
+        icon: college,
+        title: "Pulse Campus",
+        description: "PulseCampus is a modern web app designed for colleges to manage departments, student clubs, announcements, and forums.",
+        liveLink: "https://pulsecampus.asiradnan.com",
+        sourceLink: "https://github.com/asiradnan/PulseCampus",
         category: "Full Stack"
     },
     {
@@ -45,6 +37,15 @@ const projects = [
         sourceLink: "https://ams.asiradnan.com",
         category: "Full Stack"
     },
+    {
+        icon: wishIcon,
+        title: "Send Wishes",
+        description: "Send wishes to whoever you want without revealing your identity!",
+        liveLink: "https://sendwish.asiradnan.com",
+        sourceLink: "https://github.com/asiradnan/receiveemail",
+        category: "Full Stack"
+    },
+    
     // {
     //     icon: soulSpeak,
     //     title: "Soul Speak",
