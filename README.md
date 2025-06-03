@@ -24,6 +24,9 @@
 - ⚔️ **Competitive Programmer**, participated in **ICPC Regional** and **NCPC Regional**, solving **1300+ problems** across platforms. -->
 
 <p align="center">
+    <img src="https://skillicons.dev/icons?i=aws"/>
+</p>
+<p align="center">
     <img src="https://skillicons.dev/icons?i=nginx,linux"/>
 </p>
 <p align="center">
