@@ -24,7 +24,7 @@ const projects = [
     {
         icon: college,
         title: "Pulse Campus",
-        description: "PulseCampus is a modern web app designed for colleges to manage departments, student clubs, announcements, and forums.",
+        description: "PulseCampus is a full-featured college management portal built with Django.",
         liveLink: "https://pulsecampus.asiradnan.com",
         sourceLink: "https://github.com/asiradnan/PulseCampus",
         category: "Full Stack"
