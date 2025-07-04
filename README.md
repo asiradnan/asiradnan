@@ -6,14 +6,14 @@
 
 <div align="center" style="margin-bottom: 20px;">
 <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=28&duration=2000&pause=1000&center=true&vCenter=true&width=700&lines=Full+Stack+%7C+Android+Developer;FastAPI+%7C+Kotlin+%7C+Django+%7C+Next.js+%7C+MERN;Building%2C+Breaking%2C+Learning...;Fueled+by+tea+and+Enthusiasm!&color=009688" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&size=28&duration=2000&pause=1000&center=true&vCenter=true&width=700&lines=Full+Stack+Web+%7C+Android+Developer;FastAPI+%7C+Kotlin+%7C+Django+%7C+Next.js+%7C+MERN;Building%2C+Breaking%2C+Learning...;Fueled+by+tea+and+enthusiasm!&color=009688" alt="Typing SVG" />
 </a>
 
   <br/>
 </div>
 <div align="center">
 
-  ## Full Stack & Android Developer
+  ## Full Stack Web & Android Developer
 
 </div>
 <!-- 
