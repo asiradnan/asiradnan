@@ -146,7 +146,7 @@ const projects = [
         icon: periodicTable,
         title: "Periodic Table",
         description: "An Android app a list of 118 elements, each with detailed information in Bangla/English language.",
-        liveLink: "https://github.com/asiradnan/Periodic-Table/releases/download/v1.0.0/periodicTable.apk",
+        liveLink: "https://play.google.com/store/apps/details?id=com.asiradnan.periodictable&pli=1",
         sourceLink: "https://github.com/asiradnan/Periodic-Table",
         category: "Android"
     },
