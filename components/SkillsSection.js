@@ -1,28 +1,18 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Code2, 
-  Smartphone, 
-  Database, 
-  Globe, 
-  Brain, 
-  Users, 
-  Terminal,
-  Palette,
+import {
+  Code2,
+  Smartphone,
+  Database,
+  Brain,
   Server,
-  Layers,
-  Zap,
-  Coffee,
-  Settings,
   Monitor
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
-
-// JetBrains Mono font
 import { JetBrains_Mono } from 'next/font/google';
 
-const jetbrainsMono = JetBrains_Mono({ 
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
 });
@@ -39,31 +29,31 @@ export default function SkillsSection() {
       color: isDark ? "text-blue-400" : "text-blue-600",
       bgColor: isDark ? "bg-blue-400/10" : "bg-blue-600/10",
       borderColor: isDark ? "border-blue-400/30" : "border-blue-600/30",
-      skills: [ "FastAPI", "Django", "DRF", "Express"]
+      skills: ["FastAPI", "Django", "DRF", "Express"]
     },
     {
       title: "Mobile Development",
       icon: Smartphone,
-      color: isDark ? "text-purple-400" : "text-purple-600", 
+      color: isDark ? "text-purple-400" : "text-purple-600",
       bgColor: isDark ? "bg-purple-400/10" : "bg-purple-600/10",
       borderColor: isDark ? "border-purple-400/30" : "border-purple-600/30",
-      skills: ["Android","Kotlin", "Jetpack Compose"]
+      skills: ["Android", "Kotlin", "Jetpack Compose"]
     },
-     {
+    {
       title: "DevOPS and Tools",
       icon: Brain,
       color: isDark ? "text-teal-400" : "text-teal-600",
       bgColor: isDark ? "bg-teal-400/10" : "bg-teal-600/10",
       borderColor: isDark ? "border-teal-400/30" : "border-teal-600/30",
-      skills: ["AWS", "Git", "CI/CD","Nginx"]
+      skills: ["AWS", "Git", "CI/CD", "Nginx"]
     },
     {
-      title: "Frontend Development", 
+      title: "Frontend Development",
       icon: Monitor,
       color: isDark ? "text-green-400" : "text-green-600",
       bgColor: isDark ? "bg-green-400/10" : "bg-green-600/10",
       borderColor: isDark ? "border-green-400/30" : "border-green-600/30",
-      skills: ["React", "Next", "HTML", "CSS" , "JS"]
+      skills: ["React", "Next", "HTML", "CSS", "JS"]
     },
     {
       title: "Database",
@@ -71,13 +61,13 @@ export default function SkillsSection() {
       color: isDark ? "text-pink-400" : "text-pink-600",
       bgColor: isDark ? "bg-pink-400/10" : "bg-pink-600/10",
       borderColor: isDark ? "border-pink-400/30" : "border-pink-600/30",
-      skills: ["Postgre","MySQL","SQLite", "Mongo"]
+      skills: ["Postgre", "MySQL", "SQLite", "Mongo"]
     },
     {
       title: "Programming Languages",
       icon: Code2,
       color: isDark ? "text-orange-400" : "text-orange-600",
-      bgColor: isDark ? "bg-orange-400/10" : "bg-orange-600/10", 
+      bgColor: isDark ? "bg-orange-400/10" : "bg-orange-600/10",
       borderColor: isDark ? "border-orange-400/30" : "border-orange-600/30",
       skills: ["Python", "Kotlin", "JavaScript", "C++"]
     },
@@ -154,16 +144,16 @@ export default function SkillsSection() {
   };
 
   return (
-    <section 
+    <section
       id="skills-section"
       ref={sectionRef}
       className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
     >
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-20">
-        <motion.div 
+        <motion.div
           className={`w-full h-full ${isDark ? 'bg-grid-white/[0.05]' : 'bg-grid-black/[0.05]'}`}
-          animate={{ 
+          animate={{
             backgroundPosition: ['0px 0px', '60px 60px'],
           }}
           transition={{
@@ -184,8 +174,8 @@ export default function SkillsSection() {
           key={index}
           className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: 0.3, 
+          animate={{
+            opacity: 0.3,
             scale: 1,
             x: [0, x, 0],
             y: [0, y, 0],
@@ -214,15 +204,15 @@ export default function SkillsSection() {
         animate={isVisible ? "visible" : "hidden"}
       >
         {/* Section title */}
-        <motion.h2 
+        <motion.h2
           variants={itemVariants}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
         >
           <motion.span
-            className={`bg-gradient-to-r ${isDark 
-              ? 'from-white via-blue-100 to-white' 
+            className={`bg-gradient-to-r ${isDark
+              ? 'from-white via-blue-100 to-white'
               : 'from-gray-900 via-blue-600 to-gray-900'
-            } bg-clip-text text-transparent`}
+              } bg-clip-text text-transparent`}
             initial={{ backgroundPosition: '0% 50%' }}
             animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -231,74 +221,73 @@ export default function SkillsSection() {
           </motion.span>
         </motion.h2>
 
-    
+
 
         {/* Skills Grid */}
-<motion.div 
-  variants={itemVariants}
-  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
->
-  {skillCategories.map((category, categoryIndex) => (
-    <motion.div
-      key={category.title}
-      variants={cardVariants}
-      initial="hidden"
-      animate={isVisible ? "visible" : "hidden"}
-      transition={{ delay: 0.6 + (categoryIndex * 0.1) }}
-      className={`relative p-6 rounded-2xl border backdrop-blur-sm ${category.bgColor} ${category.borderColor} ${isDark ? 'bg-gray-800/20' : 'bg-white/20'}`}
-      whileHover={{ 
-        scale: 1.05, 
-        y: -5,
-        transition: { duration: 0.2 }
-      }}
-    >
-      {/* Category Header (Icon + Title in One Row) */}
-      <div className="flex items-center gap-3 mb-4">
         <motion.div
-          className={`p-3 rounded-full ${category.bgColor} ${category.color}`}
-          whileHover={{ scale: 1.1, rotate: 360 }}
-          transition={{ duration: 0.3 }}
+          variants={itemVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
         >
-          <category.icon size={28} />
-        </motion.div>
-        <h3 className={`text-lg font-bold ${category.color}`}>
-          {category.title}
-        </h3>
-      </div>
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.title}
+              variants={cardVariants}
+              initial="hidden"
+              animate={isVisible ? "visible" : "hidden"}
+              transition={{ delay: 0.6 + (categoryIndex * 0.1) }}
+              className={`relative p-6 rounded-2xl border backdrop-blur-sm ${category.bgColor} ${category.borderColor} ${isDark ? 'bg-gray-800/20' : 'bg-white/20'}`}
+              whileHover={{
+                scale: 1.05,
+                y: -5,
+                transition: { duration: 0.2 }
+              }}
+            >
+              {/* Category Header (Icon + Title in One Row) */}
+              <div className="flex items-center gap-3 mb-4">
+                <motion.div
+                  className={`p-3 rounded-full ${category.bgColor} ${category.color}`}
+                  whileHover={{ scale: 1.1, rotate: 360 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <category.icon size={28} />
+                </motion.div>
+                <h3 className={`text-lg font-bold ${category.color}`}>
+                  {category.title}
+                </h3>
+              </div>
 
-      {/* Skills List (Now horizontal wrapping row) */}
-      <div className="flex flex-wrap gap-2">
-        {category.skills.map((skill, skillIndex) => (
-          <motion.span
-            key={skill}
-            className={`px-3 py-1 text-sm rounded-full border ${
-              isDark 
-                ? 'bg-gray-700/50 border-gray-600 text-gray-300' 
-                : 'bg-white/50 border-gray-300 text-gray-700'
-            }`}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ delay: 1 + (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-            whileHover={{ scale: 1.05 }}
-          >
-            {skill}
-          </motion.span>
-        ))}
-      </div>
-    </motion.div>
-  ))}
-</motion.div>
+              {/* Skills List (Now horizontal wrapping row) */}
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.span
+                    key={skill}
+                    className={`px-3 py-1 text-sm rounded-full border ${isDark
+                        ? 'bg-gray-700/50 border-gray-600 text-gray-300'
+                        : 'bg-white/50 border-gray-300 text-gray-700'
+                      }`}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    transition={{ delay: 1 + (categoryIndex * 0.1) + (skillIndex * 0.05) }}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    {skill}
+                  </motion.span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
 
         {/* Bottom CTA */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex justify-center"
         >
           <motion.button
             className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 ${isDark
-                ? 'border-white text-white hover:bg-white hover:text-black'
-                : 'border-black text-black hover:bg-black hover:text-white'
+              ? 'border-white text-white hover:bg-white hover:text-black'
+              : 'border-black text-black hover:bg-black hover:text-white'
               }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
