@@ -1,13 +1,13 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Smartphone, Database, Brain, Trophy, ChevronDown, UserRound, ArrowRight} from 'lucide-react';
+import { Code2, Smartphone, Database, Brain, Trophy, ChevronDown, UserRound, ArrowRight } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 
 // JetBrains Mono font
 import { JetBrains_Mono } from 'next/font/google';
 
-const jetbrainsMono = JetBrains_Mono({ 
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
 });
@@ -82,16 +82,16 @@ export default function AboutSection() {
   };
 
   return (
-    <section 
+    <section
       id="about-section"
       ref={sectionRef}
       className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
     >
       {/* Animated background grid - same as hero */}
       <div className="absolute inset-0 opacity-20">
-        <motion.div 
+        <motion.div
           className={`w-full h-full ${isDark ? 'bg-grid-white/[0.05]' : 'bg-grid-black/[0.05]'}`}
-          animate={{ 
+          animate={{
             backgroundPosition: ['0px 0px', '60px 60px'],
           }}
           transition={{
@@ -112,8 +112,8 @@ export default function AboutSection() {
           key={index}
           className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: 0.3, 
+          animate={{
+            opacity: 0.3,
             scale: 1,
             x: [0, x, 0],
             y: [0, y, 0],
@@ -142,15 +142,15 @@ export default function AboutSection() {
         animate={isVisible ? "visible" : "hidden"}
       >
         {/* Section title - same style as hero name */}
-        <motion.h2 
+        <motion.h2
           variants={itemVariants}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
         >
           <motion.span
-            className={`bg-gradient-to-r ${isDark 
-              ? 'from-white via-blue-100 to-white' 
+            className={`bg-gradient-to-r ${isDark
+              ? 'from-white via-blue-100 to-white'
               : 'from-gray-900 via-blue-600 to-gray-900'
-            } bg-clip-text text-transparent`}
+              } bg-clip-text text-transparent`}
             initial={{ backgroundPosition: '0% 50%' }}
             animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -160,18 +160,18 @@ export default function AboutSection() {
         </motion.h2>
 
         {/* Main description - same style as hero description */}
-        <motion.p 
+        <motion.p
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
         >
-          Hey there! I'm Asir Adnan — a passionate Full-Stack Developer who loves building 
-          real-world solutions with clean, scalable code. I specialize in Python development, 
-          with a strong focus on backend technologies like Django, FastAPI, and DRF, and I 
+          Hey there! I'm Asir Adnan — a passionate Full-Stack Developer who loves building
+          real-world solutions with clean, scalable code. I specialize in Python development,
+          with a strong focus on backend technologies like Django, FastAPI, and DRF, and I
           sharpen my thinking through Competitive Programming.
         </motion.p>
 
         {/* Skills - simple horizontal layout */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="mb-12"
         >
@@ -179,11 +179,10 @@ export default function AboutSection() {
             {skills.map((skill, index) => (
               <motion.div
                 key={skill.name}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-full border ${
-                  isDark 
-                    ? 'border-gray-600 text-gray-300' 
+                className={`flex items-center space-x-2 px-4 py-2 rounded-full border ${isDark
+                    ? 'border-gray-600 text-gray-300'
                     : 'border-gray-300 text-gray-700'
-                }`}
+                  }`}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ delay: 0.8 + (index * 0.1) }}
@@ -197,71 +196,69 @@ export default function AboutSection() {
         </motion.div>
 
         {/* Final statement */}
-        <motion.p 
+        <motion.p
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed mb-12`}
         >
-          Self-taught and deeply curious, I constantly push myself to explore new tools 
+          Self-taught and deeply curious, I constantly push myself to explore new tools
           and build fun, impactful Projects!
         </motion.p>
 
         {/* View More About Me Button */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex justify-center"
         >
-{/* Buttons */}
-<motion.div 
-  variants={itemVariants}
-  className="flex justify-center gap-4 flex-wrap"
->
-  {/* View My Skills (Scroll - Secondary) */}
-  <motion.button
-    className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${
-      isDark
-        ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
-        : 'border-gray-500 text-gray-800 hover:bg-gray-100'
-    } transition-all duration-300`}
-    whileHover={{ scale: 1.05, y: -2 }}
-    whileTap={{ scale: 0.95 }}
-    onClick={() => {
-      const skillsSection = document.getElementById("skills-section");
-      skillsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }}
-  >
-    <Database size={20} />
-    View My Skills
-    <motion.div
-      animate={{ y: [0, 4, 0] }}
-      transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-    >
-      <ChevronDown size={20} />
-    </motion.div>
-  </motion.button>
+          {/* Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center gap-4 flex-wrap"
+          >
+            {/* View My Skills (Scroll - Secondary) */}
+            <motion.button
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${isDark
+                  ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
+                  : 'border-gray-500 text-gray-800 hover:bg-gray-100'
+                } transition-all duration-300`}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const skillsSection = document.getElementById("skills-section");
+                skillsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
+              }}
+            >
+              <Database size={20} />
+              View My Skills
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+              >
+                <ChevronDown size={20} />
+              </motion.div>
+            </motion.button>
 
-  {/* More About Me (Primary - New Page) */}
-  <motion.button
-    className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${
-      isDark
-        ? 'bg-white text-black hover:bg-gray-200'
-        : 'bg-black text-white hover:bg-gray-800'
-    } transition-all duration-300`}
-    whileHover={{ scale: 1.05, x: 4 }}
-    whileTap={{ scale: 0.95 }}
-    onClick={() => {
-      window.location.href = "/about"; // or router.push('/about') in Next.js
-    }}
-  >
-    <UserRound size={22} />
-    More About Me
-    <motion.div
-      animate={{ x: [0, 8, 0] }}
-      transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
-    >
-      <ArrowRight size={28} /> {/* Longer arrow, visually stronger */}
-    </motion.div>
-  </motion.button>
-</motion.div>
+            {/* More About Me (Primary - New Page) */}
+            <motion.button
+              className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
+                  ? 'bg-white text-black hover:bg-gray-200'
+                  : 'bg-black text-white hover:bg-gray-800'
+                } transition-all duration-300`}
+              whileHover={{ scale: 1.05, x: 4 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                window.location.href = "/about"; // or router.push('/about') in Next.js
+              }}
+            >
+              <UserRound size={22} />
+              More About Me
+              <motion.div
+                animate={{ x: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+              >
+                <ArrowRight size={28} /> {/* Longer arrow, visually stronger */}
+              </motion.div>
+            </motion.button>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>

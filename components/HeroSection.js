@@ -255,8 +255,8 @@ export default function HeroSection() {
         >
           <motion.button
             className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 ${isDark
-                ? 'bg-white text-black hover:bg-gray-200 shadow-lg hover:shadow-white/20'
-                : 'bg-black text-white hover:bg-gray-800 shadow-lg hover:shadow-black/20'
+              ? 'bg-white text-black hover:bg-gray-200 shadow-lg hover:shadow-white/20'
+              : 'bg-black text-white hover:bg-gray-800 shadow-lg hover:shadow-black/20'
               }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
@@ -266,8 +266,8 @@ export default function HeroSection() {
 
           <motion.button
             className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 ${isDark
-                ? 'border-white text-white hover:bg-white hover:text-black'
-                : 'border-black text-black hover:bg-black hover:text-white'
+              ? 'border-white text-white hover:bg-white hover:text-black'
+              : 'border-black text-black hover:bg-black hover:text-white'
               }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
