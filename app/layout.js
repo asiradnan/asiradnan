@@ -1,16 +1,10 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navbar";
+import { ThemeProvider } from "@/app/components/ThemeContext";
+import { Inter, Poppins } from 'next/font/google';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const poppins = Poppins({ subsets: ['latin'], weight: ['400', '600'], variable: '--font-poppins' });
 
 export const metadata = {
   title: "Asir Adnan",
@@ -20,16 +14,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavBar />
-        <header>
-          <h1>Header</h1>
-        </header>
-        <main>
+      <body className={`${inter.variable} ${poppins.variable}`}>
+        
+
+          <ThemeProvider>
+            <NavBar />
           {children}
-        </main>
+        </ThemeProvider>
 
       </body>
     </html>
