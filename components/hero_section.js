@@ -7,7 +7,7 @@ import { useTheme } from '@/components/ThemeContext'
 // JetBrains Mono font
 import { JetBrains_Mono } from 'next/font/google';
 
-const jetbrainsMono = JetBrains_Mono({ 
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
 });
@@ -102,9 +102,9 @@ export default function HeroSection() {
 
   const roleVariants = {
     initial: { opacity: 0, y: 20, scale: 0.8 },
-    animate: { 
-      opacity: 1, 
-      y: 0, 
+    animate: {
+      opacity: 1,
+      y: 0,
       scale: 1,
       transition: {
         type: "spring",
@@ -112,25 +112,25 @@ export default function HeroSection() {
         damping: 10
       }
     },
-    exit: { 
-      opacity: 0, 
-      y: -20, 
+    exit: {
+      opacity: 0,
+      y: -20,
       scale: 0.8,
       transition: { duration: 0.3 }
     }
   };
 
   return (
-    <section 
+    <section
       id="hero-section"
       ref={sectionRef}
       className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
     >
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-20">
-        <motion.div 
+        <motion.div
           className={`w-full h-full ${isDark ? 'bg-grid-white/[0.05]' : 'bg-grid-black/[0.05]'}`}
-          animate={{ 
+          animate={{
             backgroundPosition: ['0px 0px', '60px 60px'],
           }}
           transition={{
@@ -151,8 +151,8 @@ export default function HeroSection() {
           key={index}
           className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: 0.3, 
+          animate={{
+            opacity: 0.3,
             scale: 1,
             x: [0, x, 0],
             y: [0, y, 0],
@@ -182,26 +182,26 @@ export default function HeroSection() {
       >
         {/* Greeting */}
         <motion.div variants={itemVariants} className="mb-8">
-          <motion.span 
+          <motion.span
             className={`inline-block text-lg md:text-xl ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-2`}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
           >
-            👋 Hello, I'm
+            Hello, I'm
           </motion.span>
         </motion.div>
 
         {/* Name with gradient */}
-        <motion.h1 
+        <motion.h1
           variants={itemVariants}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
         >
           <motion.span
-            className={`bg-gradient-to-r ${isDark 
-              ? 'from-white via-blue-100 to-white' 
+            className={`bg-gradient-to-r ${isDark
+              ? 'from-white via-blue-100 to-white'
               : 'from-gray-900 via-blue-600 to-gray-900'
-            } bg-clip-text text-transparent`}
+              } bg-clip-text text-transparent`}
             initial={{ backgroundPosition: '0% 50%' }}
             animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
@@ -211,7 +211,7 @@ export default function HeroSection() {
         </motion.h1>
 
         {/* Dynamic role with icon */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="mb-8 h-20 flex items-center justify-center"
         >
@@ -239,38 +239,36 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Description */}
-        <motion.p 
+        <motion.p
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
         >
-          Crafting digital experiences with clean code and intuitive design. 
-          From responsive web applications to native mobile solutions, 
+          Crafting digital experiences with clean code and intuitive design.
+          From responsive web applications to native mobile solutions,
           I bring ideas to life with modern technologies and best practices.
         </motion.p>
 
         {/* CTA Buttons */}
-        <motion.div 
+        <motion.div
           variants={itemVariants}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <motion.button
-            className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 ${
-              isDark 
-                ? 'bg-white text-black hover:bg-gray-200 shadow-lg hover:shadow-white/20' 
+            className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 ${isDark
+                ? 'bg-white text-black hover:bg-gray-200 shadow-lg hover:shadow-white/20'
                 : 'bg-black text-white hover:bg-gray-800 shadow-lg hover:shadow-black/20'
-            }`}
+              }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
             View My Work
           </motion.button>
-          
+
           <motion.button
-            className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 ${
-              isDark 
-                ? 'border-white text-white hover:bg-white hover:text-black' 
+            className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 ${isDark
+                ? 'border-white text-white hover:bg-white hover:text-black'
                 : 'border-black text-black hover:bg-black hover:text-white'
-            }`}
+              }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToAbout}
@@ -281,7 +279,7 @@ export default function HeroSection() {
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hidden md:block"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}

@@ -108,6 +108,7 @@ function NavLinks({ isDark }) {
         { href: "/projects", label: "Projects" },
         { href: "/achievements", label: "Achievements" },
         { href: "/experience", label: "Experience" },
+        { href: "/contact", label: "Contact" },
       ].map(({ href, label }) => (
         <Link key={href} href={href} className={linkStyle}>
           {label}
