@@ -10,12 +10,7 @@ import {
   Monitor
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
-import { JetBrains_Mono } from 'next/font/google';
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 export default function SkillsSection() {
   const { isDark } = useTheme();
@@ -147,7 +142,7 @@ export default function SkillsSection() {
     <section
       id="skills-section"
       ref={sectionRef}
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
     >
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-20">

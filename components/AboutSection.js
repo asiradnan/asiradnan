@@ -4,14 +4,6 @@ import { motion } from 'framer-motion';
 import { Code2, Smartphone, Database, Brain, Trophy, ChevronDown, UserRound, ArrowRight } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 
-// JetBrains Mono font
-import { JetBrains_Mono } from 'next/font/google';
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 export default function AboutSection() {
   const { isDark } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
@@ -85,7 +77,7 @@ export default function AboutSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
     >
       {/* Animated background grid - same as hero */}
       <div className="absolute inset-0 opacity-20">
