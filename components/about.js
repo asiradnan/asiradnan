@@ -75,7 +75,7 @@ export default function AboutSection() {
   };
 
   return (
-    <section 
+    <section  id="about"
       ref={sectionRef}
       className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
     >

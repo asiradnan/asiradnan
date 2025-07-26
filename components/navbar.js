@@ -102,8 +102,8 @@ function NavLinks({ isDark }) {
   return (
     <>
       {[
-        { href: "/home", label: "Home" },
-        { href: "/about", label: "About" },
+        { href: "/", label: "Home" },
+        { href: "#about", label: "About" },
         { href: "/skills", label: "Skills" },
         { href: "/projects", label: "Projects" },
         { href: "/achievements", label: "Achievements" },
