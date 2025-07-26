@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useTheme } from '@/app/components/ThemeContext'
+import { useTheme } from '@/components/ThemeContext'
 
 // Add JetBrains Mono font
 import { JetBrains_Mono } from 'next/font/google';

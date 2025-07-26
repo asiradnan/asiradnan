@@ -1,6 +1,6 @@
 import "./globals.css";
-import NavBar from "./components/navbar";
-import { ThemeProvider } from "@/app/components/ThemeContext";
+import NavBar from "../components/navbar";
+import { ThemeProvider } from "@/components/ThemeContext";
 import { Inter, Poppins } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });

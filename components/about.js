@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Smartphone, Database, Brain, Trophy } from 'lucide-react';
-import { useTheme } from '@/app/components/ThemeContext'
+import { useTheme } from '@/components/ThemeContext'
 
 // JetBrains Mono font
 import { JetBrains_Mono } from 'next/font/google';
