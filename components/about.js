@@ -38,6 +38,13 @@ export default function AboutSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
+          // Auto-scroll to center the about section
+          setTimeout(() => {
+            sectionRef.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }, 100);
         }
       },
       { threshold: 0.3 }
@@ -75,7 +82,8 @@ export default function AboutSection() {
   };
 
   return (
-    <section  id="about"
+    <section 
+      id="about-section"
       ref={sectionRef}
       className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
     >
@@ -191,11 +199,33 @@ export default function AboutSection() {
         {/* Final statement */}
         <motion.p 
           variants={itemVariants}
-          className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed`}
+          className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed mb-12`}
         >
           Self-taught and deeply curious, I constantly push myself to explore new tools 
           and build fun, impactful Projects!
         </motion.p>
+
+        {/* View More About Me Button */}
+        <motion.div 
+          variants={itemVariants}
+          className="flex justify-center"
+        >
+          <motion.button
+            className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 ${
+              isDark 
+                ? 'border-white text-white hover:bg-white hover:text-black' 
+                : 'border-black text-black hover:bg-black hover:text-white'
+            }`}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              // You can add navigation logic here
+              console.log('Navigate to detailed about page');
+            }}
+          >
+            View More About Me
+          </motion.button>
+        </motion.div>
       </motion.div>
     </section>
   );

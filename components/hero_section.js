@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Smartphone, Database, Palette, Zap, Coffee } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
@@ -16,6 +16,7 @@ export default function HeroSection() {
   const { isDark } = useTheme();
   const [currentRole, setCurrentRole] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
 
   // Move roles inside useMemo or define it dynamically so it updates with theme changes
   const roles = React.useMemo(() => [
@@ -38,8 +39,42 @@ export default function HeroSection() {
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
     }, 3000);
-    return () => clearInterval(interval);
+
+    // Auto-scroll observer for hero section
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Auto-scroll to center the hero section
+          setTimeout(() => {
+            sectionRef.current?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+          }, 100);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      clearInterval(interval);
+      observer.disconnect();
+    };
   }, [roles.length]); // Add dependency
+
+  const scrollToAbout = () => {
+    const aboutSection = document.querySelector('#about-section');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -86,7 +121,11 @@ export default function HeroSection() {
   };
 
   return (
-    <section className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}>
+    <section 
+      id="hero-section"
+      ref={sectionRef}
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'} ${jetbrainsMono.className}`}
+    >
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-20">
         <motion.div 
@@ -234,17 +273,19 @@ export default function HeroSection() {
             }`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            onClick={scrollToAbout}
           >
-            Get In Touch
+            Learn About Me
           </motion.button>
         </motion.div>
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
+          onClick={scrollToAbout}
         >
           <motion.div
             className={`w-6 h-10 border-2 ${isDark ? 'border-gray-400' : 'border-gray-600'} rounded-full flex justify-center`}
