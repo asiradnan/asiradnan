@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const SocialSidebar = () => {
   return (
-    <div className="fixed left-0 top-1/2 -translate-y-1/2 z-50 hidden md:block">
+    <div className="fixed left-0 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
       <div className="flex flex-col items-center gap-1 bg-slate-100 dark:bg-slate-800 p-1 rounded-r-lg shadow-md">
         <Link 
           href="https://github.com/asiradnan" 
