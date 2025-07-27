@@ -3,19 +3,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Code2, Smartphone, Database, Brain, Trophy, ChevronDown, UserRound, ArrowRight } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
+import Link from 'next/link';
 
 export default function AboutSection() {
   const { isDark } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
-
-  const skills = React.useMemo(() => [
-    { name: "Python", icon: Code2 },
-    { name: "Django", icon: Database },
-    { name: "FastAPI", icon: Smartphone },
-    { name: "DRF", icon: Brain },
-    { name: "Competitive Programming", icon: Trophy }
-  ], []);
 
   const floatingIcons = [
     { Icon: Code2, delay: 0, x: 20, y: 30 },
@@ -154,47 +147,21 @@ export default function AboutSection() {
         {/* Main description - same style as hero description */}
         <motion.p
           variants={itemVariants}
-          className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
+          className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-0 md:px-8 my-8 md:my-16 lg:my-24 max-w-3xl mx-auto leading-relaxed`}
         >
-          Hey there! I'm Asir Adnan — a passionate Full-Stack Developer who loves building
-          real-world solutions with clean, scalable code. I specialize in Python development,
-          with a strong focus on backend technologies like Django, FastAPI, and DRF, and I
-          sharpen my thinking through Competitive Programming.
+          I am in love with programming.
+          Hence, I taught myself more of it than what the varsity taught me.
+          Even though my journey began with Python,
+          I learned C++ for competitive programming,
+          JavaScript for Web programming,
+          and Kotlin for Android along the way.
+          I have also explored Java and C.
+          To date, I have completed more than 20 personal web projects
+          and worked professionally with more than 10.
+          I have one Android app published on the Play Store,
+          and more are on the way.
         </motion.p>
 
-        {/* Skills - simple horizontal layout */}
-        <motion.div
-          variants={itemVariants}
-          className="mb-12"
-        >
-          <div className="flex flex-wrap justify-center gap-6">
-            {skills.map((skill, index) => (
-              <motion.div
-                key={skill.name}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-full border ${isDark
-                    ? 'border-gray-600 text-gray-300'
-                    : 'border-gray-300 text-gray-700'
-                  }`}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                transition={{ delay: 0.8 + (index * 0.1) }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <skill.icon size={20} />
-                <span className="text-sm font-medium">{skill.name}</span>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Final statement */}
-        <motion.p
-          variants={itemVariants}
-          className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed mb-12`}
-        >
-          Self-taught and deeply curious, I constantly push myself to explore new tools
-          and build fun, impactful Projects!
-        </motion.p>
 
         {/* View More About Me Button */}
         <motion.div
@@ -209,8 +176,8 @@ export default function AboutSection() {
             {/* View My Skills (Scroll - Secondary) */}
             <motion.button
               className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${isDark
-                  ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
-                  : 'border-gray-500 text-gray-800 hover:bg-gray-100'
+                ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
+                : 'border-gray-500 text-gray-800 hover:bg-gray-100'
                 } transition-all duration-300`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
@@ -219,7 +186,7 @@ export default function AboutSection() {
                 skillsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
               }}
             >
-              <Database size={20} />
+              <Code2 size={20} />
               View My Skills
               <motion.div
                 animate={{ y: [0, 4, 0] }}
@@ -230,26 +197,25 @@ export default function AboutSection() {
             </motion.button>
 
             {/* More About Me (Primary - New Page) */}
-            <motion.button
-              className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
+            <Link href="/about">
+              <motion.a
+                className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
                   ? 'bg-white text-black hover:bg-gray-200'
                   : 'bg-black text-white hover:bg-gray-800'
-                } transition-all duration-300`}
-              whileHover={{ scale: 1.05, x: 4 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                window.location.href = "/about"; // or router.push('/about') in Next.js
-              }}
-            >
-              <UserRound size={22} />
-              More About Me
-              <motion.div
-                animate={{ x: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                  } transition-all duration-300`}
+                whileHover={{ scale: 1.05, x: 4 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <ArrowRight size={28} /> {/* Longer arrow, visually stronger */}
-              </motion.div>
-            </motion.button>
+                <UserRound size={22} />
+                More About Me
+                <motion.div
+                  animate={{ x: [0, 8, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+                >
+                  <ArrowRight size={28} />
+                </motion.div>
+              </motion.a>
+            </Link>
           </motion.div>
         </motion.div>
       </motion.div>
