@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Smartphone, Database, Palette, Zap, Coffee } from 'lucide-react';
+import { Code2, Smartphone, Database, ChevronDown, Zap, Coffee, Phone, BrainCircuit, Cpu, User } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 
 export default function HeroSection() {
@@ -12,10 +12,10 @@ export default function HeroSection() {
 
   // Move roles inside useMemo or define it dynamically so it updates with theme changes
   const roles = React.useMemo(() => [
-    { text: "Full Stack Developer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
+    { text: "Full Stack Web Developer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
     { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" },
-    { text: "Backend Engineer", icon: Database, color: isDark ? "text-purple-400" : "text-purple-600" },
-    { text: "UI/UX Enthusiast", icon: Palette, color: isDark ? "text-pink-400" : "text-pink-600" }
+    { text: "DevOps Engineer", icon: Cpu, color: isDark ? "text-orange-400" : "text-orange-600" },
+    { text: "DSA Problem Solver ", icon: BrainCircuit, color: isDark ? "text-yellow-400" : "text-yellow-600" }
   ], [isDark]);
 
   const floatingIcons = [
@@ -30,7 +30,7 @@ export default function HeroSection() {
     setIsVisible(true);
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    }, 2500);
 
     // Auto-scroll observer for hero section
     const observer = new IntersectionObserver(
@@ -56,17 +56,7 @@ export default function HeroSection() {
       clearInterval(interval);
       observer.disconnect();
     };
-  }, [roles.length]); // Add dependency
-
-  const scrollToAbout = () => {
-    const aboutSection = document.querySelector('#about-section');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
+  }, [roles.length]); 
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -180,7 +170,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
           >
-            Hello, I'm
+            I'm
           </motion.span>
         </motion.div>
 
@@ -235,60 +225,66 @@ export default function HeroSection() {
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
         >
-          Crafting digital experiences with clean code and intuitive design.
-          From responsive web applications to native mobile solutions,
-          I bring ideas to life with modern technologies and best practices.
+          I love what I do. And spend most of my time turning all my "I wish there was a ..." to a functional Web and/or Android app.
         </motion.p>
 
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          className="flex justify-center gap-4 flex-wrap"
         >
           <motion.button
-            className={`px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 ${isDark
-              ? 'bg-white text-black hover:bg-gray-200 shadow-lg hover:shadow-white/20'
-              : 'bg-black text-white hover:bg-gray-800 shadow-lg hover:shadow-black/20'
-              }`}
+            className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${isDark
+              ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
+              : 'border-gray-500 text-gray-800 hover:bg-gray-100'
+              } transition-all duration-300`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const aboutSection = document.getElementById("about-section");
+              aboutSection?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }}
           >
-            View My Work
-          </motion.button>
+            <User size={22} />
+            About Me
 
-          <motion.button
-            className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 ${isDark
-              ? 'border-white text-white hover:bg-white hover:text-black'
-              : 'border-black text-black hover:bg-black hover:text-white'
-              }`}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToAbout}
-          >
-            Learn About Me
-          </motion.button>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer hidden md:block"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2, duration: 1 }}
-          onClick={scrollToAbout}
-        >
-          <motion.div
-            className={`w-6 h-10 border-2 ${isDark ? 'border-gray-400' : 'border-gray-600'} rounded-full flex justify-center`}
-            animate={{ opacity: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          >
             <motion.div
-              className={`w-1 h-3 ${isDark ? 'bg-gray-400' : 'bg-gray-600'} rounded-full mt-2`}
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-          </motion.div>
+              animate={{ y: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+            >
+              <ChevronDown size={20} />
+            </motion.div>
+          </motion.button>
+
+          <motion.button
+            className={`relative flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg
+    ${isDark
+                ? 'bg-gray-900 text-white border-2 border-transparent'
+                : 'bg-black text-white border-2 border-transparent'
+              } overflow-hidden`}
+            whileHover={{ scale: 1.05, y: -4 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              const contactSection = document.getElementById("contact-section");
+              contactSection?.scrollIntoView({ behavior: "auto", block: "center" });
+            }}
+          >
+            {/* Gradient border */}
+            <span className="absolute inset-0 rounded-full">
+              <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500"></span>
+            </span>
+
+            {/* Inner background (to create border effect) */}
+            <span className={`absolute inset-[2px] rounded-full ${isDark ? 'bg-gray-900' : 'bg-black'}`}></span>
+
+            {/* Content */}
+            <span className="relative flex items-center justify-center gap-3 z-10">
+              <Phone size={20} />
+              <span>Let's Talk</span>
+            </span>
+          </motion.button>
         </motion.div>
+
       </motion.div>
     </section>
   );
