@@ -23,7 +23,7 @@ export default function NavBar() {
         {/* Top bar */}
         <div className="flex items-center justify-between h-16">
           <h1 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-black'} tracking-tight`}>
-            Asir Adnan
+            <Link href={"/"}>Asir Adnan</Link> 
           </h1>
 
           {/* Desktop nav */}
@@ -102,12 +102,12 @@ function NavLinks({ isDark }) {
   return (
     <>
       {[
-        { href: "/", label: "Home" },
+        // { href: "/", label: "Home" },
         { href: "/about", label: "About" },
         { href: "/skills", label: "Skills" },
         { href: "/projects", label: "Projects" },
         { href: "/achievements", label: "Achievements" },
-        { href: "/experience", label: "Experience" },
+        // { href: "/experience", label: "Experience" },
         { href: "/contact", label: "Contact" },
       ].map(({ href, label }) => (
         <Link key={href} href={href} className={linkStyle}>
