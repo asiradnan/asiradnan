@@ -7,7 +7,11 @@ import {
   Database,
   Brain,
   Server,
-  Monitor
+  Monitor,
+  UserRound,
+  ChevronDown,
+  ArrowRight,
+  Folder,
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 
@@ -274,25 +278,53 @@ export default function SkillsSection() {
         </motion.div>
 
 
-        {/* Bottom CTA */}
-        <motion.div
-          variants={itemVariants}
-          className="flex justify-center"
-        >
-          <motion.button
-            className={`px-8 py-4 rounded-full font-semibold text-lg border-2 transition-all duration-300 ${isDark
-              ? 'border-white text-white hover:bg-white hover:text-black'
-              : 'border-black text-black hover:bg-black hover:text-white'
-              }`}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const projectsSection = document.getElementById("projects-section");
-              projectsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
-            }}
+        {/* Buttons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center gap-4 flex-wrap"
           >
-            View My Projects
-          </motion.button>
+            <motion.button
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${isDark
+                  ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
+                  : 'border-gray-500 text-gray-800 hover:bg-gray-100'
+                } transition-all duration-300`}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const projectsSection = document.getElementById("projects-section");
+                projectsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
+              }}
+            >
+              <Folder size={20} />
+              View My Projects
+              <motion.div
+                animate={{ y: [0, 4, 0] }}
+                transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
+              >
+                <ChevronDown size={20} />
+              </motion.div>
+            </motion.button>
+
+            <motion.button
+              className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
+                  ? 'bg-white text-black hover:bg-gray-200'
+                  : 'bg-black text-white hover:bg-gray-800'
+                } transition-all duration-300`}
+              whileHover={{ scale: 1.05, x: 4 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                window.location.href = "/skills"; 
+              }}
+            >
+              <Code2 size={22} />
+              See All Skills
+              <motion.div
+                animate={{ x: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+              >
+                <ArrowRight size={28} /> 
+              </motion.div>
+            </motion.button>
         </motion.div>
       </motion.div>
     </section>
