@@ -146,22 +146,21 @@ export default function AboutSection() {
 
         {/* Main description - same style as hero description */}
         <motion.p
-          variants={itemVariants}
-          className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-0 md:px-8 my-8 md:my-16 lg:my-24 max-w-3xl mx-auto leading-relaxed`}
-        >
-          I am in love with programming.
-          Hence, I taught myself more of it than what the varsity taught me.
-          Even though my journey began with Python,
-          I learned C++ for competitive programming,
-          JavaScript for Web programming,
-          and Kotlin for Android along the way.
-          I have also explored Java and C.
-          To date, I have completed more than 20 personal web projects
-          and worked professionally with more than 10.
-          I have one Android app published on the Play Store,
-          and more are on the way.
-        </motion.p>
-
+  variants={itemVariants}
+  className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-200' : 'text-gray-800'} px-4 sm:px-6 md:px-10 lg:px-12 py-6 sm:py-8 md:py-12 lg:py-16 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
+>
+  I am in love with programming.
+  Hence, I taught myself more of it than what the varsity taught me.
+  Even though my journey began with Python,
+  I learned C++ for competitive programming,
+  JavaScript for Web programming,
+  and Kotlin for Android along the way.
+  I have also explored Java and C.
+  To date, I have completed more than 20 personal web projects
+  and worked professionally with more than 10.
+  I have one Android app published on the Play Store,
+  and more are on the way.
+</motion.p>
 
         {/* View More About Me Button */}
         <motion.div
