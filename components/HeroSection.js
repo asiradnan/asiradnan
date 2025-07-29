@@ -106,7 +106,7 @@ export default function HeroSection() {
     <section
       id="hero-section"
       ref={sectionRef}
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
+      className={`min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-16 md:pt-0 ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
     >
       {/* Animated background grid */}
       <div className="absolute inset-0 opacity-20">
