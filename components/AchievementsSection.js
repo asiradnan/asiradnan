@@ -4,54 +4,29 @@ import { motion } from 'framer-motion';
 import {
     Trophy,
     Award,
-    Medal,
     Star,
-    Code,
+    Shield,
     ChevronDown,
     ArrowRight,
-    ExternalLink,
-    Send
+    ExternalLink
 } from 'lucide-react';
-import { useTheme } from '@/components/ThemeContext'
+import { useTheme } from '@/components/ThemeContext';
+import { certificatesData } from '@/data/projectsData';
 
 export default function AchievementsSection() {
     const { isDark } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
 
-    const achievements = React.useMemo(() => [
-        {
-            name: "ICPC Regional Finalist",
-            icon: Trophy
-        },
-        {
-            name: "Problem Solving (Intermediate) - HackerRank",
-            icon: Trophy
-        },
-        {
-            name: "Python (Advanced) - HackerRank",
-            icon: Code
-        },
-        {
-            name: "Data Structures & Algorithms - Coursera",
-            icon: Award
-        },
-        {
-            name: "4 Star Coder - CodeChef",
-            icon: Star
-        },
-        {
-            name: "Web Development - freeCodeCamp",
-            icon: Medal
-        }
-    ], []);
+    // Show top 4 certificates for highlights (2x2 grid)
+    const featuredCertificates = certificatesData.slice(0, 4);
 
     const floatingIcons = [
         { Icon: Trophy, delay: 0, x: 20, y: 30 },
         { Icon: Award, delay: 0.5, x: -30, y: 20 },
-        { Icon: Medal, delay: 1, x: 40, y: -20 },
-        { Icon: Trophy, delay: 1.5, x: -20, y: -30 },
-        { Icon: Star, delay: 2, x: 50, y: 40 }
+        { Icon: Star, delay: 1, x: 40, y: -20 },
+        { Icon: Shield, delay: 1.5, x: -20, y: -30 },
+        { Icon: Trophy, delay: 2, x: 50, y: 40 }
     ];
 
     useEffect(() => {
@@ -83,14 +58,14 @@ export default function AchievementsSection() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3,
+                staggerChildren: 0.2,
                 delayChildren: 0.2
             }
         }
     };
 
     const itemVariants = {
-        hidden: { y: 50, opacity: 0 },
+        hidden: { y: 40, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
@@ -157,7 +132,7 @@ export default function AchievementsSection() {
 
             {/* Main content */}
             <motion.div
-                className="text-center z-10 px-6 max-w-5xl mx-auto"
+                className="text-center z-10 px-4 max-w-6xl mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 animate={isVisible ? "visible" : "hidden"}
@@ -165,7 +140,7 @@ export default function AchievementsSection() {
                 {/* Section title */}
                 <motion.h2
                     variants={itemVariants}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+                    className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight"
                 >
                     <motion.span
                         className={`bg-gradient-to-r ${isDark
@@ -183,45 +158,77 @@ export default function AchievementsSection() {
                 {/* Main description */}
                 <motion.p
                     variants={itemVariants}
-                    className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
+                    className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-8 max-w-3xl mx-auto leading-relaxed`}
                 >
-                    I'm constantly challenging myself through competitive programming and various certification programs.
-                    Here are some of my notable achievements and certifications.
+                    {certificatesData.length} professional certifications from leading platforms, 
+                    with {certificatesData.filter(cert => cert.verificationLink).length} verified achievements 
+                    validating my expertise in software development.
                 </motion.p>
 
-                {/* Achievements - simple horizontal layout like skills */}
+                {/* Featured Certificates - 2x2 Grid Layout */}
                 <motion.div
                     variants={itemVariants}
-                    className="mb-12"
+                    className="mb-8"
                 >
-                    <div className="flex flex-wrap justify-center gap-6">
-                        {achievements.map((achievement, index) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+                        {featuredCertificates.map((certificate, index) => (
                             <motion.div
-                                key={achievement.name}
-                                className={`flex items-center space-x-2 px-4 py-2 rounded-full border ${isDark
-                                    ? 'border-gray-600 text-gray-300'
-                                    : 'border-gray-300 text-gray-700'
-                                    }`}
+                                key={certificate.id}
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                                transition={{ delay: 0.8 + (index * 0.1) }}
-                                whileHover={{ scale: 1.05 }}
+                                transition={{ delay: 0.6 + (index * 0.1) }}
+                                className={`flex items-center space-x-3 px-4 py-4 rounded-lg border ${isDark
+                                    ? 'bg-gray-800/20 border-gray-600/40 text-gray-200'
+                                    : 'bg-white/40 border-gray-300/60 text-gray-800'
+                                    } backdrop-blur-sm group`}
+                                whileHover={{ scale: 1.05, y: -2 }}
                             >
-                                <achievement.icon size={20} />
-                                <span className="text-sm font-medium">{achievement.name}</span>
+                                <Award size={20} className="text-yellow-500 flex-shrink-0" />
+                                
+                                <div className="flex-1 min-w-0">
+                                    {certificate.verificationLink ? (
+                                        <motion.a
+                                            href={certificate.verificationLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center gap-2 text-sm font-medium hover:underline"
+                                            whileHover={{ x: 2 }}
+                                        >
+                                            <span className="truncate">{certificate.name}</span>
+                                            <ExternalLink size={12} className="opacity-70 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                                        </motion.a>
+                                    ) : (
+                                        <span className="text-sm font-medium truncate block">
+                                            {certificate.name}
+                                        </span>
+                                    )}
+                                </div>
+
+                                {certificate.verificationLink && (
+                                    <Shield size={16} className="text-green-500 flex-shrink-0" />
+                                )}
                             </motion.div>
                         ))}
                     </div>
+                    
+                    {/* +More indicator - now centered below the grid */}
+                    {certificatesData.length > 4 && (
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                            transition={{ delay: 1.0 }}
+                            className={`flex items-center justify-center space-x-2 mt-4 px-4 py-2 rounded-full ${isDark
+                                ? 'text-gray-400'
+                                : 'text-gray-600'
+                                }`}
+                        >
+                            <Star size={16} />
+                            <span className="text-sm font-medium">
+                                +{certificatesData.length - 4} more
+                            </span>
+                        </motion.div>
+                    )}
                 </motion.div>
-
-                {/* Final statement */}
-                <motion.p
-                    variants={itemVariants}
-                    className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed mb-12`}
-                >
-                    These achievements represent my commitment to continuous learning and
-                    excellence in software development and problem-solving.
-                </motion.p>
 
                 {/* Buttons */}
                 <motion.div
@@ -229,7 +236,7 @@ export default function AchievementsSection() {
                     className="flex justify-center gap-4 flex-wrap"
                 >
                     <motion.button
-                        className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${isDark
+                        className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold border-2 ${isDark
                             ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
                             : 'border-gray-500 text-gray-800 hover:bg-gray-100'
                             } transition-all duration-300`}
@@ -240,18 +247,18 @@ export default function AchievementsSection() {
                             contactSection?.scrollIntoView({ behavior: "smooth", block: "center" });
                         }}
                     >
-                        <Send size={20} />
+                        <Trophy size={20} />
                         Contact Me
                         <motion.div
-                            animate={{ y: [0, 4, 0] }}
+                            animate={{ y: [0, 3, 0] }}
                             transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
                         >
-                            <ChevronDown size={20} />
+                            <ChevronDown size={18} />
                         </motion.div>
                     </motion.button>
 
                     <motion.button
-                        className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
+                        className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold ${isDark
                             ? 'bg-white text-black hover:bg-gray-200'
                             : 'bg-black text-white hover:bg-gray-800'
                             } transition-all duration-300`}
@@ -261,13 +268,13 @@ export default function AchievementsSection() {
                             window.location.href = "/achievements";
                         }}
                     >
-                        <Trophy size={22} />
+                        <Award size={20} />
                         View All Achievements
                         <motion.div
-                            animate={{ x: [0, 8, 0] }}
+                            animate={{ x: [0, 6, 0] }}
                             transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
                         >
-                            <ArrowRight size={28} />
+                            <ArrowRight size={24} />
                         </motion.div>
                     </motion.button>
                 </motion.div>
