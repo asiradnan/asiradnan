@@ -514,12 +514,13 @@ const ProjectsPage = () => {
                   className={`relative rounded-2xl border backdrop-blur-sm ${isDark 
                     ? 'bg-gray-800/10 border-gray-700/30' 
                     : 'bg-white/30 border-gray-200/40'
-                  } overflow-hidden group`}
+                  } overflow-hidden group cursor-pointer`}
                   whileHover={{
                     scale: 1.005,
                     y: -1,
                     transition: { duration: 0.3 }
                   }}
+                  onClick={() => setSelectedProject(project)}
                 >
                   <div className={`grid lg:grid-cols-2 gap-0 ${isReversed ? 'lg:grid-flow-col-dense' : ''}`}>
                     {/* Content Section */}
@@ -551,10 +552,20 @@ const ProjectsPage = () => {
                       <h3 className={`text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                         {project.name}
                       </h3>
-                      
-                      {/* Project Description */}
-                      <p className={`text-lg leading-relaxed mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                        {project.fullDescription}
+
+                      {/* Project Short Description */}
+                      <p className={`text-lg leading-relaxed mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                        {project.shortDescription}
+                      </p>
+
+                      {/* Motivation */}
+                      <p className={`text-base mb-2 ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>
+                        <span className="font-semibold">Motivation:</span> {project.motivation}
+                      </p>
+
+                      {/* Result */}
+                      <p className={`text-base mb-6 ${isDark ? 'text-green-300' : 'text-green-700'}`}>
+                        <span className="font-semibold">Result:</span> {project.result}
                       </p>
 
                       {/* Skills */}
@@ -573,15 +584,15 @@ const ProjectsPage = () => {
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {project.liveLink && (
                           <motion.a
                             href={project.liveLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium ${isDark
-                              ? 'bg-green-600/80 hover:bg-green-600 text-white'
-                              : 'bg-green-600 hover:bg-green-700 text-white'
+                            className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium w-full ${isDark
+                              ? 'bg-white text-black hover:bg-gray-200'
+                              : 'bg-black text-white hover:bg-gray-900'
                             } transition-all duration-200 group`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
@@ -596,7 +607,7 @@ const ProjectsPage = () => {
                             href={project.githubLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium border ${isDark
+                            className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium border w-full ${isDark
                               ? 'border-gray-600/50 text-gray-200 hover:bg-gray-700/50 hover:border-gray-500/50'
                               : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
                             } transition-all duration-200 group`}
@@ -608,18 +619,6 @@ const ProjectsPage = () => {
                           </motion.a>
                         )}
 
-                        <motion.button
-                          onClick={() => setSelectedProject(project)}
-                          className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium ${isDark
-                            ? 'bg-gray-700/50 text-gray-200 hover:bg-gray-600/50'
-                            : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                          } transition-all duration-200 group`}
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                        >
-                          <Eye size={16} />
-                          <span>Details</span>
-                        </motion.button>
                       </div>
                     </div>
 
@@ -630,7 +629,7 @@ const ProjectsPage = () => {
                           <img 
                             src={project.image} 
                             alt={project.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-contain"
                           />
                         ) : (
                           <div className="flex items-center justify-center h-full">
