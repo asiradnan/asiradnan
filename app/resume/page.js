@@ -9,7 +9,6 @@ import {
     Monitor,
     Smartphone,
     FileText,
-    ArrowUp,
     Mail,
     Github,
     Linkedin,
@@ -21,16 +20,18 @@ import {
     ExternalLink
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
+import emailjs from '@emailjs/browser';
 
 export default function ResumePage() {
     const { isDark } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
     const [copyStatus, setCopyStatus] = useState('');
-    const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [messageInput, setMessageInput] = useState('Hello Asir, \nI -');
-    const [showScrollTop, setShowScrollTop] = useState(false);
     const sectionRef = useRef(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState('');
+    const formRef = useRef(null);
 
     const resumeOptions = React.useMemo(() => [
         {
@@ -99,16 +100,6 @@ export default function ResumePage() {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    setShowScrollTop(true);
-                    // Auto-scroll to center the contact section
-                    setTimeout(() => {
-                        sectionRef.current?.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-                    }, 100);
-                } else {
-                    setShowScrollTop(false);
                 }
             },
             { threshold: 0.3 }
@@ -119,6 +110,10 @@ export default function ResumePage() {
         }
 
         return () => observer.disconnect();
+    }, []);
+
+    useEffect(() => {
+        emailjs.init("f-0ojQvjSEp6cb5W0");
     }, []);
 
     const containerVariants = {
@@ -147,7 +142,6 @@ export default function ResumePage() {
 
     const copyToClipboard = (text, name) => {
         try {
-            // Use the actual value to copy, not the handle display text
             navigator.clipboard.writeText(text)
                 .then(() => {
                     setCopyStatus(name);
@@ -165,14 +159,44 @@ export default function ResumePage() {
         }
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Here you would handle the form submission logic
-        // For now, let's just reset the form
-        alert(`Thank you for your message! I'll get back to you soon at ${emailInput}.`);
-        setNameInput('');
-        setEmailInput('');
-        setMessageInput('Hello Asir, \nI -');
+        setIsSubmitting(true);
+        setSubmitStatus('');
+
+        try {
+            // EmailJS template parameters
+            const templateParams = {
+                from_name: 'Portfolio Visitor',
+                from_email: emailInput,
+                message: messageInput,
+                to_name: 'Asir',
+            };
+
+            // Send email using EmailJS
+            const result = await emailjs.send(
+                'service_fid9w8v',
+                'template_m9h4xmi',
+                templateParams,
+                'f-0ojQvjSEp6cb5W0'
+            );
+
+            setSubmitStatus('success');
+
+            // Reset form
+            setEmailInput('');
+            setMessageInput('Hello Asir, \nI -');
+
+            // Show success message
+            setTimeout(() => setSubmitStatus(''), 5000);
+
+        } catch (error) {
+            console.error('Failed to send email:', error);
+            setSubmitStatus('error');
+            setTimeout(() => setSubmitStatus(''), 5000);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleDownload = (filename, resumeType) => {
@@ -183,13 +207,6 @@ export default function ResumePage() {
     const handlePreview = (filename, resumeType) => {
         alert(`Opening ${resumeType} preview: ${filename}`);
         // Implement actual preview logic here
-    };
-
-    const scrollToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'auto'
-        });
     };
 
     return (
@@ -245,33 +262,6 @@ export default function ResumePage() {
                         <Icon size={32} />
                     </motion.div>
                 ))}
-
-                {/* Scroll to Top Button */}
-                <motion.button
-                    onClick={scrollToTop}
-                    className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg ${isDark
-                            ? 'bg-white text-black hover:bg-gray-200'
-                            : 'bg-black text-white hover:bg-gray-800'
-                        } transition-colors duration-300`}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{
-                        opacity: showScrollTop ? 1 : 0,
-                        scale: showScrollTop ? 1 : 0
-                    }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20
-                    }}
-                    style={{
-                        pointerEvents: showScrollTop ? 'auto' : 'none'
-                    }}
-                    aria-label="Scroll to top"
-                >
-                    <ArrowUp size={24} />
-                </motion.button>
 
                 {/* Main content */}
                 <motion.div
@@ -434,7 +424,31 @@ export default function ResumePage() {
                                 Send Me a Message
                             </h3>
 
-                            <form onSubmit={handleSubmit} className="space-y-4">
+                            {/* Status Messages */}
+                            {submitStatus === 'success' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="mb-4 p-3 rounded-lg bg-green-100 border border-green-300 text-green-800"
+                                >
+                                    <div className="flex items-center gap-2">
+                                        <Check size={18} />
+                                        <span>I received your message! Will get back to you soon.</span>
+                                    </div>
+                                </motion.div>
+                            )}
+
+                            {submitStatus === 'error' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="mb-4 p-3 rounded-lg bg-red-100 border border-red-300 text-red-800"
+                                >
+                                    <span>Failed to send message.</span>
+                                </motion.div>
+                            )}
+
+                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <input
                                         type="email"
@@ -446,6 +460,7 @@ export default function ResumePage() {
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-gray-500'
                                             } focus:outline-none transition-colors duration-300`}
                                         required
+                                        disabled={isSubmitting}
                                     />
                                 </div>
                                 <div>
@@ -459,19 +474,34 @@ export default function ResumePage() {
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-gray-500'
                                             } focus:outline-none transition-colors duration-300`}
                                         required
+                                        disabled={isSubmitting}
                                     />
                                 </div>
                                 <motion.button
                                     type="submit"
+                                    disabled={isSubmitting}
                                     className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg font-medium shadow-sm ${isDark
-                                        ? 'bg-white text-black hover:bg-gray-200'
-                                        : 'bg-black text-white hover:bg-gray-800'
-                                        } transition-colors duration-300`}
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
+                                        ? 'bg-white text-black hover:bg-gray-200 disabled:bg-gray-400 disabled:text-gray-700'
+                                        : 'bg-black text-white hover:bg-gray-800 disabled:bg-gray-400 disabled:text-gray-600'
+                                        } transition-colors duration-300 disabled:cursor-not-allowed`}
+                                    whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                                 >
-                                    <Send size={18} />
-                                    Send Message
+                                    {isSubmitting ? (
+                                        <>
+                                            <motion.div
+                                                className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
+                                                animate={{ rotate: 360 }}
+                                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                            />
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Send size={18} />
+                                            Send Message
+                                        </>
+                                    )}
                                 </motion.button>
                             </form>
                         </motion.div>
