@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Youtube, Facebook } from "lucide-react";
 import Link from "next/link";
 
 export const SocialSidebar = () => {
@@ -24,6 +24,24 @@ export const SocialSidebar = () => {
           aria-label="LinkedIn"
         >
           <Linkedin size={20} />
+        </Link>
+        <Link 
+          href="https://youtube.com/@asironscreen" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-200 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-700 rounded-full transition-colors"
+          aria-label="YouTube"
+        >
+          <Youtube size={20} />
+        </Link>
+        <Link 
+          href="https://facebook.com/asiradnan23" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-200 dark:text-slate-400 dark:hover:text-slate-100 dark:hover:bg-slate-700 rounded-full transition-colors"
+          aria-label="Facebook"
+        >
+          <Facebook size={20} />
         </Link>
         <Link 
           href="mailto:hello@asiradnan.com" 
