@@ -5,7 +5,7 @@ import { useTheme } from '@/components/ThemeContext';
 import { projectsData } from '@/data/projectsData';
 import Link from 'next/link';
 import { 
-  Folder, 
+  Trophy, 
   ArrowRight, 
   ChevronDown, 
   X, 
@@ -347,7 +347,7 @@ export default function ProjectsSection({ onProjectClick }) {
                 isDark ? 'text-gray-300' : 'text-gray-700'
               } max-w-2xl mx-auto leading-relaxed`}
             >
-              Click on any project to explore detailed information, technologies used, and live demos!
+              Click on any project to explore detailed information, and live demos!
             </motion.p>
           </motion.div>
 
@@ -500,31 +500,7 @@ export default function ProjectsSection({ onProjectClick }) {
               whileTap={{ scale: 0.95 }}
               onClick={handleShowAllProjects}
             >
-              <Folder size={20} />
-              View All Projects
-              <motion.div
-                animate={{ y: [0, 4, 0] }}
-                transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
-              >
-                <ChevronDown size={20} />
-              </motion.div>
-            </motion.button>
-
-            <motion.button
-              variants={itemVariants}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${
-                isDark
-                  ? 'border-gray-400 text-gray-200 hover:bg-gray-700 hover:border-gray-300'
-                  : 'border-gray-500 text-gray-800 hover:bg-gray-100 hover:border-gray-600'
-              } transition-all duration-300`}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => {
-                const achievementsSection = document.getElementById('achievements-section');
-                achievementsSection?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }}
-            >
-              <Award size={20} />
+              <Trophy size={20} />
               My Achievements
               <motion.div
                 animate={{ y: [0, 4, 0] }}
@@ -533,6 +509,26 @@ export default function ProjectsSection({ onProjectClick }) {
                 <ChevronDown size={20} />
               </motion.div>
             </motion.button>
+
+            <Link href="/skills">
+            <motion.a
+              className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
+                ? 'bg-white text-black hover:bg-gray-200'
+                : 'bg-black text-white hover:bg-gray-800'
+                } transition-all duration-300`}
+              whileHover={{ scale: 1.05, x: 4 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Code2 size={22} />
+              View All Projects
+              <motion.div
+                animate={{ x: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
+              >
+                <ArrowRight size={28} />
+              </motion.div>
+            </motion.a>
+          </Link>
           </motion.div>
         </div>
       </section>
