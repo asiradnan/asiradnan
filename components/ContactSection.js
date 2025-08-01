@@ -14,16 +14,19 @@ import {
     ArrowUp
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
     const { isDark } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
     const [copyStatus, setCopyStatus] = useState('');
-    const [nameInput, setNameInput] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [messageInput, setMessageInput] = useState('Hello Asir, \nI -');
     const [showScrollTop, setShowScrollTop] = useState(false);
     const sectionRef = useRef(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState('');
+    const formRef = useRef(null);
 
     const socialLinks = React.useMemo(() => [
         {
@@ -135,14 +138,48 @@ export default function ContactSection() {
         }
     };
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        emailjs.init("f-0ojQvjSEp6cb5W0");
+    }, []);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Here you would handle the form submission logic
-        // For now, let's just reset the form
-        alert(`Thank you for your message! I'll get back to you soon at ${emailInput}.`);
-        setNameInput('');
-        setEmailInput('');
-        setMessageInput('Hello Asir, \nI -');
+        setIsSubmitting(true);
+        setSubmitStatus('');
+
+        try {
+            // EmailJS template parameters
+            const templateParams = {
+                from_name: 'Portfolio Visitor',
+                from_email: emailInput,
+                message: messageInput,
+                to_name: 'Asir', // Your name
+            };
+
+            // Send email using EmailJS
+            const result = await emailjs.send(
+                'service_fid9w8v',
+                'template_m9h4xmi',
+                templateParams,
+                'f-0ojQvjSEp6cb5W0'
+            );
+
+            setSubmitStatus('success');
+
+            // Reset form
+            setEmailInput('');
+            setMessageInput('Hello Asir, \nI -');
+
+            // Show success message
+            setTimeout(() => setSubmitStatus(''), 5000);
+
+        } catch (error) {
+            console.error('Failed to send email:', error);
+            setSubmitStatus('error');
+            setTimeout(() => setSubmitStatus(''), 5000);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const scrollToTop = () => {
@@ -209,8 +246,8 @@ export default function ContactSection() {
             <motion.button
                 onClick={scrollToTop}
                 className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg ${isDark
-                        ? 'bg-white text-black hover:bg-gray-200'
-                        : 'bg-black text-white hover:bg-gray-800'
+                    ? 'bg-white text-black hover:bg-gray-200'
+                    : 'bg-black text-white hover:bg-gray-800'
                     } transition-colors duration-300`}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{
@@ -287,11 +324,10 @@ export default function ContactSection() {
                                 animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                                 transition={{ delay: 0.5 + (index * 0.1) }}
                                 whileHover={{ scale: 1.02, x: 5 }}
-                                onClick={() => 
-                                    {
-                                        if (social.name == "Email") copyToClipboard(social.value, social.name)
-                                        else copyToClipboard(social.link, social.name)
-                                    }
+                                onClick={() => {
+                                    if (social.name == "Email") copyToClipboard(social.value, social.name)
+                                    else copyToClipboard(social.link, social.name)
+                                }
                                 }
                             >
                                 <div className={`p-2 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'
@@ -331,7 +367,31 @@ export default function ContactSection() {
                             Send Me a Message
                         </h3>
 
-                        <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* Status Messages */}
+                        {submitStatus === 'success' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="mb-4 p-3 rounded-lg bg-green-100 border border-green-300 text-green-800"
+                            >
+                                <div className="flex items-center gap-2">
+                                    <Check size={18} />
+                                    <span>I received your message! Will get back to you soon.</span>
+                                </div>
+                            </motion.div>
+                        )}
+
+                        {submitStatus === 'error' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="mb-4 p-3 rounded-lg bg-red-100 border border-red-300 text-red-800"
+                            >
+                                <span>Failed to send message.</span>
+                            </motion.div>
+                        )}
+
+                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                             <div>
                                 <input
                                     type="email"
@@ -343,6 +403,7 @@ export default function ContactSection() {
                                         : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-gray-500'
                                         } focus:outline-none transition-colors duration-300`}
                                     required
+                                    disabled={isSubmitting}
                                 />
                             </div>
                             <div>
@@ -356,19 +417,34 @@ export default function ContactSection() {
                                         : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-gray-500'
                                         } focus:outline-none transition-colors duration-300`}
                                     required
+                                    disabled={isSubmitting}
                                 />
                             </div>
                             <motion.button
                                 type="submit"
+                                disabled={isSubmitting}
                                 className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg font-medium shadow-sm ${isDark
-                                    ? 'bg-white text-black hover:bg-gray-200'
-                                    : 'bg-black text-white hover:bg-gray-800'
-                                    } transition-colors duration-300`}
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
+                                    ? 'bg-white text-black hover:bg-gray-200 disabled:bg-gray-400 disabled:text-gray-700'
+                                    : 'bg-black text-white hover:bg-gray-800 disabled:bg-gray-400 disabled:text-gray-600'
+                                    } transition-colors duration-300 disabled:cursor-not-allowed`}
+                                whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                                whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                             >
-                                <Send size={18} />
-                                Send Message
+                                {isSubmitting ? (
+                                    <>
+                                        <motion.div
+                                            className="w-4 h-4 border-2 border-current border-t-transparent rounded-full"
+                                            animate={{ rotate: 360 }}
+                                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                        />
+                                        Sending...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send size={18} />
+                                        Send Message
+                                    </>
+                                )}
                             </motion.button>
                         </form>
                     </motion.div>
