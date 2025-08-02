@@ -13,8 +13,6 @@ export const projectsData = [
       – Set up CI/CD pipelines using GitHub Actions to automate deployments
       – Achieved 98% code coverage by writing comprehensive tests including asynchronous tasks
     `,
-    // motivation: "To streamline and digitize college management processes, enhance communication, and provide a collaborative platform for students and staff.",
-    // result: "Successfully deployed and used by multiple college departments, supporting hundreds of users with real-time features and secure access.",
     skills: ["Django", "Celery", "Redis", "AWS", "PostgreSQL", "Python", "HTML", "CSS", "JavaScript", "GitHub Actions", "Gunicorn", "Nginx"],
     technologies: ["Django", "Celery", "Redis", "AWS", "PostgreSQL", "Python", "HTML", "CSS", "JavaScript", "GitHub Actions", "Gunicorn", "Nginx"],
     githubLink: "https://github.com/asiradnan/PulseCampus",
@@ -29,8 +27,6 @@ export const projectsData = [
     name: "CopyPasta",
     shortDescription: "Quickly transfer text or files between devices with a simple key—no logins, no installs.",
     fullDescription: "CopyPasta is a free web app for fast, secure transfer of text or files between devices. No cables, no software, no risky logins—just open the site, paste or upload, and access from any device using your chosen key. Content can be edited or deleted for privacy.",
-    // motivation: "To simplify the process of transferring files or text between devices, especially in public or restricted environments, without compromising security or requiring extra steps.",
-    // result: "Enabled hundreds of users to transfer files and text securely and instantly between devices, reducing friction and improving privacy.",
     skills: ["Django", "HTML", "CSS", "JavaScript", "Web Security", "UX Design"],
     technologies: ["Django", "HTML", "CSS", "JavaScript"],
     githubLink: "https://github.com/asiradnan/copypasta",
@@ -266,6 +262,78 @@ export const certificatesData = [
   }
 ];
 
+export const competitiveProgrammingData = [
+  {
+    id: 1,
+    platform: "Codeforces",
+    username: "asiradnan",
+    profileLink: "https://codeforces.com/profile/asiradnan",
+    logo: "/platforms/codeforces.png", 
+    stats: {
+      rating: "1321",
+      maxRating: "1321",
+      rank: "Pupil",
+      problemsSolved: "1150+"
+    },
+    achievements: [
+      // "Pupil Rank Achievement",
+      "Solved 1150+ problems",
+      "Participated in 50+ contests"
+    ]
+  },
+  {
+    id: 2,
+    platform: "LeetCode",
+    username: "asiradnan",
+    profileLink: "https://leetcode.com/u/asiradnan/",
+    logo: "/platforms/leetcode.png", 
+    stats: {
+      problemsSolved: "210+",
+      easyProblems: "55+",
+      mediumProblems: "145+",
+      hardProblems: "5+"
+    },
+    achievements: [
+      "200+ Problems Solved",
+      // "Contest Participant",
+      // "Multiple badges earned"
+    ]
+  },
+  // {
+  //   id: 3,
+  //   platform: "HackerRank",
+  //   username: "asiradnan",
+  //   profileLink: "https://www.hackerrank.com/profile/asiradnan",
+  //   logo: "/platforms/hackerrank.png", // Add your logo
+  //   stats: {
+  //     stars: "5-star Python",
+  //     problemsSolved: "100+",
+  //     badges: "15+",
+  //     certificates: "7"
+  //   },
+  //   achievements: [
+  //     "5-star in Python",
+  //     "Multiple domain certifications",
+  //     "Problem solving specialist"
+  //   ]
+  // },
+  // {
+  //   id: 4,
+  //   platform: "AtCoder",
+  //   username: "asiradnan",
+  //   profileLink: "https://atcoder.jp/users/asiradnan",
+  //   logo: "/platforms/atcoder.png", // Add your logo
+  //   stats: {
+  //     rating: "Brown",
+  //     highestRating: "Brown",
+  //     problemsSolved: "50+"
+  //   },
+  //   achievements: [
+  //     "Active contest participant",
+  //     "Algorithmic problem solver"
+  //   ]
+  // }
+];
 
 // Helper functions to get related data
 export const getProjectsBySkill = (skill) => {
@@ -292,5 +360,8 @@ export const getSkillsByProject = (projectId) => {
 export const getAllSkills = () => {
   const projectSkills = projectsData.flatMap(project => project.skills);
   const certificateSkills = certificatesData.flatMap(certificate => certificate.skills);
-  return [...new Set([...projectSkills, ...certificateSkills])].sort();
+  const competitiveSkills = competitiveProgrammingData.flatMap(platform => 
+    platform.achievements || []
+  );
+  return [...new Set([...projectSkills, ...certificateSkills, ...competitiveSkills])].sort();
 };
