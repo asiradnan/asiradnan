@@ -3,6 +3,7 @@ import NavBar from "../components/navbar";
 import { ThemeProvider } from "@/components/ThemeContext";
 import { JetBrains_Mono } from 'next/font/google';
 import SocialSidebar from "@/components/SocialSidebar";
+import { ClarityProvider } from "@/components/ClarityProvider";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${jetbrainsMono.variable}`}>
+        <ClarityProvider />
         <ThemeProvider>
           <NavBar />
           <SocialSidebar />
