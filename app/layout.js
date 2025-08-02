@@ -20,15 +20,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${jetbrainsMono.variable}`}>
         <ThemeProvider>
-          <div className="flex flex-col min-h-screen">
-            <NavBar />
-            <div className="flex flex-grow relative">
-              <SocialSidebar />
-              <main className="flex-grow">
-                {children}
-              </main>
-            </div>
-          </div>
+          <NavBar />
+          <SocialSidebar />
+          <main className="w-full">
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

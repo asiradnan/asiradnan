@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from '@/components/ThemeContext'
+import { usePathname } from 'next/navigation';
 
 // Add JetBrains Mono font
 import { JetBrains_Mono } from 'next/font/google';
@@ -31,8 +32,13 @@ export default function NavBar() {
             <NavLinks isDark={isDark} />
           </nav>
 
-          {/* Theme toggle and mobile menu */}
+          {/* Theme toggle, mobile menu, and resume button */}
           <div className="flex items-center space-x-4">
+            {/* Resume button - desktop only */}
+            <div className="hidden lg:block">
+              <ResumeButton isDark={isDark} />
+            </div>
+
             {/* Theme toggle button */}
             <button
               onClick={toggleTheme}
@@ -88,6 +94,7 @@ export default function NavBar() {
               className={`flex flex-col items-end space-y-4 py-6 ${isDark ? 'text-white' : 'text-black'} text-lg font-medium w-full pr-4 mr-4`}
             >
               <NavLinks isDark={isDark} />
+              <ResumeButton isDark={isDark} />
             </motion.div>
           </motion.nav>
         )}
@@ -97,24 +104,72 @@ export default function NavBar() {
 }
 
 function NavLinks({ isDark }) {
-  const linkStyle = `${isDark ? 'hover:text-gray-300' : 'hover:text-gray-600'} transition-all duration-300 relative group`;
+  const pathname = usePathname();
+
+  const isActive = (href) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <>
       {[
         { href: "/", label: "Home" },
-        { href: "/about", label: "About" },
+        // { href: "/about", label: "About" },
         { href: "/skills", label: "Skills" },
         { href: "/projects", label: "Projects" },
         { href: "/achievements", label: "Achievements" },
         { href: "/experience", label: "Experience" },
-        { href: "/resume", label: "Resume" },
-      ].map(({ href, label }) => (
-        <Link key={href} href={href} className={linkStyle}>
-          {label}
-          <span className={`block h-0.5 ${isDark ? 'bg-gray-300' : 'bg-gray-600'} scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
-        </Link>
-      ))}
+      ].map(({ href, label }) => {
+        const active = isActive(href);
+        
+        return (
+          <Link 
+            key={href} 
+            href={href} 
+            className={`relative group transition-all duration-300 ${
+              active 
+                ? (isDark ? 'text-white font-bold' : 'text-black font-bold')
+                : (isDark ? 'hover:text-gray-300 text-white' : 'hover:text-gray-600 text-black')
+            }`}
+          >
+            {label}
+            <span 
+              className={`block h-0.5 transition-transform duration-300 origin-left ${
+                active 
+                  ? `scale-x-100 ${isDark ? 'bg-white' : 'bg-black'}`
+                  : `scale-x-0 group-hover:scale-x-100 ${isDark ? 'bg-gray-300' : 'bg-gray-600'}`
+              }`} 
+            />
+          </Link>
+        );
+      })}
     </>
+  );
+}
+
+function ResumeButton({ isDark }) {
+  const pathname = usePathname();
+  const active = pathname.startsWith('/resume');
+
+  return (
+    <Link 
+      href="/resume"
+      className={`relative group transition-all duration-300 px-4 py-2 rounded-lg border-2 font-medium ${
+        active 
+          ? (isDark 
+              ? 'bg-white text-black border-white' 
+              : 'bg-black text-white border-black'
+            )
+          : (isDark 
+              ? 'border-white text-white hover:bg-white hover:text-black' 
+              : 'border-black text-black hover:bg-black hover:text-white'
+            )
+      }`}
+    >
+      Resume
+    </Link>
   );
 }

@@ -77,14 +77,7 @@ export default function ResumePage() {
             value: "asiradnan",
             link: "https://linkedin.com/in/asiradnan",
             handle: "in/asiradnan"
-        },
-        // { 
-        //   name: "Twitter", 
-        //   icon: Twitter, 
-        //   value: "yourhandle",
-        //   link: "https://twitter.com/yourhandle",
-        //   handle: "@yourhandle" 
-        // }
+        }
     ], []);
 
     const floatingIcons = [
@@ -165,7 +158,6 @@ export default function ResumePage() {
         setSubmitStatus('');
 
         try {
-            // EmailJS template parameters
             const templateParams = {
                 from_name: 'Portfolio Visitor',
                 from_email: emailInput,
@@ -173,7 +165,6 @@ export default function ResumePage() {
                 to_name: 'Asir',
             };
 
-            // Send email using EmailJS
             const result = await emailjs.send(
                 'service_fid9w8v',
                 'template_m9h4xmi',
@@ -182,12 +173,8 @@ export default function ResumePage() {
             );
 
             setSubmitStatus('success');
-
-            // Reset form
             setEmailInput('');
             setMessageInput('Hello Asir, \nI -');
-
-            // Show success message
             setTimeout(() => setSubmitStatus(''), 5000);
 
         } catch (error) {
@@ -210,16 +197,16 @@ export default function ResumePage() {
     };
 
     return (
-        <div className={`min-h-screen ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+        <div className={`w-full min-h-screen ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
             <section
-                id="contact-section"
+                id="resume-section"
                 ref={sectionRef}
-                className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
+                className="w-full min-h-screen flex items-center justify-center relative overflow-hidden"
             >
                 {/* Animated background grid */}
                 <div className="absolute inset-0 opacity-20">
                     <motion.div
-                        className={`w-full h-full ${isDark ? 'bg-grid-white/[0.05]' : 'bg-grid-black/[0.05]'}`}
+                        className="w-full h-full"
                         animate={{
                             backgroundPosition: ['0px 0px', '60px 60px'],
                         }}
@@ -235,122 +222,122 @@ export default function ResumePage() {
                     />
                 </div>
 
-                {/* Floating background icons */}
-                {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-                    <motion.div
-                        key={index}
-                        className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
-                        initial={{ opacity: 0, scale: 0 }}
-                        animate={{
-                            opacity: 0.3,
-                            scale: 1,
-                            x: [0, x, 0],
-                            y: [0, y, 0],
-                            rotate: [0, 360]
-                        }}
-                        transition={{
-                            delay: delay,
-                            duration: 8,
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                        style={{
-                            left: `${20 + (index * 15)}%`,
-                            top: `${15 + (index * 10)}%`
-                        }}
-                    >
-                        <Icon size={32} />
-                    </motion.div>
-                ))}
+                {/* Floating background icons - hidden on mobile */}
+                <div className="hidden md:block">
+                    {floatingIcons.map(({ Icon, delay, x, y }, index) => (
+                        <motion.div
+                            key={index}
+                            className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{
+                                opacity: 0.3,
+                                scale: 1,
+                                x: [0, x, 0],
+                                y: [0, y, 0],
+                                rotate: [0, 360]
+                            }}
+                            transition={{
+                                delay: delay,
+                                duration: 8,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            style={{
+                                left: `${20 + (index * 15)}%`,
+                                top: `${15 + (index * 10)}%`
+                            }}
+                        >
+                            <Icon size={32} />
+                        </motion.div>
+                    ))}
+                </div>
 
                 {/* Main content */}
                 <motion.div
-                    className="z-10 px-6 py-12 w-full max-w-6xl mx-auto"
+                    className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:py-12"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isVisible ? "visible" : "hidden"}
                 >
                     {/* Section title */}
-                    <motion.h2
+                    <motion.div
                         variants={itemVariants}
-                        className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-center"
+                        className="text-center mb-8 md:mb-12"
                     >
-                        <motion.span
-                            className={`bg-gradient-to-r ${isDark
-                                ? 'from-white via-blue-100 to-white'
-                                : 'from-gray-900 via-blue-600 to-gray-900'
-                                } bg-clip-text text-transparent`}
-                            initial={{ backgroundPosition: '0% 50%' }}
-                            animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                            My Resume
-                        </motion.span>
-                    </motion.h2>
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 md:mb-6 leading-tight">
+                            <motion.span
+                                className={`bg-gradient-to-r ${isDark
+                                    ? 'from-white via-blue-100 to-white'
+                                    : 'from-gray-900 via-blue-600 to-gray-900'
+                                    } bg-clip-text text-transparent`}
+                                initial={{ backgroundPosition: '0% 50%' }}
+                                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                                My Resume
+                            </motion.span>
+                        </h2>
 
-                    {/* Main description */}
-                    <motion.p
-                        variants={itemVariants}
-                        className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto text-center leading-relaxed`}
-                    >
-                        Download or preview my resume tailored for different roles and expertise areas.
-                    </motion.p>
+                        <p className={`text-base md:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed px-4`}>
+                            Download or preview my resume tailored for different roles and expertise areas.
+                        </p>
+                    </motion.div>
 
                     {/* Resume Options */}
                     <motion.div
                         variants={itemVariants}
-                        className="space-y-4 mb-16"
+                        className="space-y-3 md:space-y-4 mb-12 md:mb-16"
                     >
                         {resumeOptions.map((resume, index) => (
                             <motion.div
                                 key={resume.name}
-                                className={`flex items-center justify-between p-6 rounded-lg border ${isDark
+                                className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 md:p-6 rounded-lg border ${isDark
                                     ? 'border-gray-600 bg-gray-800/30 hover:bg-gray-800/50'
                                     : 'border-gray-300 bg-white/30 hover:bg-white/50'
-                                    } transition-all duration-300 group`}
+                                    } transition-all duration-300 group space-y-4 sm:space-y-0`}
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                                 transition={{ delay: 0.3 + (index * 0.1) }}
-                                whileHover={{ scale: 1.02, x: 5 }}
+                                whileHover={{ scale: 1.01, x: 2 }}
                             >
-                                <div className="flex items-center space-x-4">
-                                    <div className={`p-3 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-200'}`}>
-                                        <resume.icon size={24} className={`${isDark ? 'text-white' : 'text-gray-700'}`} />
+                                <div className="flex items-center space-x-3 md:space-x-4">
+                                    <div className={`p-2 md:p-3 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                                        <resume.icon size={20} className={`md:w-6 md:h-6 ${isDark ? 'text-white' : 'text-gray-700'}`} />
                                     </div>
                                     <div>
-                                        <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-black'}`}>
+                                        <h3 className={`text-base md:text-lg font-semibold ${isDark ? 'text-white' : 'text-black'}`}>
                                             {resume.name}
                                         </h3>
-                                        <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                        <p className={`text-xs md:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} break-all`}>
                                             {resume.filename}
                                         </p>
                                     </div>
                                 </div>
                                 
-                                <div className="flex gap-3">
+                                <div className="flex gap-2 md:gap-3 w-full sm:w-auto">
                                     <motion.button
                                         onClick={() => handlePreview(resume.filename, resume.name)}
-                                        className={`flex items-center gap-2 px-4 py-2 rounded-lg border ${isDark
+                                        className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg border text-sm md:text-base ${isDark
                                             ? 'border-gray-600 text-gray-300 hover:bg-gray-700'
                                             : 'border-gray-300 text-gray-700 hover:bg-gray-100'
                                             } transition-colors duration-300`}
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                     >
-                                        <Eye size={16} />
+                                        <Eye size={14} className="md:w-4 md:h-4" />
                                         Preview
                                     </motion.button>
                                     
                                     <motion.button
                                         onClick={() => handleDownload(resume.filename, resume.name)}
-                                        className={`flex items-center gap-2 px-4 py-2 rounded-lg ${isDark
+                                        className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-sm md:text-base ${isDark
                                             ? 'bg-white text-black hover:bg-gray-200'
                                             : 'bg-black text-white hover:bg-gray-800'
                                             } transition-colors duration-300`}
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                     >
-                                        <Download size={16} />
+                                        <Download size={14} className="md:w-4 md:h-4" />
                                         Download
                                     </motion.button>
                                 </div>
@@ -361,18 +348,18 @@ export default function ResumePage() {
                     {/* Two column layout for social links and form */}
                     <motion.div
                         variants={itemVariants}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16"
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"
                     >
-                        {/* Left column - Social Links (Stacked) */}
-                        <motion.div className="flex flex-col space-y-4 items-start justify-center">
-                            <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>
+                        {/* Left column - Social Links */}
+                        <motion.div className="flex flex-col space-y-3 md:space-y-4 items-start justify-center">
+                            <h3 className={`text-xl md:text-2xl font-bold mb-2 md:mb-4 ${isDark ? 'text-white' : 'text-black'}`}>
                                 Connect With Me
                             </h3>
 
                             {socialLinks.map((social, index) => (
                                 <motion.div
                                     key={social.name}
-                                    className={`flex items-center space-x-3 w-full max-w-sm px-4 py-3 rounded-lg border ${isDark
+                                    className={`flex items-center space-x-3 w-full max-w-sm px-3 md:px-4 py-3 rounded-lg border ${isDark
                                         ? 'border-gray-600 text-gray-300 hover:border-gray-400 bg-gray-800/30'
                                         : 'border-gray-300 text-gray-700 hover:border-gray-500 bg-white/30'
                                         } cursor-pointer group transition-colors duration-300`}
@@ -380,31 +367,28 @@ export default function ResumePage() {
                                     animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                                     transition={{ delay: 0.5 + (index * 0.1) }}
                                     whileHover={{ scale: 1.02, x: 5 }}
-                                    onClick={() => 
-                                        {
-                                            if (social.name == "Email") copyToClipboard(social.value, social.name)
-                                            else copyToClipboard(social.link, social.name)
-                                        }
-                                    }
+                                    onClick={() => {
+                                        if (social.name === "Email") copyToClipboard(social.value, social.name);
+                                        else copyToClipboard(social.link, social.name);
+                                    }}
                                 >
-                                    <div className={`p-2 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'
-                                        }`}>
-                                        <social.icon size={24} className={`group-hover:${isDark ? 'text-white' : 'text-black'}`} />
+                                    <div className={`p-2 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'}`}>
+                                        <social.icon size={20} className={`md:w-6 md:h-6 group-hover:${isDark ? 'text-white' : 'text-black'}`} />
                                     </div>
-                                    <div className="flex-grow">
+                                    <div className="flex-grow min-w-0">
                                         <div className="text-sm font-semibold">{social.name}</div>
-                                        <div className="text-sm opacity-80">{social.handle}</div>
+                                        <div className="text-xs md:text-sm opacity-80 truncate">{social.handle}</div>
                                     </div>
                                     {copyStatus === social.name ? (
-                                        <Check size={18} className={`${isDark ? 'text-green-400' : 'text-green-600'}`} />
+                                        <Check size={16} className={`md:w-5 md:h-5 ${isDark ? 'text-green-400' : 'text-green-600'}`} />
                                     ) : (
-                                        <Copy size={18} className="opacity-60 group-hover:opacity-100" />
+                                        <Copy size={16} className="md:w-5 md:h-5 opacity-60 group-hover:opacity-100" />
                                     )}
                                 </motion.div>
                             ))}
 
                             <motion.p
-                                className={`mt-4 text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
+                                className={`mt-2 md:mt-4 text-xs md:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
                                 initial={{ opacity: 0 }}
                                 animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
                                 transition={{ delay: 1 }}
@@ -420,7 +404,7 @@ export default function ResumePage() {
                             animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
                             transition={{ delay: 0.7 }}
                         >
-                            <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>
+                            <h3 className={`text-xl md:text-2xl font-bold mb-2 md:mb-4 ${isDark ? 'text-white' : 'text-black'}`}>
                                 Send Me a Message
                             </h3>
 
@@ -432,8 +416,8 @@ export default function ResumePage() {
                                     className="mb-4 p-3 rounded-lg bg-green-100 border border-green-300 text-green-800"
                                 >
                                     <div className="flex items-center gap-2">
-                                        <Check size={18} />
-                                        <span>I received your message! Will get back to you soon.</span>
+                                        <Check size={16} className="md:w-5 md:h-5" />
+                                        <span className="text-sm md:text-base">I received your message! Will get back to you soon.</span>
                                     </div>
                                 </motion.div>
                             )}
@@ -444,18 +428,18 @@ export default function ResumePage() {
                                     animate={{ opacity: 1, y: 0 }}
                                     className="mb-4 p-3 rounded-lg bg-red-100 border border-red-300 text-red-800"
                                 >
-                                    <span>Failed to send message.</span>
+                                    <span className="text-sm md:text-base">Failed to send message.</span>
                                 </motion.div>
                             )}
 
-                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
+                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                                 <div>
                                     <input
                                         type="email"
                                         placeholder="Your Email"
                                         value={emailInput}
                                         onChange={(e) => setEmailInput(e.target.value)}
-                                        className={`w-full px-4 py-3 rounded-lg border shadow-sm ${isDark
+                                        className={`w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border shadow-sm text-sm md:text-base ${isDark
                                             ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-400'
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-gray-500'
                                             } focus:outline-none transition-colors duration-300`}
@@ -465,11 +449,11 @@ export default function ResumePage() {
                                 </div>
                                 <div>
                                     <textarea
-                                        placeholder={`Hello Asir, \nI -`}
+                                        placeholder="Hello Asir, \nI -"
                                         value={messageInput}
                                         onChange={(e) => setMessageInput(e.target.value)}
-                                        rows={5}
-                                        className={`w-full px-4 py-3 rounded-lg border shadow-sm ${isDark
+                                        rows={4}
+                                        className={`w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border shadow-sm text-sm md:text-base resize-none ${isDark
                                             ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-400'
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-gray-500'
                                             } focus:outline-none transition-colors duration-300`}
@@ -480,7 +464,7 @@ export default function ResumePage() {
                                 <motion.button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className={`w-full flex items-center justify-center gap-2 py-3 rounded-lg font-medium shadow-sm ${isDark
+                                    className={`w-full flex items-center justify-center gap-2 py-2 md:py-3 rounded-lg font-medium shadow-sm text-sm md:text-base ${isDark
                                         ? 'bg-white text-black hover:bg-gray-200 disabled:bg-gray-400 disabled:text-gray-700'
                                         : 'bg-black text-white hover:bg-gray-800 disabled:bg-gray-400 disabled:text-gray-600'
                                         } transition-colors duration-300 disabled:cursor-not-allowed`}
@@ -498,7 +482,7 @@ export default function ResumePage() {
                                         </>
                                     ) : (
                                         <>
-                                            <Send size={18} />
+                                            <Send size={16} className="md:w-5 md:h-5" />
                                             Send Message
                                         </>
                                     )}
@@ -510,9 +494,9 @@ export default function ResumePage() {
                     {/* Copyright text at bottom */}
                     <motion.div
                         variants={itemVariants}
-                        className="mt-16 text-center"
+                        className="mt-12 md:mt-16 text-center"
                     >
-                        <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
+                        <p className={`text-xs md:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
                             © {new Date().getFullYear()} Asir Adnan. All rights reserved.
                         </p>
                     </motion.div>

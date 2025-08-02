@@ -196,7 +196,7 @@ export default function AboutSection() {
             </motion.button>
 
             {/* More About Me (Primary - New Page) */}
-            <Link href="/about">
+            {/* <Link href="/about">
               <motion.a
                 className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
                   ? 'bg-white text-black hover:bg-gray-200'
@@ -214,7 +214,7 @@ export default function AboutSection() {
                   <ArrowRight size={28} />
                 </motion.div>
               </motion.a>
-            </Link>
+            </Link> */}
           </motion.div>
         </motion.div>
       </motion.div>

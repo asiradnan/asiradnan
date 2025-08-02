@@ -237,7 +237,7 @@ export default function NotFound() {
 
       {/* Main content */}
       <motion.div
-        className="relative z-10 text-center px-6 py-12 max-w-4xl mx-auto"
+        className="relative z-10 text-center px-6 pt-16 max-w-4xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}

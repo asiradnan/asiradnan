@@ -213,7 +213,7 @@ export default function HeroSection() {
               >
                 {React.createElement(roles[currentRole].icon, { size: 32 })}
               </motion.div>
-              <span className={`text-2xl md:text-4xl font-semibold ${roles[currentRole].color}`}>
+              <span className={`text-xl sm:text-2xl md:text-4xl font-semibold ${roles[currentRole].color}`}>
                 {roles[currentRole].text}
               </span>
             </motion.div>
