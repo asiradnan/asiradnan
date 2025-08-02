@@ -1,7 +1,7 @@
 import SkillsPage from "@/page_components/SkillPage";
 
 export const metadata = {
-  title: "Technical Skills - Asir Adnan | Full Stack, Android, DevOps & Database Technologies",
+  title: "Skills - Asir Adnan",
   description: "Comprehensive overview of Asir Adnan's technical expertise across 30+ technologies. From backend development with Django and Python to mobile development with Kotlin and Android. Explore skills in DevOps, databases, and programming languages with associated projects and certifications.",
   keywords: "Asir Adnan skills, Django, Python, Kotlin, Android development, JavaScript, React, Next.js, PostgreSQL, Redis, AWS, Docker, DevOps, full stack developer skills, mobile development, database management, programming languages",
   openGraph: {
@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://asiradnan.com/skills",
     images: [
       {
-        url: "https://asiradnan.com/skills-og.jpg",
+        url: "https://asiradnan.com/default-og.jpg",
         width: 1200,
         height: 630,
         alt: "Asir Adnan Technical Skills Overview",
@@ -20,7 +20,7 @@ export const metadata = {
   twitter: {
     title: "Technical Skills - Asir Adnan",
     description: "30+ technical skills in full-stack development, Android, DevOps, and databases. Each skill backed by real projects and certifications.",
-    images: ["https://asiradnan.com/skills-og.jpg"],
+    images: ["https://asiradnan.com/default-og.jpg"],
   },
   alternates: {
     canonical: "https://asiradnan.com/skills",

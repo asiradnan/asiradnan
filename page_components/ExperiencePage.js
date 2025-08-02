@@ -142,30 +142,26 @@ export default function ExperiencePage() {
                 >
                     {/* Header Section */}
                     <motion.div
-                        variants={itemVariants}
-                        className="text-center mb-12"
+                        className="text-center mb-16"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate={isVisible ? "visible" : "hidden"}
                     >
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-                            <motion.span
-                                className={`bg-gradient-to-r ${isDark
-                                    ? 'from-white via-blue-100 to-white'
-                                    : 'from-gray-900 via-blue-600 to-gray-900'
-                                } bg-clip-text text-transparent`}
-                                initial={{ backgroundPosition: '0% 50%' }}
-                                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                Work Experience
-                            </motion.span>
+                        <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                            Experience
                         </h1>
-
-                        <p className={`text-base md:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed mb-8`}>
-                            My professional journey in software development and technology.
-                        </p>
+                        
+                        <motion.p
+                            variants={itemVariants}
+                            className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
+                        >
+                            My professional journey in software development and technology
+                        </motion.p>
 
                         {/* Total Experience Summary */}
                         <motion.div
-                            className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border ${isDark
+                            variants={itemVariants}
+                            className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border mt-8 ${isDark
                                 ? 'bg-gray-800/50 border-gray-600 text-white'
                                 : 'bg-white/50 border-gray-300 text-gray-900'
                             } backdrop-blur-sm`}

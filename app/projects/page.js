@@ -1,7 +1,7 @@
 import ProjectsPage from "@/page_components/ProjectPage";
 
 export const metadata = {
-  title: "Projects Portfolio - Asir Adnan | Web Apps, Android Apps & Software Solutions",
+  title: "Projects - Asir Adnan",
   description: "Explore Asir Adnan's portfolio of 20+ software projects including PulseCampus college management system, CopyPasta file transfer app, and Periodic Table Android app. Each project features live demos, source code, and detailed technical documentation using Django, Kotlin, React, and more.",
   keywords: "Asir Adnan projects, software development portfolio, Django projects, Android apps, Kotlin apps, React projects, PulseCampus, CopyPasta, web applications, mobile applications, GitHub projects, live demos",
   openGraph: {
@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://asiradnan.com/projects",
     images: [
       {
-        url: "https://asiradnan.com/projects-og.jpg",
+        url: "https://asiradnan.com/default-og.png",
         width: 1200,
         height: 630,
         alt: "Asir Adnan Projects Portfolio",
@@ -18,9 +18,9 @@ export const metadata = {
     ],
   },
   twitter: {
-    title: "Projects Portfolio - Asir Adnan",
+    title: "Projects - Asir Adnan",
     description: "20+ software development projects including web apps, Android apps, and enterprise solutions. Live demos and GitHub repositories available.",
-    images: ["https://asiradnan.com/projects-og.jpg"],
+    images: ["https://asiradnan.com/default-og.png"],
   },
   alternates: {
     canonical: "https://asiradnan.com/projects",

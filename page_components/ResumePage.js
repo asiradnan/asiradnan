@@ -36,27 +36,11 @@ export default function ResumePage() {
     const [previewingFile, setPreviewingFile] = useState('');
 
     const resumeOptions = React.useMemo(() => [
-        // {
-        //     name: "Backend Developer",
-        //     icon: Server,
-        //     filename: "Asir_Adnan_Backend_Resume.pdf"
-        // },
-        // {
-        //     name: "Full Stack Developer",
-        //     icon: Monitor,
-        //     filename: "Asir_Adnan_FullStack_Resume.pdf"
-        // },
-        // {
-        //     name: "Android Developer",
-        //     icon: Smartphone,
-        //     filename: "Asir_Adnan_Android_Resume.pdf"
-        // },
         {
             name: "General Resume",
             icon: FileText,
             filename: "AsirAdnan_July2025.pdf"
         }
-        
     ], []);
 
     const socialLinks = React.useMemo(() => [
@@ -117,8 +101,8 @@ export default function ResumePage() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3,
-                delayChildren: 0.2
+                staggerChildren: 0.2,
+                delayChildren: 0.3
             }
         }
     };
@@ -289,33 +273,28 @@ export default function ResumePage() {
 
                 {/* Main content */}
                 <motion.div
-                    className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 md:py-12"
+                    className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isVisible ? "visible" : "hidden"}
                 >
-                    {/* Section title */}
+                    {/* Header - Made consistent with other pages */}
                     <motion.div
-                        variants={itemVariants}
-                        className="text-center mb-8 md:mb-12"
+                        className="text-center mb-16"
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate={isVisible ? "visible" : "hidden"}
                     >
-                        <h2 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 md:mb-6 leading-tight">
-                            <motion.span
-                                className={`bg-gradient-to-r ${isDark
-                                    ? 'from-white via-blue-100 to-white'
-                                    : 'from-gray-900 via-blue-600 to-gray-900'
-                                    } bg-clip-text text-transparent`}
-                                initial={{ backgroundPosition: '0% 50%' }}
-                                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                            >
-                                My Resume
-                            </motion.span>
-                        </h2>
-
-                        <p className={`text-base md:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} max-w-3xl mx-auto leading-relaxed px-4`}>
-                            Download or preview my resume tailored for different roles and expertise areas.
-                        </p>
+                        <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                            Resume
+                        </h1>
+                        
+                        <motion.p
+                            variants={itemVariants}
+                            className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
+                        >
+                            Download or preview my resume tailored for different roles and expertise areas
+                        </motion.p>
                     </motion.div>
 
                     {/* Resume Options */}

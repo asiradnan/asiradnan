@@ -379,19 +379,19 @@ const SkillsPage = () => {
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header - same style as AboutSection */}
-           <motion.div
+          <motion.div
             className="text-center mb-16"
             variants={containerVariants}
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
           >
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-black'}`}>
+            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Skills
             </h1>
             
             <motion.p
               variants={itemVariants}
-              className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-200' : 'text-gray-800'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
+              className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
             >
               Click on any skill to view associated projects and certifications
             </motion.p>

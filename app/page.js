@@ -20,7 +20,7 @@ export const metadata = {
     siteName: "Asir Adnan Portfolio",
     images: [
       {
-        url: "https://asiradnan.com/og-image.jpg",
+        url: "https://asiradnan.com/default-og.png",
         width: 1200,
         height: 630,
         alt: "Asir Adnan - Full Stack Developer Portfolio",
@@ -33,7 +33,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Asir Adnan - Full Stack Developer | Android Developer | DevOps Engineer",
     description: "Passionate software developer with 20+ projects and competitive programming expertise. Building scalable solutions with modern technologies.",
-    images: ["https://asiradnan.com/og-image.jpg"],
+    images: ["https://asiradnan.com/default-og.png"],
     creator: "@asiradnan",
   },
   alternates: {

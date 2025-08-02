@@ -1,7 +1,7 @@
 import ResumePage from "@/page_components/ResumePage";
 
 export const metadata = {
-  title: "Resume & CV - Asir Adnan | Download Professional Resume PDF",
+  title: "Resume - Asir Adnan",
   description: "Download Asir Adnan's professional resume showcasing experience as Full Stack Developer and Android Developer. Includes work experience at Altux Studio and BRAC Business School, technical skills, projects, and contact information. Available in PDF format for instant download.",
   keywords: "Asir Adnan resume, CV download, software developer resume, full stack developer CV, Android developer resume, professional resume PDF, hire Asir Adnan, developer portfolio CV",
   openGraph: {
@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://asiradnan.com/resume",
     images: [
       {
-        url: "https://asiradnan.com/resume-og.jpg",
+        url: "https://asiradnan.com/default-og.png",
         width: 1200,
         height: 630,
         alt: "Asir Adnan Professional Resume",
@@ -20,7 +20,7 @@ export const metadata = {
   twitter: {
     title: "Resume & CV - Asir Adnan",
     description: "Professional software developer resume with full-stack and Android development experience. Download PDF format.",
-    images: ["https://asiradnan.com/resume-og.jpg"],
+    images: ["https://asiradnan.com/default-og.png"],
   },
   alternates: {
     canonical: "https://asiradnan.com/resume",
