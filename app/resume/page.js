@@ -32,27 +32,29 @@ export default function ResumePage() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
     const formRef = useRef(null);
+    const [downloadingFile, setDownloadingFile] = useState('');
+    const [previewingFile, setPreviewingFile] = useState('');
 
     const resumeOptions = React.useMemo(() => [
-        {
-            name: "Backend Developer",
-            icon: Server,
-            filename: "Asir_Adnan_Backend_Resume.pdf"
-        },
-        {
-            name: "Full Stack Developer",
-            icon: Monitor,
-            filename: "Asir_Adnan_FullStack_Resume.pdf"
-        },
-        {
-            name: "Android Developer",
-            icon: Smartphone,
-            filename: "Asir_Adnan_Android_Resume.pdf"
-        },
+        // {
+        //     name: "Backend Developer",
+        //     icon: Server,
+        //     filename: "Asir_Adnan_Backend_Resume.pdf"
+        // },
+        // {
+        //     name: "Full Stack Developer",
+        //     icon: Monitor,
+        //     filename: "Asir_Adnan_FullStack_Resume.pdf"
+        // },
+        // {
+        //     name: "Android Developer",
+        //     icon: Smartphone,
+        //     filename: "Asir_Adnan_Android_Resume.pdf"
+        // },
         {
             name: "General Resume",
             icon: FileText,
-            filename: "Asir_Adnan_General_Resume.pdf"
+            filename: "AsirAdnan_July2025.pdf"
         }
     ], []);
 
@@ -186,14 +188,46 @@ export default function ResumePage() {
         }
     };
 
-    const handleDownload = (filename, resumeType) => {
-        alert(`Downloading ${resumeType}: ${filename}`);
-        // Implement actual download logic here
+    const handleDownload = async (filename, resumeType) => {
+        setDownloadingFile(filename);
+        try {
+            // Check if file exists first
+            const response = await fetch(`/resumes/${filename}`, { method: 'HEAD' });
+            if (!response.ok) {
+                throw new Error('File not found');
+            }
+            
+            const link = document.createElement('a');
+            link.href = `/resumes/${filename}`;
+            link.download = filename.split('/').pop();
+            link.target = '_blank';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } catch (error) {
+            console.error('Download failed:', error);
+            alert('Resume file not found. Please contact me directly.');
+        } finally {
+            setDownloadingFile('');
+        }
     };
 
-    const handlePreview = (filename, resumeType) => {
-        alert(`Opening ${resumeType} preview: ${filename}`);
-        // Implement actual preview logic here
+    const handlePreview = async (filename, resumeType) => {
+        setPreviewingFile(filename);
+        try {
+            // Check if file exists first
+            const response = await fetch(`/resumes/${filename}`, { method: 'HEAD' });
+            if (!response.ok) {
+                throw new Error('File not found');
+            }
+            
+            window.open(`/resumes/${filename}`, '_blank');
+        } catch (error) {
+            console.error('Preview failed:', error);
+            alert('Resume file not found. Please contact me directly.');
+        } finally {
+            setPreviewingFile('');
+        }
     };
 
     return (
@@ -317,28 +351,46 @@ export default function ResumePage() {
                                 <div className="flex gap-2 md:gap-3 w-full sm:w-auto">
                                     <motion.button
                                         onClick={() => handlePreview(resume.filename, resume.name)}
+                                        disabled={previewingFile === resume.filename}
                                         className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg border text-sm md:text-base ${isDark
-                                            ? 'border-gray-600 text-gray-300 hover:bg-gray-700'
-                                            : 'border-gray-300 text-gray-700 hover:bg-gray-100'
-                                            } transition-colors duration-300`}
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                            ? 'border-gray-600 text-gray-300 hover:bg-gray-700 disabled:opacity-50'
+                                            : 'border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50'
+                                            } transition-colors duration-300 disabled:cursor-not-allowed`}
+                                        whileHover={{ scale: previewingFile === resume.filename ? 1 : 1.02 }}
+                                        whileTap={{ scale: previewingFile === resume.filename ? 1 : 0.98 }}
                                     >
-                                        <Eye size={14} className="md:w-4 md:h-4" />
-                                        Preview
+                                        {previewingFile === resume.filename ? (
+                                            <motion.div
+                                                className="w-3 h-3 border-2 border-current border-t-transparent rounded-full"
+                                                animate={{ rotate: 360 }}
+                                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                            />
+                                        ) : (
+                                            <Eye size={14} className="md:w-4 md:h-4" />
+                                        )}
+                                        {previewingFile === resume.filename ? 'Opening...' : 'Preview'}
                                     </motion.button>
                                     
                                     <motion.button
                                         onClick={() => handleDownload(resume.filename, resume.name)}
+                                        disabled={downloadingFile === resume.filename}
                                         className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-sm md:text-base ${isDark
-                                            ? 'bg-white text-black hover:bg-gray-200'
-                                            : 'bg-black text-white hover:bg-gray-800'
-                                            } transition-colors duration-300`}
-                                        whileHover={{ scale: 1.02 }}
-                                        whileTap={{ scale: 0.98 }}
+                                            ? 'bg-white text-black hover:bg-gray-200 disabled:opacity-50'
+                                            : 'bg-black text-white hover:bg-gray-800 disabled:opacity-50'
+                                            } transition-colors duration-300 disabled:cursor-not-allowed`}
+                                        whileHover={{ scale: downloadingFile === resume.filename ? 1 : 1.02 }}
+                                        whileTap={{ scale: downloadingFile === resume.filename ? 1 : 0.98 }}
                                     >
-                                        <Download size={14} className="md:w-4 md:h-4" />
-                                        Download
+                                        {downloadingFile === resume.filename ? (
+                                            <motion.div
+                                                className="w-3 h-3 border-2 border-current border-t-transparent rounded-full"
+                                                animate={{ rotate: 360 }}
+                                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                                            />
+                                        ) : (
+                                            <Download size={14} className="md:w-4 md:h-4" />
+                                        )}
+                                        {downloadingFile === resume.filename ? 'Downloading...' : 'Download'}
                                     </motion.button>
                                 </div>
                             </motion.div>
