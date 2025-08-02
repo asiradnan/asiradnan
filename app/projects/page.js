@@ -3,7 +3,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Code2,
-  Smartphone,
   Database,
   Brain,
   Server,
@@ -46,7 +45,7 @@ const ProjectsPage = () => {
 
   const floatingIcons = [
     { Icon: Code2, delay: 0, x: 20, y: 30 },
-    { Icon: Smartphone, delay: 0.5, x: -30, y: 20 },
+    { Icon: Play, delay: 0.5, x: -30, y: 20 },
     { Icon: Database, delay: 1, x: 40, y: -20 },
     { Icon: Server, delay: 1.5, x: -20, y: -30 },
     { Icon: Monitor, delay: 2, x: 50, y: 40 },
@@ -94,7 +93,7 @@ const ProjectsPage = () => {
     }
 
     if (selectedSkill !== 'All') {
-      filtered = filtered.filter(project => 
+      filtered = filtered.filter(project =>
         project.skills.some(skill => skill.toLowerCase() === selectedSkill.toLowerCase())
       );
     }
@@ -153,10 +152,10 @@ const ProjectsPage = () => {
           onClick={() => setSelectedProject(null)}
         >
           <motion.div
-            className={`w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border ${isDark 
-              ? 'bg-gray-900/95 border-gray-700/50' 
+            className={`w-full max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl border ${isDark
+              ? 'bg-gray-900/95 border-gray-700/50'
               : 'bg-white/95 border-gray-200/50'
-            } backdrop-blur-md`}
+              } backdrop-blur-md`}
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
@@ -170,22 +169,22 @@ const ProjectsPage = () => {
                     {selectedProject.name}
                   </h2>
                   <div className="flex flex-wrap gap-3 mb-3">
-                    <span className={`px-3 py-1 rounded-full text-sm ${isDark 
-                      ? 'bg-blue-500/20 text-blue-300' 
+                    <span className={`px-3 py-1 rounded-full text-sm ${isDark
+                      ? 'bg-blue-500/20 text-blue-300'
                       : 'bg-blue-100 text-blue-700'
-                    }`}>
+                      }`}>
                       {selectedProject.category}
                     </span>
-                    <span className={`px-3 py-1 rounded-full text-sm ${isDark 
-                      ? 'bg-green-500/20 text-green-300' 
+                    <span className={`px-3 py-1 rounded-full text-sm ${isDark
+                      ? 'bg-green-500/20 text-green-300'
                       : 'bg-green-100 text-green-700'
-                    }`}>
+                      }`}>
                       {selectedProject.status}
                     </span>
-                    <span className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm ${isDark 
-                      ? 'bg-purple-500/20 text-purple-300' 
+                    <span className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm ${isDark
+                      ? 'bg-purple-500/20 text-purple-300'
                       : 'bg-purple-100 text-purple-700'
-                    }`}>
+                      }`}>
                       <Calendar size={14} />
                       {selectedProject.duration}
                     </span>
@@ -205,8 +204,8 @@ const ProjectsPage = () => {
               <div className="mb-8">
                 <div className="relative aspect-video rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                   {selectedProject.image ? (
-                    <img 
-                      src={selectedProject.image} 
+                    <img
+                      src={selectedProject.image}
                       alt={selectedProject.name}
                       className="w-full h-full object-cover"
                     />
@@ -228,9 +227,14 @@ const ProjectsPage = () => {
                       <Code2 size={20} />
                       Description
                     </h3>
-                    <p className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                      {selectedProject.fullDescription}
-                    </p>
+                    {selectedProject.fullDescription
+                      .trim()
+                      .split('\n')
+                      .map((line, index) => (
+                        <p key={index} className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                          {line}
+                        </p>
+                      ))}
                   </div>
 
                   {/* Motivation */}
@@ -268,10 +272,10 @@ const ProjectsPage = () => {
                       {selectedProject.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className={`px-3 py-1 rounded-full text-sm ${isDark 
-                            ? 'bg-gray-700/50 text-gray-200' 
+                          className={`px-3 py-1 rounded-full text-sm ${isDark
+                            ? 'bg-gray-700/50 text-gray-200'
                             : 'bg-gray-100 text-gray-700'
-                          }`}
+                            }`}
                         >
                           {tech}
                         </span>
@@ -289,10 +293,10 @@ const ProjectsPage = () => {
                       {selectedProject.skills.map((skill) => (
                         <span
                           key={skill}
-                          className={`px-3 py-1 rounded-full text-sm ${isDark 
-                            ? 'bg-blue-500/20 text-blue-300' 
+                          className={`px-3 py-1 rounded-full text-sm ${isDark
+                            ? 'bg-blue-500/20 text-blue-300'
                             : 'bg-blue-100 text-blue-700'
-                          }`}
+                            }`}
                         >
                           {skill}
                         </span>
@@ -312,10 +316,10 @@ const ProjectsPage = () => {
                           href={selectedProject.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex items-center gap-3 p-4 rounded-xl border ${isDark 
-                            ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50' 
+                          className={`flex items-center gap-3 p-4 rounded-xl border ${isDark
+                            ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50'
                             : 'border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                          } transition-all duration-200 group`}
+                            } transition-all duration-200 group`}
                           whileHover={{ scale: 1.01, x: 2 }}
                           whileTap={{ scale: 0.99 }}
                         >
@@ -338,10 +342,10 @@ const ProjectsPage = () => {
                           href={selectedProject.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex items-center gap-3 p-4 rounded-xl border ${isDark 
-                            ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50' 
+                          className={`flex items-center gap-3 p-4 rounded-xl border ${isDark
+                            ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50'
                             : 'border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                          } transition-all duration-200 group`}
+                            } transition-all duration-200 group`}
                           whileHover={{ scale: 1.01, x: 2 }}
                           whileTap={{ scale: 0.99 }}
                         >
@@ -359,6 +363,32 @@ const ProjectsPage = () => {
                           <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'} group-hover:text-green-500 transition-colors`} />
                         </motion.a>
                       )}
+                      {selectedProject.playStoreLink && (
+                        <motion.a
+                          href={selectedProject.playStoreLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`flex items-center gap-3 p-4 rounded-xl border ${isDark
+                            ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50'
+                            : 'border-gray-200 hover:bg-gray-50 hover:border-gray-300'
+                            } transition-all duration-200 group`}
+                          whileHover={{ scale: 1.01, x: 2 }}
+                          whileTap={{ scale: 0.99 }}
+                        >
+                          <div className={`p-2 rounded-lg ${isDark ? 'bg-green-900/50' : 'bg-green-100'} group-hover:bg-green-600 transition-colors`}>
+                            <Play size={20} className="text-green-500 group-hover:text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                              Play Store
+                            </div>
+                            <div className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                              Download from Google Play
+                            </div>
+                          </div>
+                          <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'} group-hover:text-green-500 transition-colors`} />
+                        </motion.a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -371,7 +401,7 @@ const ProjectsPage = () => {
   };
 
   return (
-    <div 
+    <div
       ref={sectionRef}
       className={`min-h-screen relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
     >
@@ -434,7 +464,7 @@ const ProjectsPage = () => {
             <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Projects
             </h1>
-            
+
             <motion.p
               variants={itemVariants}
               className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
@@ -454,10 +484,10 @@ const ProjectsPage = () => {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className={`px-4 py-3 pr-10 rounded-xl border ${isDark 
-                    ? 'bg-gray-800/80 border-gray-700/50 text-gray-200 hover:bg-gray-700/80 focus:bg-gray-700/80 focus:border-gray-600/50' 
+                  className={`px-4 py-3 pr-10 rounded-xl border ${isDark
+                    ? 'bg-gray-800/80 border-gray-700/50 text-gray-200 hover:bg-gray-700/80 focus:bg-gray-700/80 focus:border-gray-600/50'
                     : 'bg-white/80 border-gray-200 text-gray-700 hover:bg-white focus:bg-white focus:border-gray-300'
-                  } appearance-none cursor-pointer min-w-[140px] backdrop-blur-sm transition-all duration-200 focus:outline-none focus:ring-2 ${isDark ? 'focus:ring-blue-500/30' : 'focus:ring-blue-500/20'}`}
+                    } appearance-none cursor-pointer min-w-[140px] backdrop-blur-sm transition-all duration-200 focus:outline-none focus:ring-2 ${isDark ? 'focus:ring-blue-500/30' : 'focus:ring-blue-500/20'}`}
                 >
                   {categories.map(category => (
                     <option key={category} value={category}>
@@ -473,10 +503,10 @@ const ProjectsPage = () => {
                 <select
                   value={selectedSkill}
                   onChange={(e) => setSelectedSkill(e.target.value)}
-                  className={`px-4 py-3 pr-10 rounded-xl border ${isDark 
-                    ? 'bg-gray-800/80 border-gray-700/50 text-gray-200 hover:bg-gray-700/80 focus:bg-gray-700/80 focus:border-gray-600/50' 
+                  className={`px-4 py-3 pr-10 rounded-xl border ${isDark
+                    ? 'bg-gray-800/80 border-gray-700/50 text-gray-200 hover:bg-gray-700/80 focus:bg-gray-700/80 focus:border-gray-600/50'
                     : 'bg-white/80 border-gray-200 text-gray-700 hover:bg-white focus:bg-white focus:border-gray-300'
-                  } appearance-none cursor-pointer min-w-[140px] backdrop-blur-sm transition-all duration-200 focus:outline-none focus:ring-2 ${isDark ? 'focus:ring-blue-500/30' : 'focus:ring-blue-500/20'}`}
+                    } appearance-none cursor-pointer min-w-[140px] backdrop-blur-sm transition-all duration-200 focus:outline-none focus:ring-2 ${isDark ? 'focus:ring-blue-500/30' : 'focus:ring-blue-500/20'}`}
                 >
                   {allSkills.slice(0, 10).map(skill => (
                     <option key={skill} value={skill}>
@@ -502,7 +532,7 @@ const ProjectsPage = () => {
           >
             {filteredProjects.map((project, index) => {
               const isReversed = index % 2 === 1;
-              
+
               return (
                 <motion.div
                   key={project.id}
@@ -511,10 +541,10 @@ const ProjectsPage = () => {
                   initial="hidden"
                   animate={isVisible ? "visible" : "hidden"}
                   transition={{ delay: 0.6 + (index * 0.2) }}
-                  className={`relative rounded-2xl border backdrop-blur-sm ${isDark 
-                    ? 'bg-gray-800/10 border-gray-700/30' 
+                  className={`relative rounded-2xl border backdrop-blur-sm ${isDark
+                    ? 'bg-gray-800/10 border-gray-700/30'
                     : 'bg-white/30 border-gray-200/40'
-                  } overflow-hidden group cursor-pointer`}
+                    } overflow-hidden group cursor-pointer`}
                   whileHover={{
                     scale: 1.005,
                     y: -1,
@@ -527,22 +557,22 @@ const ProjectsPage = () => {
                     <div className={`p-8 lg:p-12 flex flex-col justify-center ${isReversed ? 'lg:col-start-2' : ''}`}>
                       {/* Project Category & Status */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        <span className={`px-3 py-1 rounded-full text-sm ${isDark 
-                          ? 'bg-blue-500/20 text-blue-300' 
+                        <span className={`px-3 py-1 rounded-full text-sm ${isDark
+                          ? 'bg-blue-500/20 text-blue-300'
                           : 'bg-blue-100 text-blue-700'
-                        }`}>
+                          }`}>
                           {project.category}
                         </span>
-                        <span className={`px-3 py-1 rounded-full text-sm ${isDark 
-                          ? 'bg-green-500/20 text-green-300' 
+                        <span className={`px-3 py-1 rounded-full text-sm ${isDark
+                          ? 'bg-green-500/20 text-green-300'
                           : 'bg-green-100 text-green-700'
-                        }`}>
+                          }`}>
                           {project.status}
                         </span>
-                        <span className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm ${isDark 
-                          ? 'bg-purple-500/20 text-purple-300' 
+                        <span className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm ${isDark
+                          ? 'bg-purple-500/20 text-purple-300'
                           : 'bg-purple-100 text-purple-700'
-                        }`}>
+                          }`}>
                           <Calendar size={14} />
                           {project.duration}
                         </span>
@@ -573,10 +603,10 @@ const ProjectsPage = () => {
                         {project.skills.map((skill) => (
                           <span
                             key={skill}
-                            className={`px-3 py-1 text-sm rounded-full ${isDark 
-                              ? 'bg-gray-700/50 text-gray-200' 
+                            className={`px-3 py-1 text-sm rounded-full ${isDark
+                              ? 'bg-gray-700/50 text-gray-200'
                               : 'bg-gray-100 text-gray-700'
-                            }`}
+                              }`}
                           >
                             {skill}
                           </span>
@@ -585,23 +615,33 @@ const ProjectsPage = () => {
 
                       {/* Action Buttons */}
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {project.liveLink && (
+                        {(project.liveLink || project.playStoreLink) && (
                           <motion.a
-                            href={project.liveLink}
+                            href={project.playStoreLink || project.liveLink}
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium w-full ${isDark
                               ? 'bg-white text-black hover:bg-gray-200'
                               : 'bg-black text-white hover:bg-gray-900'
-                            } transition-all duration-200 group`}
+                              } transition-all duration-200 group`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
-                            <span>Live Link</span>
-                            <ExternalLink size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                            {project.playStoreLink ? (
+                              <>
+                                <Play size={16} />
+                                <span>Play Store</span>
+                                <ExternalLink size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                              </>
+                            ) : (
+                              <>
+                                <span>Live Link</span>
+                                <ExternalLink size={16} className="group-hover:translate-x-0.5 transition-transform" />
+                              </>
+                            )}
                           </motion.a>
                         )}
-                        
+
                         {project.githubLink && (
                           <motion.a
                             href={project.githubLink}
@@ -610,7 +650,7 @@ const ProjectsPage = () => {
                             className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium border w-full ${isDark
                               ? 'border-gray-600/50 text-gray-200 hover:bg-gray-700/50 hover:border-gray-500/50'
                               : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
-                            } transition-all duration-200 group`}
+                              } transition-all duration-200 group`}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -626,8 +666,8 @@ const ProjectsPage = () => {
                     <div className={`relative aspect-square lg:aspect-auto ${isReversed ? 'lg:col-start-1' : ''}`}>
                       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200">
                         {project.image ? (
-                          <img 
-                            src={project.image} 
+                          <img
+                            src={project.image}
                             alt={project.name}
                             className="w-full h-full object-contain"
                           />

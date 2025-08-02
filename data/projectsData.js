@@ -3,7 +3,16 @@ export const projectsData = [
     id: 1,
     name: "PulseCampus",
     shortDescription: "Modern college management web app with role-based access, clubs, forums, and announcements.",
-    fullDescription: "PulseCampus is a modern web app designed for colleges to manage departments, student clubs, announcements, and forums. It features role-based access control, authentication, department/class/club management, announcements, community forums, and user profiles. Built with Django, Celery, Redis, and AWS services for a robust, scalable experience.",
+    fullDescription:
+      `
+      – Built a comprehensive college management system using Django, deployed via Nginx on Amazon EC2
+      – Implemented RBAC to manage departments, classes, clubs, noticeboards, forum posts with comments
+      – Deployed PostgreSQL on Amazon RDS for scalable, reliable database management
+      – Images and files are stored and served via Amazon S3
+      – Integrated Celery with Redis to handle asynchronous email notifications via Amazon SES as background jobs
+      – Set up CI/CD pipelines using GitHub Actions to automate deployments
+      – Achieved 98% code coverage by writing comprehensive tests including asynchronous tasks
+    `,
     // motivation: "To streamline and digitize college management processes, enhance communication, and provide a collaborative platform for students and staff.",
     // result: "Successfully deployed and used by multiple college departments, supporting hundreds of users with real-time features and secure access.",
     skills: ["Django", "Celery", "Redis", "AWS", "PostgreSQL", "Python", "HTML", "CSS", "JavaScript", "GitHub Actions", "Gunicorn", "Nginx"],
@@ -39,7 +48,7 @@ export const projectsData = [
     skills: ["Kotlin", "Jetpack Compose", "Android", "MVVM", "Material 3", "State Management", "UI/UX", "Multi-language", "SharedPreferences"],
     technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "SharedPreferences"],
     githubLink: "https://github.com/asiradnan/Periodic-Table",
-    liveLink: null,
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.periodictable",
     image: "/projects/periodic_table_android.png",
     status: "Completed",
     duration: "2 months",
@@ -260,16 +269,16 @@ export const certificatesData = [
 
 // Helper functions to get related data
 export const getProjectsBySkill = (skill) => {
-  return projectsData.filter(project => 
-    project.skills.some(projectSkill => 
+  return projectsData.filter(project =>
+    project.skills.some(projectSkill =>
       projectSkill.toLowerCase().includes(skill.toLowerCase())
     )
   );
 };
 
 export const getCertificatesBySkill = (skill) => {
-  return certificatesData.filter(certificate => 
-    certificate.skills.some(certSkill => 
+  return certificatesData.filter(certificate =>
+    certificate.skills.some(certSkill =>
       certSkill.toLowerCase().includes(skill.toLowerCase())
     )
   );
