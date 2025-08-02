@@ -284,7 +284,7 @@ export default function NotFound() {
           className="text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed"
           style={{ color: isDark ? 'rgb(209, 213, 219)' : 'rgb(55, 65, 81)' }}
         >
-          Oops! The page you're looking for seems to have vanished into the digital void. 
+          Oops! The page you&apos;re looking for seems to have vanished into the digital void. 
           It might have been moved, deleted, or maybe it never existed at all.
         </motion.p>
 
@@ -301,7 +301,7 @@ export default function NotFound() {
             className="text-sm"
             style={{ color: isDark ? 'rgb(156, 163, 175)' : 'rgb(75, 85, 99)' }}
           >
-            💡 <strong>Developer's Note:</strong> While you're here, why not check out some of my actual work? 
+            💡 <strong>Developer&apos;s Note:</strong> While you&apos;re here, why not check out some of my actual work? 
             I promise my projects exist! 😄
           </p>
         </motion.div>

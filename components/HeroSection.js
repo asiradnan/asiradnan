@@ -170,7 +170,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
           >
-            I'm
+            I&apos;m
           </motion.span>
         </motion.div>
 
@@ -225,7 +225,7 @@ export default function HeroSection() {
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
         >
-          I love what I do. And spend most of my time turning all my "I wish there was a ..." to a functional Web and/or Android app.
+          I love what I do. And spend most of my time turning all my &ldquo;I wish there was a ...&ldquo; to a functional Web and/or Android app.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -280,7 +280,7 @@ export default function HeroSection() {
             {/* Content */}
             <span className="relative flex items-center justify-center gap-3 z-10">
               <Phone size={20} />
-              <span>Let's Talk</span>
+              <span>Let&apos;s Talk</span>
             </span>
           </motion.button>
         </motion.div>
