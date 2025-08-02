@@ -56,6 +56,7 @@ export default function ResumePage() {
             icon: FileText,
             filename: "AsirAdnan_July2025.pdf"
         }
+        
     ], []);
 
     const socialLinks = React.useMemo(() => [
