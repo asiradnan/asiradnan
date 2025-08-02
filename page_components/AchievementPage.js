@@ -71,20 +71,20 @@ const AchievementsPage = () => {
             <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
-                   
+
                     <motion.div
-    className="text-center mb-16"
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
->
-    <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
-        Achievements
-    </h1>
-    <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
-        Professional certifications, competitive programming achievements, and profiles
-    </p>
-</motion.div>
+                        className="text-center mb-16"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                            Achievements
+                        </h1>
+                        <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
+                            Professional certifications, competitive programming achievements, and profiles
+                        </p>
+                    </motion.div>
 
                     {/* Tabs */}
                     <div className="flex justify-center mb-12">
@@ -93,15 +93,14 @@ const AchievementsPage = () => {
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                                        activeTab === tab.id
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeTab === tab.id
                                             ? isDark
                                                 ? 'bg-white text-black shadow-lg'
                                                 : 'bg-black text-white shadow-lg'
                                             : isDark
                                                 ? 'text-gray-300 hover:text-white hover:bg-gray-700/50'
                                                 : 'text-gray-700 hover:text-black hover:bg-gray-100/50'
-                                    }`}
+                                        }`}
                                 >
                                     <tab.icon size={16} />
                                     <span className="hidden sm:inline">{tab.label}</span>
@@ -136,7 +135,7 @@ const AchievementsPage = () => {
                                                 className={`p-6 rounded-2xl border ${isDark
                                                     ? 'bg-gray-800/30 border-gray-700/50'
                                                     : 'bg-white/50 border-gray-200/50'
-                                                } hover:scale-[1.02] transition-transform duration-200`}
+                                                    } hover:scale-[1.02] transition-transform duration-200`}
                                             >
                                                 {/* Platform Logo/Icon */}
                                                 <div className="flex items-center gap-3 mb-4">
@@ -202,7 +201,7 @@ const AchievementsPage = () => {
                                                     className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium ${isDark
                                                         ? 'bg-white/10 text-white hover:bg-white/20'
                                                         : 'bg-black/10 text-gray-900 hover:bg-black/20'
-                                                    } transition-colors duration-200`}
+                                                        } transition-colors duration-200`}
                                                 >
                                                     <User size={16} />
                                                     View Profile
@@ -231,7 +230,7 @@ const AchievementsPage = () => {
                                                 className={`p-6 rounded-2xl border ${isDark
                                                     ? 'bg-gray-800/30 border-gray-700/50'
                                                     : 'bg-white/50 border-gray-200/50'
-                                                } hover:scale-[1.01] transition-transform duration-200`}
+                                                    } hover:scale-[1.01] transition-transform duration-200`}
                                             >
                                                 {/* Certificate Image */}
                                                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-gradient-to-br from-gray-100 to-gray-200">
@@ -302,7 +301,7 @@ const AchievementsPage = () => {
                                                                         className={`px-2 py-1 text-xs rounded-full ${isDark
                                                                             ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
                                                                             : 'bg-blue-100 text-blue-700 border border-blue-200'
-                                                                        }`}
+                                                                            }`}
                                                                     >
                                                                         {skill}
                                                                     </span>
