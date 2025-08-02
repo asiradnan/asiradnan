@@ -21,11 +21,10 @@ import { skillCategories, getSkillStats, getCategoryTotals } from '@/data/skills
 
 const SkillsPage = () => {
   const { isDark } = useTheme();
-  const [isVisible, setIsVisible] = useState(false);
   const [selectedSkill, setSelectedSkill] = useState(null);
-  const sectionRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
 
-  // Icon mapping for categories - matching SkillsSection.js exactly
+  // Icon mapping for categories
   const categoryIcons = {
     "Backend Development": Server,
     "Mobile Development": Smartphone,
@@ -35,8 +34,8 @@ const SkillsPage = () => {
     "Programming Languages": Code2,
   };
 
-  // Color scheme mapping - matching SkillsSection.js exactly
- const categoryThemes = React.useMemo(() => ({
+  // Color scheme mapping
+  const categoryThemes = React.useMemo(() => ({
     "Backend Development": {
       color: isDark ? "text-blue-400" : "text-blue-600",
       bgColor: isDark ? "bg-blue-400/10" : "bg-blue-600/10",
@@ -75,70 +74,12 @@ const SkillsPage = () => {
     }
   }), [isDark]);
 
-  const floatingIcons = [
-    { Icon: Code2, delay: 0, x: 20, y: 30 },
-    { Icon: Smartphone, delay: 0.5, x: -30, y: 20 },
-    { Icon: Database, delay: 1, x: 40, y: -20 },
-    { Icon: Server, delay: 1.5, x: -20, y: -30 },
-    { Icon: Monitor, delay: 2, x: 50, y: 40 },
-    { Icon: Brain, delay: 2.5, x: -40, y: 35 }
-  ];
-
+  // Simple mount check
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
+    setMounted(true);
   }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
-    const handleSkillClick = (skill) => {
+  const handleSkillClick = (skill) => {
     const stats = getSkillStats(skill, projectsData, certificatesData);
     if (stats.projectCount > 0 || stats.certificateCount > 0) {
       setSelectedSkill({ skill, ...stats });
@@ -147,7 +88,7 @@ const SkillsPage = () => {
 
   // Skill Detail Modal Component
   const SkillDetailModal = () => {
-    if (!selectedSkill) return null;
+    if (!selectedSkill || !mounted) return null;
 
     return (
       <AnimatePresence>
@@ -176,7 +117,7 @@ const SkillsPage = () => {
                 </h2>
                 <button
                   onClick={() => setSelectedSkill(null)}
-                  className={`p-2 rounded-full ${isDark ? 'hover:bg-white/10 text-white' : 'hover:bg-black/10 text-black'}`}
+                  className={`p-2 rounded-full ${isDark ? 'hover:bg-white/10 text-white' : 'hover:bg-black/10 text-black'} transition-colors`}
                 >
                   <X size={24} />
                 </button>
@@ -203,13 +144,12 @@ const SkillsPage = () => {
                   </h3>
                   <div className="grid gap-4">
                     {selectedSkill.projects.map((project) => (
-                      <motion.div
+                      <div
                         key={project.id}
                         className={`p-4 rounded-lg border ${isDark 
                           ? 'bg-white/5 border-white/10 hover:bg-white/10' 
                           : 'bg-black/5 border-black/10 hover:bg-black/10'
-                        } transition-all duration-200 cursor-pointer`}
-                        whileHover={{ scale: 1.02 }}
+                        } transition-all duration-200 cursor-pointer hover:scale-[1.01]`}
                         onClick={() => window.open(`/projects#project-${project.id}`, '_blank')}
                       >
                         <div className="flex justify-between items-start">
@@ -241,7 +181,7 @@ const SkillsPage = () => {
                           </div>
                           <ExternalLink size={16} className={`ml-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -256,14 +196,13 @@ const SkillsPage = () => {
                   </h3>
                   <div className="grid gap-4">
                     {selectedSkill.certificates.map((certificate) => (
-                      <motion.div
+                      <div
                         key={certificate.id}
                         className={`p-4 rounded-lg border ${isDark 
                           ? 'bg-white/5 border-white/10 hover:bg-white/10' 
                           : 'bg-black/5 border-black/10 hover:bg-black/10'
-                        } transition-all duration-200 cursor-pointer`}
-                        whileHover={{ scale: 1.02 }}
-                        onClick={() => window.open(`/certificates#certificate-${certificate.id}`, '_blank')}
+                        } transition-all duration-200 cursor-pointer hover:scale-[1.01]`}
+                        onClick={() => window.open(certificate.verificationLink || '#', '_blank')}
                       >
                         <div className="flex justify-between items-start">
                           <div className="flex-1">
@@ -275,14 +214,18 @@ const SkillsPage = () => {
                                 <Building size={14} />
                                 {certificate.issuingOrganization}
                               </span>
-                              <span className={`flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                                <Calendar size={14} />
-                                {new Date(certificate.issueDate).getFullYear()}
-                              </span>
+                              {certificate.issueDate && (
+                                <span className={`flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                                  <Calendar size={14} />
+                                  {new Date(certificate.issueDate).getFullYear()}
+                                </span>
+                              )}
                             </div>
-                            <p className={`text-sm mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                              {certificate.description}
-                            </p>
+                            {certificate.description && (
+                              <p className={`text-sm mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                                {certificate.description}
+                              </p>
+                            )}
                             <div className="flex flex-wrap gap-2">
                               {certificate.skills.slice(0, 4).map((skill) => (
                                 <span
@@ -304,7 +247,7 @@ const SkillsPage = () => {
                           </div>
                           <ExternalLink size={16} className={`ml-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
                         </div>
-                      </motion.div>
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -324,83 +267,53 @@ const SkillsPage = () => {
     );
   };
 
+  if (!mounted) {
+    return (
+      <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+        <div className="text-center">
+          <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${isDark ? 'border-white' : 'border-gray-900'}`}></div>
+          <p className={`${isDark ? 'text-white' : 'text-gray-900'}`}>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div 
-      ref={sectionRef}
-      className={`min-h-screen relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
-    >
-      {/* Animated background grid - same as AboutSection */}
-      <div className="absolute inset-0 opacity-20">
-        <motion.div
-          className={`w-full h-full ${isDark ? 'bg-grid-white/[0.05]' : 'bg-grid-black/[0.05]'}`}
-          animate={{
-            backgroundPosition: ['0px 0px', '60px 60px'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+    <div className={`min-h-screen relative ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+      {/* Simple background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="w-full h-full"
           style={{
             backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
+            backgroundSize: '40px 40px'
           }}
         />
       </div>
 
-      {/* Floating background icons - same as AboutSection */}
-      {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-        <motion.div
-          key={index}
-          className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{
-            opacity: 0.3,
-            scale: 1,
-            x: [0, x, 0],
-            y: [0, y, 0],
-            rotate: [0, 360]
-          }}
-          transition={{
-            delay: delay,
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{
-            left: `${20 + (index * 12)}%`,
-            top: `${15 + (index * 8)}%`
-          }}
-        >
-          <Icon size={32} />
-        </motion.div>
-      ))}
-
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header - same style as AboutSection */}
+          {/* Header - same style as AchievementsPage */}
           <motion.div
             className="text-center mb-16"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
             <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Skills
             </h1>
-            
-            <motion.p
-              variants={itemVariants}
-              className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
-            >
+            <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
               Click on any skill to view associated projects and certifications
-            </motion.p>
+            </p>
           </motion.div>
 
           {/* Skills Grid */}
           <motion.div
-            variants={itemVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
           >
             {Object.entries(skillCategories).map(([category, skills], categoryIndex) => {
               const categoryTotals = getCategoryTotals(category, projectsData, certificatesData);
@@ -410,26 +323,16 @@ const SkillsPage = () => {
               return (
                 <motion.div
                   key={category}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate={isVisible ? "visible" : "hidden"}
-                  transition={{ delay: 0.6 + (categoryIndex * 0.1) }}
-                  className={`relative p-4 rounded-2xl border backdrop-blur-sm ${theme.bgColor} ${theme.borderColor} ${isDark ? 'bg-gray-800/20' : 'bg-white/20'} flex flex-col`}
-                  whileHover={{
-                    scale: 1.02,
-                    y: -5,
-                    transition: { duration: 0.2 }
-                  }}
+                  className={`relative p-4 rounded-2xl border ${theme.bgColor} ${theme.borderColor} ${isDark ? 'bg-gray-800/20' : 'bg-white/20'} flex flex-col hover:scale-[1.01] transition-transform duration-200`}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + (categoryIndex * 0.1), duration: 0.5 }}
                 >
                   {/* Category Header */}
                   <div className="flex items-center gap-3 mb-6">
-                    <motion.div
-                      className={`p-2 rounded-full ${theme.bgColor} ${theme.color}`}
-                      whileHover={{ scale: 1.1, rotate: 360 }}
-                      transition={{ duration: 0.3 }}
-                    >
+                    <div className={`p-2 rounded-full ${theme.bgColor} ${theme.color}`}>
                       <IconComponent size={28} />
-                    </motion.div>
+                    </div>
                     <h2 className={`text-xl font-bold ${theme.color}`}>
                       {category}
                     </h2>
@@ -437,22 +340,18 @@ const SkillsPage = () => {
 
                   {/* Skills List */}
                   <div className="space-y-2 mb-6 flex-1">
-                    {skills.map((skill, skillIndex) => {
+                    {skills.map((skill) => {
                       const stats = getSkillStats(skill, projectsData, certificatesData);
                       const hasData = stats.projectCount > 0 || stats.certificateCount > 0;
                       
                       return (
-                        <motion.div
+                        <div
                           key={skill}
                           className={`flex justify-between items-center py-1 px-3 rounded-lg transition-all duration-200 ${
                             hasData 
-                              ? `cursor-pointer ${theme.hoverBg}`
+                              ? `cursor-pointer ${theme.hoverBg} hover:scale-[1.02]`
                               : 'cursor-default'
                           }`}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                          transition={{ delay: 1 + (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                          whileHover={hasData ? { scale: 1.02, x: 4 } : {}}
                           onClick={() => handleSkillClick(skill)}
                         >
                           <span className={`font-medium ${isDark ? 'text-white' : 'text-black'} ${hasData ? 'hover:underline' : ''}`}>
@@ -472,7 +371,7 @@ const SkillsPage = () => {
                               </span>
                             </div>
                           </div>
-                        </motion.div>
+                        </div>
                       );
                     })}
                   </div>

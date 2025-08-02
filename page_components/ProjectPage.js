@@ -32,39 +32,19 @@ import { useSearchParams } from 'next/navigation';
 
 const ProjectsPage = () => {
   const { isDark } = useTheme();
-  const [isVisible, setIsVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedSkill, setSelectedSkill] = useState('All');
-  const sectionRef = useRef(null);
+  const [mounted, setMounted] = useState(false);
 
   // Get all unique categories and skills
   const categories = ['All', ...new Set(projectsData.map(project => project.category))];
   const allSkills = ['All', ...new Set(projectsData.flatMap(project => project.skills))].sort();
 
-  const floatingIcons = [
-    { Icon: Code2, delay: 0, x: 20, y: 30 },
-    { Icon: Play, delay: 0.5, x: -30, y: 20 },
-    { Icon: Database, delay: 1, x: 40, y: -20 },
-    { Icon: Server, delay: 1.5, x: -20, y: -30 },
-    { Icon: Monitor, delay: 2, x: 50, y: 40 },
-    { Icon: Brain, delay: 2.5, x: -40, y: 35 }
-  ];
-
+  // Simple mount check
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    setMounted(true);
 
     // Check for project ID in URL hash and scroll to it
     const hash = window.location.hash;
@@ -75,13 +55,10 @@ const ProjectsPage = () => {
         setTimeout(() => {
           const element = document.getElementById(`project-${projectId}`);
           element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          // Optionally open the project detail modal
           setSelectedProject(project);
         }, 500);
       }
     }
-
-    return () => observer.disconnect();
   }, []);
 
   // Filter projects based on category and skill
@@ -101,46 +78,9 @@ const ProjectsPage = () => {
     setFilteredProjects(filtered);
   }, [selectedCategory, selectedSkill]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
-      }
-    }
-  };
-
   // Project Detail Modal Component
   const ProjectDetailModal = () => {
-    if (!selectedProject) return null;
+    if (!selectedProject || !mounted) return null;
 
     return (
       <AnimatePresence>
@@ -238,26 +178,30 @@ const ProjectsPage = () => {
                   </div>
 
                   {/* Motivation */}
-                  <div>
-                    <h3 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      <Lightbulb size={20} />
-                      Motivation
-                    </h3>
-                    <p className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                      {selectedProject.motivation}
-                    </p>
-                  </div>
+                  {selectedProject.motivation && (
+                    <div>
+                      <h3 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                        <Lightbulb size={20} />
+                        Motivation
+                      </h3>
+                      <p className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                        {selectedProject.motivation}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Result */}
-                  <div>
-                    <h3 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      <Trophy size={20} />
-                      Result
-                    </h3>
-                    <p className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                      {selectedProject.result}
-                    </p>
-                  </div>
+                  {selectedProject.result && (
+                    <div>
+                      <h3 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                        <Trophy size={20} />
+                        Result
+                      </h3>
+                      <p className={`leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                        {selectedProject.result}
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Right Column */}
@@ -312,18 +256,16 @@ const ProjectsPage = () => {
                     </h3>
                     <div className="space-y-3">
                       {selectedProject.githubLink && (
-                        <motion.a
+                        <a
                           href={selectedProject.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`flex items-center gap-3 p-4 rounded-xl border ${isDark
                             ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50'
                             : 'border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                            } transition-all duration-200 group`}
-                          whileHover={{ scale: 1.01, x: 2 }}
-                          whileTap={{ scale: 0.99 }}
+                            } transition-all duration-200 hover:scale-[1.01]`}
                         >
-                          <div className={`p-2 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-gray-100'} group-hover:bg-gray-600 transition-colors`}>
+                          <div className={`p-2 rounded-lg ${isDark ? 'bg-gray-800/50' : 'bg-gray-100'}`}>
                             <Github size={20} />
                           </div>
                           <div className="flex-1">
@@ -334,23 +276,21 @@ const ProjectsPage = () => {
                               Explore the code on GitHub
                             </div>
                           </div>
-                          <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'} group-hover:text-blue-500 transition-colors`} />
-                        </motion.a>
+                          <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                        </a>
                       )}
                       {selectedProject.liveLink && (
-                        <motion.a
+                        <a
                           href={selectedProject.liveLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`flex items-center gap-3 p-4 rounded-xl border ${isDark
                             ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50'
                             : 'border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                            } transition-all duration-200 group`}
-                          whileHover={{ scale: 1.01, x: 2 }}
-                          whileTap={{ scale: 0.99 }}
+                            } transition-all duration-200 hover:scale-[1.01]`}
                         >
-                          <div className={`p-2 rounded-lg ${isDark ? 'bg-green-900/50' : 'bg-green-100'} group-hover:bg-green-600 transition-colors`}>
-                            <ExternalLink size={20} className="text-green-500 group-hover:text-white" />
+                          <div className={`p-2 rounded-lg ${isDark ? 'bg-green-900/50' : 'bg-green-100'}`}>
+                            <ExternalLink size={20} className="text-green-500" />
                           </div>
                           <div className="flex-1">
                             <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -360,23 +300,21 @@ const ProjectsPage = () => {
                               See the project in action
                             </div>
                           </div>
-                          <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'} group-hover:text-green-500 transition-colors`} />
-                        </motion.a>
+                          <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                        </a>
                       )}
                       {selectedProject.playStoreLink && (
-                        <motion.a
+                        <a
                           href={selectedProject.playStoreLink}
                           target="_blank"
                           rel="noopener noreferrer"
                           className={`flex items-center gap-3 p-4 rounded-xl border ${isDark
                             ? 'border-gray-700/50 hover:bg-gray-700/30 hover:border-gray-600/50'
                             : 'border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                            } transition-all duration-200 group`}
-                          whileHover={{ scale: 1.01, x: 2 }}
-                          whileTap={{ scale: 0.99 }}
+                            } transition-all duration-200 hover:scale-[1.01]`}
                         >
-                          <div className={`p-2 rounded-lg ${isDark ? 'bg-green-900/50' : 'bg-green-100'} group-hover:bg-green-600 transition-colors`}>
-                            <Play size={20} className="text-green-500 group-hover:text-white" />
+                          <div className={`p-2 rounded-lg ${isDark ? 'bg-green-900/50' : 'bg-green-100'}`}>
+                            <Play size={20} className="text-green-500" />
                           </div>
                           <div className="flex-1">
                             <div className={`font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -386,8 +324,8 @@ const ProjectsPage = () => {
                               Download from Google Play
                             </div>
                           </div>
-                          <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'} group-hover:text-green-500 transition-colors`} />
-                        </motion.a>
+                          <ExternalLink size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                        </a>
                       )}
                     </div>
                   </div>
@@ -400,83 +338,53 @@ const ProjectsPage = () => {
     );
   };
 
+  if (!mounted) {
+    return (
+      <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+        <div className="text-center">
+          <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${isDark ? 'border-white' : 'border-gray-900'}`}></div>
+          <p className={`${isDark ? 'text-white' : 'text-gray-900'}`}>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div
-      ref={sectionRef}
-      className={`min-h-screen relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
-    >
-      {/* Animated background grid */}
-      <div className="absolute inset-0 opacity-10">
-        <motion.div
-          className={`w-full h-full ${isDark ? 'bg-grid-white/[0.03]' : 'bg-grid-black/[0.03]'}`}
-          animate={{
-            backgroundPosition: ['0px 0px', '60px 60px'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+    <div className={`min-h-screen relative ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+      {/* Simple background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="w-full h-full"
           style={{
-            backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.08)'} 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
+            backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
           }}
         />
       </div>
-
-      {/* Floating background icons */}
-      {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-        <motion.div
-          key={index}
-          className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-20`}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{
-            opacity: 0.2,
-            scale: 1,
-            x: [0, x, 0],
-            y: [0, y, 0],
-            rotate: [0, 360]
-          }}
-          transition={{
-            delay: delay,
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{
-            left: `${20 + (index * 12)}%`,
-            top: `${15 + (index * 8)}%`
-          }}
-        >
-          <Icon size={32} />
-        </motion.div>
-      ))}
 
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
             className="text-center mb-16"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
             <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Projects
             </h1>
-
-            <motion.p
-              variants={itemVariants}
-              className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
-            >
+            <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
               A showcase of my work, passion projects, and technical achievements
-            </motion.p>
+            </p>
           </motion.div>
 
           {/* Filters */}
           <motion.div
-            variants={itemVariants}
             className="mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
           >
             <div className="flex flex-wrap gap-4 justify-center mb-6">
               {/* Category Filter */}
@@ -526,172 +434,149 @@ const ProjectsPage = () => {
           </motion.div>
 
           {/* Projects List - Horizontal Cards */}
-          <motion.div
-            variants={containerVariants}
-            className="space-y-16"
-          >
-            {filteredProjects.map((project, index) => {
-              const isReversed = index % 2 === 1;
+          <AnimatePresence mode="wait">
+            <motion.div
+              className="space-y-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              {filteredProjects.map((project, index) => {
+                const isReversed = index % 2 === 1;
 
-              return (
-                <motion.div
-                  key={project.id}
-                  id={`project-${project.id}`}
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate={isVisible ? "visible" : "hidden"}
-                  transition={{ delay: 0.6 + (index * 0.2) }}
-                  className={`relative rounded-2xl border backdrop-blur-sm ${isDark
-                    ? 'bg-gray-800/10 border-gray-700/30'
-                    : 'bg-white/30 border-gray-200/40'
-                    } overflow-hidden group cursor-pointer`}
-                  whileHover={{
-                    scale: 1.005,
-                    y: -1,
-                    transition: { duration: 0.3 }
-                  }}
-                  onClick={() => setSelectedProject(project)}
-                >
-                  <div className={`grid lg:grid-cols-2 gap-0 ${isReversed ? 'lg:grid-flow-col-dense' : ''}`}>
-                    {/* Content Section */}
-                    <div className={`p-8 lg:p-12 flex flex-col justify-center ${isReversed ? 'lg:col-start-2' : ''}`}>
-                      {/* Project Category & Status */}
-                      <div className="flex flex-wrap gap-2 mb-4">
-                        <span className={`px-3 py-1 rounded-full text-sm ${isDark
-                          ? 'bg-blue-500/20 text-blue-300'
-                          : 'bg-blue-100 text-blue-700'
-                          }`}>
-                          {project.category}
-                        </span>
-                        <span className={`px-3 py-1 rounded-full text-sm ${isDark
-                          ? 'bg-green-500/20 text-green-300'
-                          : 'bg-green-100 text-green-700'
-                          }`}>
-                          {project.status}
-                        </span>
-                        <span className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm ${isDark
-                          ? 'bg-purple-500/20 text-purple-300'
-                          : 'bg-purple-100 text-purple-700'
-                          }`}>
-                          <Calendar size={14} />
-                          {project.duration}
-                        </span>
-                      </div>
-
-                      {/* Project Title */}
-                      <h3 className={`text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                        {project.name}
-                      </h3>
-
-                      {/* Project Short Description */}
-                      <p className={`text-lg leading-relaxed mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                        {project.shortDescription}
-                      </p>
-
-                      {/* Motivation */}
-                      <p className={`text-base mb-2 ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>
-                        <span className="font-semibold">Motivation:</span> {project.motivation}
-                      </p>
-
-                      {/* Result */}
-                      <p className={`text-base mb-6 ${isDark ? 'text-green-300' : 'text-green-700'}`}>
-                        <span className="font-semibold">Result:</span> {project.result}
-                      </p>
-
-                      {/* Skills */}
-                      <div className="flex flex-wrap gap-2 mb-8">
-                        {project.skills.map((skill) => (
-                          <span
-                            key={skill}
-                            className={`px-3 py-1 text-sm rounded-full ${isDark
-                              ? 'bg-gray-700/50 text-gray-200'
-                              : 'bg-gray-100 text-gray-700'
-                              }`}
-                          >
-                            {skill}
+                return (
+                  <div
+                    key={project.id}
+                    id={`project-${project.id}`}
+                    className={`relative rounded-2xl border ${isDark
+                      ? 'bg-gray-800/30 border-gray-700/50'
+                      : 'bg-white/50 border-gray-200/50'
+                      } overflow-hidden hover:scale-[1.005] transition-transform duration-300 cursor-pointer`}
+                    onClick={() => setSelectedProject(project)}
+                  >
+                    <div className={`grid lg:grid-cols-2 gap-0 ${isReversed ? 'lg:grid-flow-col-dense' : ''}`}>
+                      {/* Content Section */}
+                      <div className={`p-8 lg:p-12 flex flex-col justify-center ${isReversed ? 'lg:col-start-2' : ''}`}>
+                        {/* Project Category & Status */}
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          <span className={`px-3 py-1 rounded-full text-sm ${isDark
+                            ? 'bg-blue-500/20 text-blue-300'
+                            : 'bg-blue-100 text-blue-700'
+                            }`}>
+                            {project.category}
                           </span>
-                        ))}
+                          <span className={`px-3 py-1 rounded-full text-sm ${isDark
+                            ? 'bg-green-500/20 text-green-300'
+                            : 'bg-green-100 text-green-700'
+                            }`}>
+                            {project.status}
+                          </span>
+                          <span className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm ${isDark
+                            ? 'bg-purple-500/20 text-purple-300'
+                            : 'bg-purple-100 text-purple-700'
+                            }`}>
+                            <Calendar size={14} />
+                            {project.duration}
+                          </span>
+                        </div>
+
+                        {/* Project Title */}
+                        <h3 className={`text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                          {project.name}
+                        </h3>
+
+                        {/* Project Short Description */}
+                        <p className={`text-lg leading-relaxed mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                          {project.shortDescription}
+                        </p>
+
+                        {/* Skills */}
+                        <div className="flex flex-wrap gap-2 mb-8">
+                          {project.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className={`px-3 py-1 text-sm rounded-full ${isDark
+                                ? 'bg-gray-700/50 text-gray-200'
+                                : 'bg-gray-100 text-gray-700'
+                                }`}
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Action Buttons */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {(project.liveLink || project.playStoreLink) && (
+                            <a
+                              href={project.playStoreLink || project.liveLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium w-full ${isDark
+                                ? 'bg-white text-black hover:bg-gray-200'
+                                : 'bg-black text-white hover:bg-gray-900'
+                                } transition-all duration-200 hover:scale-[1.02]`}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              {project.playStoreLink ? (
+                                <>
+                                  <Play size={16} />
+                                  <span>Play Store</span>
+                                  <ExternalLink size={16} />
+                                </>
+                              ) : (
+                                <>
+                                  <span>Live Link</span>
+                                  <ExternalLink size={16} />
+                                </>
+                              )}
+                            </a>
+                          )}
+
+                          {project.githubLink && (
+                            <a
+                              href={project.githubLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium border w-full ${isDark
+                                ? 'border-gray-600/50 text-gray-200 hover:bg-gray-700/50 hover:border-gray-500/50'
+                                : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
+                                } transition-all duration-200 hover:scale-[1.02]`}
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <Github size={16} />
+                              <span>Code</span>
+                            </a>
+                          )}
+                        </div>
                       </div>
 
-                      {/* Action Buttons */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {(project.liveLink || project.playStoreLink) && (
-                          <motion.a
-                            href={project.playStoreLink || project.liveLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium w-full ${isDark
-                              ? 'bg-white text-black hover:bg-gray-200'
-                              : 'bg-black text-white hover:bg-gray-900'
-                              } transition-all duration-200 group`}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            {project.playStoreLink ? (
-                              <>
-                                <Play size={16} />
-                                <span>Play Store</span>
-                                <ExternalLink size={16} className="group-hover:translate-x-0.5 transition-transform" />
-                              </>
-                            ) : (
-                              <>
-                                <span>Live Link</span>
-                                <ExternalLink size={16} className="group-hover:translate-x-0.5 transition-transform" />
-                              </>
-                            )}
-                          </motion.a>
-                        )}
-
-                        {project.githubLink && (
-                          <motion.a
-                            href={project.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium border w-full ${isDark
-                              ? 'border-gray-600/50 text-gray-200 hover:bg-gray-700/50 hover:border-gray-500/50'
-                              : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
-                              } transition-all duration-200 group`}
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <Github size={16} />
-                            <span>Code</span>
-                          </motion.a>
-                        )}
-
+                      {/* Image Section */}
+                      <div className={`relative aspect-square lg:aspect-auto ${isReversed ? 'lg:col-start-1' : ''}`}>
+                        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200">
+                          {project.image ? (
+                            <img
+                              src={project.image}
+                              alt={project.name}
+                              className="w-full h-full object-contain"
+                            />
+                          ) : (
+                            <div className="flex items-center justify-center h-full">
+                              <Code2 size={48} className="text-gray-400" />
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    </div>
-
-                    {/* Image Section */}
-                    <div className={`relative aspect-square lg:aspect-auto ${isReversed ? 'lg:col-start-1' : ''}`}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200">
-                        {project.image ? (
-                          <img
-                            src={project.image}
-                            alt={project.name}
-                            className="w-full h-full object-contain"
-                          />
-                        ) : (
-                          <div className="flex items-center justify-center h-full">
-                            <Code2 size={48} className="text-gray-400" />
-                          </div>
-                        )}
-                      </div>
-                      {/* Overlay on hover */}
-                      <div className={`absolute inset-0 ${isDark ? 'bg-black/10' : 'bg-white/10'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+                );
+              })}
+            </motion.div>
+          </AnimatePresence>
 
           {/* No projects message */}
           {filteredProjects.length === 0 && (
-            <motion.div
-              variants={itemVariants}
-              className="text-center py-16"
-            >
+            <div className="text-center py-16">
               <Code2 size={64} className={`mx-auto mb-4 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
               <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 No projects found
@@ -699,7 +584,7 @@ const ProjectsPage = () => {
               <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                 Try adjusting your filters to see more projects.
               </p>
-            </motion.div>
+            </div>
           )}
         </div>
       </div>
