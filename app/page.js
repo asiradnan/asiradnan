@@ -57,9 +57,9 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
-      <SkillsSection />
+      {/* <SkillsSection />
       <ProjectsSection />
-      <AchievementsSection />
+      <AchievementsSection /> */}
       <ContactSection/>
     </>
 
