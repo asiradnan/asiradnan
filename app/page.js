@@ -6,7 +6,7 @@ import AchievementsSection from "@/components/AchievementsSection";
 import ContactSection from "@/components/ContactSection";
 
 export const metadata = {
-  title: "Asir Adnan - Full Stack Developer | Android Developer | DevOps Engineer",
+  title: "Asir Adnan",
   description: "I'm Asir Adnan, a passionate Full Stack Web Developer and Android Developer with expertise in DevOps. I build scalable web applications, native Android apps, and solve complex DSA problems. Explore my portfolio showcasing 20+ projects, professional certifications, and competitive programming achievements.",
   keywords: "Asir Adnan, Full Stack Developer, Android Developer, DevOps Engineer, Web Development, Django, Kotlin, JavaScript, Python, React, Next.js, Portfolio, Software Engineer, Bangladesh",
   authors: [{ name: "Asir Adnan" }],
