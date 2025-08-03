@@ -270,10 +270,10 @@ export const competitiveProgrammingData = [
     profileLink: "https://codeforces.com/profile/asiradnan",
     logo: "/platforms/codeforces.png", 
     stats: {
-      rating: "1321",
-      maxRating: "1321",
-      rank: "Pupil",
-      problemsSolved: "1150+"
+      Rating: "1321",
+      MaxRating: "1321",
+      Rank: "Pupil",
+      ProblemsSolved: "1150+"
     },
     achievements: [
       // "Pupil Rank Achievement",
@@ -288,10 +288,10 @@ export const competitiveProgrammingData = [
     profileLink: "https://leetcode.com/u/asiradnan/",
     logo: "/platforms/leetcode.png", 
     stats: {
-      problemsSolved: "210+",
-      easyProblems: "55+",
-      mediumProblems: "145+",
-      hardProblems: "5+"
+      ProblemsSolved: "210+",
+      EasyProblems: "55+",
+      MediumProblems: "145+",
+      HardProblems: "5+"
     },
     achievements: [
       "200+ Problems Solved",
@@ -299,24 +299,70 @@ export const competitiveProgrammingData = [
       // "Multiple badges earned"
     ]
   },
-  // {
-  //   id: 3,
-  //   platform: "HackerRank",
-  //   username: "asiradnan",
-  //   profileLink: "https://www.hackerrank.com/profile/asiradnan",
-  //   logo: "/platforms/hackerrank.png", // Add your logo
-  //   stats: {
-  //     stars: "5-star Python",
-  //     problemsSolved: "100+",
-  //     badges: "15+",
-  //     certificates: "7"
-  //   },
-  //   achievements: [
-  //     "5-star in Python",
-  //     "Multiple domain certifications",
-  //     "Problem solving specialist"
-  //   ]
-  // },
+  {
+    id: 3,
+    platform: "CodeChef",
+    username: "asiradnan",
+    profileLink: " https://www.codechef.com/users/asiradnan",
+    logo: "/platforms/codechef.png", 
+    stats: {
+      Rating: "1569",
+      MaxRating: "1602",
+      Rank: "2★",
+      ProblemsSolved: "180+"
+    },
+    achievements: [
+      "Highest rank 3★",
+    ]
+  },
+    {
+    id: 4,
+    platform: "BeeCrowd",
+    username: "asiradnan",
+    profileLink: "https://judge.beecrowd.com/en/profile/655116",
+    logo: "/platforms/beecrowd.png", 
+    stats: {
+      UniversityRanking: "1",
+      CountryRanking: "21",
+      WorldRanking: "400",
+      ProblemsSolved: "405+"
+    },
+    achievements: [
+      "Top 1% WorldWide",
+      "1st in BRAC University",
+      
+    ]
+  },
+  {
+    id: 5,
+    platform: "CSES",
+    username: "asiradnan",
+    profileLink: "https://cses.fi/problemset/user/171849",
+    logo: "/platforms/cses.png", 
+    stats: {
+      ProblemsSolved: "75+"
+    },
+    achievements: [
+      "Solved 75+ classic problems",
+    ]
+  },
+  {
+    id: 3,
+    platform: "HackerRank",
+    username: "asiradnan",
+    profileLink: "https://www.hackerrank.com/profile/asiradnan",
+    logo: "/platforms/hackerrank.png",
+    stats: {
+      stars: "5-star C++, 5-star SQL",
+      // problemsSolved: "100+",
+      badges: "4",
+      certificates: "6"
+    },
+    achievements: [
+      "5-star in C++, SQL",
+      "Multiple domain certifications",
+    ]
+  },
   // {
   //   id: 4,
   //   platform: "AtCoder",
