@@ -1,9 +1,8 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Code2, Smartphone, Database, Brain, Trophy, ChevronDown, UserRound, ArrowRight } from 'lucide-react';
+import { Code2, Smartphone, Database, Brain, Trophy, ChevronDown, MessageSquare } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
-import Link from 'next/link';
 
 export default function AboutSection() {
   const { isDark } = useTheme();
@@ -181,12 +180,12 @@ export default function AboutSection() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => {
-                const skillsSection = document.getElementById("skills-section");
+                const skillsSection = document.getElementById("contact-section");
                 skillsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
               }}
             >
-              <Code2 size={20} />
-              View My Skills
+              <MessageSquare size={20} />
+              Contact Me
               <motion.div
                 animate={{ y: [0, 4, 0] }}
                 transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
