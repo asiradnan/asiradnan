@@ -50,19 +50,19 @@ export const projectsData = [
     duration: "2 months",
     category: "Android"
   },
-  {
-    id: 6,
-    name: "Apartment Management System",
-    shortDescription: "A modern, full-stack Apartment Management System (AMS) built with Next.js 15.",
-    fullDescription: "An Android app built with Jetpack Compose featuring a list of 118 elements, each with detailed information. Supports light/dark themes, Bangla/English language selection, and search in both languages. Clean MVVM architecture and smooth Compose UI.",
-    skills: ["Kotlin", "Jetpack Compose", "Android", "MVVM", "Material 3", "State Management", "UI/UX", "Multi-language", "SharedPreferences"],
-    technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "SharedPreferences"],
-    liveLink: "https://ams.asiradnan.com",
-    image: "/projects/periodic_table_android.png",
-    status: "Completed",
-    duration: "3 months",
-    category: "Full Stack"    
-  },
+  // {
+  //   id: 6,
+  //   name: "Apartment Management System",
+  //   shortDescription: "A modern, full-stack Apartment Management System (AMS) built with Next.js 15.",
+  //   fullDescription: "An Android app built with Jetpack Compose featuring a list of 118 elements, each with detailed information. Supports light/dark themes, Bangla/English language selection, and search in both languages. Clean MVVM architecture and smooth Compose UI.",
+  //   skills: ["Kotlin", "Jetpack Compose", "Android", "MVVM", "Material 3", "State Management", "UI/UX", "Multi-language", "SharedPreferences"],
+  //   technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "SharedPreferences"],
+  //   liveLink: "https://ams.asiradnan.com",
+  //   image: "/projects/periodic_table_android.png",
+  //   status: "Completed",
+  //   duration: "3 months",
+  //   category: "Full Stack"    
+  // },
 ];
 
 
