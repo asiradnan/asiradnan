@@ -1,22 +1,22 @@
 // Skills organized by categories - matching SkillsSection.js exactly
 export const skillCategories = {
   "Backend Development": [
-    "FastAPI", "Django", "DRF", "Express", "Node.js", "Python"
+    "FastAPI", "Django", "DRF", "Express", "Node.js"
   ],
   "Mobile Development": [
-    "Android", "Kotlin", "Jetpack Compose", "React Native", "Flutter", "iOS"
+    "Android", "Kotlin", "Jetpack Compose",
   ],
   "DevOPS and Tools": [
-    "AWS", "Git", "CI/CD", "Nginx", "Docker", "Kubernetes"
+    "AWS", "Git", "CI/CD", "Nginx", "Linux"
   ],
   "Frontend Development": [
-    "React", "Next.js", "HTML", "CSS", "JavaScript", "Vue.js", "TypeScript", "Tailwind CSS"
+    "React", "Next.js", "HTML", "CSS", "JavaScript", "Tailwind CSS"
   ],
   "Database": [
-    "PostgreSQL", "MySQL", "SQLite", "MongoDB", "Redis"
+    "PostgreSQL", "MySQL", "SQLite", "MongoDB"
   ],
   "Programming Languages": [
-    "Python", "Kotlin", "JavaScript", "C++", "TypeScript"
+    "Python", "Kotlin", "JavaScript", "C++"
   ]
 };
 

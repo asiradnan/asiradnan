@@ -49,8 +49,155 @@ export const projectsData = [
     status: "Completed",
     duration: "2 months",
     category: "Android"
-  }
+  },
+  {
+    id: 6,
+    name: "Apartment Management System",
+    shortDescription: "A modern, full-stack Apartment Management System (AMS) built with Next.js 15.",
+    fullDescription: "An Android app built with Jetpack Compose featuring a list of 118 elements, each with detailed information. Supports light/dark themes, Bangla/English language selection, and search in both languages. Clean MVVM architecture and smooth Compose UI.",
+    skills: ["Kotlin", "Jetpack Compose", "Android", "MVVM", "Material 3", "State Management", "UI/UX", "Multi-language", "SharedPreferences"],
+    technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "SharedPreferences"],
+    liveLink: "https://ams.asiradnan.com",
+    image: "/projects/periodic_table_android.png",
+    status: "Completed",
+    duration: "3 months",
+    category: "Full Stack"    
+  },
 ];
+
+
+
+// {
+//   icon: wishIcon,
+//     title: "Send Wishes",
+//       description: "Send wishes to whoever you want without revealing your identity!",
+//         liveLink: "https://sendwish.asiradnan.com",
+//           sourceLink: "https://github.com/asiradnan/receiveemail",
+//             category: "Full Stack"
+// },
+
+// {
+//     icon: soulSpeak,
+//     title: "Soul Speak",
+//     description: "A mental well-being application designed to provide a supportive platform for individuals to express themselves, connect with others, and embark on their journey towards healing.",
+//     liveLink: "https://github.com/asiradnan/SoulSpeak",
+//     sourceLink: "https://github.com/asiradnan/SoulSpeak",
+//     category: "Full Stack"
+// },
+// {
+//   icon: copypasteIcon,
+//     title: "Copy Pasta",
+//       description: "Easier way to send text or file from one device to another.",
+//         liveLink: "https://copypasta.asiradnan.com",
+//           sourceLink: "https://github.com/asiradnan/copypaste",
+//             category: "Full Stack"
+// },
+// {
+//   icon: qrIcon,
+//     title: "QR Code",
+//       description: "Make customized qr code from any text or link!",
+//         liveLink: "https://qr.asiradnan.com",
+//           sourceLink: "https://github.com/asiradnan/qrcode",
+//             category: "Full Stack"
+// },
+// {
+//   icon: urlIcon,
+//     title: "Chotto URL",
+//       description: "URL Shortner to shorten to large urls into a fixed length. Effective to share large urls.",
+//         liveLink: "https://chottourl.asiradnan.com",
+//           sourceLink: "https://github.com/asiradnan/url-shortener",
+//             category: "Full Stack"
+// },
+// {
+//   icon: todoIcon,
+//     title: "ToDo App",
+//       description: "A task management frontend that lets users securely create, update, filter, and track todos in real time.",
+//         liveLink: "https://todo.asiradnan.com/",
+//           sourceLink: "https://github.com/asiradnan/todo_nextjs_frontend",
+//             category: "Full Stack"
+// },
+// {
+//   icon: tictactoeIcon,
+//     title: "Tic Tac Toe",
+//       description: "A game where you can play against your friend or AI!",
+//         liveLink: "https://tictactoe.asiradnan.com/",
+//           sourceLink: "https://github.com/asiradnan/Tic-Tac-Toe",
+//             category: "Front End"
+// },
+// {
+//   icon: calcIcon,
+//     title: "Calculator",
+//       description: "Basic calculator - result of vanilla javascript.",
+//         liveLink: "https://calculator.asiradnan.com",
+//           sourceLink: "https://github.com/asiradnan/Calculator",
+//             category: "Front End"
+// },
+// {
+//   icon: weatherIcon,
+//     title: "Weather",
+//       description: "A weather app with an integrated map.",
+//         liveLink: "https://weather.asiradnan.com",
+//           sourceLink: "https://github.com/asiradnan/Weather",
+//             category: "Front End"
+// },
+// {
+//   icon: ytIcon,
+//     title: "YouTube Clone",
+//       description: "A clone I made practicing API and responsive CSS",
+//         liveLink: "https://yt.asiradnan.com",
+//           sourceLink: "https://github.com/asiradnan/YouTube-Clone",
+//             category: "Full Stack"
+// },
+// {
+//   icon: redballIcon,
+//     title: "Red Ball Detection",
+//       description: "Red Ball detection from video or image using OpenCV and Python",
+//         liveLink: "https://youtu.be/1JfK-jljfNw?si=-umm4iTdmRqVXQeG",
+//           sourceLink: "https://github.com/asiradnan/Red-Ball-Detection",
+//             category: "Others"
+// },
+// {
+//   icon: lethalHeight,
+//     title: "Lethal Height",
+//       description: "A 2D shooting game built with Python and OpenGL featuring dynamic day-night cycles, and dual-player combat.",
+//         liveLink: "https://github.com/asiradnan/Lethal-Height",
+//           sourceLink: "https://github.com/asiradnan/Lethal-Height",
+//             category: "Others"
+// },
+// {
+//   icon: muslimApp,
+//     title: "Muslim App",
+//       description: "Muslim App is a feature-rich Kotlin-based Android application designed to help Muslims track their daily religious duties effectively.",
+//         liveLink: "https://github.com/asiradnan/MuslimAppAndroid/releases/download/v1.0.0/muslimApp.apk",
+//           sourceLink: "https://github.com/asiradnan/MuslimAppAndroid",
+//             category: "Android"
+// },
+// {
+//   icon: periodicTable,
+//     title: "Periodic Table",
+//       description: "An Android app a list of 118 elements, each with detailed information in Bangla/English language.",
+//         liveLink: "https://play.google.com/store/apps/details?id=com.asiradnan.periodictable&pli=1",
+//           sourceLink: "https://github.com/asiradnan/Periodic-Table",
+//             category: "Android"
+// },
+// {
+//   icon: greaterNumberGame,
+//     title: "Greater Number Game",
+//       description: "A simple and fun Android game where players guess which of the two numbers is greater.",
+//         liveLink: "https://github.com/asiradnan/Greater-Number-Game/releases/download/v1.0.0/GreaterNumberGame.apk",
+//           sourceLink: "https://github.com/asiradnan/Greater-Number-Game",
+//             category: "Android"
+// },
+// {
+//   icon: vangtiChai,
+//     title: "Vangti Chai",
+//       description: "An Android app built as one of my first practice projects in an Android development course. This app calculates the minimum number of currency notes needed to make up a given amount.",
+//         liveLink: "https://github.com/asiradnan/Vangti-Chai/releases/download/v1.0.0/VangtiChai.apk",
+//           sourceLink: "https://github.com/asiradnan/Vangti-Chai",
+//             category: "Android"
+// },
+
+
 
 export const certificatesData = [
   {
@@ -60,7 +207,7 @@ export const certificatesData = [
     issueDate: "2023-12-09",
     expiryDate: null,
     credentialId: "WSTHJPP10AEF",
-    skills: ["Competitive Programming", "Algorithms", "Teamwork", "Problem Solving"],
+    skills: ["Competitive Programming", "C++", "Algorithms", "Data Structures", "Teamwork"],
     image: "/certificates/2024-ICPC Asia Dhaka RC-Asir Adnan-HONORABLE.jpg",
     pdfLink: null,
     verificationLink: "https://icpc.global/ICPCID/WSTHJPP10AEF",
@@ -73,7 +220,7 @@ export const certificatesData = [
     issueDate: "2023-11-01",
     expiryDate: null,
     credentialId: null,
-    skills: ["Competitive Programming", "C++", "Algorithms", "Data Structures"],
+    skills: ["Competitive Programming", "C++", "Algorithms", "Data Structures", "Teamwork"],
     image: "/certificates/certificate.png",
     pdfLink: null,
     verificationLink: null,
@@ -137,7 +284,7 @@ export const certificatesData = [
     issueDate: null,
     expiryDate: null,
     credentialId: "548886971765",
-    skills: ["Joins", "Aggregations", "Subqueries", "Set Operations"],
+    skills: ["Joins", "Aggregations", "Subqueries"],
     image: "/certificates/sql_intermediate certificate_page-0001.jpg",
     pdfLink: null,
     verificationLink: "https://www.hackerrank.com/certificates/548886971765",
@@ -189,7 +336,7 @@ export const certificatesData = [
     issueDate: null,
     expiryDate: null,
     credentialId: "CT-MC4WHKVG",
-    skills: ["Python", "Basics", "Control Flow", "Functions"],
+    skills: ["Python", "Basics", "Functions"],
     image: "/certificates/Python for beginners_page-0001.jpg",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CT-MC4WHKVG",
@@ -241,7 +388,7 @@ export const certificatesData = [
     issueDate: null,
     expiryDate: null,
     credentialId: "CC-CMP7GVLJ",
-    skills: ["Java", "OOP", "Variables", "Control Structures"],
+    skills: ["Java", "Data Types", "Conditionals"],
     image: "/certificates/intro_to_java.png",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CC-CMP7GVLJ",
@@ -268,7 +415,7 @@ export const competitiveProgrammingData = [
     platform: "Codeforces",
     username: "asiradnan",
     profileLink: "https://codeforces.com/profile/asiradnan",
-    logo: "/platforms/codeforces.png", 
+    logo: "/platforms/codeforces.png",
     stats: {
       Rating: "1321",
       MaxRating: "1321",
@@ -286,7 +433,7 @@ export const competitiveProgrammingData = [
     platform: "LeetCode",
     username: "asiradnan",
     profileLink: "https://leetcode.com/u/asiradnan/",
-    logo: "/platforms/leetcode.png", 
+    logo: "/platforms/leetcode.png",
     stats: {
       ProblemsSolved: "210+",
       EasyProblems: "55+",
@@ -304,7 +451,7 @@ export const competitiveProgrammingData = [
     platform: "CodeChef",
     username: "asiradnan",
     profileLink: " https://www.codechef.com/users/asiradnan",
-    logo: "/platforms/codechef.png", 
+    logo: "/platforms/codechef.png",
     stats: {
       Rating: "1569",
       MaxRating: "1602",
@@ -315,12 +462,12 @@ export const competitiveProgrammingData = [
       "Highest rank 3★",
     ]
   },
-    {
+  {
     id: 4,
     platform: "BeeCrowd",
     username: "asiradnan",
     profileLink: "https://judge.beecrowd.com/en/profile/655116",
-    logo: "/platforms/beecrowd.png", 
+    logo: "/platforms/beecrowd.png",
     stats: {
       UniversityRanking: "1",
       CountryRanking: "21",
@@ -330,7 +477,7 @@ export const competitiveProgrammingData = [
     achievements: [
       "Top 1% WorldWide",
       "1st in BRAC University",
-      
+
     ]
   },
   {
@@ -338,7 +485,7 @@ export const competitiveProgrammingData = [
     platform: "CSES",
     username: "asiradnan",
     profileLink: "https://cses.fi/problemset/user/171849",
-    logo: "/platforms/cses.png", 
+    logo: "/platforms/cses.png",
     stats: {
       ProblemsSolved: "75+"
     },
@@ -406,7 +553,7 @@ export const getSkillsByProject = (projectId) => {
 export const getAllSkills = () => {
   const projectSkills = projectsData.flatMap(project => project.skills);
   const certificateSkills = certificatesData.flatMap(certificate => certificate.skills);
-  const competitiveSkills = competitiveProgrammingData.flatMap(platform => 
+  const competitiveSkills = competitiveProgrammingData.flatMap(platform =>
     platform.achievements || []
   );
   return [...new Set([...projectSkills, ...certificateSkills, ...competitiveSkills])].sort();
