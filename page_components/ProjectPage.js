@@ -207,7 +207,7 @@ const ProjectsPage = () => {
                 {/* Right Column */}
                 <div className="space-y-6">
                   {/* Technologies */}
-                  <div>
+                  {/* <div>
                     <h3 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                       <Server size={20} />
                       Technologies
@@ -225,7 +225,7 @@ const ProjectsPage = () => {
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </div> */}
 
                   {/* Skills */}
                   <div>

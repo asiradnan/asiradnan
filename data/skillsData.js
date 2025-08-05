@@ -7,7 +7,7 @@ export const skillCategories = {
     "Android", "Kotlin", "Jetpack Compose",
   ],
   "DevOPS and Tools": [
-    "AWS", "Git", "CI/CD", "Nginx", "Linux"
+    "Amazon S3", "Amazon EC2", "Amazon RDS", "Amazon CloudFront", "Amazon SES", "Git", "CI/CD", "Nginx"
   ],
   "Frontend Development": [
     "React", "Next.js", "HTML", "CSS", "JavaScript", "Tailwind CSS"
