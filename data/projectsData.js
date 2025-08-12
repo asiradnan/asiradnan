@@ -253,6 +253,18 @@ export const certificatesData = [
     description: "HackerRank certification in basic problem solving"
   },
   {
+    id: 3,
+    name: "Problem Solving (Intermediate)",
+    issuingOrganization: "HackerRank",
+    issueDate: null,
+    expiryDate: null,
+    credentialId: "4d919ca4d757",
+    skills: ["Algorithms", "Logic", "Problem Solving"],
+    image: "/certificates/problem_solving_intermediate certificate-1.png",
+    verificationLink: "https://www.hackerrank.com/certificates/4d919ca4d757",
+    description: "HackerRank certification in intermediate level problem solving"
+  },
+  {
     id: 4,
     name: "Python (Basic)",
     issuingOrganization: "HackerRank",
