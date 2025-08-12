@@ -37,9 +37,9 @@ export default function ResumePage() {
 
     const resumeOptions = React.useMemo(() => [
         {
-            name: "General Resume",
+            name: "Full Stack Resume",
             icon: FileText,
-            filename: "AsirAdnan_July2025.pdf"
+            filename: "AsirAdnan_August2025_FullStack.pdf"
         }
     ], []);
 
