@@ -24,6 +24,49 @@ export const projectsData = [
   },
   {
     id: 2,
+    name: "Cross Platform Todo App (Web and Android)",
+    shortDescription: "A comprehensive task management system with Android & Web platforms that managed more than 2,500 tasks.",
+    fullDescription:
+      `
+      – Designed a cross-platform task management system (Android & Web) that managed more than 2,500 tasks
+      – Implemented user authentication and task management APIs using FastAPI with a lightweight SQLite database
+      – Created a Next.js web frontend to support task management, profile update, and authentication flows
+      – Configured notifications, theme switching (dark/light), and tabbed views for completed/incomplete tasks
+      – Developed Kotlin-based Android app with an offline-first architecture; enabled seamless synchronization with the server
+      – Hosted backend and frontend on a DigitalOcean VPS with Nginx
+    `,
+    skills: ["FastAPI", "SQLite", "Next.js", "Kotlin", "Android", "Python", "JavaScript", "Nginx", "DigitalOcean", "Authentication", "Offline-First", "CI/CD", "Git"],
+    githubLink: "https://github.com/asiradnan/todo_nextjs_frontend",
+    liveLink: "https://todo.asiradnan.com",
+    image: '/projects/todo_web.png',
+    status: "Completed",
+    duration: "3 months",
+    category: "Full Stack",
+    motivation: "Needed a reliable task management system that works seamlessly across web and mobile platforms with offline capabilities.",
+    result: "Successfully built and deployed a cross-platform solution managing over 2,500 tasks with real-time synchronization."
+  },
+  {
+    id: 3,
+    name: "Chotto URL",
+    shortDescription: "A full-stack URL shortener with click analytics and usage tracking for user engagement insights.",
+    fullDescription:
+      `
+      – Developed a full-stack URL shortener using React and Django REST Framework
+      – Implemented click analytics and usage tracking, providing insights on user engagement through statistics
+      – Deployed the app on a self-hosted VPS with Nginx, ensuring responsive design, fast redirects and secure API integration
+    `,
+    skills: ["React", "Django REST Framework", "Python", "JavaScript", "Analytics", "Statistics", "Nginx", "VPS", "API Development", "Git"],
+    githubLink: "https://github.com/asiradnan/url-shortener",
+    liveLink: "https://chottourl.asiradnan.com",
+    image: "/projects/chotto_url.png",
+    status: "Completed",
+    duration: "2 months",
+    category: "Full Stack",
+    motivation: "Wanted to create a simple yet powerful URL shortening service with detailed analytics for better understanding of link engagement.",
+    result: "Built a reliable URL shortener with comprehensive analytics dashboard and fast redirect performance."
+  },
+  {
+    id: 4,
     name: "CopyPasta",
     shortDescription: "Quickly transfer text or files between devices with a simple key—no logins, no installs.",
     fullDescription: "CopyPasta is a free web app for fast, secure transfer of text or files between devices. No cables, no software, no risky logins—just open the site, paste or upload, and access from any device using your chosen key. Content can be edited or deleted for privacy.",
@@ -37,7 +80,7 @@ export const projectsData = [
     category: "Full Stack"
   },
    {
-    id: 3,
+    id: 5,
     name: "QR Code",
     shortDescription: "Make customized qr code from any text or link!",
     fullDescription: "Tool to create customized QR Code from any text or link. It supports custom sizes that helps when printing.",

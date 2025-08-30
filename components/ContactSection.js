@@ -59,27 +59,12 @@ export default function ContactSection() {
         // }
     ], []);
 
-    const floatingIcons = [
-        { Icon: Mail, delay: 0, x: 20, y: 30 },
-        { Icon: Github, delay: 0.5, x: -30, y: 20 },
-        { Icon: Linkedin, delay: 1, x: 40, y: -20 },
-        { Icon: Twitter, delay: 1.5, x: -20, y: -30 },
-        { Icon: MessageSquare, delay: 2, x: 50, y: 40 }
-    ];
-
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
                     setShowScrollTop(true);
-                    // Auto-scroll to center the contact section
-                    setTimeout(() => {
-                        sectionRef.current?.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-                    }, 100);
                 } else {
                     setShowScrollTop(false);
                 }
@@ -99,21 +84,20 @@ export default function ContactSection() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3,
-                delayChildren: 0.2
+                staggerChildren: 0.2,
+                delayChildren: 0.1
             }
         }
     };
 
     const itemVariants = {
-        hidden: { y: 50, opacity: 0 },
+        hidden: { y: 20, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
             transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 12
+                duration: 0.6,
+                ease: "easeOut"
             }
         }
     };
@@ -195,52 +179,16 @@ export default function ContactSection() {
             ref={sectionRef}
             className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
         >
-            {/* Animated background grid */}
-            <div className="absolute inset-0 opacity-20">
-                <motion.div
-                    className={`w-full h-full ${isDark ? 'bg-grid-white/[0.05]' : 'bg-grid-black/[0.05]'}`}
-                    animate={{
-                        backgroundPosition: ['0px 0px', '60px 60px'],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear"
-                    }}
+            {/* Simple background pattern */}
+            <div className="absolute inset-0 opacity-5">
+                <div
+                    className="w-full h-full"
                     style={{
                         backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
-                        backgroundSize: '60px 60px'
+                        backgroundSize: '40px 40px'
                     }}
                 />
             </div>
-
-            {/* Floating background icons */}
-            {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-                <motion.div
-                    key={index}
-                    className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{
-                        opacity: 0.3,
-                        scale: 1,
-                        x: [0, x, 0],
-                        y: [0, y, 0],
-                        rotate: [0, 360]
-                    }}
-                    transition={{
-                        delay: delay,
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                    style={{
-                        left: `${20 + (index * 15)}%`,
-                        top: `${15 + (index * 10)}%`
-                    }}
-                >
-                    <Icon size={32} />
-                </motion.div>
-            ))}
 
             {/* Scroll to Top Button */}
             <motion.button
@@ -254,13 +202,9 @@ export default function ContactSection() {
                     opacity: showScrollTop ? 1 : 0,
                     scale: showScrollTop ? 1 : 0
                 }}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
-                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
                 style={{
                     pointerEvents: showScrollTop ? 'auto' : 'none'
                 }}
@@ -279,19 +223,9 @@ export default function ContactSection() {
                 {/* Section title */}
                 <motion.h2
                     variants={itemVariants}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-center"
+                    className={`text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight text-center ${isDark ? 'text-white' : 'text-gray-900'}`}
                 >
-                    <motion.span
-                        className={`bg-gradient-to-r ${isDark
-                            ? 'from-white via-blue-100 to-white'
-                            : 'from-gray-900 via-blue-600 to-gray-900'
-                            } bg-clip-text text-transparent`}
-                        initial={{ backgroundPosition: '0% 50%' }}
-                        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-                        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                        Get In Touch
-                    </motion.span>
+                    Get In Touch
                 </motion.h2>
 
                 {/* Main description */}
@@ -320,10 +254,10 @@ export default function ContactSection() {
                                     ? 'border-gray-600 text-gray-300 hover:border-gray-400 bg-gray-800/30'
                                     : 'border-gray-300 text-gray-700 hover:border-gray-500 bg-white/30'
                                     } cursor-pointer group transition-colors duration-300`}
-                                initial={{ opacity: 0, x: -50 }}
-                                animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                                transition={{ delay: 0.5 + (index * 0.1) }}
-                                whileHover={{ scale: 1.02, x: 5 }}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                                transition={{ delay: 0.3 + (index * 0.1) }}
+                                whileHover={{ scale: 1.02 }}
                                 onClick={() => {
                                     if (social.name == "Email") copyToClipboard(social.value, social.name)
                                     else copyToClipboard(social.link, social.name)
@@ -350,7 +284,7 @@ export default function ContactSection() {
                             className={`mt-4 text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
                             initial={{ opacity: 0 }}
                             animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-                            transition={{ delay: 1 }}
+                            transition={{ delay: 0.6 }}
                         >
                             Click on any of the above to copy to clipboard
                         </motion.p>
@@ -359,9 +293,9 @@ export default function ContactSection() {
                     {/* Right column - Contact Form */}
                     <motion.div
                         className="flex flex-col justify-center"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-                        transition={{ delay: 0.7 }}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+                        transition={{ delay: 0.4 }}
                     >
                         <h3 className={`text-2xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}>
                             Send Me a Message
