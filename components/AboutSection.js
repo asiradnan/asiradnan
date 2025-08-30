@@ -9,26 +9,11 @@ export default function AboutSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  const floatingIcons = [
-    { Icon: Code2, delay: 0, x: 20, y: 30 },
-    { Icon: Database, delay: 0.5, x: -30, y: 20 },
-    { Icon: Smartphone, delay: 1, x: 40, y: -20 },
-    { Icon: Brain, delay: 1.5, x: -20, y: -30 },
-    { Icon: Trophy, delay: 2, x: 50, y: 40 }
-  ];
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Auto-scroll to center the about section
-          setTimeout(() => {
-            sectionRef.current?.scrollIntoView({
-              behavior: 'smooth',
-              block: 'center'
-            });
-          }, 100);
         }
       },
       { threshold: 0.3 }
@@ -46,21 +31,20 @@ export default function AboutSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.2,
+        delayChildren: 0.1
       }
     }
   };
 
   const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
+    hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 12
+        duration: 0.6,
+        ease: "easeOut"
       }
     }
   };
@@ -71,52 +55,16 @@ export default function AboutSection() {
       ref={sectionRef}
       className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
     >
-      {/* Animated background grid - same as hero */}
-      <div className="absolute inset-0 opacity-20">
-        <motion.div
-          className={`w-full h-full ${isDark ? 'bg-grid-white/[0.05]' : 'bg-grid-black/[0.05]'}`}
-          animate={{
-            backgroundPosition: ['0px 0px', '60px 60px'],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear"
-          }}
+      {/* Simple background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="w-full h-full"
           style={{
             backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
+            backgroundSize: '40px 40px'
           }}
         />
       </div>
-
-      {/* Floating background icons - same pattern as hero */}
-      {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-        <motion.div
-          key={index}
-          className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{
-            opacity: 0.3,
-            scale: 1,
-            x: [0, x, 0],
-            y: [0, y, 0],
-            rotate: [0, 360]
-          }}
-          transition={{
-            delay: delay,
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          style={{
-            left: `${20 + (index * 15)}%`,
-            top: `${15 + (index * 10)}%`
-          }}
-        >
-          <Icon size={32} />
-        </motion.div>
-      ))}
 
       {/* Main content */}
       <motion.div
@@ -125,22 +73,12 @@ export default function AboutSection() {
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
       >
-        {/* Section title - same style as hero name */}
+        {/* Section title */}
         <motion.h2
           variants={itemVariants}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight"
+          className={`text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}
         >
-          <motion.span
-            className={`bg-gradient-to-r ${isDark
-              ? 'from-white via-blue-100 to-white'
-              : 'from-gray-900 via-blue-600 to-gray-900'
-              } bg-clip-text text-transparent`}
-            initial={{ backgroundPosition: '0% 50%' }}
-            animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            About Me
-          </motion.span>
+          About Me
         </motion.h2>
 
         {/* Main description - same style as hero description */}
@@ -177,8 +115,8 @@ export default function AboutSection() {
                 ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
                 : 'border-gray-500 text-gray-800 hover:bg-gray-100'
                 } transition-all duration-300`}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => {
                 const skillsSection = document.getElementById("contact-section");
                 skillsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -186,12 +124,7 @@ export default function AboutSection() {
             >
               <MessageSquare size={20} />
               Contact Me
-              <motion.div
-                animate={{ y: [0, 4, 0] }}
-                transition={{ repeat: Infinity, duration: 1.2, ease: "easeInOut" }}
-              >
-                <ChevronDown size={20} />
-              </motion.div>
+              <ChevronDown size={20} />
             </motion.button>
 
             {/* More About Me (Primary - New Page) */}
