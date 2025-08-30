@@ -40,7 +40,12 @@ export default function ResumePage() {
             name: "Full Stack Resume",
             icon: FileText,
             filename: "AsirAdnan_August2025_FullStack.pdf"
-        }
+        },
+        {
+            name: "Android Resume",
+            icon: FileText,
+            filename: "AsirAdnan_August2025_Android.pdf"
+        },
     ], []);
 
     const socialLinks = React.useMemo(() => [
