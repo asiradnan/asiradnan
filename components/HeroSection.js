@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Smartphone, Database, ChevronDown, Zap, Coffee, Phone, BrainCircuit, Cpu, User } from 'lucide-react';
+import { Code2, Smartphone, Database, ChevronDown, Zap, Coffee, Phone, BrainCircuit, Cpu, User, Mail } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 
 export default function HeroSection() {
@@ -152,7 +152,7 @@ export default function HeroSection() {
           className="flex justify-center gap-4 flex-wrap"
         >
           <motion.button
-            className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${isDark
+            className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 min-w-[160px] justify-center ${isDark
               ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
               : 'border-gray-500 text-gray-800 hover:bg-gray-100'
               } transition-all duration-300`}
@@ -169,7 +169,7 @@ export default function HeroSection() {
           </motion.button>
 
           <motion.button
-            className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
+            className={`flex items-center gap-3 px-8 py-3 rounded-full font-semibold text-lg min-w-[160px] justify-center ${isDark
                 ? 'bg-white text-black hover:bg-gray-200'
                 : 'bg-black text-white hover:bg-gray-800'
               } transition-colors duration-300`}
@@ -180,8 +180,8 @@ export default function HeroSection() {
               contactSection?.scrollIntoView({ behavior: "smooth", block: "center" });
             }}
           >
-            <Phone size={20} />
-            <span>Let&apos;s Talk</span>
+            <Mail size={20} />
+            <span>Contact</span>
           </motion.button>
         </motion.div>
 
