@@ -39,7 +39,7 @@ export default function ResumePage() {
         {
             name: "Full Stack Resume",
             icon: FileText,
-            filename: "AsirAdnan_August2025_FullStack.pdf"
+            filename: "AsirAdnan_October2025_FullStack.pdf"
         },
         {
             name: "Android Resume",
