@@ -98,7 +98,9 @@ export const projectsData = [
       – Set up CI/CD pipelines using GitHub Actions to automate deployments
       – Achieved 98% code coverage by writing comprehensive tests including asynchronous tasks
     `,
-    skills: ["Django", "Celery", "Redis", "Amazon S3", "Amazon RDS", "Amazon EC2", "Amazon SES", "PostgreSQL", "Python", "HTML", "CSS", "JavaScript", "CI/CD", "Nginx", "Git"],
+    skills: ["Django", "Celery", "Redis", "AWS",
+      // "Amazon S3", "Amazon RDS", "Amazon EC2", "Amazon SES", 
+      "PostgreSQL", "Python", "HTML", "CSS", "JavaScript", "CI/CD", "Nginx", "Git"],
     // technologies: ["Django", "Celery", "Redis", "AWS", "PostgreSQL", "Python", "HTML", "CSS", "JavaScript", "GitHub Actions", "Gunicorn", "Nginx"],
     githubLink: "https://github.com/asiradnan/PulseCampus",
     liveLink: "https://pulsecampus.asiradnan.com/",
@@ -155,7 +157,9 @@ export const projectsData = [
     name: "CopyPasta",
     shortDescription: "Quickly transfer text or files between devices with a simple key—no logins, no installs.",
     fullDescription: "CopyPasta is a free web app for fast, secure transfer of text or files between devices. No cables, no software, no risky logins—just open the site, paste or upload, and access from any device using your chosen key. Content can be edited or deleted for privacy.",
-    skills: ["Django", "HTML", "CSS", "JavaScript", "Unit Testing", "Amazon S3", "Amazon CloudFront", "CI/CD", "Git"],
+    skills: ["Django", "HTML", "CSS", "JavaScript", "Unit Testing", "AWS",
+      //  "Amazon S3", "Amazon CloudFront", 
+       "CI/CD", "Git"],
     // technologies: ["Django", "HTML", "CSS", "JavaScript", "Amazon S3", "Amazon CloudFront", "CI/CD"],
     githubLink: "https://github.com/asiradnan/copypasta",
     liveLink: "https://copypasta.asiradnan.com",

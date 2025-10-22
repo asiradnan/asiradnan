@@ -1,11 +1,11 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Code2,
   Smartphone,
   Database,
-  Brain,
+  Cloud,
   Server,
   Monitor,
   Award,
@@ -13,7 +13,8 @@ import {
   ExternalLink,
   Calendar,
   Building,
-  Briefcase
+  Briefcase,
+  TrendingUp
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext';
 import { projectsData, certificatesData } from '@/data/projectsData';
@@ -28,7 +29,7 @@ const SkillsPage = () => {
   const categoryIcons = {
     "Backend Development": Server,
     "Mobile Development": Smartphone,
-    "DevOPS and Tools": Brain,
+    "DevOPS and Tools": Cloud,
     "Frontend Development": Monitor,
     "Database": Database,
     "Programming Languages": Code2,
@@ -93,93 +94,121 @@ const SkillsPage = () => {
     return (
       <AnimatePresence>
         <motion.div
-          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setSelectedSkill(null)}
         >
           <motion.div
-            className={`w-full max-w-4xl max-h-[80vh] overflow-y-auto rounded-2xl border ${isDark 
-              ? 'bg-gray-900 border-white/20' 
-              : 'bg-white border-black/20'
+            className={`w-full max-w-4xl max-h-[85vh] overflow-y-auto rounded-xl border shadow-2xl ${
+              isDark 
+                ? 'bg-gray-900 border-gray-800' 
+                : 'bg-white border-gray-200'
             }`}
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            transition={{ duration: 0.2 }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className={`p-6 border-b ${isDark ? 'border-white/20' : 'border-black/20'}`}>
-              <div className="flex justify-between items-center">
-                <h2 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-black'}`}>
-                  {selectedSkill.skill}
-                </h2>
+            <div className={`sticky top-0 z-10 p-6 border-b backdrop-blur-sm ${
+              isDark 
+                ? 'bg-gray-900/95 border-gray-800' 
+                : 'bg-white/95 border-gray-200'
+            }`}>
+              <div className="flex justify-between items-start">
+                <div>
+                  <h2 className="text-2xl font-bold mb-2">
+                    {selectedSkill.skill}
+                  </h2>
+                  <div className="flex gap-4 text-sm">
+                    <span className={`flex items-center gap-1.5 ${
+                      isDark ? 'text-gray-400' : 'text-gray-600'
+                    }`}>
+                      <Award size={16} />
+                      {selectedSkill.certificateCount} Certificate{selectedSkill.certificateCount !== 1 ? 's' : ''}
+                    </span>
+                    <span className={`flex items-center gap-1.5 ${
+                      isDark ? 'text-gray-400' : 'text-gray-600'
+                    }`}>
+                      <Briefcase size={16} />
+                      {selectedSkill.projectCount} Project{selectedSkill.projectCount !== 1 ? 's' : ''}
+                    </span>
+                  </div>
+                </div>
                 <button
                   onClick={() => setSelectedSkill(null)}
-                  className={`p-2 rounded-full ${isDark ? 'hover:bg-white/10 text-white' : 'hover:bg-black/10 text-black'} transition-colors`}
+                  className={`p-2 rounded-lg transition-colors ${
+                    isDark 
+                      ? 'hover:bg-gray-800 text-gray-400 hover:text-white' 
+                      : 'hover:bg-gray-100 text-gray-600 hover:text-black'
+                  }`}
+                  aria-label="Close modal"
                 >
                   <X size={24} />
                 </button>
               </div>
-              <div className="flex gap-4 mt-2 text-sm">
-                <span className={`flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  <Award size={16} />
-                  {selectedSkill.certificateCount} Certificates
-                </span>
-                <span className={`flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                  <Briefcase size={16} />
-                  {selectedSkill.projectCount} Projects
-                </span>
-              </div>
             </div>
 
-            <div className="p-6">
+            <div className="p-6 space-y-8">
               {/* Projects Section */}
               {selectedSkill.projects.length > 0 && (
-                <div className="mb-8">
-                  <h3 className={`text-xl font-semibold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-black'}`}>
+                <div>
+                  <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
                     <Briefcase size={20} />
                     Projects ({selectedSkill.projects.length})
                   </h3>
-                  <div className="grid gap-4">
+                  <div className="space-y-3">
                     {selectedSkill.projects.map((project) => (
                       <div
                         key={project.id}
-                        className={`p-4 rounded-lg border ${isDark 
-                          ? 'bg-white/5 border-white/10 hover:bg-white/10' 
-                          : 'bg-black/5 border-black/10 hover:bg-black/10'
-                        } transition-all duration-200 cursor-pointer hover:scale-[1.01]`}
-                        onClick={() => window.open(`/projects#project-${project.id}`, '_blank')}
+                        className={`group p-4 rounded-lg border transition-all duration-300 cursor-pointer ${
+                          isDark 
+                            ? 'bg-gray-800/50 border-gray-700 hover:border-gray-600 hover:bg-gray-800' 
+                            : 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:bg-gray-100'
+                        }`}
+                        onClick={() => window.open(`/projects`, '_blank')}
                       >
-                        <div className="flex justify-between items-start">
-                          <div className="flex-1">
-                            <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-black'}`}>
+                        <div className="flex justify-between items-start gap-4">
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold mb-1.5 group-hover:text-blue-500 transition-colors">
                               {project.name}
                             </h4>
-                            <p className={`text-sm mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                            <p className={`text-sm mb-3 line-clamp-2 ${
+                              isDark ? 'text-gray-400' : 'text-gray-600'
+                            }`}>
                               {project.shortDescription}
                             </p>
-                            <div className="flex flex-wrap gap-2">
-                              {project.skills.slice(0, 4).map((skill) => (
+                            <div className="flex flex-wrap gap-1.5">
+                              {project.skills.slice(0, 5).map((skill) => (
                                 <span
                                   key={skill}
-                                  className={`px-2 py-1 text-xs rounded-full ${isDark 
-                                    ? 'bg-white/10 text-white' 
-                                    : 'bg-black/10 text-black'
+                                  className={`px-2 py-0.5 text-xs rounded-md font-medium ${
+                                    isDark 
+                                      ? 'bg-gray-700 text-gray-300' 
+                                      : 'bg-white text-gray-700 border border-gray-200'
                                   }`}
                                 >
                                   {skill}
                                 </span>
                               ))}
-                              {project.skills.length > 4 && (
-                                <span className={`px-2 py-1 text-xs rounded-full ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                  +{project.skills.length - 4} more
+                              {project.skills.length > 5 && (
+                                <span className={`px-2 py-0.5 text-xs rounded-md font-medium ${
+                                  isDark ? 'text-gray-500' : 'text-gray-500'
+                                }`}>
+                                  +{project.skills.length - 5}
                                 </span>
                               )}
                             </div>
                           </div>
-                          <ExternalLink size={16} className={`ml-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                          <ExternalLink 
+                            size={18} 
+                            className={`flex-shrink-0 transition-colors ${
+                              isDark ? 'text-gray-600 group-hover:text-gray-400' : 'text-gray-400 group-hover:text-gray-600'
+                            }`} 
+                          />
                         </div>
                       </div>
                     ))}
@@ -190,62 +219,79 @@ const SkillsPage = () => {
               {/* Certificates Section */}
               {selectedSkill.certificates.length > 0 && (
                 <div>
-                  <h3 className={`text-xl font-semibold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-black'}`}>
+                  <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
                     <Award size={20} />
                     Certificates ({selectedSkill.certificates.length})
                   </h3>
-                  <div className="grid gap-4">
+                  <div className="space-y-3">
                     {selectedSkill.certificates.map((certificate) => (
                       <div
                         key={certificate.id}
-                        className={`p-4 rounded-lg border ${isDark 
-                          ? 'bg-white/5 border-white/10 hover:bg-white/10' 
-                          : 'bg-black/5 border-black/10 hover:bg-black/10'
-                        } transition-all duration-200 cursor-pointer hover:scale-[1.01]`}
-                        onClick={() => window.open(certificate.verificationLink || '#', '_blank')}
+                        className={`group p-4 rounded-lg border transition-all duration-300 cursor-pointer ${
+                          isDark 
+                            ? 'bg-gray-800/50 border-gray-700 hover:border-gray-600 hover:bg-gray-800' 
+                            : 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:bg-gray-100'
+                        }`}
+                        onClick={() => certificate.verificationLink && window.open(certificate.verificationLink, '_blank')}
                       >
-                        <div className="flex justify-between items-start">
-                          <div className="flex-1">
-                            <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-black'}`}>
+                        <div className="flex justify-between items-start gap-4">
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold mb-1.5 group-hover:text-blue-500 transition-colors">
                               {certificate.name}
                             </h4>
-                            <div className="flex items-center gap-4 text-sm mb-3">
-                              <span className={`flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                                <Building size={14} />
+                            <div className="flex items-center gap-3 text-xs mb-2">
+                              <span className={`flex items-center gap-1 ${
+                                isDark ? 'text-gray-400' : 'text-gray-600'
+                              }`}>
+                                <Building size={12} />
                                 {certificate.issuingOrganization}
                               </span>
                               {certificate.issueDate && (
-                                <span className={`flex items-center gap-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                                  <Calendar size={14} />
+                                <span className={`flex items-center gap-1 ${
+                                  isDark ? 'text-gray-400' : 'text-gray-600'
+                                }`}>
+                                  <Calendar size={12} />
                                   {new Date(certificate.issueDate).getFullYear()}
                                 </span>
                               )}
                             </div>
                             {certificate.description && (
-                              <p className={`text-sm mb-3 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                              <p className={`text-sm mb-3 line-clamp-2 ${
+                                isDark ? 'text-gray-400' : 'text-gray-600'
+                              }`}>
                                 {certificate.description}
                               </p>
                             )}
-                            <div className="flex flex-wrap gap-2">
-                              {certificate.skills.slice(0, 4).map((skill) => (
+                            <div className="flex flex-wrap gap-1.5">
+                              {certificate.skills.slice(0, 5).map((skill) => (
                                 <span
                                   key={skill}
-                                  className={`px-2 py-1 text-xs rounded-full ${isDark 
-                                    ? 'bg-white/10 text-white' 
-                                    : 'bg-black/10 text-black'
+                                  className={`px-2 py-0.5 text-xs rounded-md font-medium ${
+                                    isDark 
+                                      ? 'bg-gray-700 text-gray-300' 
+                                      : 'bg-white text-gray-700 border border-gray-200'
                                   }`}
                                 >
                                   {skill}
                                 </span>
                               ))}
-                              {certificate.skills.length > 4 && (
-                                <span className={`px-2 py-1 text-xs rounded-full ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                  +{certificate.skills.length - 4} more
+                              {certificate.skills.length > 5 && (
+                                <span className={`px-2 py-0.5 text-xs rounded-md font-medium ${
+                                  isDark ? 'text-gray-500' : 'text-gray-500'
+                                }`}>
+                                  +{certificate.skills.length - 5}
                                 </span>
                               )}
                             </div>
                           </div>
-                          <ExternalLink size={16} className={`ml-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                          {certificate.verificationLink && (
+                            <ExternalLink 
+                              size={18} 
+                              className={`flex-shrink-0 transition-colors ${
+                                isDark ? 'text-gray-600 group-hover:text-gray-400' : 'text-gray-400 group-hover:text-gray-600'
+                              }`} 
+                            />
+                          )}
                         </div>
                       </div>
                     ))}
@@ -253,10 +299,11 @@ const SkillsPage = () => {
                 </div>
               )}
 
+              {/* No Data Message */}
               {selectedSkill.projects.length === 0 && selectedSkill.certificates.length === 0 && (
-                <div className="text-center py-8">
-                  <p className={`text-lg ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                    No projects or certificates found for {selectedSkill.skill}
+                <div className="text-center py-12">
+                  <p className={`text-base ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
+                    No projects or certificates found for <span className="font-semibold">{selectedSkill.skill}</span>
                   </p>
                 </div>
               )}
@@ -269,17 +316,23 @@ const SkillsPage = () => {
 
   if (!mounted) {
     return (
-      <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+      <div className={`min-h-screen flex items-center justify-center ${
+        isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
+      }`}>
         <div className="text-center">
-          <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${isDark ? 'border-white' : 'border-gray-900'}`}></div>
-          <p className={`${isDark ? 'text-white' : 'text-gray-900'}`}>Loading...</p>
+          <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${
+            isDark ? 'border-white' : 'border-gray-900'
+          }`}></div>
+          <p className={isDark ? 'text-white' : 'text-gray-900'}>Loading skills...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className={`min-h-screen relative ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+    <div className={`min-h-screen relative ${
+      isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
+    }`}>
       {/* Simple background pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -293,18 +346,22 @@ const SkillsPage = () => {
 
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header - same style as AchievementsPage */}
+          {/* Header */}
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}>
               Skills
             </h1>
-            <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
-              Click on any skill to view associated projects and certifications
+            <p className={`text-base sm:text-lg md:text-xl ${
+              isDark ? 'text-gray-300' : 'text-gray-700'
+            } px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
+              Click on any skill to view related projects and certifications
             </p>
           </motion.div>
 
@@ -315,87 +372,103 @@ const SkillsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            {Object.entries(skillCategories).map(([category, skills], categoryIndex) => {
-              const categoryTotals = getCategoryTotals(category, projectsData, certificatesData);
-              const theme = categoryThemes[category];
-              const IconComponent = categoryIcons[category] || Code2;
-              
-              return (
-                <motion.div
-                  key={category}
-                  className={`relative p-4 rounded-2xl border ${theme.bgColor} ${theme.borderColor} ${isDark ? 'bg-gray-800/20' : 'bg-white/20'} flex flex-col hover:scale-[1.01] transition-transform duration-200`}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + (categoryIndex * 0.1), duration: 0.5 }}
-                >
-                  {/* Category Header */}
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className={`p-2 rounded-full ${theme.bgColor} ${theme.color}`}>
-                      <IconComponent size={28} />
-                    </div>
-                    <h2 className={`text-xl font-bold ${theme.color}`}>
-                      {category}
-                    </h2>
+          {Object.entries(skillCategories).map(([category, skills], categoryIndex) => {
+            const categoryTotals = getCategoryTotals(category, projectsData, certificatesData);
+            const theme = categoryThemes[category];
+            const IconComponent = categoryIcons[category] || Code2;
+            
+            return (
+              <motion.div
+                key={category}
+                className={`rounded-2xl border p-4 transition-all duration-200 flex flex-col ${
+                  isDark
+                    ? 'bg-gray-800/30 border-gray-700/50'
+                    : 'bg-white/50 border-gray-200/50'
+                } hover:scale-[1.01]`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + (categoryIndex * 0.1), duration: 0.5 }}
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className={`p-1.5 rounded-lg ${theme.bgColor}`}>
+                    <IconComponent size={20} className={theme.color} />
                   </div>
+                  <h2 className={`text-base font-bold ${isDark ? 'text-white' : 'text-black'}`}>
+                    {category}
+                  </h2>
+                </div>
 
-                  {/* Skills List */}
-                  <div className="space-y-2 mb-6 flex-1">
-                    {skills.map((skill) => {
-                      const stats = getSkillStats(skill, projectsData, certificatesData);
-                      const hasData = stats.projectCount > 0 || stats.certificateCount > 0;
-                      
-                      return (
-                        <div
-                          key={skill}
-                          className={`flex justify-between items-center py-1 px-3 rounded-lg transition-all duration-200 ${
-                            hasData 
-                              ? `cursor-pointer ${theme.hoverBg} hover:scale-[1.02]`
-                              : 'cursor-default'
-                          }`}
-                          onClick={() => handleSkillClick(skill)}
-                        >
-                          <span className={`font-medium ${isDark ? 'text-white' : 'text-black'} ${hasData ? 'hover:underline' : ''}`}>
-                            {skill}
-                          </span>
-                          <div className="flex items-center gap-4 text-sm">
-                            <div className="flex items-center gap-1">
-                              <Award size={12} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
-                              <span className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                {stats.certificateCount}
-                              </span>
+                {/* Skills List */}
+                <div className="space-y-1 mb-3 flex-1">
+                  {skills.map((skill) => {
+                    const stats = getSkillStats(skill, projectsData, certificatesData);
+                    const hasData = stats.projectCount > 0 || stats.certificateCount > 0;
+                    
+                    return (
+                      <div
+                        key={skill}
+                        className={`flex justify-between items-center py-1.5 px-2.5 rounded-lg transition-all duration-200 ${
+                          hasData 
+                            ? `cursor-pointer ${isDark ? 'hover:bg-gray-700/30' : 'hover:bg-gray-200/50'}`
+                            : 'cursor-default'
+                        }`}
+                        onClick={() => hasData && handleSkillClick(skill)}
+                      >
+                        <span className={`text-sm font-medium ${
+                          hasData 
+                            ? `${isDark ? 'text-white' : 'text-black'} hover:underline`
+                            : `${isDark ? 'text-gray-500' : 'text-gray-400'}`
+                        }`}>
+                          {skill}
+                        </span>
+                        {hasData && (
+                          <div className="flex items-center gap-2.5 text-xs">
+                            <div className={`flex items-center gap-0.5 ${
+                              isDark ? 'text-gray-400' : 'text-gray-600'
+                            }`}>
+                              <Award size={11} />
+                              <span>{stats.certificateCount}</span>
                             </div>
-                            <div className="flex items-center gap-1">
-                              <Briefcase size={12} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
-                              <span className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                {stats.projectCount}
-                              </span>
+                            <div className={`flex items-center gap-0.5 ${
+                              isDark ? 'text-gray-400' : 'text-gray-600'
+                            }`}>
+                              <Briefcase size={11} />
+                              <span>{stats.projectCount}</span>
                             </div>
                           </div>
-                        </div>
-                      );
-                    })}
-                  </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
 
-                  {/* Category Total */}
-                  <div className={`pt-4 border-t ${isDark ? 'border-white/20' : 'border-black/20'} mt-auto`}>
-                    <div className="flex justify-between items-center">
-                      <div className="flex items-center gap-2">
-                        <Award size={16} className={theme.color} />
-                        <span className={`font-semibold ${isDark ? 'text-gray-300' : 'text-gray-700'} text-sm`}>
-                          {categoryTotals.totalCertificates} Total Certificates
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Briefcase size={16} className={theme.color} />
-                        <span className={`font-semibold ${isDark ? 'text-gray-300' : 'text-gray-700'} text-sm`}>
-                          {categoryTotals.totalProjects} Total Projects
-                        </span>
-                      </div>
+                {/* Category Total */}
+                <div className={`pt-3 border-t ${
+                  isDark ? 'border-gray-700/50' : 'border-gray-200/50'
+                } mt-auto`}>
+                  <div className="flex justify-between items-center text-xs">
+                    <div className="flex items-center gap-1">
+                      <Award size={12} className={theme.color} />
+                      <span className={`font-medium ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
+                        {categoryTotals.totalCertificates} Cert{categoryTotals.totalCertificates !== 1 ? 's' : ''}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Briefcase size={12} className={theme.color} />
+                      <span className={`font-medium ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                      }`}>
+                        {categoryTotals.totalProjects} Project{categoryTotals.totalProjects !== 1 ? 's' : ''}
+                      </span>
                     </div>
                   </div>
-                </motion.div>
-              );
-            })}
+                </div>
+              </motion.div>
+            );
+          })}
           </motion.div>
         </div>
       </div>

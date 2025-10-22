@@ -3,17 +3,19 @@ export const skillCategories = {
   "Backend Development": [
     "FastAPI", "Django", "DRF", "Express", "Node.js"
   ],
-  "Mobile Development": [
-    "Android", "Kotlin", "Jetpack Compose",
-  ],
-  "DevOPS and Tools": [
-    "Amazon S3", "Amazon EC2", "Amazon RDS", "Amazon CloudFront", "Amazon SES", "Git", "CI/CD", "Nginx"
-  ],
   "Frontend Development": [
     "React", "Next.js", "HTML", "CSS", "JavaScript", "Tailwind CSS"
   ],
+  "DevOPS and Tools": [
+    "AWS",
+    // "Amazon S3", "Amazon EC2", "Amazon RDS", "Amazon CloudFront", "Amazon SES", 
+    "Git", "CI/CD", "Nginx"
+  ],
   "Database": [
     "PostgreSQL", "MySQL", "SQLite", "MongoDB"
+  ],
+  "Mobile Development": [
+    "Android", "Kotlin", "Jetpack Compose",
   ],
   "Programming Languages": [
     "Python", "Kotlin", "JavaScript", "C++"
@@ -22,20 +24,20 @@ export const skillCategories = {
 
 // Function to get skill statistics with detailed data
 export const getSkillStats = (skill, projectsData, certificatesData) => {
-  const projects = projectsData.filter(project => 
-    project.skills.some(projectSkill => 
+  const projects = projectsData.filter(project =>
+    project.skills.some(projectSkill =>
       projectSkill.toLowerCase() === skill.toLowerCase()
     )
   );
 
-  const certificates = certificatesData.filter(certificate => 
-    certificate.skills.some(certSkill => 
+  const certificates = certificatesData.filter(certificate =>
+    certificate.skills.some(certSkill =>
       certSkill.toLowerCase() === skill.toLowerCase()
     )
   );
 
-  return { 
-    projectCount: projects.length, 
+  return {
+    projectCount: projects.length,
     certificateCount: certificates.length,
     projects,
     certificates
