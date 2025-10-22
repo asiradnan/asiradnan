@@ -42,9 +42,9 @@ export default function ResumePage() {
             filename: "AsirAdnan_October2025_FullStack.pdf"
         },
         {
-            name: "Android Resume",
+            name: "Backend Resume",
             icon: FileText,
-            filename: "AsirAdnan_August2025_Android.pdf"
+            filename: "AsirAdnan_October2025_Backend.pdf"
         },
     ], []);
 
