@@ -29,7 +29,7 @@ export default function NavBar() {
 
           {/* Desktop nav */}
           <nav className={`hidden lg:flex space-x-8 ${isDark ? 'text-white' : 'text-black'} font-medium`}>
-            <NavLinks isDark={isDark} />
+            <NavLinks isDark={isDark} onLinkClick={() => {}} />
           </nav>
 
           {/* Theme toggle, mobile menu, and resume button */}
@@ -93,8 +93,8 @@ export default function NavBar() {
               transition={{ delay: 0.05, duration: 0.3 }}
               className={`flex flex-col items-end space-y-4 py-6 ${isDark ? 'text-white' : 'text-black'} text-lg font-medium w-full pr-4 mr-4`}
             >
-              <NavLinks isDark={isDark} />
-              <ResumeButton isDark={isDark} />
+              <NavLinks isDark={isDark} onLinkClick={() => setMenuOpen(false)} />
+              <ResumeButton isDark={isDark} onLinkClick={() => setMenuOpen(false)} />
             </motion.div>
           </motion.nav>
         )}
@@ -103,7 +103,7 @@ export default function NavBar() {
   );
 }
 
-function NavLinks({ isDark }) {
+function NavLinks({ isDark, onLinkClick }) {
   const pathname = usePathname();
 
   const isActive = (href) => {
@@ -128,7 +128,8 @@ function NavLinks({ isDark }) {
         return (
           <Link 
             key={href} 
-            href={href} 
+            href={href}
+            onClick={onLinkClick}
             className={`relative group transition-all duration-300 ${
               active 
                 ? (isDark ? 'text-white font-bold' : 'text-black font-bold')
@@ -150,13 +151,14 @@ function NavLinks({ isDark }) {
   );
 }
 
-function ResumeButton({ isDark }) {
+function ResumeButton({ isDark, onLinkClick }) {
   const pathname = usePathname();
   const active = pathname.startsWith('/resume');
 
   return (
     <Link 
       href="/resume"
+      onClick={onLinkClick}
       className={`relative group transition-all duration-300 px-4 py-2 rounded-lg border-2 font-medium ${
         active 
           ? (isDark 
