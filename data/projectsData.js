@@ -5,8 +5,93 @@ export const projectsData = [
     shortDescription: "Modern college management web app with role-based access, clubs, forums, and announcements.",
     fullDescription:
       `
-      – Built a comprehensive college management system using Django, deployed via Nginx on Amazon EC2
-      – Implemented RBAC to manage departments, classes, clubs, noticeboards, forum posts with comments
+      – Built a comprehensive college management system using Django, deployed via Nginx on A  {
+    id: 5,
+    name: "Python (Basic)  {
+    id: 7,
+    name: "SQL (Basic)",
+  {
+    id: 9,
+    name: "Python Data Str  {
+    id: 11,
+    name: "SQL Intermedi  {
+    id: 13,
+    name: "Python Interm  {
+    id: 15,
+    name: "Introduction to SQL",
+    issuingOrganization: "SoloLearn",
+    issueDate: null,
+    expiryDate: null,
+    credentialId: "CC-OJHW1IGV",
+    skills: ["SQL", "Tables", "Select", "Where", "Joins"],
+    image: "/certificates/Into_to_SQL_sololearn.png",
+    pdfLink: null,
+    verificationLink: "https://www.sololearn.com/certificates/CC-OJHW1IGV",
+    description: "Basic introduction to SQL concepts"
+  },
+  {
+    id: 16,
+    name: "Introduction to Java",uingOrganization: "SoloLearn",
+    issueDate: null,
+    expiryDate: null,
+    credentialId: "CT-K1WF8VQ2",
+    skills: ["Python", "OOP", "Modules", "Error Handling"],
+    image: "/certificates/Intermediate Python_page-0001.jpg",
+    pdfLink: null,
+    verificationLink: "https://www.sololearn.com/certificates/CT-K1WF8VQ2",
+    description: "Intermediate concepts in Python programming"
+  },
+  {
+    id: 14,
+    name: "C++",gOrganization: "SoloLearn",
+    issueDate: null,
+    expiryDate: null,
+    credentialId: "CC-XUOEIUJ1",
+    skills: ["SQL", "Aggregations", "Joins", "Subqueries"],
+    image: "/certificates/sql_intermediate certificate_page-0001.jpg",
+    pdfLink: null,
+    verificationLink: "https://www.sololearn.com/certificates/CC-XUOEIUJ1",
+    description: "Covers intermediate SQL concepts"
+  },
+  {
+    id: 12,
+    name: "Python for Beginners",suingOrganization: "SoloLearn",
+    issueDate: null,
+    expiryDate: null,
+    credentialId: "CT-T3RZ35SS",
+    skills: ["Lists", "Dictionaries", "Tuples", "Sets"],
+    image: "/certificates/Python Data Structures_page-0001.jpg",
+    pdfLink: null,
+    verificationLink: "https://www.sololearn.com/certificates/CT-T3RZ35SS",
+    description: "Covers common data structures in Python"
+  },
+  {
+    id: 10,
+    name: "Introduction to JavaScript",ization: "HackerRank",
+    issueDate: null,
+    expiryDate: null,
+    credentialId: "37eb45ef5b45",
+    skills: ["SQL", "Queries", "Filtering", "Sorting"],
+    image: "/certificates/sql_basic certificate_page-0001.jpg",
+    pdfLink: null,
+    verificationLink: "https://www.hackerrank.com/certificates/37eb45ef5b45",
+    description: "Basic certification in SQL from HackerRank"
+  },
+  {
+    id: 8,
+    name: "SQL (Intermediate)",ganization: "HackerRank",
+    issueDate: null,
+    expiryDate: null,
+    credentialId: "27b427683df5",
+    skills: ["Python", "Syntax", "Data Types"],
+    image: "/certificates/python_basic certificate (2)_page-0001.jpg",
+    pdfLink: null,
+    verificationLink: "https://www.hackerrank.com/certificates/27b427683df5",
+    description: "HackerRank certification in basic Python programming"
+  },
+  {
+    id: 6,
+    name: "Rest API (Intermediate)",– Implemented RBAC to manage departments, classes, clubs, noticeboards, forum posts with comments
       – Deployed PostgreSQL on Amazon RDS for scalable, reliable database management
       – Images and files are stored and served via Amazon S3
       – Integrated Celery with Redis to handle asynchronous email notifications via Amazon SES as background jobs
@@ -296,7 +381,7 @@ export const certificatesData = [
     description: "HackerRank certification in basic problem solving"
   },
   {
-    id: 3,
+    id: 4,
     name: "Problem Solving (Intermediate)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -308,7 +393,7 @@ export const certificatesData = [
     description: "HackerRank certification in intermediate level problem solving"
   },
   {
-    id: 4,
+    id: 5,
     name: "Python (Basic)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -321,7 +406,7 @@ export const certificatesData = [
     description: "HackerRank certification in basic Python programming"
   },
   {
-    id: 5,
+    id: 6,
     name: "Rest API (Intermediate)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -334,7 +419,7 @@ export const certificatesData = [
     description: "Intermediate-level certification on REST API usage and design"
   },
   {
-    id: 6,
+    id: 7,
     name: "SQL (Basic)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -347,7 +432,7 @@ export const certificatesData = [
     description: "Basic certification in SQL from HackerRank"
   },
   {
-    id: 7,
+    id: 8,
     name: "SQL (Intermediate)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -360,7 +445,7 @@ export const certificatesData = [
     description: "Intermediate-level certification in SQL from HackerRank"
   },
   {
-    id: 8,
+    id: 9,
     name: "Python Data Structures",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -373,7 +458,7 @@ export const certificatesData = [
     description: "Covers common data structures in Python"
   },
   {
-    id: 9,
+    id: 10,
     name: "Introduction to JavaScript",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -386,7 +471,7 @@ export const certificatesData = [
     description: "Introductory course in JavaScript basics"
   },
   {
-    id: 10,
+    id: 11,
     name: "SQL Intermediate",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -399,7 +484,7 @@ export const certificatesData = [
     description: "Covers intermediate SQL concepts"
   },
   {
-    id: 11,
+    id: 12,
     name: "Python for Beginners",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -412,7 +497,7 @@ export const certificatesData = [
     description: "Introductory Python programming course"
   },
   {
-    id: 12,
+    id: 13,
     name: "Python Intermediate",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -425,7 +510,7 @@ export const certificatesData = [
     description: "Intermediate concepts in Python programming"
   },
   {
-    id: 13,
+    id: 14,
     name: "C++",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -438,7 +523,7 @@ export const certificatesData = [
     description: "C++ programming fundamentals course"
   },
   {
-    id: 14,
+    id: 15,
     name: "Introduction to SQL",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -451,7 +536,7 @@ export const certificatesData = [
     description: "Basic introduction to SQL concepts"
   },
   {
-    id: 15,
+    id: 16,
     name: "Introduction to Java",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -464,7 +549,7 @@ export const certificatesData = [
     description: "Basic Java programming course"
   },
   {
-    id: 16,
+    id: 17,
     name: "SEO with AI",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -563,7 +648,7 @@ export const competitiveProgrammingData = [
     ]
   },
   {
-    id: 3,
+    id: 6,
     platform: "HackerRank",
     username: "asiradnan",
     profileLink: "https://www.hackerrank.com/profile/asiradnan",
