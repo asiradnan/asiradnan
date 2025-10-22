@@ -223,17 +223,17 @@ const AchievementsPage = () => {
                                         </h2>
                                     )}
 
-                                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                                         {certificates.map((certificate) => (
                                             <div
                                                 key={certificate.id}
-                                                className={`p-6 rounded-2xl border ${isDark
+                                                className={`p-4 rounded-xl border ${isDark
                                                     ? 'bg-gray-800/30 border-gray-700/50'
                                                     : 'bg-white/50 border-gray-200/50'
                                                     } hover:scale-[1.01] transition-transform duration-200`}
                                             >
                                                 {/* Certificate Image */}
-                                                <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4 bg-gradient-to-br from-gray-100 to-gray-200">
+                                                <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-3 bg-gradient-to-br from-gray-100 to-gray-200">
                                                     {certificate.image ? (
                                                         <img
                                                             src={certificate.image}
@@ -248,57 +248,57 @@ const AchievementsPage = () => {
                                                 </div>
 
                                                 {/* Certificate Info */}
-                                                <div className="space-y-3">
+                                                <div className="space-y-2">
                                                     {/* Certificate Name */}
                                                     {certificate.verificationLink ? (
                                                         <a
                                                             href={certificate.verificationLink}
                                                             target="_blank"
                                                             rel="noopener noreferrer"
-                                                            className={`block text-xl font-semibold ${isDark ? 'text-white hover:text-blue-300' : 'text-gray-900 hover:text-blue-600'} transition-colors duration-200`}
+                                                            className={`block text-base font-semibold ${isDark ? 'text-white hover:text-blue-300' : 'text-gray-900 hover:text-blue-600'} transition-colors duration-200`}
                                                         >
-                                                            <div className="flex items-center gap-2">
+                                                            <div className="flex items-center gap-1.5">
                                                                 <span className="line-clamp-2 hover:underline">
                                                                     {certificate.name}
                                                                 </span>
-                                                                <ExternalLink size={16} className="flex-shrink-0 opacity-70" />
+                                                                <ExternalLink size={14} className="flex-shrink-0 opacity-70" />
                                                             </div>
                                                         </a>
                                                     ) : (
-                                                        <h3 className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'} line-clamp-2`}>
+                                                        <h3 className={`text-base font-semibold ${isDark ? 'text-white' : 'text-gray-900'} line-clamp-2`}>
                                                             {certificate.name}
                                                         </h3>
                                                     )}
 
                                                     {/* Issuing Organization */}
-                                                    <div className="flex items-center gap-2">
-                                                        <Building size={16} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
-                                                        <span className={`text-sm font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                                                    <div className="flex items-center gap-1.5">
+                                                        <Building size={14} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                                                        <span className={`text-xs font-medium ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                                                             {certificate.issuingOrganization}
                                                         </span>
                                                     </div>
 
                                                     {/* Description */}
                                                     {certificate.description && (
-                                                        <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
+                                                        <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'} leading-relaxed line-clamp-2`}>
                                                             {certificate.description}
                                                         </p>
                                                     )}
 
                                                     {/* Skills */}
                                                     {certificate.skills && certificate.skills.length > 0 && (
-                                                        <div className="space-y-2">
-                                                            <div className="flex items-center gap-2">
-                                                                <Code size={14} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
+                                                        <div className="space-y-1.5">
+                                                            <div className="flex items-center gap-1.5">
+                                                                <Code size={12} className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`} />
                                                                 <span className={`text-xs font-medium ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                                                    Skills Covered:
+                                                                    Skills:
                                                                 </span>
                                                             </div>
-                                                            <div className="flex flex-wrap gap-2">
-                                                                {certificate.skills.map((skill, skillIndex) => (
+                                                            <div className="flex flex-wrap gap-1.5">
+                                                                {certificate.skills.slice(0, 4).map((skill, skillIndex) => (
                                                                     <span
                                                                         key={skillIndex}
-                                                                        className={`px-2 py-1 text-xs rounded-full ${isDark
+                                                                        className={`px-2 py-0.5 text-xs rounded-full ${isDark
                                                                             ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
                                                                             : 'bg-blue-100 text-blue-700 border border-blue-200'
                                                                             }`}
@@ -312,8 +312,8 @@ const AchievementsPage = () => {
 
                                                     {/* Verification Status */}
                                                     {certificate.verificationLink && (
-                                                        <div className="flex items-center gap-2 pt-2">
-                                                            <Shield size={14} className="text-green-500" />
+                                                        <div className="flex items-center gap-1.5 pt-1">
+                                                            <Shield size={12} className="text-green-500" />
                                                             <span className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                                                                 Click name to verify certificate
                                                             </span>
