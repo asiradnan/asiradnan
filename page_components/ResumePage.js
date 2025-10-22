@@ -221,61 +221,12 @@ export default function ResumePage() {
     };
 
     return (
-        <div className={`w-full min-h-screen ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+                <div className={`w-full min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
                 id="resume-section"
                 ref={sectionRef}
-                className="w-full min-h-screen flex items-center justify-center relative overflow-hidden"
+                className="w-full min-h-screen flex items-center justify-center relative"
             >
-                {/* Animated background grid */}
-                <div className="absolute inset-0 opacity-20">
-                    <motion.div
-                        className="w-full h-full"
-                        animate={{
-                            backgroundPosition: ['0px 0px', '60px 60px'],
-                        }}
-                        transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        style={{
-                            backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
-                            backgroundSize: '60px 60px'
-                        }}
-                    />
-                </div>
-
-                {/* Floating background icons - hidden on mobile */}
-                <div className="hidden md:block">
-                    {floatingIcons.map(({ Icon, delay, x, y }, index) => (
-                        <motion.div
-                            key={index}
-                            className={`absolute ${isDark ? 'text-gray-700' : 'text-gray-300'} opacity-30`}
-                            initial={{ opacity: 0, scale: 0 }}
-                            animate={{
-                                opacity: 0.3,
-                                scale: 1,
-                                x: [0, x, 0],
-                                y: [0, y, 0],
-                                rotate: [0, 360]
-                            }}
-                            transition={{
-                                delay: delay,
-                                duration: 8,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                            style={{
-                                left: `${20 + (index * 15)}%`,
-                                top: `${15 + (index * 10)}%`
-                            }}
-                        >
-                            <Icon size={32} />
-                        </motion.div>
-                    ))}
-                </div>
-
                 {/* Main content */}
                 <motion.div
                     className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
@@ -536,9 +487,9 @@ export default function ResumePage() {
                         <p className={`text-xs md:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
                             © {new Date().getFullYear()} Asir Adnan. All rights reserved.
                         </p>
-                    </motion.div>
                 </motion.div>
-            </section>
-        </div>
+            </motion.div>
+        </section>
+      </div>
     );
 }

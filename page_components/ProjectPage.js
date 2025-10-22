@@ -340,7 +340,7 @@ const ProjectsPage = () => {
 
   if (!mounted) {
     return (
-      <div className={`min-h-screen flex items-center justify-center ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+      <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
         <div className="text-center">
           <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${isDark ? 'border-white' : 'border-gray-900'}`}></div>
           <p className={`${isDark ? 'text-white' : 'text-gray-900'}`}>Loading...</p>
@@ -350,19 +350,7 @@ const ProjectsPage = () => {
   }
 
   return (
-    <div className={`min-h-screen relative ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
-      {/* Simple background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div
-          className="w-full h-full"
-          style={{
-            backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
-            backgroundSize: '40px 40px'
-          }}
-        />
-      </div>
-
-      <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+    <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
@@ -584,9 +572,8 @@ const ProjectsPage = () => {
               <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                 Try adjusting your filters to see more projects.
               </p>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       {/* Project Detail Modal */}

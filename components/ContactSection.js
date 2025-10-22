@@ -177,19 +177,8 @@ export default function ContactSection() {
         <section
             id="contact-section"
             ref={sectionRef}
-            className={`min-h-screen flex items-center justify-center relative overflow-hidden ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}
+            className={`min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
         >
-            {/* Simple background pattern */}
-            <div className="absolute inset-0 opacity-5">
-                <div
-                    className="w-full h-full"
-                    style={{
-                        backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
-                        backgroundSize: '40px 40px'
-                    }}
-                />
-            </div>
-
             {/* Scroll to Top Button */}
             <motion.button
                 onClick={scrollToTop}

@@ -108,7 +108,7 @@ export default function ExperiencePage() {
     };
 
     return (
-        <div className={`w-full min-h-screen ${isDark ? 'bg-gradient-to-br from-gray-900 via-black to-gray-800' : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'}`}>
+                <div className={`w-full min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
                 id="experience-section"
                 ref={sectionRef}
@@ -314,9 +314,9 @@ export default function ExperiencePage() {
                         <p className={`text-xs md:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
                             © {new Date().getFullYear()} Asir Adnan. All rights reserved.
                         </p>
-                    </motion.div>
                 </motion.div>
-            </section>
-        </div>
+            </motion.div>
+        </section>
+      </div>
     );
 }
