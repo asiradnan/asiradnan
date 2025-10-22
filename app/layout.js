@@ -18,8 +18,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${jetbrainsMono.variable}`}>
+    <html lang="en" className={jetbrainsMono.variable}>
+      <body className="font-mono antialiased">
         <ClarityProvider />
         <ThemeProvider>
           <NavBar />

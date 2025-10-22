@@ -6,20 +6,12 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTheme } from '@/components/ThemeContext'
 import { usePathname } from 'next/navigation';
 
-// Add JetBrains Mono font
-import { JetBrains_Mono } from 'next/font/google';
-
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <header className={`${isDark ? 'bg-black' : 'bg-white'} shadow-lg fixed top-0 left-0 w-full z-50 ${jetbrainsMono.className}`}>
+    <header className={`${isDark ? 'bg-black' : 'bg-white'} shadow-lg fixed top-0 left-0 w-full z-50`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top bar */}
         <div className="flex items-center justify-between h-16">
