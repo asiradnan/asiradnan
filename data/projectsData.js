@@ -367,13 +367,40 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: null,
     skills: ["Competitive Programming", "C++", "Algorithms", "Data Structures", "Teamwork"],
-    image: "/certificates/certificate.png",
+    image: "/certificates/ncpc.jpg",
     pdfLink: null,
     verificationLink: null,
     description: "Participant in the 2023 National Collegiate Programming Contest"
   },
   {
     id: 3,
+    name: "Web Development Fundamentals",
+    issuingOrganization: "IBM SkillsBuild",
+    issueDate: "2025-10-21",
+    expiryDate: null,
+    credentialId: "6c7fb15b-77e4-437d-a57f-1992f06286a4",
+    skills: ["HTML", "CSS", "JavaScript", "Web Development", "Frontend"],
+    image: "/certificates/ibm.jpg",
+    pdfLink: null,
+    verificationLink: "https://www.credly.com/badges/6c7fb15b-77e4-437d-a57f-1992f06286a4",
+    description: "Completed Web Development Fundamentals course provided by IBM SkillsBuild"
+  },
+    
+  {
+    id: 4,
+    name: "Python Essentials 1",
+    issuingOrganization: "Cisco Networking Academy",
+    issueDate: "2025-10-25",
+    expiryDate: null,
+    credentialId: null,
+    skills: ["Python", "Programming Fundamentals", "Data Types", "Control Flow", "Functions", "Lists", "Dictionaries"],
+    image: "/certificates/PythonEssentials1.jpg",
+    pdfLink: null,
+    verificationLink: "https://www.credly.com/badges/6c7fb15b-77e4-437d-a57f-1992f06286a4",
+    description: "Completed Python Essentials 1 course provided by Cisco Networking Academy in collaboration with OpenEDG Python Institute"
+  },
+  {
+    id: 5,
     name: "Problem Solving (Basic)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -385,7 +412,7 @@ export const certificatesData = [
     description: "HackerRank certification in basic problem solving"
   },
   {
-    id: 4,
+    id: 6,
     name: "Problem Solving (Intermediate)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -397,7 +424,7 @@ export const certificatesData = [
     description: "HackerRank certification in intermediate level problem solving"
   },
   {
-    id: 5,
+    id: 7,
     name: "Python (Basic)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -410,7 +437,7 @@ export const certificatesData = [
     description: "HackerRank certification in basic Python programming"
   },
   {
-    id: 6,
+    id: 8,
     name: "Rest API (Intermediate)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -423,7 +450,7 @@ export const certificatesData = [
     description: "Intermediate-level certification on REST API usage and design"
   },
   {
-    id: 7,
+    id: 9,
     name: "SQL (Basic)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -436,7 +463,7 @@ export const certificatesData = [
     description: "Basic certification in SQL from HackerRank"
   },
   {
-    id: 8,
+    id: 10,
     name: "SQL (Intermediate)",
     issuingOrganization: "HackerRank",
     issueDate: null,
@@ -449,7 +476,7 @@ export const certificatesData = [
     description: "Intermediate-level certification in SQL from HackerRank"
   },
   {
-    id: 9,
+    id: 11,
     name: "Python Data Structures",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -462,7 +489,7 @@ export const certificatesData = [
     description: "Covers common data structures in Python"
   },
   {
-    id: 10,
+    id: 12,
     name: "Introduction to JavaScript",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -475,7 +502,7 @@ export const certificatesData = [
     description: "Introductory course in JavaScript basics"
   },
   {
-    id: 11,
+    id: 13,
     name: "SQL Intermediate",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -488,7 +515,7 @@ export const certificatesData = [
     description: "Covers intermediate SQL concepts"
   },
   {
-    id: 12,
+    id: 14,
     name: "Python for Beginners",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -501,7 +528,7 @@ export const certificatesData = [
     description: "Introductory Python programming course"
   },
   {
-    id: 13,
+    id: 15,
     name: "Python Intermediate",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -514,7 +541,7 @@ export const certificatesData = [
     description: "Intermediate concepts in Python programming"
   },
   {
-    id: 14,
+    id: 16,
     name: "C++",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -527,7 +554,7 @@ export const certificatesData = [
     description: "C++ programming fundamentals course"
   },
   {
-    id: 15,
+    id: 17,
     name: "Introduction to SQL",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -540,7 +567,7 @@ export const certificatesData = [
     description: "Basic introduction to SQL concepts"
   },
   {
-    id: 16,
+    id: 18,
     name: "Introduction to Java",
     issuingOrganization: "SoloLearn",
     issueDate: null,
@@ -553,7 +580,7 @@ export const certificatesData = [
     description: "Basic Java programming course"
   },
   {
-    id: 17,
+    id: 19,
     name: "SEO with AI",
     issuingOrganization: "SoloLearn",
     issueDate: null,
