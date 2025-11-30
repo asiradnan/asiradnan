@@ -81,7 +81,7 @@ export default function AboutSection() {
           <br /><br />
           My journey began with Python, expanded to C++ for competitive programming (ICPC Regional participant), 
           JavaScript for modern web development, and Kotlin for Android applications. 
-          I've completed 20+ personal projects and delivered professional solutions through freelance work and contract positions.
+          I&apos;ve completed 20+ personal projects and delivered professional solutions through freelance work and contract positions.
           With one Android app published on Google Play Store and proven experience in CI/CD pipelines, 
           asynchronous architecture, and performance optimization, I focus on writing clean, efficient, and production-ready code.
         </motion.p>
