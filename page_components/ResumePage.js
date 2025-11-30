@@ -37,6 +37,11 @@ export default function ResumePage() {
 
     const resumeOptions = React.useMemo(() => [
         {
+            name: "General Resume",
+            icon: FileText,
+            filename: "AsirAdnan.pdf"
+        },
+        {
             name: "Full Stack Resume",
             icon: FileText,
             filename: "AsirAdnan_October2025_FullStack.pdf"
@@ -46,6 +51,7 @@ export default function ResumePage() {
             icon: FileText,
             filename: "AsirAdnan_October2025_Backend.pdf"
         },
+        
     ], []);
 
     const socialLinks = React.useMemo(() => [

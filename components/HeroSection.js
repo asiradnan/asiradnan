@@ -132,7 +132,8 @@ export default function HeroSection() {
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
         >
-          I love what I do. And spend most of my time turning all my &ldquo;I wish there was a ...&ldquo; to a functional Web and/or Android app.
+          Backend-focused developer with freelance and professional experience delivering scalable solutions. 
+          Passionate about turning ideas into production-ready applications with clean, efficient code.
         </motion.p>
 
         {/* CTA Buttons */}

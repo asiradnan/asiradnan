@@ -19,31 +19,56 @@ export default function ExperiencePage() {
     // Experience data
     const experiences = [
         {
-            id: 9,
-            company: "Altux Studio",
-            position: "Android Developer",
-            duration: "Jul 2025 - September 2025",
-            location: "Dhaka (Remote)",
-            type: "Internship",
-            description: "Developed native Android applications using Kotlin. Worked on mobile app optimization and user experience improvements.",
+            id: 12,
+            company: "CPS Academy",
+            logo: "/company-logos/cps_academy.png",
+            position: "Junior Software Engineer",
+            duration: "Nov 2025 - Present",
+            location: "Remote",
+            type: "Full-time",
+            description: "Managing and developing the learning platform for CPS Academy, a competitive programming and technical training institute using Next.js and Strapi CMS",
             achievements: [
-                "Integrated RESTful APIs and third-party services",
-                "Worked on Device Admin and Lock for EMI application"
+                "Developing course management and student enrollment features for programming courses",
+                "Building interactive quiz system and progress tracking for student assessment",
+                "Managing content delivery through Strapi CMS for dynamic course materials",
+                "Collaborating with team using Scrum methodology for agile development and sprint planning",
+                "Ensuring platform reliability and performance optimization for seamless learning experience"
             ],
-            technologies: ["Kotlin", "Android SDK", "Retrofit", "Firebase"]
+            technologies: ["Next.js", "React", "Strapi", "JavaScript", "Node.js", "REST APIs", "Git"]
+        },
+        {
+            id: 11,
+            company: "Fiverr",
+            logo: "/company-logos/fiverr.png",
+            position: "Freelance Full-Stack Developer",
+            duration: "Aug 2025 - Present",
+            location: "Remote",
+            type: "Freelance",
+            description: "Providing professional web development services to clients worldwide through Fiverr platform with exceptional performance metrics",
+            achievements: [
+                "Achieved 5.0/5.0 rating with 100% response rate and success score of 8/10",
+                "Completed 6 orders earning $250 with 2 unique international clients",
+                "Built full-stack web applications with Django, React, and Next.js for the clients",
+                "Managed end-to-end project delivery including requirements gathering, development, testing, and deployment",
+                "Maintained high service quality standards ensuring on-time delivery and 100% client satisfaction"
+            ],
+            technologies: ["Django", "React", "Next.js", "Node.js", "Python", "JavaScript", "API Development"]
         },
         {
             id: 10,
             company: "BRAC Business School",
+            logo: "/company-logos/bbs.png",
             position: "Web Developer",
             duration: "Nov 2024 - Present",
             location: "Dhaka, Bangladesh",
-            type: "Contractual",
+            type: "Part-time",
             description: "Developed International Conference Websites, hosted and maintained them using Django, HTML, CSS, JavaScript",
             achievements: [
                 "Led end-to-end development of public-facing web systems, including requirements gathering, testing, and deployment",
-                "Single-handedly built the official ICCBM 2025 conference website: iccbm.bracu.ac.bd/2025",
-                "Built a research paper submission portal using Django with email notifications; handled 150+ submissions efficiently",
+                {
+                    text: "Single-handedly built the official ICCBM 2025 conference website: ",
+                    link: { url: "https://iccbm.bracu.ac.bd/2025", text: "iccbm.bracu.ac.bd/2025" }
+                },
                 "Deployed a PHP-based internal portal on Hostinger with a custom domain for streamlined faculty collaboration",
             ],
             technologies: ["Django", "HTML", "CSS", "JavaScript", "Nginx", "Linux"]
@@ -187,39 +212,60 @@ export default function ExperiencePage() {
                             >
                                 {/* Header */}
                                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                                    <div className="flex-1">
-                                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
-                                            <h3 className={`text-xl md:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                                                {exp.position}
-                                            </h3>
-                                            <span className={`px-3 py-1 rounded-full text-xs font-medium w-fit ${
-                                                exp.type === 'Full-time' 
-                                                    ? (isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700')
-                                                    : (isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-700')
+                                    <div className="flex gap-4 flex-1">
+                                        {/* Company Logo */}
+                                        {exp.logo && (
+                                            <div className={`w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                                                isDark ? 'bg-white/10' : 'bg-gray-100'
                                             }`}>
-                                                {exp.type}
-                                            </span>
-                                        </div>
+                                                <img 
+                                                    src={exp.logo} 
+                                                    alt={`${exp.company} logo`}
+                                                    className="w-12 h-12 object-contain"
+                                                    onError={(e) => {
+                                                        e.target.style.display = 'none';
+                                                        e.target.parentElement.innerHTML = `<div class="w-12 h-12 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-200'} flex items-center justify-center text-xl font-bold ${isDark ? 'text-gray-400' : 'text-gray-600'}">${exp.company.charAt(0)}</div>`;
+                                                    }}
+                                                />
+                                            </div>
+                                        )}
                                         
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <Building size={18} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
-                                            <span className={`text-lg font-semibold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
-                                                {exp.company}
-                                            </span>
-                                        </div>
-
-                                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                                            <div className="flex items-center gap-2">
-                                                <Calendar size={16} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
-                                                <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                                    {exp.duration}
+                                        <div className="flex-1">
+                                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
+                                                <h3 className={`text-xl md:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                                                    {exp.position}
+                                                </h3>
+                                                <span className={`px-3 py-1 rounded-full text-xs font-medium w-fit ${
+                                                    exp.type === 'Full-time' 
+                                                        ? (isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700')
+                                                        : exp.type === 'Freelance'
+                                                        ? (isDark ? 'bg-purple-500/20 text-purple-400' : 'bg-purple-100 text-purple-700')
+                                                        : (isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-700')
+                                                }`}>
+                                                    {exp.type}
                                                 </span>
                                             </div>
-                                            <div className="flex items-center gap-2">
-                                                <MapPin size={16} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
-                                                <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                                    {exp.location}
+                                            
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <Building size={18} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
+                                                <span className={`text-lg font-semibold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
+                                                    {exp.company}
                                                 </span>
+                                            </div>
+                                            
+                                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 mt-2">
+                                                <div className="flex items-center gap-2">
+                                                    <Calendar size={16} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
+                                                    <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                                        {exp.duration}
+                                                    </span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <MapPin size={16} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
+                                                    <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                                        {exp.location}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -240,7 +286,21 @@ export default function ExperiencePage() {
                                             <li key={achIndex} className="flex items-start gap-3">
                                                 <CheckCircle size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
                                                 <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                                                    {achievement}
+                                                    {typeof achievement === 'string' ? (
+                                                        achievement
+                                                    ) : (
+                                                        <>
+                                                            {achievement.text}
+                                                            <a 
+                                                                href={achievement.link.url}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                className={`underline ${isDark ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'}`}
+                                                            >
+                                                                {achievement.link.text}
+                                                            </a>
+                                                        </>
+                                                    )}
                                                 </span>
                                             </li>
                                         ))}

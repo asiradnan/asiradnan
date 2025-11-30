@@ -110,6 +110,30 @@ export const projectsData = [
     category: "Full Stack"
   },
   {
+    id: 5,
+    name: "SoulSpeak",
+    shortDescription: "A full-stack mental well-being platform with real-time chat, forums, and companion certification.",
+    fullDescription:
+      `
+      – Developed a full-stack mental well-being platform enabling users to share experiences, connect with companions, and promote emotional wellness
+      – Built a real-time chat system using Socket.IO for one-on-one conversations with typing indicators, chat history, and online presence tracking
+      – Designed a companion certification program with assessments, score tracking, and curated mental health training resources
+      – Implemented community forums with category-based posts, image sharing, upvotes, comments, and full CRUD functionality
+      – Integrated JWT authentication, email verification, password recovery, and secure file uploads with Multer for profile and forum media
+      – Created an admin dashboard for managing users, reports, training questions, and account suspensions with PDF export capabilities
+      – Developed using React.js, Node.js, Express.js, and MongoDB, with modular architecture and responsive UI built with Tailwind CSS
+    `,
+    skills: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "JWT", "Tailwind CSS", "Multer", "REST API", "Git"],
+    githubLink: "https://github.com/asiradnan/SoulSpeak",
+    liveLink: "https://soulspeak.asiradnan.com",
+    image: "/projects/soul_speak.png",
+    status: "Completed",
+    duration: "3 months",
+    category: "Full Stack",
+    motivation: "Created to provide a safe space for people to share their mental health experiences and connect with trained companions.",
+    result: "Built a comprehensive platform with real-time communication, community engagement, and certification systems for mental health support."
+  },
+  {
     id: 2,
     name: "Cross Platform Todo App (Web and Android)",
     shortDescription: "A comprehensive task management system with Android & Web platforms that managed more than 2,500 tasks.",
@@ -168,8 +192,31 @@ export const projectsData = [
     duration: "1 month",
     category: "Full Stack"
   },
+  // {
+  //   id: 6,
+  //   name: "Apartment Management System",
+  //   shortDescription: "A scalable apartment management platform with RBAC, complaint handling, billing, and community features.",
+  //   fullDescription:
+  //     `
+  //     – Built and deployed a scalable apartment management platform using Next.js on a DigitalOcean VPS
+  //     – Implemented Role-Based Access Control (RBAC) for secure complaint handling, billing, and resident onboarding
+  //     – Developed a community forum with support for posts, comments, and media sharing for events
+  //     – Integrated automated email notifications for complaint status, billing updates, and resident approvals
+  //     – Designed responsive UI with modern components for managing apartments, residents, and maintenance requests
+  //     – Deployed with Nginx for optimized performance and reliability
+  //   `,
+  //   skills: ["Next.js", "React", "Node.js", "MongoDB", "Tailwind CSS", "RBAC", "Email Integration", "Nginx", "DigitalOcean", "Git"],
+  //   githubLink: "https://github.com/asiradnan/AMS",
+  //   liveLink: "https://ams.asiradnan.com",
+  //   image: "/projects/ams.png",
+  //   status: "Completed",
+  //   duration: "2 months",
+  //   category: "Full Stack",
+  //   motivation: "Designed to streamline apartment management operations and improve communication between residents and management.",
+  //   result: "Successfully deployed a full-featured management system handling complaints, billing, and community engagement."
+  // },
    {
-    id: 5,
+    id: 7,
     name: "QR Code",
     shortDescription: "Make customized qr code from any text or link!",
     fullDescription: "Tool to create customized QR Code from any text or link. It supports custom sizes that helps when printing.",
@@ -183,7 +230,7 @@ export const projectsData = [
     category: "Full Stack"
   },
   {
-    id: 6,
+    id: 8,
     name: "Periodic Table (Android App)",
     shortDescription: "Modern Android app for the periodic table with 118 elements, multi-language, and dark/light themes.",
     fullDescription: "An Android app built with Jetpack Compose featuring a list of 118 elements, each with detailed information. Supports light/dark themes, Bangla/English language selection, and search in both languages. Clean MVVM architecture and smooth Compose UI.",
@@ -605,7 +652,7 @@ export const competitiveProgrammingData = [
       Rating: "1321",
       MaxRating: "1321",
       Rank: "Pupil",
-      ProblemsSolved: "1150+"
+      ProblemsSolved: "1160+"
     },
     achievements: [
       // "Pupil Rank Achievement",
@@ -620,10 +667,10 @@ export const competitiveProgrammingData = [
     profileLink: "https://leetcode.com/u/asiradnan/",
     logo: "/platforms/leetcode.png",
     stats: {
-      ProblemsSolved: "210+",
-      EasyProblems: "55+",
-      MediumProblems: "145+",
-      HardProblems: "5+"
+      ProblemsSolved: "280+",
+      EasyProblems: "85+",
+      MediumProblems: "180+",
+      HardProblems: "10+"
     },
     achievements: [
       "200+ Problems Solved",
@@ -640,11 +687,12 @@ export const competitiveProgrammingData = [
     stats: {
       Rating: "1569",
       MaxRating: "1602",
-      Rank: "2★",
-      ProblemsSolved: "180+"
+      Rank: "3★",
+      ProblemsSolved: "220+"
     },
     achievements: [
-      "Highest rank 3★",
+      "3★ Rank Achievement",
+      "Solved 220+ problems"
     ]
   },
   {
@@ -742,4 +790,25 @@ export const getAllSkills = () => {
     platform.achievements || []
   );
   return [...new Set([...projectSkills, ...certificateSkills, ...competitiveSkills])].sort();
+};
+
+export const educationData = {
+  degree: "Bachelor of Science in Computer Science",
+  institution: "BRAC University",
+  location: "Dhaka, Bangladesh",
+  startDate: "2022",
+  endDate: "2025",
+  status: "Expected Graduation: February 2026",
+  gpa: "3.76 out of 4.00",
+  achievements: ["Dean's List"],
+  relevantCourses: [
+    "Algorithms",
+    "Data Structures",
+    "Object Oriented Programming",
+    "Database Management Systems",
+    "Operating Systems",
+    "Computer Networks",
+    "Software Engineering",
+    "Web Programming"
+  ]
 };

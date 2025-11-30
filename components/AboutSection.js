@@ -75,17 +75,15 @@ export default function AboutSection() {
           variants={itemVariants}
           className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-200' : 'text-gray-800'} px-4 sm:px-6 md:px-10 lg:px-12 py-6 sm:py-8 md:py-12 lg:py-16 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
         >
-          I am in love with programming.
-          Hence, I taught myself more of it than what the varsity taught me.
-          Even though my journey began with Python,
-          I learned C++ for competitive programming,
-          JavaScript for Web programming,
-          and Kotlin for Android along the way.
-          I have also explored Java and C.
-          To date, I have completed more than 20 personal web projects
-          and worked professionally with more than 10.
-          I have one Android app published on the Play Store,
-          and more are on the way.
+          Backend-focused Full-Stack Developer passionate about building scalable web applications, APIs, and cloud-based systems. 
+          I specialize in Python (Django, FastAPI) and JavaScript (Node.js, React, Next.js), with expertise in end-to-end development 
+          from database design to cloud deployment on AWS and DigitalOcean.
+          <br /><br />
+          My journey began with Python, expanded to C++ for competitive programming (ICPC Regional participant), 
+          JavaScript for modern web development, and Kotlin for Android applications. 
+          I've completed 20+ personal projects and delivered professional solutions through freelance work and contract positions.
+          With one Android app published on Google Play Store and proven experience in CI/CD pipelines, 
+          asynchronous architecture, and performance optimization, I focus on writing clean, efficient, and production-ready code.
         </motion.p>
 
         {/* View More About Me Button */}
