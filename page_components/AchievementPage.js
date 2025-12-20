@@ -66,22 +66,22 @@ const AchievementsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                        <h1 className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Achievements
                         </h1>
-                        <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
+                        <p className={`text-sm sm:text-base md:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
                             Professional certifications, competitive programming achievements, and profiles
                         </p>
                     </motion.div>
 
                     {/* Tabs */}
                     <div className="flex justify-center mb-12">
-                        <div className={`flex rounded-xl p-1 ${isDark ? 'bg-gray-800/50' : 'bg-white/50'} border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
+                        <div className={`flex flex-wrap gap-2 sm:flex-nowrap rounded-xl p-1 ${isDark ? 'bg-gray-800/50' : 'bg-white/50'} border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
                             {tabs.map((tab) => (
                                 <button
                                     key={tab.id}
                                     onClick={() => setActiveTab(tab.id)}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${activeTab === tab.id
+                                    className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 whitespace-nowrap ${activeTab === tab.id
                                             ? isDark
                                                 ? 'bg-white text-black shadow-lg'
                                                 : 'bg-black text-white shadow-lg'
@@ -90,7 +90,7 @@ const AchievementsPage = () => {
                                                 : 'text-gray-700 hover:text-black hover:bg-gray-100/50'
                                         }`}
                                 >
-                                    <tab.icon size={16} />
+                                    <tab.icon size={14} className="sm:w-4 sm:h-4" />
                                     <span className="hidden sm:inline">{tab.label}</span>
                                     <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
                                 </button>

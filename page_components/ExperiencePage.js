@@ -177,7 +177,7 @@ export default function ExperiencePage() {
 
                 {/* Main content */}
                 <motion.div
-                    className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16"
+                    className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isVisible ? "visible" : "hidden"}
@@ -189,7 +189,7 @@ export default function ExperiencePage() {
                         initial="hidden"
                         animate={isVisible ? "visible" : "hidden"}
                     >
-                        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-2 md:mt-4 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Experience
                         </h1>
 
