@@ -39,7 +39,7 @@ export default function ResumePage() {
         {
             name: "General Resume",
             icon: FileText,
-            filename: "AsirAdnan.pdf"
+            filename: "Asir_Adnan_December.pdf"
         },
         {
             name: "Full Stack Resume",

@@ -37,14 +37,31 @@ export default function ExperiencePage() {
             technologies: ["Next.js", "React", "Strapi", "JavaScript", "Node.js", "REST APIs", "Git"]
         },
         {
+            id: 13,
+            company: "Upwork",
+            logo: "/company-logos/upwork.png",
+            position: "Freelance Software Engineer",
+            duration: "Sep 2025 - Present",
+            location: "Remote",
+            type: "Freelance",
+            description: "Developing full-stack web applications with Django and Next.js for international clients on Upwork platform",
+            achievements: [
+                "Building, fixing, testing and deploying web applications using Django and Next.js",
+                "Delivering high-quality full-stack solutions for diverse client requirements",
+                "Managing complete project lifecycle from requirements to deployment",
+                "Providing technical consultation and support for web development projects"
+            ],
+            technologies: ["Python", "Django", "Django REST Framework", "Next.js", "React", "Web Hosting"]
+        },
+        {
             id: 11,
             company: "Fiverr",
             logo: "/company-logos/fiverr.png",
-            position: "Freelance Full-Stack Developer",
+            position: "Freelance Software Engineer",
             duration: "Aug 2025 - Present",
             location: "Remote",
             type: "Freelance",
-            description: "Providing professional web development services to clients worldwide through Fiverr platform with exceptional performance metrics",
+            description: "Building, fixing, testing and deploying web apps made with Django, Next.JS, ReactJS",
             achievements: [
                 "Achieved 5.0/5.0 rating with 100% response rate and success score of 8/10",
                 "Completed 6 orders earning $250 with 2 unique international clients",
@@ -52,7 +69,7 @@ export default function ExperiencePage() {
                 "Managed end-to-end project delivery including requirements gathering, development, testing, and deployment",
                 "Maintained high service quality standards ensuring on-time delivery and 100% client satisfaction"
             ],
-            technologies: ["Django", "React", "Next.js", "Node.js", "Python", "JavaScript", "API Development"]
+            technologies: ["Django", "Django REST Framework", "Next.js", "React", "Web Hosting", "Python"]
         },
         {
             id: 10,
@@ -133,11 +150,11 @@ export default function ExperiencePage() {
     };
 
     return (
-                <div className={`w-full min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+                <div className={`w-full min-h-screen transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
                 id="experience-section"
                 ref={sectionRef}
-                className="w-full min-h-screen flex items-center justify-center relative overflow-hidden"
+                className="w-full min-h-screen relative overflow-hidden"
             >
                 {/* Animated background grid */}
                 <div className="absolute inset-0 opacity-20">
@@ -160,25 +177,25 @@ export default function ExperiencePage() {
 
                 {/* Main content */}
                 <motion.div
-                    className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-16"
+                    className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isVisible ? "visible" : "hidden"}
                 >
                     {/* Header Section */}
                     <motion.div
-                        className="text-center mb-16"
+                        className="text-center mb-8 md:mb-16"
                         variants={containerVariants}
                         initial="hidden"
                         animate={isVisible ? "visible" : "hidden"}
                     >
-                        <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-2 md:mt-4 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Experience
                         </h1>
                         
                         <motion.p
                             variants={itemVariants}
-                            className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
+                            className={`text-sm sm:text-base md:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
                         >
                             My professional journey in software development and technology
                         </motion.p>
@@ -186,21 +203,21 @@ export default function ExperiencePage() {
                         {/* Total Experience Summary */}
                         <motion.div
                             variants={itemVariants}
-                            className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border mt-8 ${isDark
+                            className={`inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full border mt-4 sm:mt-6 md:mt-8 ${isDark
                                 ? 'bg-gray-800/50 border-gray-600 text-white'
                                 : 'bg-white/50 border-gray-300 text-gray-900'
                             } backdrop-blur-sm`}
                             whileHover={{ scale: 1.02 }}
                         >
-                            <Clock size={20} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
-                            <span className="font-semibold text-sm md:text-base">
+                            <Clock size={18} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
+                            <span className="font-semibold text-xs sm:text-sm md:text-base">
                                 Total Experience: {calculateTotalExperience()}
                             </span>
                         </motion.div>
                     </motion.div>
 
                     {/* Experience Cards */}
-                    <div className="space-y-6 md:space-y-8">
+                    <div className="space-y-4 sm:space-y-6 md:space-y-8">
                         {experiences.map((exp, index) => (
                             <motion.div
                                 key={exp.id}
@@ -208,31 +225,31 @@ export default function ExperiencePage() {
                                 className={`${isDark
                                     ? 'bg-gray-800/50 border-gray-600'
                                     : 'bg-white/50 border-gray-200'
-                                } border backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300`}
+                                } border backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300`}
                             >
                                 {/* Header */}
-                                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
-                                    <div className="flex gap-4 flex-1">
+                                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
+                                    <div className="flex gap-3 sm:gap-4 flex-1">
                                         {/* Company Logo */}
                                         {exp.logo && (
-                                            <div className={`w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                                            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 ${
                                                 isDark ? 'bg-white/10' : 'bg-gray-100'
                                             }`}>
                                                 <img 
                                                     src={exp.logo} 
                                                     alt={`${exp.company} logo`}
-                                                    className="w-12 h-12 object-contain"
+                                                    className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                                                     onError={(e) => {
                                                         e.target.style.display = 'none';
-                                                        e.target.parentElement.innerHTML = `<div class="w-12 h-12 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-200'} flex items-center justify-center text-xl font-bold ${isDark ? 'text-gray-400' : 'text-gray-600'}">${exp.company.charAt(0)}</div>`;
+                                                        e.target.parentElement.innerHTML = `<div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-200'} flex items-center justify-center text-lg sm:text-xl font-bold ${isDark ? 'text-gray-400' : 'text-gray-600'}">${exp.company.charAt(0)}</div>`;
                                                     }}
                                                 />
                                             </div>
                                         )}
                                         
-                                        <div className="flex-1">
-                                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
-                                                <h3 className={`text-xl md:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                                        <div className="flex-1 min-w-0">
+                                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                                                <h3 className={`text-lg sm:text-xl md:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} break-words`}>
                                                     {exp.position}
                                                 </h3>
                                                 <span className={`px-3 py-1 rounded-full text-xs font-medium w-fit ${
@@ -246,23 +263,23 @@ export default function ExperiencePage() {
                                                 </span>
                                             </div>
                                             
-                                            <div className="flex items-center gap-2 mb-2">
-                                                <Building size={18} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
-                                                <span className={`text-lg font-semibold ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
+                                            <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                                                <Building size={16} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
+                                                <span className={`text-base sm:text-lg font-semibold ${isDark ? 'text-blue-400' : 'text-blue-600'} break-words`}>
                                                     {exp.company}
                                                 </span>
                                             </div>
                                             
-                                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 mt-2">
-                                                <div className="flex items-center gap-2">
-                                                    <Calendar size={16} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
-                                                    <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                            <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 md:gap-6 mt-1 sm:mt-2">
+                                                <div className="flex items-center gap-1.5 sm:gap-2">
+                                                    <Calendar size={14} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
+                                                    <span className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                                                         {exp.duration}
                                                     </span>
                                                 </div>
-                                                <div className="flex items-center gap-2">
-                                                    <MapPin size={16} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
-                                                    <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                                <div className="flex items-center gap-1.5 sm:gap-2">
+                                                    <MapPin size={14} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
+                                                    <span className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                                                         {exp.location}
                                                     </span>
                                                 </div>
@@ -272,20 +289,20 @@ export default function ExperiencePage() {
                                 </div>
 
                                 {/* Description */}
-                                <p className={`text-sm md:text-base ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-6 leading-relaxed`}>
+                                <p className={`text-xs sm:text-sm md:text-base ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-4 sm:mb-6 leading-relaxed`}>
                                     {exp.description}
                                 </p>
 
                                 {/* Achievements */}
-                                <div className="mb-6">
-                                    <h4 className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-3`}>
+                                <div className="mb-4 sm:mb-6">
+                                    <h4 className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-2 sm:mb-3`}>
                                         Key Achievements:
                                     </h4>
-                                    <ul className="space-y-2">
+                                    <ul className="space-y-1.5 sm:space-y-2">
                                         {exp.achievements.map((achievement, achIndex) => (
-                                            <li key={achIndex} className="flex items-start gap-3">
-                                                <CheckCircle size={16} className="text-green-500 mt-0.5 flex-shrink-0" />
-                                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                                            <li key={achIndex} className="flex items-start gap-2 sm:gap-3">
+                                                <CheckCircle size={14} className="text-green-500 mt-0.5 flex-shrink-0" />
+                                                <span className={`text-xs sm:text-sm ${isDark ? 'text-gray-300' : 'text-gray-700'} break-words`}>
                                                     {typeof achievement === 'string' ? (
                                                         achievement
                                                     ) : (
@@ -309,14 +326,14 @@ export default function ExperiencePage() {
 
                                 {/* Technologies */}
                                 <div>
-                                    <h4 className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-3`}>
+                                    <h4 className={`text-xs sm:text-sm font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-2 sm:mb-3`}>
                                         Technologies Used:
                                     </h4>
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                                         {exp.technologies.map((tech, techIndex) => (
                                             <span
                                                 key={techIndex}
-                                                className={`px-3 py-1 rounded-full text-xs ${isDark
+                                                className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs ${isDark
                                                     ? 'bg-white/10 text-gray-300 border border-gray-600'
                                                     : 'bg-gray-100 text-gray-700 border border-gray-300'
                                                 }`}
@@ -333,35 +350,35 @@ export default function ExperiencePage() {
                     {/* Call to Action */}
                     <motion.div
                         variants={itemVariants}
-                        className="text-center mt-12"
+                        className="text-center mt-8 sm:mt-10 md:mt-12"
                     >
                         <motion.div
-                            className={`inline-flex flex-col sm:flex-row items-center gap-4 p-6 rounded-xl border ${isDark
+                            className={`inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl border ${isDark
                                 ? 'bg-gray-800/50 border-gray-600'
                                 : 'bg-white/50 border-gray-200'
-                            } backdrop-blur-sm`}
+                            } backdrop-blur-sm w-full sm:w-auto`}
                             whileHover={{ scale: 1.01 }}
                         >
                             <div className="text-center sm:text-left">
-                                <h3 className={`text-lg md:text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-2`}>
+                                <h3 className={`text-base sm:text-lg md:text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-1 sm:mb-2`}>
                                     Interested in working together?
                                 </h3>
-                                <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                <p className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                                     Let's discuss how I can contribute to your team.
                                 </p>
                             </div>
                             <motion.button
-                                className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold ${isDark
+                                className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base ${isDark
                                     ? 'bg-white text-black hover:bg-gray-200'
                                     : 'bg-black text-white hover:bg-gray-800'
-                                } transition-colors duration-300`}
+                                } transition-colors duration-300 w-full sm:w-auto justify-center`}
                                 whileHover={{ scale: 1.02 }}
                                 onClick={() => {
                                     window.location.href = '/resume';
                                 }}
                             >
                                 View Resume
-                                <ExternalLink size={16} />
+                                <ExternalLink size={14} className="sm:w-4 sm:h-4" />
                             </motion.button>
                         </motion.div>
                     </motion.div>
