@@ -53,11 +53,11 @@ export default function AboutSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
+      className={`py-16 sm:py-20 md:min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
     >
       {/* Main content */}
       <motion.div
-        className="text-center z-10 px-6 max-w-5xl mx-auto"
+        className="text-center z-10 px-4 sm:px-6 max-w-5xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
@@ -73,7 +73,7 @@ export default function AboutSection() {
         {/* Main description - same style as hero description */}
         <motion.p
           variants={itemVariants}
-          className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-200' : 'text-gray-800'} px-4 sm:px-6 md:px-10 lg:px-12 py-6 sm:py-8 md:py-12 lg:py-16 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
+          className={`text-sm sm:text-base md:text-lg ${isDark ? 'text-gray-200' : 'text-gray-800'} px-0 sm:px-4 md:px-8 py-6 sm:py-8 md:py-10 max-w-4xl mx-auto leading-relaxed font-normal`}
         >
           Backend-focused Full-Stack Developer passionate about building scalable web applications, APIs, and cloud-based systems. 
           I specialize in Python (Django, FastAPI) and JavaScript (Node.js, React, Next.js), with expertise in end-to-end development 
@@ -98,7 +98,7 @@ export default function AboutSection() {
           >
             {/* View My Skills (Scroll - Secondary) */}
             <motion.button
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 ${isDark
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg border-2 ${isDark
                 ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
                 : 'border-gray-500 text-gray-800 hover:bg-gray-100'
                 } transition-all duration-300`}

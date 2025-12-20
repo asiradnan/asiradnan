@@ -100,7 +100,7 @@ export default function ExperiencePage() {
         const diffMonths = Math.ceil(diffTime / (1000 * 60 * 60 * 24 * 30));
         const years = Math.floor(diffMonths / 12);
         const months = diffMonths % 12;
-        
+
         if (years === 0) {
             return `${months} months`;
         } else if (months === 0) {
@@ -117,7 +117,7 @@ export default function ExperiencePage() {
                     setIsVisible(true);
                 }
             },
-            { threshold: 0.3 }
+            { threshold: 0.1 }
         );
 
         if (sectionRef.current) {
@@ -150,7 +150,7 @@ export default function ExperiencePage() {
     };
 
     return (
-                <div className={`w-full min-h-screen transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+        <div className={`w-full min-h-screen transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
                 id="experience-section"
                 ref={sectionRef}
@@ -192,7 +192,7 @@ export default function ExperiencePage() {
                         <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-2 md:mt-4 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Experience
                         </h1>
-                        
+
                         <motion.p
                             variants={itemVariants}
                             className={`text-sm sm:text-base md:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
@@ -206,7 +206,7 @@ export default function ExperiencePage() {
                             className={`inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-2 sm:py-3 rounded-full border mt-4 sm:mt-6 md:mt-8 ${isDark
                                 ? 'bg-gray-800/50 border-gray-600 text-white'
                                 : 'bg-white/50 border-gray-300 text-gray-900'
-                            } backdrop-blur-sm`}
+                                } backdrop-blur-sm`}
                             whileHover={{ scale: 1.02 }}
                         >
                             <Clock size={18} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
@@ -225,18 +225,17 @@ export default function ExperiencePage() {
                                 className={`${isDark
                                     ? 'bg-gray-800/50 border-gray-600'
                                     : 'bg-white/50 border-gray-200'
-                                } border backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300`}
+                                    } border backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300`}
                             >
                                 {/* Header */}
                                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">
                                     <div className="flex gap-3 sm:gap-4 flex-1">
                                         {/* Company Logo */}
                                         {exp.logo && (
-                                            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 ${
-                                                isDark ? 'bg-white/10' : 'bg-gray-100'
-                                            }`}>
-                                                <img 
-                                                    src={exp.logo} 
+                                            <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-lg flex items-center justify-center flex-shrink-0 ${isDark ? 'bg-white/10' : 'bg-gray-100'
+                                                }`}>
+                                                <img
+                                                    src={exp.logo}
                                                     alt={`${exp.company} logo`}
                                                     className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
                                                     onError={(e) => {
@@ -246,30 +245,29 @@ export default function ExperiencePage() {
                                                 />
                                             </div>
                                         )}
-                                        
+
                                         <div className="flex-1 min-w-0">
                                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
                                                 <h3 className={`text-lg sm:text-xl md:text-2xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} break-words`}>
                                                     {exp.position}
                                                 </h3>
-                                                <span className={`px-3 py-1 rounded-full text-xs font-medium w-fit ${
-                                                    exp.type === 'Full-time' 
+                                                <span className={`px-3 py-1 rounded-full text-xs font-medium w-fit ${exp.type === 'Full-time'
                                                         ? (isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700')
                                                         : exp.type === 'Freelance'
-                                                        ? (isDark ? 'bg-purple-500/20 text-purple-400' : 'bg-purple-100 text-purple-700')
-                                                        : (isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-700')
-                                                }`}>
+                                                            ? (isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-700')
+                                                            : (isDark ? 'bg-orange-500/20 text-orange-400' : 'bg-orange-100 text-orange-700')
+                                                    }`}>
                                                     {exp.type}
                                                 </span>
                                             </div>
-                                            
+
                                             <div className="flex items-center gap-2 mb-1 sm:mb-2">
                                                 <Building size={16} className={isDark ? 'text-blue-400' : 'text-blue-600'} />
                                                 <span className={`text-base sm:text-lg font-semibold ${isDark ? 'text-blue-400' : 'text-blue-600'} break-words`}>
                                                     {exp.company}
                                                 </span>
                                             </div>
-                                            
+
                                             <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 md:gap-6 mt-1 sm:mt-2">
                                                 <div className="flex items-center gap-1.5 sm:gap-2">
                                                     <Calendar size={14} className={isDark ? 'text-gray-400' : 'text-gray-600'} />
@@ -308,7 +306,7 @@ export default function ExperiencePage() {
                                                     ) : (
                                                         <>
                                                             {achievement.text}
-                                                            <a 
+                                                            <a
                                                                 href={achievement.link.url}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
@@ -336,7 +334,7 @@ export default function ExperiencePage() {
                                                 className={`px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-xs ${isDark
                                                     ? 'bg-white/10 text-gray-300 border border-gray-600'
                                                     : 'bg-gray-100 text-gray-700 border border-gray-300'
-                                                }`}
+                                                    }`}
                                             >
                                                 {tech}
                                             </span>
@@ -356,7 +354,7 @@ export default function ExperiencePage() {
                             className={`inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl border ${isDark
                                 ? 'bg-gray-800/50 border-gray-600'
                                 : 'bg-white/50 border-gray-200'
-                            } backdrop-blur-sm w-full sm:w-auto`}
+                                } backdrop-blur-sm w-full sm:w-auto`}
                             whileHover={{ scale: 1.01 }}
                         >
                             <div className="text-center sm:text-left">
@@ -371,7 +369,7 @@ export default function ExperiencePage() {
                                 className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base ${isDark
                                     ? 'bg-white text-black hover:bg-gray-200'
                                     : 'bg-black text-white hover:bg-gray-800'
-                                } transition-colors duration-300 w-full sm:w-auto justify-center`}
+                                    } transition-colors duration-300 w-full sm:w-auto justify-center`}
                                 whileHover={{ scale: 1.02 }}
                                 onClick={() => {
                                     window.location.href = '/resume';
@@ -391,9 +389,9 @@ export default function ExperiencePage() {
                         <p className={`text-xs md:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
                             © {new Date().getFullYear()} Asir Adnan. All rights reserved.
                         </p>
+                    </motion.div>
                 </motion.div>
-            </motion.div>
-        </section>
-      </div>
+            </section>
+        </div>
     );
 }

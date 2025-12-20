@@ -12,17 +12,16 @@ export default function HeroSection() {
 
   // Move roles inside useMemo or define it dynamically so it updates with theme changes
   const roles = React.useMemo(() => [
-    { text: "Full Stack Web Developer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
-    { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" },
-    { text: "DevOps Engineer", icon: Cpu, color: isDark ? "text-orange-400" : "text-orange-600" },
-    { text: "DSA Problem Solver ", icon: BrainCircuit, color: isDark ? "text-yellow-400" : "text-yellow-600" }
+    { text: "Software Engineer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
+    { text: "Full Stack Developer", icon: Database, color: isDark ? "text-cyan-400" : "text-cyan-600" },
+    { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" }
   ], [isDark]);
 
   useEffect(() => {
     setIsVisible(true);
     const interval = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length);
-    }, 2500);
+    }, 1500);
 
     return () => {
       clearInterval(interval);
@@ -73,11 +72,11 @@ export default function HeroSection() {
     <section
       id="hero-section"
       ref={sectionRef}
-      className={`min-h-[calc(100vh-4rem)] md:min-h-screen flex items-center justify-center relative overflow-hidden pt-16 md:pt-0 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden py-20 md:py-0 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
     >
       {/* Main content */}
       <motion.div
-        className="text-center z-10 px-6 max-w-5xl mx-auto"
+        className="text-center z-10 px-4 sm:px-6 max-w-5xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
@@ -118,9 +117,9 @@ export default function HeroSection() {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.2 }}
               >
-                {React.createElement(roles[currentRole].icon, { size: 32 })}
+                {React.createElement(roles[currentRole].icon, { size: 24, className: "md:w-8 md:h-8" })}
               </motion.div>
-              <span className={`text-xl sm:text-2xl md:text-4xl font-semibold ${roles[currentRole].color}`}>
+              <span className={`text-lg sm:text-xl md:text-3xl lg:text-4xl font-semibold ${roles[currentRole].color}`}>
                 {roles[currentRole].text}
               </span>
             </motion.div>
@@ -139,10 +138,10 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <motion.div
           variants={itemVariants}
-          className="flex justify-center gap-4 flex-wrap"
+          className="flex justify-center gap-3 sm:gap-4 flex-wrap"
         >
           <motion.button
-            className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-lg border-2 min-w-[160px] justify-center ${isDark
+            className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg border-2 ${isDark
               ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
               : 'border-gray-500 text-gray-800 hover:bg-gray-100'
               } transition-all duration-300`}
@@ -159,7 +158,7 @@ export default function HeroSection() {
           </motion.button>
 
           <motion.button
-            className={`flex items-center gap-3 px-8 py-3 rounded-full font-semibold text-lg min-w-[160px] justify-center ${isDark
+            className={`flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg ${isDark
                 ? 'bg-white text-black hover:bg-gray-200'
                 : 'bg-black text-white hover:bg-gray-800'
               } transition-colors duration-300`}
