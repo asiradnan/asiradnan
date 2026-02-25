@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata = {
   title: "Asir Adnan",
-  description: "Asir Adnan portfolio as a software engineer/developer/full stack developer/backend developer/android developer",
+  description: "Asir Adnan portfolio as a software engineer/developer/full stack developer/backend developer",
 };
 
 export default function RootLayout({ children }) {

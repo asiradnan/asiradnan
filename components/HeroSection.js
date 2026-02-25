@@ -14,7 +14,7 @@ export default function HeroSection() {
   const roles = React.useMemo(() => [
     { text: "Software Engineer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
     { text: "Full Stack Developer", icon: Database, color: isDark ? "text-cyan-400" : "text-cyan-600" },
-    { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" }
+    // { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" }
   ], [isDark]);
 
   useEffect(() => {
