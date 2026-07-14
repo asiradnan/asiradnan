@@ -23,7 +23,7 @@ export default function ExperiencePage() {
             company: "CPS Academy",
             logo: "/company-logos/cps_academy.png",
             position: "Junior Software Engineer",
-            duration: "Nov 2025 - Present",
+            duration: "Nov 2025 - Feb 2026",
             location: "Remote",
             type: "Full-time",
             description: "Managing and developing the learning platform for CPS Academy, a competitive programming and technical training institute using Next.js and Strapi CMS",
@@ -36,23 +36,23 @@ export default function ExperiencePage() {
             ],
             technologies: ["Next.js", "React", "Strapi", "JavaScript", "Node.js", "REST APIs", "Git"]
         },
-        {
-            id: 13,
-            company: "Upwork",
-            logo: "/company-logos/upwork.png",
-            position: "Freelance Software Engineer",
-            duration: "Sep 2025 - Present",
-            location: "Remote",
-            type: "Freelance",
-            description: "Developing full-stack web applications with Django and Next.js for international clients on Upwork platform",
-            achievements: [
-                "Building, fixing, testing and deploying web applications using Django and Next.js",
-                "Delivering high-quality full-stack solutions for diverse client requirements",
-                "Managing complete project lifecycle from requirements to deployment",
-                "Providing technical consultation and support for web development projects"
-            ],
-            technologies: ["Python", "Django", "Django REST Framework", "Next.js", "React", "Web Hosting"]
-        },
+        // {
+        //     id: 13,
+        //     company: "Upwork",
+        //     logo: "/company-logos/upwork.png",
+        //     position: "Freelance Software Engineer",
+        //     duration: "Sep 2025 - Present",
+        //     location: "Remote",
+        //     type: "Freelance",
+        //     description: "Developing full-stack web applications with Django and Next.js for international clients on Upwork platform",
+        //     achievements: [
+        //         "Building, fixing, testing and deploying web applications using Django and Next.js",
+        //         "Delivering high-quality full-stack solutions for diverse client requirements",
+        //         "Managing complete project lifecycle from requirements to deployment",
+        //         "Providing technical consultation and support for web development projects"
+        //     ],
+        //     technologies: ["Python", "Django", "Django REST Framework", "Next.js", "React", "Web Hosting"]
+        // },
         {
             id: 11,
             company: "Fiverr",
@@ -76,7 +76,7 @@ export default function ExperiencePage() {
             company: "BRAC Business School",
             logo: "/company-logos/bbs.png",
             position: "Web Developer",
-            duration: "Nov 2024 - Present",
+            duration: "Nov 2024 - Jul 2025",
             location: "Dhaka, Bangladesh",
             type: "Part-time",
             description: "Developed International Conference Websites, hosted and maintained them using Django, HTML, CSS, JavaScript",
@@ -362,7 +362,7 @@ export default function ExperiencePage() {
                                     Interested in working together?
                                 </h3>
                                 <p className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                    Let's discuss how I can contribute to your team.
+                                    Let&apos;s discuss how I can contribute to your team.
                                 </p>
                             </div>
                             <motion.button
