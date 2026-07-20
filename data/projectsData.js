@@ -109,30 +109,30 @@ export const projectsData = [
     duration: "4 months",
     category: "Full Stack"
   },
-  {
-    id: 5,
-    name: "SoulSpeak",
-    shortDescription: "A full-stack mental well-being platform with real-time chat, forums, and companion certification.",
-    fullDescription:
-      `
-      – Developed a full-stack mental well-being platform enabling users to share experiences, connect with companions, and promote emotional wellness
-      – Built a real-time chat system using Socket.IO for one-on-one conversations with typing indicators, chat history, and online presence tracking
-      – Designed a companion certification program with assessments, score tracking, and curated mental health training resources
-      – Implemented community forums with category-based posts, image sharing, upvotes, comments, and full CRUD functionality
-      – Integrated JWT authentication, email verification, password recovery, and secure file uploads with Multer for profile and forum media
-      – Created an admin dashboard for managing users, reports, training questions, and account suspensions with PDF export capabilities
-      – Developed using React.js, Node.js, Express.js, and MongoDB, with modular architecture and responsive UI built with Tailwind CSS
-    `,
-    skills: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "JWT", "Tailwind CSS", "Multer", "REST API", "Git"],
-    githubLink: "https://github.com/asiradnan/SoulSpeak",
-    liveLink: "https://soulspeak.asiradnan.com",
-    image: "/projects/soul_speak.png",
-    status: "Completed",
-    duration: "3 months",
-    category: "Full Stack",
-    motivation: "Created to provide a safe space for people to share their mental health experiences and connect with trained companions.",
-    result: "Built a comprehensive platform with real-time communication, community engagement, and certification systems for mental health support."
-  },
+  // {
+  //   id: 5,
+  //   name: "SoulSpeak",
+  //   shortDescription: "A full-stack mental well-being platform with real-time chat, forums, and companion certification.",
+  //   fullDescription:
+  //     `
+  //     – Developed a full-stack mental well-being platform enabling users to share experiences, connect with companions, and promote emotional wellness
+  //     – Built a real-time chat system using Socket.IO for one-on-one conversations with typing indicators, chat history, and online presence tracking
+  //     – Designed a companion certification program with assessments, score tracking, and curated mental health training resources
+  //     – Implemented community forums with category-based posts, image sharing, upvotes, comments, and full CRUD functionality
+  //     – Integrated JWT authentication, email verification, password recovery, and secure file uploads with Multer for profile and forum media
+  //     – Created an admin dashboard for managing users, reports, training questions, and account suspensions with PDF export capabilities
+  //     – Developed using React.js, Node.js, Express.js, and MongoDB, with modular architecture and responsive UI built with Tailwind CSS
+  //   `,
+  //   skills: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "JWT", "Tailwind CSS", "Multer", "REST API", "Git"],
+  //   githubLink: "https://github.com/asiradnan/SoulSpeak",
+  //   liveLink: "https://soulspeak.asiradnan.com",
+  //   image: "/projects/soul_speak.png",
+  //   status: "Completed",
+  //   duration: "3 months",
+  //   category: "Full Stack",
+  //   motivation: "Created to provide a safe space for people to share their mental health experiences and connect with trained companions.",
+  //   result: "Built a comprehensive platform with real-time communication, community engagement, and certification systems for mental health support."
+  // },
   {
     id: 2,
     name: "Cross Platform Todo App (Web and Android)",

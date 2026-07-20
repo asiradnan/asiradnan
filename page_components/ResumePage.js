@@ -4,10 +4,6 @@ import { motion } from 'framer-motion';
 import {
     Download,
     Eye,
-    Code,
-    Server,
-    Monitor,
-    Smartphone,
     FileText,
     Mail,
     Github,
@@ -39,18 +35,18 @@ export default function ResumePage() {
         {
             name: "General Resume",
             icon: FileText,
-            filename: "Asir_Adnan_December.pdf"
+            filename: "AsirAdnan_MasterResume.pdf"
         },
-        {
-            name: "Full Stack Resume",
-            icon: FileText,
-            filename: "AsirAdnan_October2025_FullStack.pdf"
-        },
-        {
-            name: "Backend Resume",
-            icon: FileText,
-            filename: "AsirAdnan_October2025_Backend.pdf"
-        },
+        // {
+        //     name: "Full Stack Resume",
+        //     icon: FileText,
+        //     filename: "AsirAdnan_October2025_FullStack.pdf"
+        // },
+        // {
+        //     name: "Backend Resume",
+        //     icon: FileText,
+        //     filename: "AsirAdnan_October2025_Backend.pdf"
+        // },
         
     ], []);
 
