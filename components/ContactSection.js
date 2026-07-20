@@ -7,10 +7,8 @@ import {
     Linkedin,
     Twitter,
     Send,
-    MessageSquare,
     Copy,
     Check,
-    ExternalLink,
     ArrowUp
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
@@ -21,7 +19,7 @@ export default function ContactSection() {
     const [isVisible, setIsVisible] = useState(false);
     const [copyStatus, setCopyStatus] = useState('');
     const [emailInput, setEmailInput] = useState('');
-    const [messageInput, setMessageInput] = useState('Hello Asir, \nI -');
+    const [messageInput, setMessageInput] = useState('');
     const [showScrollTop, setShowScrollTop] = useState(false);
     const sectionRef = useRef(null);
     const [isSubmitting, setIsSubmitting] = useState(false);

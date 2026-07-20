@@ -75,15 +75,9 @@ export default function AboutSection() {
           variants={itemVariants}
           className={`text-sm sm:text-base md:text-lg ${isDark ? 'text-gray-200' : 'text-gray-800'} px-0 sm:px-4 md:px-8 py-6 sm:py-8 md:py-10 max-w-4xl mx-auto leading-relaxed font-normal`}
         >
-          Backend-focused Full-Stack Developer passionate about building scalable web applications, APIs, and cloud-based systems. 
-          I specialize in Python (Django, FastAPI) and JavaScript (Node.js, React, Next.js), with expertise in end-to-end development 
-          from database design to cloud deployment on AWS and DigitalOcean.
-          <br /><br />
-          My journey began with Python, expanded to C++ for competitive programming (ICPC Regional participant), 
-          JavaScript for modern web development, and Kotlin for Android applications. 
-          I&apos;ve completed 20+ personal projects and delivered professional solutions through freelance work and contract positions.
-          With one Android app published on Google Play Store and proven experience in CI/CD pipelines, 
-          asynchronous architecture, and performance optimization, I focus on writing clean, efficient, and production-ready code.
+          I&apos;m a Software Engineer with professional experience building and deploying full-stack applications using Django, Django REST Framework, React, and PostgreSQL. Alongside web, I actively develop native Android applications with Kotlin and Jetpack Compose.
+    <br></br> <br></br>
+My interests span backend architecture, REST APIs, cloud deployments, Android development, and writing maintainable software that is reliable, testable, and easy to evolve. I enjoy taking products from idea to production while focusing on clean architecture and long-term maintainability.
         </motion.p>
 
         {/* View More About Me Button */}

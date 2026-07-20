@@ -12,9 +12,9 @@ export default function HeroSection() {
 
   // Move roles inside useMemo or define it dynamically so it updates with theme changes
   const roles = React.useMemo(() => [
-    { text: "Software Engineer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
+    // { text: "Software Engineer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
     { text: "Full Stack Developer", icon: Database, color: isDark ? "text-cyan-400" : "text-cyan-600" },
-    // { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" }
+    { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" }
   ], [isDark]);
 
   useEffect(() => {
@@ -131,8 +131,7 @@ export default function HeroSection() {
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
         >
-          Backend-focused developer with freelance and professional experience delivering scalable solutions. 
-          Passionate about turning ideas into production-ready applications with clean, efficient code.
+         A software engineer whose strongest professional experience is in backend and full-stack web development, while actively building expertise in modern Android development.
         </motion.p>
 
         {/* CTA Buttons */}
