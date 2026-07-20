@@ -1,23 +1,23 @@
 // Skills organized by categories - matching SkillsSection.js exactly
 export const skillCategories = {
   "Backend Development": [
-    "Django", "Next.js"
+    "Django", "Django Rest Framework"
     // , "Express", "Node.js", "FastAPI", 
   ],
   "Frontend Development": [
     "React", "Next.js", "HTML", "CSS", "JavaScript", "Tailwind CSS"
   ],
   "DevOPS and Tools": [
-    "AWS",
+    "AWS", "Google Cloud",
     // "Amazon S3", "Amazon EC2", "Amazon RDS", "Amazon CloudFront", "Amazon SES", 
     "Git", "CI/CD", "Nginx"
   ],
   "Database": [
-    "PostgreSQL", "MySQL", "SQLite", "MongoDB"
+    "PostgreSQL", "SQLite"
   ],
-  // "Mobile Development": [
-  //   "Android", "Kotlin", "Jetpack Compose",
-  // ],
+  "Mobile Development": [
+    "Android", "Kotlin", "Jetpack Compose",
+  ],
   "Programming Languages": [
     "Python", "Kotlin", "JavaScript", "C++"
   ]
