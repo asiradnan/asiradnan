@@ -42,11 +42,11 @@ export default function ResumePage() {
         //     icon: FileText,
         //     filename: "AsirAdnan_October2025_FullStack.pdf"
         // },
-        // {
-        //     name: "Backend Resume",
-        //     icon: FileText,
-        //     filename: "AsirAdnan_October2025_Backend.pdf"
-        // },
+        {
+            name: "Backend Resume",
+            icon: FileText,
+            filename: "AsirAdnan_Backend.pdf"
+        },
         
     ], []);
 
