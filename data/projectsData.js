@@ -183,7 +183,7 @@ export const projectsData = [
     fullDescription: "CopyPasta is a free web app for fast, secure transfer of text or files between devices. No cables, no software, no risky logins—just open the site, paste or upload, and access from any device using your chosen key. Content can be edited or deleted for privacy.",
     skills: ["Django", "HTML", "CSS", "JavaScript", "Unit Testing", "AWS",
       //  "Amazon S3", "Amazon CloudFront", 
-       "CI/CD", "Git"],
+      "CI/CD", "Git"],
     // technologies: ["Django", "HTML", "CSS", "JavaScript", "Amazon S3", "Amazon CloudFront", "CI/CD"],
     githubLink: "https://github.com/asiradnan/copypasta",
     liveLink: "https://copypasta.asiradnan.com",
@@ -215,7 +215,7 @@ export const projectsData = [
   //   motivation: "Designed to streamline apartment management operations and improve communication between residents and management.",
   //   result: "Successfully deployed a full-featured management system handling complaints, billing, and community engagement."
   // },
-   {
+  {
     id: 7,
     name: "QR Code",
     shortDescription: "Make customized qr code from any text or link!",
@@ -243,19 +243,20 @@ export const projectsData = [
     duration: "2 months",
     category: "Android"
   },
-  // {
-  //   id: 6,
-  //   name: "Apartment Management System",
-  //   shortDescription: "A modern, full-stack Apartment Management System (AMS) built with Next.js 15.",
-  //   fullDescription: "An Android app built with Jetpack Compose featuring a list of 118 elements, each with detailed information. Supports light/dark themes, Bangla/English language selection, and search in both languages. Clean MVVM architecture and smooth Compose UI.",
-  //   skills: ["Kotlin", "Jetpack Compose", "Android", "MVVM", "Material 3", "State Management", "UI/UX", "Multi-language", "SharedPreferences"],
-  //   technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "SharedPreferences"],
-  //   liveLink: "https://ams.asiradnan.com",
-  //   image: "/projects/periodic_table_android.png",
-  //   status: "Completed",
-  //   duration: "3 months",
-  //   category: "Full Stack"    
-  // },
+  {
+    id: 9,
+    name: "Send Wish",
+    shortDescription: "Send wishes to whoever you want without revealing your identity!",
+    fullDescription: "A anonymous email sender web application built using HTML, CSS, and Django. Send heartfelt wishes, greetings, or messages to anyone via email — without revealing your identity.",
+    skills: ["Django", "HTML", "CSS", "Docker", "Google Cloud"],
+    // technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "MVVM"],
+    githubLink: "https://github.com/asiradnan/sendwish",
+    liveLink: "https://sendwish.asiradnan.com/",
+    image: "/projects/sendwish.png",
+    status: "Completed",
+    duration: "1 month",
+    category: "Full Stack"
+  },
 ];
 
 
@@ -432,7 +433,7 @@ export const certificatesData = [
     verificationLink: "https://www.credly.com/badges/6c7fb15b-77e4-437d-a57f-1992f06286a4",
     description: "Completed Web Development Fundamentals course provided by IBM SkillsBuild"
   },
-    
+
   {
     id: 4,
     name: "Python Essentials 1",
