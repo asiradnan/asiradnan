@@ -1,6 +1,6 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     Download,
     Eye,
@@ -8,46 +8,42 @@ import {
     Mail,
     Github,
     Linkedin,
-    Twitter,
     Send,
-    MessageSquare,
     Copy,
-    Check,
-    ExternalLink
+    Check
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 import emailjs from '@emailjs/browser';
+
+// Initialize once per app load, not once per component mount
+emailjs.init("f-0ojQvjSEp6cb5W0");
 
 export default function ResumePage() {
     const { isDark } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
     const [copyStatus, setCopyStatus] = useState('');
     const [emailInput, setEmailInput] = useState('');
-    const [messageInput, setMessageInput] = useState('Hello Asir, \nI -');
+    const [messageInput, setMessageInput] = useState('');
     const sectionRef = useRef(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
     const formRef = useRef(null);
-    const [downloadingFile, setDownloadingFile] = useState('');
-    const [previewingFile, setPreviewingFile] = useState('');
 
     const resumeOptions = React.useMemo(() => [
         {
             name: "General Resume",
             icon: FileText,
-            filename: "AsirAdnan_MasterResume.pdf"
+            driveId: "1MvFYCofksG_L5p__N2tvXCWvV8pwgBMV",
+            filename: "AsirAdnan_MasterResume.pdf",
+            updated: "Jul 2026"
         },
-        // {
-        //     name: "Full Stack Resume",
-        //     icon: FileText,
-        //     filename: "AsirAdnan_October2025_FullStack.pdf"
-        // },
         {
             name: "Backend Resume",
             icon: FileText,
-            filename: "AsirAdnan_Backend.pdf"
+            driveId: "1Mc8PzaeLYzf1NFtnA9Ko70Eu5l_cbkK3",
+            filename: "AsirAdnan_Backend.pdf",
+            updated: "Jul 2026"
         },
-        
     ], []);
 
     const socialLinks = React.useMemo(() => [
@@ -74,19 +70,12 @@ export default function ResumePage() {
         }
     ], []);
 
-    const floatingIcons = [
-        { Icon: Mail, delay: 0, x: 20, y: 30 },
-        { Icon: Github, delay: 0.5, x: -30, y: 20 },
-        { Icon: Linkedin, delay: 1, x: 40, y: -20 },
-        { Icon: Twitter, delay: 1.5, x: -20, y: -30 },
-        { Icon: MessageSquare, delay: 2, x: 50, y: 40 }
-    ];
-
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
+                    observer.disconnect(); // no need to keep watching after first trigger
                 }
             },
             { threshold: 0.3 }
@@ -97,10 +86,6 @@ export default function ResumePage() {
         }
 
         return () => observer.disconnect();
-    }, []);
-
-    useEffect(() => {
-        emailjs.init("f-0ojQvjSEp6cb5W0");
     }, []);
 
     const containerVariants = {
@@ -159,7 +144,7 @@ export default function ResumePage() {
                 to_name: 'Asir',
             };
 
-            const result = await emailjs.send(
+            await emailjs.send(
                 'service_fid9w8v',
                 'template_m9h4xmi',
                 templateParams,
@@ -168,7 +153,7 @@ export default function ResumePage() {
 
             setSubmitStatus('success');
             setEmailInput('');
-            setMessageInput('Hello Asir, \nI -');
+            setMessageInput('');
             setTimeout(() => setSubmitStatus(''), 5000);
 
         } catch (error) {
@@ -180,63 +165,29 @@ export default function ResumePage() {
         }
     };
 
-    const handleDownload = async (filename, resumeType) => {
-        setDownloadingFile(filename);
-        try {
-            // Check if file exists first
-            const response = await fetch(`/resumes/${filename}`, { method: 'HEAD' });
-            if (!response.ok) {
-                throw new Error('File not found');
-            }
-            
-            const link = document.createElement('a');
-            link.href = `/resumes/${filename}`;
-            link.download = filename.split('/').pop();
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } catch (error) {
-            console.error('Download failed:', error);
-            alert('Resume file not found. Please contact me directly.');
-        } finally {
-            setDownloadingFile('');
-        }
+    // Direct Drive links — no existence check needed, no async/loading state
+    const handleDownload = (resume) => {
+        window.open(`https://drive.google.com/uc?export=download&id=${resume.driveId}`, '_blank');
     };
 
-    const handlePreview = async (filename, resumeType) => {
-        setPreviewingFile(filename);
-        try {
-            // Check if file exists first
-            const response = await fetch(`/resumes/${filename}`, { method: 'HEAD' });
-            if (!response.ok) {
-                throw new Error('File not found');
-            }
-            
-            window.open(`/resumes/${filename}`, '_blank');
-        } catch (error) {
-            console.error('Preview failed:', error);
-            alert('Resume file not found. Please contact me directly.');
-        } finally {
-            setPreviewingFile('');
-        }
+    const handlePreview = (resume) => {
+        window.open(`https://drive.google.com/file/d/${resume.driveId}/view`, '_blank');
     };
 
     return (
-                <div className={`w-full min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+        <div className={`w-full min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
                 id="resume-section"
                 ref={sectionRef}
                 className="w-full min-h-screen flex items-center justify-center relative"
             >
-                {/* Main content */}
                 <motion.div
                     className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isVisible ? "visible" : "hidden"}
                 >
-                    {/* Header - Made consistent with other pages */}
+                    {/* Header */}
                     <motion.div
                         className="text-center mb-16"
                         variants={containerVariants}
@@ -246,7 +197,7 @@ export default function ResumePage() {
                         <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Resume
                         </h1>
-                        
+
                         <motion.p
                             variants={itemVariants}
                             className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}
@@ -280,55 +231,41 @@ export default function ResumePage() {
                                         <h3 className={`text-base md:text-lg font-semibold ${isDark ? 'text-white' : 'text-black'}`}>
                                             {resume.name}
                                         </h3>
-                                        <p className={`text-xs md:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} break-all`}>
+                                        {/* Filename hidden on mobile, replaced with an "updated" hint */}
+                                        <p className={`hidden sm:block text-xs md:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} break-all`}>
                                             {resume.filename}
+                                        </p>
+                                        <p className={`sm:hidden text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                                            PDF · Updated {resume.updated}
                                         </p>
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex gap-2 md:gap-3 w-full sm:w-auto">
                                     <motion.button
-                                        onClick={() => handlePreview(resume.filename, resume.name)}
-                                        disabled={previewingFile === resume.filename}
+                                        onClick={() => handlePreview(resume)}
                                         className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg border text-sm md:text-base ${isDark
-                                            ? 'border-gray-600 text-gray-300 hover:bg-gray-700 disabled:opacity-50'
-                                            : 'border-gray-300 text-gray-700 hover:bg-gray-100 disabled:opacity-50'
-                                            } transition-colors duration-300 disabled:cursor-not-allowed`}
-                                        whileHover={{ scale: previewingFile === resume.filename ? 1 : 1.02 }}
-                                        whileTap={{ scale: previewingFile === resume.filename ? 1 : 0.98 }}
+                                            ? 'border-gray-600 text-gray-300 hover:bg-gray-700'
+                                            : 'border-gray-300 text-gray-700 hover:bg-gray-100'
+                                            } transition-colors duration-300`}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                     >
-                                        {previewingFile === resume.filename ? (
-                                            <motion.div
-                                                className="w-3 h-3 border-2 border-current border-t-transparent rounded-full"
-                                                animate={{ rotate: 360 }}
-                                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                            />
-                                        ) : (
-                                            <Eye size={14} className="md:w-4 md:h-4" />
-                                        )}
-                                        {previewingFile === resume.filename ? 'Opening...' : 'Preview'}
+                                        <Eye size={14} className="md:w-4 md:h-4" />
+                                        Preview
                                     </motion.button>
-                                    
+
                                     <motion.button
-                                        onClick={() => handleDownload(resume.filename, resume.name)}
-                                        disabled={downloadingFile === resume.filename}
+                                        onClick={() => handleDownload(resume)}
                                         className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-3 md:px-4 py-2 rounded-lg text-sm md:text-base ${isDark
-                                            ? 'bg-white text-black hover:bg-gray-200 disabled:opacity-50'
-                                            : 'bg-black text-white hover:bg-gray-800 disabled:opacity-50'
-                                            } transition-colors duration-300 disabled:cursor-not-allowed`}
-                                        whileHover={{ scale: downloadingFile === resume.filename ? 1 : 1.02 }}
-                                        whileTap={{ scale: downloadingFile === resume.filename ? 1 : 0.98 }}
+                                            ? 'bg-white text-black hover:bg-gray-200'
+                                            : 'bg-black text-white hover:bg-gray-800'
+                                            } transition-colors duration-300`}
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
                                     >
-                                        {downloadingFile === resume.filename ? (
-                                            <motion.div
-                                                className="w-3 h-3 border-2 border-current border-t-transparent rounded-full"
-                                                animate={{ rotate: 360 }}
-                                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                            />
-                                        ) : (
-                                            <Download size={14} className="md:w-4 md:h-4" />
-                                        )}
-                                        {downloadingFile === resume.filename ? 'Downloading...' : 'Download'}
+                                        <Download size={14} className="md:w-4 md:h-4" />
+                                        Download
                                     </motion.button>
                                 </div>
                             </motion.div>
@@ -398,29 +335,32 @@ export default function ResumePage() {
                                 Send Me a Message
                             </h3>
 
-                            {/* Status Messages */}
-                            {submitStatus === 'success' && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="mb-4 p-3 rounded-lg bg-green-100 border border-green-300 text-green-800"
-                                >
-                                    <div className="flex items-center gap-2">
-                                        <Check size={16} className="md:w-5 md:h-5" />
-                                        <span className="text-sm md:text-base">I received your message! Will get back to you soon.</span>
-                                    </div>
-                                </motion.div>
-                            )}
+                            <AnimatePresence>
+                                {submitStatus === 'success' && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+                                        animate={{ opacity: 1, height: 'auto', marginBottom: 16 }}
+                                        exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+                                        className="p-3 rounded-lg bg-green-100 border border-green-300 text-green-800 overflow-hidden"
+                                    >
+                                        <div className="flex items-center gap-2">
+                                            <Check size={16} className="md:w-5 md:h-5" />
+                                            <span className="text-sm md:text-base">I received your message! Will get back to you soon.</span>
+                                        </div>
+                                    </motion.div>
+                                )}
 
-                            {submitStatus === 'error' && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: -20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="mb-4 p-3 rounded-lg bg-red-100 border border-red-300 text-red-800"
-                                >
-                                    <span className="text-sm md:text-base">Failed to send message.</span>
-                                </motion.div>
-                            )}
+                                {submitStatus === 'error' && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0, marginBottom: 0 }}
+                                        animate={{ opacity: 1, height: 'auto', marginBottom: 16 }}
+                                        exit={{ opacity: 0, height: 0, marginBottom: 0 }}
+                                        className="p-3 rounded-lg bg-red-100 border border-red-300 text-red-800 overflow-hidden"
+                                    >
+                                        <span className="text-sm md:text-base">Failed to send message.</span>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
 
                             <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
                                 <div>
@@ -439,7 +379,7 @@ export default function ResumePage() {
                                 </div>
                                 <div>
                                     <textarea
-                                        placeholder="Hello Asir, \nI -"
+                                        placeholder={"Hello Asir,\nI -"}
                                         value={messageInput}
                                         onChange={(e) => setMessageInput(e.target.value)}
                                         rows={4}
@@ -489,9 +429,9 @@ export default function ResumePage() {
                         <p className={`text-xs md:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
                             © {new Date().getFullYear()} Asir Adnan. All rights reserved.
                         </p>
+                    </motion.div>
                 </motion.div>
-            </motion.div>
-        </section>
-      </div>
+            </section>
+        </div>
     );
 }
