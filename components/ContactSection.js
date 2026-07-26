@@ -101,6 +101,11 @@ export default function ContactSection() {
     };
 
     const copyToClipboard = (text, name) => {
+        if (!navigator?.clipboard?.writeText) {
+            console.error('Clipboard API not available');
+            alert('Copy to clipboard is not supported in your browser');
+            return;
+        }
         try {
             // Use the actual value to copy, not the handle display text
             navigator.clipboard.writeText(text)
@@ -246,10 +251,9 @@ export default function ContactSection() {
                                 transition={{ delay: 0.3 + (index * 0.1) }}
                                 whileHover={{ scale: 1.02 }}
                                 onClick={() => {
-                                    if (social.name == "Email") copyToClipboard(social.value, social.name)
-                                    else copyToClipboard(social.link, social.name)
-                                }
-                                }
+                                    if (social.name === "Email") window.location.href = social.link;
+                                    else window.open(social.link, '_blank', 'noopener,noreferrer');
+                                }}
                             >
                                 <div className={`p-2 rounded-full ${isDark ? 'bg-gray-700' : 'bg-gray-200'
                                     }`}>
@@ -259,11 +263,21 @@ export default function ContactSection() {
                                     <div className="text-sm font-semibold">{social.name}</div>
                                     <div className="text-sm opacity-80">{social.handle}</div>
                                 </div>
-                                {copyStatus === social.name ? (
-                                    <Check size={18} className={`${isDark ? 'text-green-400' : 'text-green-600'}`} />
-                                ) : (
-                                    <Copy size={18} className="opacity-60 group-hover:opacity-100" />
-                                )}
+                                <div 
+                                    className={`p-2 -mr-2 rounded-full transition-colors ${isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-200'}`}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (social.name === "Email") copyToClipboard(social.value, social.name);
+                                        else copyToClipboard(social.link, social.name);
+                                    }}
+                                    title="Copy to clipboard"
+                                >
+                                    {copyStatus === social.name ? (
+                                        <Check size={18} className={`${isDark ? 'text-green-400' : 'text-green-600'}`} />
+                                    ) : (
+                                        <Copy size={18} className="opacity-60 hover:opacity-100" />
+                                    )}
+                                </div>
                             </motion.div>
                         ))}
 

@@ -12,11 +12,13 @@ import {
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext';
 import { certificatesData } from '@/data/projectsData';
+import { useRouter } from 'next/navigation';
 
 export default function AchievementsSection() {
     const { isDark } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
+    const router = useRouter();
 
     // Show top 4 certificates for highlights (2x2 grid)
     const featuredCertificates = certificatesData.slice(0, 4);
@@ -265,7 +267,7 @@ export default function AchievementsSection() {
                         whileHover={{ scale: 1.05, x: 4 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => {
-                            window.location.href = "/achievements";
+                            router.push("/achievements");
                         }}
                     >
                         <Award size={20} />

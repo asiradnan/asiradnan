@@ -10,11 +10,13 @@ import {
     ExternalLink
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext';
+import { useRouter } from 'next/navigation';
 
 export default function ExperiencePage() {
     const { isDark } = useTheme();
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
+    const router = useRouter();
 
     // Experience data
     const experiences = [
@@ -252,10 +254,10 @@ export default function ExperiencePage() {
                                                     {exp.position}
                                                 </h3>
                                                 <span className={`px-3 py-1 rounded-full text-xs font-medium w-fit ${exp.type === 'Full-time'
-                                                        ? (isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700')
-                                                        : exp.type === 'Freelance'
-                                                            ? (isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-700')
-                                                            : (isDark ? 'bg-orange-500/20 text-orange-400' : 'bg-orange-100 text-orange-700')
+                                                    ? (isDark ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700')
+                                                    : exp.type === 'Freelance'
+                                                        ? (isDark ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-700')
+                                                        : (isDark ? 'bg-orange-500/20 text-orange-400' : 'bg-orange-100 text-orange-700')
                                                     }`}>
                                                     {exp.type}
                                                 </span>
@@ -372,7 +374,7 @@ export default function ExperiencePage() {
                                     } transition-colors duration-300 w-full sm:w-auto justify-center`}
                                 whileHover={{ scale: 1.02 }}
                                 onClick={() => {
-                                    window.location.href = '/resume';
+                                    router.push('/resume');
                                 }}
                             >
                                 View Resume
