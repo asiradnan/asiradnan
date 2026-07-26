@@ -11,36 +11,39 @@ import {
   Github,
   Calendar,
   Tag,
-  Filter,
   X,
-  ArrowLeft,
   Play,
-  Pause,
-  ChevronLeft,
-  ChevronRight,
   Eye,
   Lightbulb,
-  Target,
   Trophy,
-  ChevronDown
+  LayoutGrid,
+  Layers,
+  Smartphone,
+  ChevronRight
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext';
 import { projectsData } from '@/data/projectsData';
-import { skillCategories } from '@/data/skillsData';
-import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+
+const getCategoryIcon = (category) => {
+  switch (category) {
+    case 'All': return LayoutGrid;
+    case 'Full Stack': return Layers;
+    case 'Android': return Smartphone;
+    case 'Front End': return Monitor;
+    case 'Backend': return Database;
+    default: return Code2;
+  }
+};
 
 const ProjectsPage = () => {
   const { isDark } = useTheme();
   const [selectedProject, setSelectedProject] = useState(null);
   const [filteredProjects, setFilteredProjects] = useState(projectsData);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedSkill, setSelectedSkill] = useState('All');
   const [mounted, setMounted] = useState(false);
 
-  // Get all unique categories and skills
+  // Get all unique categories
   const categories = ['All', ...new Set(projectsData.map(project => project.category))];
-  const allSkills = ['All', ...new Set(projectsData.flatMap(project => project.skills))].sort();
 
   // Simple mount check
   useEffect(() => {
@@ -61,22 +64,14 @@ const ProjectsPage = () => {
     }
   }, []);
 
-  // Filter projects based on category and skill
+  // Filter projects based on category
   useEffect(() => {
     let filtered = projectsData;
-
     if (selectedCategory !== 'All') {
       filtered = filtered.filter(project => project.category === selectedCategory);
     }
-
-    if (selectedSkill !== 'All') {
-      filtered = filtered.filter(project =>
-        project.skills.some(skill => skill.toLowerCase() === selectedSkill.toLowerCase())
-      );
-    }
-
     setFilteredProjects(filtered);
-  }, [selectedCategory, selectedSkill]);
+  }, [selectedCategory]);
 
   // Project Detail Modal Component
   const ProjectDetailModal = () => {
@@ -206,27 +201,6 @@ const ProjectsPage = () => {
 
                 {/* Right Column */}
                 <div className="space-y-6">
-                  {/* Technologies */}
-                  {/* <div>
-                    <h3 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                      <Server size={20} />
-                      Technologies
-                    </h3>
-                    <div className="flex flex-wrap gap-2">
-                      {selectedProject.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className={`px-3 py-1 rounded-full text-sm ${isDark
-                            ? 'bg-gray-700/50 text-gray-200'
-                            : 'bg-gray-100 text-gray-700'
-                            }`}
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div> */}
-
                   {/* Skills */}
                   <div>
                     <h3 className={`text-xl font-semibold mb-3 flex items-center gap-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
@@ -351,227 +325,176 @@ const ProjectsPage = () => {
 
   return (
     <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
-        <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
-              Projects
-            </h1>
-            <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
-              A showcase of my work, passion projects, and technical achievements
-            </p>
-          </motion.div>
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+            Projects
+          </h1>
+          <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
+            A showcase of my work, passion projects, and technical achievements
+          </p>
+        </motion.div>
 
-          {/* Filters */}
-          <motion.div
-            className="mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.4 }}
-          >
-            <div className="flex flex-wrap gap-4 justify-center mb-6">
-              {/* Category Filter */}
-              <div className="relative">
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className={`px-4 py-3 pr-10 rounded-xl border ${isDark
-                    ? 'bg-gray-800/80 border-gray-700/50 text-gray-200 hover:bg-gray-700/80 focus:bg-gray-700/80 focus:border-gray-600/50'
-                    : 'bg-white/80 border-gray-200 text-gray-700 hover:bg-white focus:bg-white focus:border-gray-300'
-                    } appearance-none cursor-pointer min-w-[140px] backdrop-blur-sm transition-all duration-200 focus:outline-none focus:ring-2 ${isDark ? 'focus:ring-blue-500/30' : 'focus:ring-blue-500/20'}`}
+        {/* Filters - Visual Tabs */}
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.4 }}
+        >
+          <div className="flex flex-wrap justify-center gap-3">
+            {categories.map((category) => {
+              const Icon = getCategoryIcon(category);
+              const isSelected = selectedCategory === category;
+              const count = category === 'All' 
+                  ? projectsData.length 
+                  : projectsData.filter(p => p.category === category).length;
+
+              return (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`relative flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-colors duration-200 ${
+                    isSelected
+                      ? isDark ? 'text-black' : 'text-white'
+                      : isDark ? 'text-gray-300 hover:text-white' : 'text-gray-700 hover:text-black'
+                  }`}
                 >
-                  {categories.map(category => (
-                    <option key={category} value={category}>
-                      {category}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown size={16} className={`absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-              </div>
+                  {/* Background Animation */}
+                  {isSelected && (
+                    <motion.div
+                      layoutId="activeCategoryTab"
+                      className={`absolute inset-0 rounded-full ${isDark ? 'bg-white' : 'bg-black'}`}
+                      initial={false}
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                  
+                  {/* Content (z-10 to stay above background) */}
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Icon size={16} />
+                    {category}
+                    <span className={`ml-1 px-2 py-0.5 rounded-full text-xs ${
+                      isSelected 
+                        ? isDark ? 'bg-black/10' : 'bg-white/20'
+                        : isDark ? 'bg-gray-800' : 'bg-gray-100'
+                    }`}>
+                      {count}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </motion.div>
 
-              {/* Skill Filter */}
-              <div className="relative">
-                <select
-                  value={selectedSkill}
-                  onChange={(e) => setSelectedSkill(e.target.value)}
-                  className={`px-4 py-3 pr-10 rounded-xl border ${isDark
-                    ? 'bg-gray-800/80 border-gray-700/50 text-gray-200 hover:bg-gray-700/80 focus:bg-gray-700/80 focus:border-gray-600/50'
-                    : 'bg-white/80 border-gray-200 text-gray-700 hover:bg-white focus:bg-white focus:border-gray-300'
-                    } appearance-none cursor-pointer min-w-[140px] backdrop-blur-sm transition-all duration-200 focus:outline-none focus:ring-2 ${isDark ? 'focus:ring-blue-500/30' : 'focus:ring-blue-500/20'}`}
-                >
-                  {allSkills.slice(0, 10).map(skill => (
-                    <option key={skill} value={skill}>
-                      {skill}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown size={16} className={`absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-              </div>
-            </div>
-
-            <div className="text-center">
-              <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                Showing {filteredProjects.length} of {projectsData.length} projects
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Projects List - Horizontal Cards */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              className="space-y-16"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-            >
-              {filteredProjects.map((project, index) => {
-                const isReversed = index % 2 === 1;
-
-                return (
-                  <div
-                    key={project.id}
-                    id={`project-${project.id}`}
-                    className={`relative rounded-2xl border ${isDark
-                      ? 'bg-gray-800/30 border-gray-700/50'
-                      : 'bg-white/50 border-gray-200/50'
-                      } overflow-hidden hover:scale-[1.005] transition-transform duration-300 cursor-pointer`}
-                    onClick={() => setSelectedProject(project)}
-                  >
-                    <div className={`grid lg:grid-cols-2 gap-0 ${isReversed ? 'lg:grid-flow-col-dense' : ''}`}>
-                      {/* Content Section */}
-                      <div className={`p-8 lg:p-12 flex flex-col justify-center ${isReversed ? 'lg:col-start-2' : ''}`}>
-                        {/* Project Category & Status */}
-                        <div className="flex flex-wrap gap-2 mb-4">
-                          <span className={`px-3 py-1 rounded-full text-sm ${isDark
-                            ? 'bg-blue-500/20 text-blue-300'
-                            : 'bg-blue-100 text-blue-700'
-                            }`}>
-                            {project.category}
-                          </span>
-                          <span className={`px-3 py-1 rounded-full text-sm ${isDark
-                            ? 'bg-green-500/20 text-green-300'
-                            : 'bg-green-100 text-green-700'
-                            }`}>
-                            {project.status}
-                          </span>
-                          <span className={`flex items-center gap-1 px-3 py-1 rounded-full text-sm ${isDark
-                            ? 'bg-purple-500/20 text-purple-300'
-                            : 'bg-purple-100 text-purple-700'
-                            }`}>
-                            <Calendar size={14} />
-                            {project.duration}
-                          </span>
-                        </div>
-
-                        {/* Project Title */}
-                        <h3 className={`text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                          {project.name}
-                        </h3>
-
-                        {/* Project Short Description */}
-                        <p className={`text-lg leading-relaxed mb-6 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
-                          {project.shortDescription}
-                        </p>
-
-                        {/* Skills */}
-                        <div className="flex flex-wrap gap-2 mb-8">
-                          {project.skills.map((skill) => (
-                            <span
-                              key={skill}
-                              className={`px-3 py-1 text-sm rounded-full ${isDark
-                                ? 'bg-gray-700/50 text-gray-200'
-                                : 'bg-gray-100 text-gray-700'
-                                }`}
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-
-                        {/* Action Buttons */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          {(project.liveLink || project.playStoreLink) && (
-                            <a
-                              href={project.playStoreLink || project.liveLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium w-full ${isDark
-                                ? 'bg-white text-black hover:bg-gray-200'
-                                : 'bg-black text-white hover:bg-gray-900'
-                                } transition-all duration-200 hover:scale-[1.02]`}
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              {project.playStoreLink ? (
-                                <>
-                                  <Play size={16} />
-                                  <span>Play Store</span>
-                                  <ExternalLink size={16} />
-                                </>
-                              ) : (
-                                <>
-                                  <span>Live Link</span>
-                                  <ExternalLink size={16} />
-                                </>
-                              )}
-                            </a>
-                          )}
-
-                          {project.githubLink && (
-                            <a
-                              href={project.githubLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-medium border w-full ${isDark
-                                ? 'border-gray-600/50 text-gray-200 hover:bg-gray-700/50 hover:border-gray-500/50'
-                                : 'border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400'
-                                } transition-all duration-200 hover:scale-[1.02]`}
-                              onClick={(e) => e.stopPropagation()}
-                            >
-                              <Github size={16} />
-                              <span>Code</span>
-                            </a>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Image Section */}
-                      <div className={`relative aspect-square lg:aspect-auto ${isReversed ? 'lg:col-start-1' : ''}`}>
-                        <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200">
-                          {project.image ? (
-                            <img
-                              src={project.image}
-                              alt={project.name}
-                              className="w-full h-full object-contain"
-                            />
-                          ) : (
-                            <div className="flex items-center justify-center h-full">
-                              <Code2 size={48} className="text-gray-400" />
-                            </div>
-                          )}
-                        </div>
-                      </div>
+        {/* Projects Grid */}
+        <motion.div 
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project) => (
+              <motion.div
+                layout
+                key={project.id}
+                id={`project-${project.id}`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                className={`relative group rounded-2xl border flex flex-col h-full ${isDark
+                  ? 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600/50'
+                  : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300/80'
+                  } overflow-hidden hover:-translate-y-1 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-xl`}
+                onClick={() => setSelectedProject(project)}
+              >
+                {/* Image Section */}
+                <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 border-b dark:border-gray-700/50">
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <div className="flex items-center justify-center h-full">
+                      <Code2 size={48} className="text-gray-400" />
                     </div>
+                  )}
+                  {/* Category Badge overlaying image */}
+                  <div className="absolute top-3 right-3">
+                    <span className={`px-3 py-1 rounded-full text-xs font-medium backdrop-blur-md ${isDark
+                      ? 'bg-black/60 text-white border border-white/10'
+                      : 'bg-white/80 text-black border border-black/10'
+                      }`}>
+                      {project.category}
+                    </span>
                   </div>
-                );
-              })}
-            </motion.div>
-          </AnimatePresence>
+                </div>
 
-          {/* No projects message */}
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-16">
-              <Code2 size={64} className={`mx-auto mb-4 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
-                No projects found
-              </h3>
-              <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                Try adjusting your filters to see more projects.
-              </p>
+                {/* Content Section */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className={`text-xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                    {project.name}
+                  </h3>
+                  
+                  <p className={`text-sm leading-relaxed mb-4 flex-grow ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+                    {project.shortDescription}
+                  </p>
+
+                  {/* Skills (limit to 3 for grid layout) */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.skills.slice(0, 3).map((skill) => (
+                      <span
+                        key={skill}
+                        className={`px-2.5 py-1 text-xs font-medium rounded-md ${isDark
+                          ? 'bg-gray-700/50 text-gray-300'
+                          : 'bg-gray-100 text-gray-700'
+                          }`}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                    {project.skills.length > 3 && (
+                      <span className={`px-2.5 py-1 text-xs font-medium rounded-md ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
+                        +{project.skills.length - 3}
+                      </span>
+                    )}
+                  </div>
+                  
+                  {/* Footer Stats / Time */}
+                  <div className={`flex items-center justify-between pt-4 mt-auto border-t ${isDark ? 'border-gray-700/50' : 'border-gray-100'}`}>
+                     <span className={`flex items-center gap-1.5 text-xs font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+                        <Calendar size={14} />
+                        {project.duration}
+                      </span>
+                      <span className={`text-xs font-medium flex items-center gap-1 group-hover:text-blue-500 transition-colors ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
+                        View Details <ChevronRight className="w-3 h-3" />
+                      </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* No projects message */}
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-16">
+            <Code2 size={64} className={`mx-auto mb-4 ${isDark ? 'text-gray-600' : 'text-gray-400'}`} />
+            <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-white' : 'text-gray-900'}`}>
+              No projects found
+            </h3>
+            <p className={`${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+              Try adjusting your filters to see more projects.
+            </p>
           </div>
         )}
       </div>
