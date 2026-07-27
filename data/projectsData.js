@@ -48,29 +48,29 @@ export const projectsData = [
   //   motivation: "Created to provide a safe space for people to share their mental health experiences and connect with trained companions.",
   //   result: "Built a comprehensive platform with real-time communication, community engagement, and certification systems for mental health support."
   // },
-  {
-    id: 2,
-    name: "Cross Platform Todo App (Web and Android)",
-    shortDescription: "A comprehensive task management system with Android & Web platforms that managed more than 2,500 tasks.",
-    fullDescription:
-      `
-      – Designed a cross-platform task management system (Android & Web) that managed more than 2,500 tasks
-      – Implemented user authentication and task management APIs using FastAPI with a lightweight SQLite database
-      – Created a Next.js web frontend to support task management, profile update, and authentication flows
-      – Configured notifications, theme switching (dark/light), and tabbed views for completed/incomplete tasks
-      – Developed Kotlin-based Android app with an offline-first architecture; enabled seamless synchronization with the server
-      – Hosted backend and frontend on a DigitalOcean VPS with Nginx
-    `,
-    skills: ["FastAPI", "SQLite", "Next.js", "Kotlin", "Android", "Python", "JavaScript", "Nginx", "DigitalOcean", "Authentication", "Offline-First", "CI/CD", "Git"],
-    githubLink: "https://github.com/asiradnan/todo_nextjs_frontend",
-    liveLink: "https://todo.asiradnan.com",
-    image: '/projects/todo_web.png',
-    status: "Completed",
-    duration: "3 months",
-    category: "Full Stack",
-    motivation: "Needed a reliable task management system that works seamlessly across web and mobile platforms with offline capabilities.",
-    result: "Successfully built and deployed a cross-platform solution managing over 2,500 tasks with real-time synchronization."
-  },
+  // {
+  //   id: 2,
+  //   name: "Cross Platform Todo App (Web and Android)",
+  //   shortDescription: "A comprehensive task management system with Android & Web platforms that managed more than 2,500 tasks.",
+  //   fullDescription:
+  //     `
+  //     – Designed a cross-platform task management system (Android & Web) that managed more than 2,500 tasks
+  //     – Implemented user authentication and task management APIs using FastAPI with a lightweight SQLite database
+  //     – Created a Next.js web frontend to support task management, profile update, and authentication flows
+  //     – Configured notifications, theme switching (dark/light), and tabbed views for completed/incomplete tasks
+  //     – Developed Kotlin-based Android app with an offline-first architecture; enabled seamless synchronization with the server
+  //     – Hosted backend and frontend on a DigitalOcean VPS with Nginx
+  //   `,
+  //   skills: ["FastAPI", "SQLite", "Next.js", "Kotlin", "Android", "Python", "JavaScript", "Nginx", "DigitalOcean", "Authentication", "Offline-First", "CI/CD", "Git"],
+  //   githubLink: "https://github.com/asiradnan/todo_nextjs_frontend",
+  //   liveLink: "https://todo.asiradnan.com",
+  //   image: '/projects/todo_web.png',
+  //   status: "Completed",
+  //   duration: "3 months",
+  //   category: "Full Stack",
+  //   motivation: "Needed a reliable task management system that works seamlessly across web and mobile platforms with offline capabilities.",
+  //   result: "Successfully built and deployed a cross-platform solution managing over 2,500 tasks with real-time synchronization."
+  // },
   {
     id: 3,
     name: "Chotto URL",
@@ -172,139 +172,73 @@ export const projectsData = [
     duration: "1 month",
     category: "Full Stack"
   },
+  // {
+  //   id: 10,
+  //   name: "Tasbih Counter",
+  //   shortDescription: "A simple, elegant digital tasbih counter for counting dhikr and prayers.",
+  //   fullDescription: "A digital tasbih counter built with Kotlin and Jetpack Compose. Completely offline with no data collection, keeping your spiritual practice private. Features include one-tap counting, instant reset, Islamic-inspired design, and light/dark modes.",
+  //   skills: ["Kotlin", "Jetpack Compose", "Android", "Git"],
+  //   githubLink: "https://github.com/asiradnan/TasbihCounter",
+  //   liveLink: "https://tasbih.asiradnan.com",
+  //   image: "/projects/tasbih_counter.png", // NOTE: Please add the image to the public/projects folder
+  //   status: "Completed",
+  //   duration: "1 month",
+  //   category: "Android"
+  // },
+  {
+    id: 11,
+    name: "Tic Tac Toe",
+    shortDescription: "A game where you can play against your friend or an AI.",
+    fullDescription: "A web-based Tic Tac Toe game built using HTML, CSS, and vanilla JavaScript. Features a two-player mode as well as a single-player mode against an AI opponent with responsive design.",
+    skills: ["HTML", "CSS", "JavaScript", "Game Development"],
+    githubLink: "https://github.com/asiradnan/Tic-Tac-Toe",
+    liveLink: "https://tictactoe.asiradnan.com/",
+    image: "/projects/tictactoe.png",
+    status: "Completed",
+    duration: "1 week",
+    category: "Front End"
+  },
+  // {
+  //   id: 13,
+  //   name: "YouTube Clone",
+  //   shortDescription: "A responsive frontend clone of YouTube with video fetching capabilities.",
+  //   fullDescription: "A frontend clone of the YouTube web interface created to practice responsive CSS design and external API integration. It fetches video data dynamically and mimics the core viewing experience.",
+  //   skills: ["HTML", "CSS", "JavaScript", "API Integration", "Responsive Design"],
+  //   githubLink: "https://github.com/asiradnan/YouTube-Clone",
+  //   liveLink: "https://yt.asiradnan.com",
+  //   image: "/projects/youtube_clone.png",
+  //   status: "Completed",
+  //   duration: "2 weeks",
+  //   category: "Front End"
+  // },
+  {
+    id: 14,
+    name: "Calculator",
+    shortDescription: "A basic functional calculator.",
+    fullDescription: "A sleek and responsive web-based calculator built entirely with vanilla JavaScript, HTML, and CSS. It supports basic arithmetic operations and provides a clean user interface.",
+    skills: ["HTML", "CSS", "JavaScript"],
+    githubLink: "https://github.com/asiradnan/Calculator",
+    liveLink: "https://calculator.asiradnan.com",
+    image: "/projects/calculator.png",
+    status: "Completed",
+    duration: "1 week",
+    category: "Front End"
+  },
+  {
+    id: 15,
+    name: "Quiz",
+    shortDescription: "A trivia quiz web application built using HTML, CSS, and JavaScript.",
+    fullDescription: "A trivia quiz web application built using HTML, CSS, and JavaScript. Test your knowledge across various topics with questions fetched live from the Open Trivia Database API.",
+    skills: ["HTML", "CSS", "JavaScript"],
+    githubLink: "https://github.com/asiradnan/quiz",
+    liveLink: "https://quiz.asiradnan.com",
+    image: "/projects/quiz.png",
+    status: "Completed",
+    duration: "1 week",
+    category: "Front End"
+  }
 ];
 
-
-
-// {
-//   icon: wishIcon,
-//     title: "Send Wishes",
-//       description: "Send wishes to whoever you want without revealing your identity!",
-//         liveLink: "https://sendwish.asiradnan.com",
-//           sourceLink: "https://github.com/asiradnan/receiveemail",
-//             category: "Full Stack"
-// },
-
-// {
-//     icon: soulSpeak,
-//     title: "Soul Speak",
-//     description: "A mental well-being application designed to provide a supportive platform for individuals to express themselves, connect with others, and embark on their journey towards healing.",
-//     liveLink: "https://github.com/asiradnan/SoulSpeak",
-//     sourceLink: "https://github.com/asiradnan/SoulSpeak",
-//     category: "Full Stack"
-// },
-// {
-//   icon: copypasteIcon,
-//     title: "Copy Pasta",
-//       description: "Easier way to send text or file from one device to another.",
-//         liveLink: "https://copypasta.asiradnan.com",
-//           sourceLink: "https://github.com/asiradnan/copypaste",
-//             category: "Full Stack"
-// },
-// {
-//   icon: qrIcon,
-//     title: "QR Code",
-//       description: "Make customized qr code from any text or link!",
-//         liveLink: "https://qr.asiradnan.com",
-//           sourceLink: "https://github.com/asiradnan/qrcode",
-//             category: "Full Stack"
-// },
-// {
-//   icon: urlIcon,
-//     title: "Chotto URL",
-//       description: "URL Shortner to shorten to large urls into a fixed length. Effective to share large urls.",
-//         liveLink: "https://chottourl.asiradnan.com",
-//           sourceLink: "https://github.com/asiradnan/url-shortener",
-//             category: "Full Stack"
-// },
-// {
-//   icon: todoIcon,
-//     title: "ToDo App",
-//       description: "A task management frontend that lets users securely create, update, filter, and track todos in real time.",
-//         liveLink: "https://todo.asiradnan.com/",
-//           sourceLink: "https://github.com/asiradnan/todo_nextjs_frontend",
-//             category: "Full Stack"
-// },
-// {
-//   icon: tictactoeIcon,
-//     title: "Tic Tac Toe",
-//       description: "A game where you can play against your friend or AI!",
-//         liveLink: "https://tictactoe.asiradnan.com/",
-//           sourceLink: "https://github.com/asiradnan/Tic-Tac-Toe",
-//             category: "Front End"
-// },
-// {
-//   icon: calcIcon,
-//     title: "Calculator",
-//       description: "Basic calculator - result of vanilla javascript.",
-//         liveLink: "https://calculator.asiradnan.com",
-//           sourceLink: "https://github.com/asiradnan/Calculator",
-//             category: "Front End"
-// },
-// {
-//   icon: weatherIcon,
-//     title: "Weather",
-//       description: "A weather app with an integrated map.",
-//         liveLink: "https://weather.asiradnan.com",
-//           sourceLink: "https://github.com/asiradnan/Weather",
-//             category: "Front End"
-// },
-// {
-//   icon: ytIcon,
-//     title: "YouTube Clone",
-//       description: "A clone I made practicing API and responsive CSS",
-//         liveLink: "https://yt.asiradnan.com",
-//           sourceLink: "https://github.com/asiradnan/YouTube-Clone",
-//             category: "Full Stack"
-// },
-// {
-//   icon: redballIcon,
-//     title: "Red Ball Detection",
-//       description: "Red Ball detection from video or image using OpenCV and Python",
-//         liveLink: "https://youtu.be/1JfK-jljfNw?si=-umm4iTdmRqVXQeG",
-//           sourceLink: "https://github.com/asiradnan/Red-Ball-Detection",
-//             category: "Others"
-// },
-// {
-//   icon: lethalHeight,
-//     title: "Lethal Height",
-//       description: "A 2D shooting game built with Python and OpenGL featuring dynamic day-night cycles, and dual-player combat.",
-//         liveLink: "https://github.com/asiradnan/Lethal-Height",
-//           sourceLink: "https://github.com/asiradnan/Lethal-Height",
-//             category: "Others"
-// },
-// {
-//   icon: muslimApp,
-//     title: "Muslim App",
-//       description: "Muslim App is a feature-rich Kotlin-based Android application designed to help Muslims track their daily religious duties effectively.",
-//         liveLink: "https://github.com/asiradnan/MuslimAppAndroid/releases/download/v1.0.0/muslimApp.apk",
-//           sourceLink: "https://github.com/asiradnan/MuslimAppAndroid",
-//             category: "Android"
-// },
-// {
-//   icon: periodicTable,
-//     title: "Periodic Table",
-//       description: "An Android app a list of 118 elements, each with detailed information in Bangla/English language.",
-//         liveLink: "https://play.google.com/store/apps/details?id=com.asiradnan.periodictable&pli=1",
-//           sourceLink: "https://github.com/asiradnan/Periodic-Table",
-//             category: "Android"
-// },
-// {
-//   icon: greaterNumberGame,
-//     title: "Greater Number Game",
-//       description: "A simple and fun Android game where players guess which of the two numbers is greater.",
-//         liveLink: "https://github.com/asiradnan/Greater-Number-Game/releases/download/v1.0.0/GreaterNumberGame.apk",
-//           sourceLink: "https://github.com/asiradnan/Greater-Number-Game",
-//             category: "Android"
-// },
-// {
-//   icon: vangtiChai,
-//     title: "Vangti Chai",
-//       description: "An Android app built as one of my first practice projects in an Android development course. This app calculates the minimum number of currency notes needed to make up a given amount.",
-//         liveLink: "https://github.com/asiradnan/Vangti-Chai/releases/download/v1.0.0/VangtiChai.apk",
-//           sourceLink: "https://github.com/asiradnan/Vangti-Chai",
-//             category: "Android"
-// },
 
 
 
