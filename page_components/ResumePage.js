@@ -44,6 +44,13 @@ export default function ResumePage() {
             filename: "AsirAdnan_Backend.pdf",
             updated: "Jul 2026"
         },
+        {
+            name: "FullStack Resume",
+            icon: FileText,
+            driveId: "15X8szOsVd2dEB8p4AvscxqMDnhBV9NMM",
+            filename: "AsirAdnan_FullStack.pdf",
+            updated: "Jul 2026"
+        },
     ], []);
 
     const socialLinks = React.useMemo(() => [
@@ -311,7 +318,7 @@ export default function ResumePage() {
                                         <div className="text-sm font-semibold">{social.name}</div>
                                         <div className="text-xs md:text-sm opacity-80 truncate">{social.handle}</div>
                                     </div>
-                                    <div 
+                                    <div
                                         className={`p-2 -mr-2 rounded-full transition-colors ${isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-200'}`}
                                         onClick={(e) => {
                                             e.stopPropagation();
