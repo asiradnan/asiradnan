@@ -48,6 +48,29 @@ export const projectsData = [
   //   motivation: "Created to provide a safe space for people to share their mental health experiences and connect with trained companions.",
   //   result: "Built a comprehensive platform with real-time communication, community engagement, and certification systems for mental health support."
   // },
+    {
+    id: 2,
+    name: "Asir Tasks (web)",
+    shortDescription: "Asir Tasks is a comprehensive task management system. This is the web version of it.",
+    fullDescription:
+      `
+      – Create, edit, complete, and delete tasks with due date and time.
+      – Tasks are sorted by due date, with separate tabs for complete and incomplete tasks.
+      – Tasks sync in across web and the Android app.
+      – Pop-up notifications with sound for upcoming tasks.
+      – Toggle between light and dark themes.
+      – Optimized for various screen sizes.
+    `,
+    skills: ["Django Rest Framework", "PostgreSQL", "Next.js", "Python", "JavaScript", "Authentication", "Git"],
+    githubLink: "https://github.com/asiradnan/tasks",
+    liveLink: "https://tasks.asiradnan.com",
+    image: '/projects/asirtasks.png',
+    status: "Completed",
+    duration: "3 months",
+    category: "Full Stack",
+    motivation: "Why can't I have my own Google Tasks?",
+    result: "Building an Google Tasks alternative."
+  },
   // {
   //   id: 2,
   //   name: "Cross Platform Todo App (Web and Android)",
@@ -146,7 +169,7 @@ export const projectsData = [
   },
   {
     id: 8,
-    name: "Periodic Table (Android App)",
+    name: "Periodic Table (Android)",
     shortDescription: "Modern Android app for the periodic table with 118 elements, multi-language, and dark/light themes.",
     fullDescription: "An Android app built with Jetpack Compose featuring a list of 118 elements, each with detailed information. Supports light/dark themes, Bangla/English language selection, and search in both languages. Clean MVVM architecture and smooth Compose UI.",
     skills: ["Kotlin", "Jetpack Compose", "Android", "MVVM", "Git"],
@@ -172,19 +195,19 @@ export const projectsData = [
     duration: "1 month",
     category: "Full Stack"
   },
-  // {
-  //   id: 10,
-  //   name: "Tasbih Counter",
-  //   shortDescription: "A simple, elegant digital tasbih counter for counting dhikr and prayers.",
-  //   fullDescription: "A digital tasbih counter built with Kotlin and Jetpack Compose. Completely offline with no data collection, keeping your spiritual practice private. Features include one-tap counting, instant reset, Islamic-inspired design, and light/dark modes.",
-  //   skills: ["Kotlin", "Jetpack Compose", "Android", "Git"],
-  //   githubLink: "https://github.com/asiradnan/TasbihCounter",
-  //   liveLink: "https://tasbih.asiradnan.com",
-  //   image: "/projects/tasbih_counter.png", // NOTE: Please add the image to the public/projects folder
-  //   status: "Completed",
-  //   duration: "1 month",
-  //   category: "Android"
-  // },
+  {
+    id: 10,
+    name: "Tasbih Counter (Android)",
+    shortDescription: "A simple, elegant digital tasbih counter for counting dhikr and prayers.",
+    fullDescription: "A digital tasbih counter built with Kotlin and Jetpack Compose. Completely offline with no data collection, keeping your spiritual practice private. Features include one-tap counting, instant reset, Islamic-inspired design, and light/dark modes.",
+    skills: ["Kotlin", "Jetpack Compose", "Android", "Git"],
+    githubLink: "https://github.com/asiradnan/TasbihCounter",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.tasbihcounter",
+    image: "/projects/tasbihcounter.png", 
+    status: "Completed",
+    duration: "1 month",
+    category: "Android"
+  },
   {
     id: 11,
     name: "Tic Tac Toe",
