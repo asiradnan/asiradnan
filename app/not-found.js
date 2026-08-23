@@ -18,14 +18,6 @@ import {
   ChevronDown
 } from 'lucide-react';
 
-// Add JetBrains Mono font
-import { JetBrains_Mono } from 'next/font/google';
-
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ['latin'],
-  display: 'swap',
-});
-
 export default function NotFound() {
   const [isVisible, setIsVisible] = useState(false);
   const [isDark, setIsDark] = useState(false);
@@ -179,8 +171,9 @@ export default function NotFound() {
 
   return (
     <div 
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden transition-all duration-500 ${jetbrainsMono.className}`}
+      className={`min-h-screen flex items-center justify-center relative overflow-hidden transition-all duration-500`}
       style={{
+        fontFamily: 'var(--font-jetbrains-mono), monospace',
         background: isDark 
           ? 'linear-gradient(135deg, rgb(17, 24, 39) 0%, rgb(0, 0, 0) 50%, rgb(31, 41, 55) 100%)'
           : 'linear-gradient(135deg, rgb(249, 250, 251) 0%, rgb(255, 255, 255) 50%, rgb(243, 244, 246) 100%)'
