@@ -20,11 +20,9 @@ emailjs.init("f-0ojQvjSEp6cb5W0");
 
 export default function ResumePage() {
     const { isDark } = useTheme();
-    const [isVisible, setIsVisible] = useState(false);
     const [copyStatus, setCopyStatus] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [messageInput, setMessageInput] = useState('');
-    const sectionRef = useRef(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
     const formRef = useRef(null);
@@ -76,24 +74,6 @@ export default function ResumePage() {
             handle: "in/asiradnan"
         }
     ], []);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect(); // no need to keep watching after first trigger
-                }
-            },
-            { threshold: 0.3 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -190,21 +170,18 @@ export default function ResumePage() {
         <div className={`w-full min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
                 id="resume-section"
-                ref={sectionRef}
                 className="w-full min-h-screen flex items-center justify-center relative"
             >
                 <motion.div
                     className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
                     variants={containerVariants}
                     initial="hidden"
-                    animate={isVisible ? "visible" : "hidden"}
+                    animate="visible"
                 >
                     {/* Header */}
                     <motion.div
                         className="text-center mb-16"
                         variants={containerVariants}
-                        initial="hidden"
-                        animate={isVisible ? "visible" : "hidden"}
                     >
                         <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Resume
@@ -231,7 +208,7 @@ export default function ResumePage() {
                                     : 'border-gray-300 bg-white/30 hover:bg-white/50'
                                     } transition-all duration-300 group space-y-4 sm:space-y-0`}
                                 initial={{ opacity: 0, x: -50 }}
-                                animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                                animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.3 + (index * 0.1) }}
                                 whileHover={{ scale: 1.01, x: 2 }}
                             >
@@ -303,7 +280,7 @@ export default function ResumePage() {
                                         : 'border-gray-300 text-gray-700 hover:border-gray-500 bg-white/30'
                                         } cursor-pointer group transition-colors duration-300`}
                                     initial={{ opacity: 0, x: -50 }}
-                                    animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                                    animate={{ opacity: 1, x: 0 }}
                                     transition={{ delay: 0.5 + (index * 0.1) }}
                                     whileHover={{ scale: 1.02, x: 5 }}
                                     onClick={() => {
@@ -341,7 +318,7 @@ export default function ResumePage() {
                         <motion.div
                             className="flex flex-col justify-center"
                             initial={{ opacity: 0, x: 50 }}
-                            animate={isVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.7 }}
                         >
                             <h3 className={`text-xl md:text-2xl font-bold mb-2 md:mb-4 ${isDark ? 'text-white' : 'text-black'}`}>

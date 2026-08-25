@@ -120,7 +120,7 @@ const SkillsPage = () => {
             }`}>
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className="text-2xl font-bold mb-2">
+                  <h2 className={`text-2xl font-bold mb-2 ${isDark ? 'text-white' : 'text-black'}`}>
                     {selectedSkill.skill}
                   </h2>
                   <div className="flex gap-4 text-sm">
@@ -156,7 +156,7 @@ const SkillsPage = () => {
               {/* Projects Section */}
               {selectedSkill.projects.length > 0 && (
                 <div>
-                  <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <h3 className={`text-lg font-bold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-black'}`}>
                     <Briefcase size={20} />
                     Projects ({selectedSkill.projects.length})
                   </h3>
@@ -173,7 +173,7 @@ const SkillsPage = () => {
                       >
                         <div className="flex justify-between items-start gap-4">
                           <div className="flex-1 min-w-0">
-                            <h4 className="font-semibold mb-1.5 group-hover:text-blue-500 transition-colors">
+                            <h4 className={`font-semibold mb-1.5 group-hover:text-blue-500 transition-colors ${isDark ? 'text-white' : 'text-black'}`}>
                               {project.name}
                             </h4>
                             <p className={`text-sm mb-3 line-clamp-2 ${
@@ -219,7 +219,7 @@ const SkillsPage = () => {
               {/* Certificates Section */}
               {selectedSkill.certificates.length > 0 && (
                 <div>
-                  <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+                  <h3 className={`text-lg font-bold mb-4 flex items-center gap-2 ${isDark ? 'text-white' : 'text-black'}`}>
                     <Award size={20} />
                     Certificates ({selectedSkill.certificates.length})
                   </h3>
@@ -236,7 +236,7 @@ const SkillsPage = () => {
                       >
                         <div className="flex justify-between items-start gap-4">
                           <div className="flex-1 min-w-0">
-                            <h4 className="font-semibold mb-1.5 group-hover:text-blue-500 transition-colors">
+                            <h4 className={`font-semibold mb-1.5 group-hover:text-blue-500 transition-colors ${isDark ? 'text-white' : 'text-black'}`}>
                               {certificate.name}
                             </h4>
                             <div className="flex items-center gap-3 text-xs mb-2">

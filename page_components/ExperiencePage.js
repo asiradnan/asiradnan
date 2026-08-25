@@ -14,8 +14,6 @@ import { useRouter } from 'next/navigation';
 
 export default function ExperiencePage() {
     const { isDark } = useTheme();
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
     const router = useRouter();
 
     // Experience data
@@ -112,22 +110,7 @@ export default function ExperiencePage() {
         }
     };
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.1 }
-        );
 
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -155,7 +138,6 @@ export default function ExperiencePage() {
         <div className={`w-full min-h-screen transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
                 id="experience-section"
-                ref={sectionRef}
                 className="w-full min-h-screen relative overflow-hidden"
             >
                 {/* Animated background grid */}
@@ -182,14 +164,12 @@ export default function ExperiencePage() {
                     className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
                     variants={containerVariants}
                     initial="hidden"
-                    animate={isVisible ? "visible" : "hidden"}
+                    animate="visible"
                 >
                     {/* Header Section */}
                     <motion.div
                         className="text-center mb-8 md:mb-16"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate={isVisible ? "visible" : "hidden"}
+                        variants={itemVariants}
                     >
                         <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Experience
