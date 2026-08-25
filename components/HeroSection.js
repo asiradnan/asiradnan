@@ -26,7 +26,7 @@ export default function HeroSection() {
     return () => {
       clearInterval(interval);
     };
-  }, [roles.length]); 
+  }, [roles.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -131,7 +131,7 @@ export default function HeroSection() {
           variants={itemVariants}
           className={`text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} mb-12 max-w-3xl mx-auto leading-relaxed`}
         >
-         A software engineer whose strongest professional experience is in backend and full-stack web development, while actively building expertise in modern Android development.
+          A software engineer whose strongest professional experience is in full-stack web development, while actively building expertise in modern Android development.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -158,8 +158,8 @@ export default function HeroSection() {
 
           <motion.button
             className={`flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg ${isDark
-                ? 'bg-white text-black hover:bg-gray-200'
-                : 'bg-black text-white hover:bg-gray-800'
+              ? 'bg-white text-black hover:bg-gray-200'
+              : 'bg-black text-white hover:bg-gray-800'
               } transition-colors duration-300`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

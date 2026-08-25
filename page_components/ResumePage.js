@@ -335,15 +335,6 @@ export default function ResumePage() {
                                     </div>
                                 </motion.div>
                             ))}
-
-                            <motion.p
-                                className={`mt-2 md:mt-4 text-xs md:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}
-                                initial={{ opacity: 0 }}
-                                animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
-                                transition={{ delay: 1 }}
-                            >
-                                Click on any of the above to copy to clipboard
-                            </motion.p>
                         </motion.div>
 
                         {/* Right column - Contact Form */}
@@ -395,6 +386,8 @@ export default function ResumePage() {
                                             ? 'bg-gray-800/50 border-gray-600 text-white placeholder-gray-400 focus:border-gray-400 focus:ring-1 focus:ring-gray-400'
                                             : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-gray-500 focus:ring-1 focus:ring-gray-500'
                                             } focus:outline-none transition-colors duration-300`}
+                                        pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+                                        title="Please enter a valid email address (e.g., name@example.com)"
                                         required
                                         disabled={isSubmitting}
                                     />
