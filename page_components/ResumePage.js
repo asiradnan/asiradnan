@@ -20,12 +20,17 @@ emailjs.init("f-0ojQvjSEp6cb5W0");
 
 export default function ResumePage() {
     const { isDark } = useTheme();
+    const [mounted, setMounted] = useState(false);
     const [copyStatus, setCopyStatus] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [messageInput, setMessageInput] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
     const formRef = useRef(null);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const resumeOptions = React.useMemo(() => [
         {
