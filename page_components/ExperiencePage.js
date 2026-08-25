@@ -14,12 +14,7 @@ import { useRouter } from 'next/navigation';
 
 export default function ExperiencePage() {
     const { isDark } = useTheme();
-    const [mounted, setMounted] = useState(false);
     const router = useRouter();
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     // Experience data
     const experiences = [
@@ -139,17 +134,6 @@ export default function ExperiencePage() {
         }
     };
 
-    if (!mounted) {
-        return (
-            <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
-                <div className="text-center">
-                    <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${isDark ? 'border-white' : 'border-black'}`}></div>
-                    <p className={`${isDark ? 'text-white' : 'text-black'}`}>Loading...</p>
-                </div>
-            </div>
-        );
-    }
-
     return (
         <div className={`w-full min-h-screen transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
             <section
@@ -223,7 +207,7 @@ export default function ExperiencePage() {
                                 className={`${isDark
                                     ? 'bg-gray-800/50 border-gray-600'
                                     : 'bg-white/50 border-gray-200'
-                                    } border backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300`}
+                                    } border backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-colors transition-shadow duration-300`}
                             >
                                 {/* Header */}
                                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 sm:gap-4 mb-4 sm:mb-6">

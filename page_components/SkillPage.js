@@ -23,7 +23,6 @@ import { skillCategories, getSkillStats, getCategoryTotals } from '@/data/skills
 const SkillsPage = () => {
   const { isDark } = useTheme();
   const [selectedSkill, setSelectedSkill] = useState(null);
-  const [mounted, setMounted] = useState(false);
 
   // Icon mapping for categories
   const categoryIcons = {
@@ -75,10 +74,7 @@ const SkillsPage = () => {
     }
   }), [isDark]);
 
-  // Simple mount check
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+
 
   const handleSkillClick = (skill) => {
     const stats = getSkillStats(skill, projectsData, certificatesData);
@@ -89,7 +85,7 @@ const SkillsPage = () => {
 
   // Skill Detail Modal Component
   const SkillDetailModal = () => {
-    if (!selectedSkill || !mounted) return null;
+    if (!selectedSkill) return null;
 
     return (
       <AnimatePresence>
@@ -314,20 +310,7 @@ const SkillsPage = () => {
     );
   };
 
-  if (!mounted) {
-    return (
-      <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
-        isDark ? 'bg-black' : 'bg-white'
-      }`}>
-        <div className="text-center">
-          <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${
-            isDark ? 'border-white' : 'border-black'
-          }`}></div>
-          <p className={isDark ? 'text-white' : 'text-black'}>Loading skills...</p>
-        </div>
-      </div>
-    );
-  }
+
 
   return (
     <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
@@ -368,11 +351,12 @@ const SkillsPage = () => {
             return (
               <motion.div
                 key={category}
-                className={`rounded-2xl border p-4 transition-all duration-200 flex flex-col ${
+                className={`rounded-2xl border p-4 transition-colors transition-shadow duration-200 flex flex-col ${
                   isDark
                     ? 'bg-gray-800/30 border-gray-700/50'
                     : 'bg-white/50 border-gray-200/50'
-                } hover:scale-[1.01]`}
+                }`}
+                whileHover={{ scale: 1.01 }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + (categoryIndex * 0.1), duration: 0.5 }}

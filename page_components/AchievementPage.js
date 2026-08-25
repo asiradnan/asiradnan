@@ -17,12 +17,6 @@ import { certificatesData, competitiveProgrammingData } from '@/data/projectsDat
 const AchievementsPage = () => {
     const { isDark } = useTheme();
     const [activeTab, setActiveTab] = useState('all');
-    const [mounted, setMounted] = useState(false);
-
-    // Simple mount check to prevent SSR issues
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     const tabs = [
         { id: 'all', label: 'All', icon: Award },
@@ -42,16 +36,7 @@ const AchievementsPage = () => {
         }
     };
 
-    if (!mounted) {
-        return (
-            <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
-                <div className="text-center">
-                    <div className={`animate-spin rounded-full h-8 w-8 border-b-2 mb-4 mx-auto ${isDark ? 'border-white' : 'border-black'}`}></div>
-                    <p className={`${isDark ? 'text-white' : 'text-black'}`}>Loading...</p>
-                </div>
-            </div>
-        );
-    }
+
 
     const { certificates, competitive } = getFilteredData();
 

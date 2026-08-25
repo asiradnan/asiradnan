@@ -20,17 +20,12 @@ emailjs.init("f-0ojQvjSEp6cb5W0");
 
 export default function ResumePage() {
     const { isDark } = useTheme();
-    const [mounted, setMounted] = useState(false);
     const [copyStatus, setCopyStatus] = useState('');
     const [emailInput, setEmailInput] = useState('');
     const [messageInput, setMessageInput] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
     const formRef = useRef(null);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     const resumeOptions = React.useMemo(() => [
         {
@@ -211,7 +206,7 @@ export default function ResumePage() {
                                 className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 md:p-6 rounded-lg border ${isDark
                                     ? 'border-gray-600 bg-gray-800/30 hover:bg-gray-800/50'
                                     : 'border-gray-300 bg-white/30 hover:bg-white/50'
-                                    } transition-all duration-300 group space-y-4 sm:space-y-0`}
+                                    } transition-colors transition-shadow duration-300 group space-y-4 sm:space-y-0`}
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ delay: 0.3 + (index * 0.1) }}
