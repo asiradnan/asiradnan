@@ -51,6 +51,9 @@ const ProjectsPage = () => {
           {categories.map((category) => {
             const Icon = getCategoryIcon(category);
             const isSelected = selectedCategory === category;
+            const count = category === 'All' 
+              ? projectsData.length 
+              : projectsData.filter(p => p.category === category).length;
 
             return (
               <button
@@ -66,7 +69,14 @@ const ProjectsPage = () => {
                   }`}
               >
                 <Icon size={16} />
-                {category}
+                <span>{category}</span>
+                <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${
+                  isSelected
+                    ? isDark ? 'bg-black/10' : 'bg-white/20'
+                    : isDark ? 'bg-gray-800' : 'bg-gray-200'
+                }`}>
+                  {count}
+                </span>
               </button>
             );
           })}
