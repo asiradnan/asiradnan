@@ -313,7 +313,7 @@ const SkillsPage = () => {
 
 
   return (
-    <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
+    <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
       isDark ? 'bg-black' : 'bg-white'
     }`}>
         <div className="max-w-7xl mx-auto">
@@ -324,7 +324,7 @@ const SkillsPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${
+            <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${
               isDark ? 'text-white' : 'text-gray-900'
             }`}>
               Skills
@@ -353,8 +353,8 @@ const SkillsPage = () => {
                 key={category}
                 className={`rounded-2xl border p-4 transition-colors transition-shadow duration-200 flex flex-col ${
                   isDark
-                    ? 'bg-gray-800/30 border-gray-700/50'
-                    : 'bg-white/50 border-gray-200/50'
+                    ? 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600'
+                    : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300'
                 }`}
                 whileHover={{ scale: 1.01 }}
                 initial={{ opacity: 0, y: 30 }}

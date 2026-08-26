@@ -38,11 +38,11 @@ const ProjectsPage = () => {
   );
 
   return (
-    <div className={`min-h-screen py-16 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
+    <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 tracking-tight">Projects</h1>
-          <p className={`text-lg md:text-xl max-w-2xl mx-auto ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>Projects</h1>
+          <p className={`text-base sm:text-lg md:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
             A showcase of my work, passion projects, and technical achievements.
           </p>
         </div>
@@ -82,8 +82,8 @@ const ProjectsPage = () => {
                 id={`project-${project.id}`}
                 hidden={!visible}
                 className={`group flex flex-col rounded-2xl border overflow-hidden cursor-pointer transition-all duration-300 ${isDark
-                    ? 'bg-gray-900/50 border-gray-800 hover:border-gray-700 hover:bg-gray-800/50 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10'
-                    : 'bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50'
+                    ? 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-900/10'
+                    : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50'
                   }`}
               >
                 <div className="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800 border-b dark:border-gray-800">
@@ -102,7 +102,7 @@ const ProjectsPage = () => {
                 </div>
 
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold mb-3">{project.name}</h3>
+                  <h3 className={`text-xl font-bold mb-3 ${isDark ? 'text-white' : 'text-gray-900'}`}>{project.name}</h3>
                   <p className={`text-sm leading-relaxed mb-6 flex-grow ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                     {project.shortDescription}
                   </p>

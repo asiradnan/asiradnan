@@ -41,7 +41,7 @@ const AchievementsPage = () => {
     const { certificates, competitive } = getFilteredData();
 
     return (
-        <div className={`min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+        <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
                 <div className="max-w-7xl mx-auto">
                     {/* Header */}
 
@@ -51,7 +51,7 @@ const AchievementsPage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Achievements
                         </h1>
                         <p className={`text-sm sm:text-base md:text-lg lg:text-xl ${isDark ? 'text-gray-300' : 'text-gray-700'} px-4 sm:px-6 md:px-10 lg:px-12 max-w-4xl mx-auto leading-relaxed tracking-wide font-medium`}>
@@ -106,9 +106,9 @@ const AchievementsPage = () => {
                                             <div
                                                 key={platform.id}
                                                 className={`p-6 rounded-2xl border ${isDark
-                                                    ? 'bg-gray-800/30 border-gray-700/50'
-                                                    : 'bg-white/50 border-gray-200/50'
-                                                    } hover:scale-[1.02] transition-transform duration-200`}
+                                                    ? 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600'
+                                                    : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300'
+                                                    } hover:scale-[1.02] transition-colors transition-transform duration-200`}
                                             >
                                                 {/* Platform Logo/Icon */}
                                                 <div className="flex items-center gap-3 mb-4">
@@ -201,9 +201,9 @@ const AchievementsPage = () => {
                                             <div
                                                 key={certificate.id}
                                                 className={`p-4 rounded-xl border ${isDark
-                                                    ? 'bg-gray-800/30 border-gray-700/50'
-                                                    : 'bg-white/50 border-gray-200/50'
-                                                    } hover:scale-[1.01] transition-transform duration-200`}
+                                                    ? 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600'
+                                                    : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300'
+                                                    } hover:scale-[1.01] transition-colors transition-transform duration-200`}
                                             >
                                                 {/* Certificate Image */}
                                                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-3 bg-gradient-to-br from-gray-100 to-gray-200">

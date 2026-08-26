@@ -183,7 +183,7 @@ export default function ResumePage() {
                         className="text-center mb-16"
                         variants={containerVariants}
                     >
-                        <h1 className={`text-5xl md:text-6xl lg:text-7xl font-bold mb-2 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
+                        <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>
                             Resume
                         </h1>
 
@@ -204,8 +204,8 @@ export default function ResumePage() {
                             <motion.div
                                 key={resume.name}
                                 className={`flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 md:p-6 rounded-lg border ${isDark
-                                    ? 'border-gray-600 bg-gray-800/30 hover:bg-gray-800/50'
-                                    : 'border-gray-300 bg-white/30 hover:bg-white/50'
+                                    ? 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600'
+                                    : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300'
                                     } transition-colors transition-shadow duration-300 group space-y-4 sm:space-y-0`}
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={{ opacity: 1, x: 0 }}
@@ -413,15 +413,6 @@ export default function ResumePage() {
                         </motion.div>
                     </motion.div>
 
-                    {/* Copyright text at bottom */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="mt-12 md:mt-16 text-center"
-                    >
-                        <p className={`text-xs md:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-                            © {new Date().getFullYear()} Asir Adnan. All rights reserved.
-                        </p>
-                    </motion.div>
                 </motion.div>
             </section>
         </div>

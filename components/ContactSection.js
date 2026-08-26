@@ -378,15 +378,6 @@ export default function ContactSection() {
                     </motion.div>
                 </motion.div>
 
-                {/* Copyright text at bottom */}
-                <motion.div
-                    variants={itemVariants}
-                    className="mt-16 text-center"
-                >
-                    <p className={`text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-                        © {new Date().getFullYear()} Asir Adnan. All rights reserved.
-                    </p>
-                </motion.div>
             </motion.div>
         </section>
     );

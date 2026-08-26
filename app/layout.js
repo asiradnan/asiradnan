@@ -4,6 +4,8 @@ import { ThemeProvider } from "@/components/ThemeContext";
 import { JetBrains_Mono } from 'next/font/google';
 import SocialSidebar from "@/components/SocialSidebar";
 import { ClarityProvider } from "@/components/ClarityProvider";
+import Footer from "@/components/Footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -24,9 +26,11 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <NavBar />
           <SocialSidebar />
-          <main className="w-full">
+          <AnimatedBackground />
+          <main className="w-full relative z-10">
             {children}
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

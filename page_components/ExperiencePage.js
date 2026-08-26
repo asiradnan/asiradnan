@@ -140,25 +140,6 @@ export default function ExperiencePage() {
                 id="experience-section"
                 className="w-full min-h-screen relative overflow-hidden"
             >
-                {/* Animated background grid */}
-                <div className="absolute inset-0 opacity-20">
-                    <motion.div
-                        className="w-full h-full"
-                        animate={{
-                            backgroundPosition: ['0px 0px', '60px 60px'],
-                        }}
-                        transition={{
-                            duration: 20,
-                            repeat: Infinity,
-                            ease: "linear"
-                        }}
-                        style={{
-                            backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'} 1px, transparent 1px)`,
-                            backgroundSize: '60px 60px'
-                        }}
-                    />
-                </div>
-
                 {/* Main content */}
                 <motion.div
                     className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
@@ -205,8 +186,8 @@ export default function ExperiencePage() {
                                 key={exp.id}
                                 variants={itemVariants}
                                 className={`${isDark
-                                    ? 'bg-gray-800/50 border-gray-600'
-                                    : 'bg-white/50 border-gray-200'
+                                    ? 'bg-gray-800/30 border-gray-700/50 hover:bg-gray-800/50 hover:border-gray-600'
+                                    : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300'
                                     } border backdrop-blur-sm rounded-xl p-4 sm:p-6 md:p-8 shadow-sm hover:shadow-md transition-colors transition-shadow duration-300`}
                             >
                                 {/* Header */}
@@ -326,52 +307,6 @@ export default function ExperiencePage() {
                             </motion.div>
                         ))}
                     </div>
-
-                    {/* Call to Action */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="text-center mt-8 sm:mt-10 md:mt-12"
-                    >
-                        <motion.div
-                            className={`inline-flex flex-col sm:flex-row items-center gap-3 sm:gap-4 p-4 sm:p-6 rounded-xl border ${isDark
-                                ? 'bg-gray-800/50 border-gray-600'
-                                : 'bg-white/50 border-gray-200'
-                                } backdrop-blur-sm w-full sm:w-auto`}
-                            whileHover={{ scale: 1.01 }}
-                        >
-                            <div className="text-center sm:text-left">
-                                <h3 className={`text-base sm:text-lg md:text-xl font-bold ${isDark ? 'text-white' : 'text-gray-900'} mb-1 sm:mb-2`}>
-                                    Interested in working together?
-                                </h3>
-                                <p className={`text-xs sm:text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
-                                    Let&apos;s discuss how I can contribute to your team.
-                                </p>
-                            </div>
-                            <motion.button
-                                className={`flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold text-sm sm:text-base ${isDark
-                                    ? 'bg-white text-black hover:bg-gray-200'
-                                    : 'bg-black text-white hover:bg-gray-800'
-                                    } transition-colors duration-300 w-full sm:w-auto justify-center`}
-                                whileHover={{ scale: 1.02 }}
-                                onClick={() => {
-                                    router.push('/resume');
-                                }}
-                            >
-                                View Resume
-                                <ExternalLink size={14} className="sm:w-4 sm:h-4" />
-                            </motion.button>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* Copyright */}
-                    <motion.div
-                        variants={itemVariants}
-                        className="mt-12 text-center"
-                    >
-                        <p className={`text-xs md:text-sm ${isDark ? 'text-gray-500' : 'text-gray-500'}`}>
-                            © {new Date().getFullYear()} Asir Adnan. All rights reserved.
-                        </p>
-                    </motion.div>
                 </motion.div>
             </section>
         </div>
