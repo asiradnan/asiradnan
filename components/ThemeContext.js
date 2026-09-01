@@ -25,9 +25,9 @@ export const ThemeProvider = ({ children }) => {
   // Save theme to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    // Apply theme to document body for global styling without overwriting existing classes
-    document.body.classList.toggle('dark', isDark);
-    document.body.classList.toggle('light', !isDark);
+    // Apply theme to document html element for global styling including scrollbars
+    document.documentElement.classList.toggle('dark', isDark);
+    document.documentElement.classList.toggle('light', !isDark);
   }, [isDark]);
 
   const toggleTheme = () => {
