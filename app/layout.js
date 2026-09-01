@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
           <NavBar />
           <SocialSidebar />
           <AnimatedBackground />
-          <main className="w-full relative z-10">
+          <main className="w-full relative z-20">
             {children}
           </main>
           <Footer />

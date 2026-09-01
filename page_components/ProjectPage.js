@@ -1,11 +1,12 @@
 'use client'
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
   Code2, Database, Monitor, ExternalLink, Github, Calendar, X,
-  Play, Lightbulb, Trophy, LayoutGrid, Layers, Smartphone, ChevronRight
+  Play, Lightbulb, Trophy, LayoutGrid, Layers, Smartphone, ChevronRight, ArrowUp
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useTheme } from '@/components/ThemeContext';
 import { projectsData } from '@/data/projectsData';
 
@@ -23,6 +24,27 @@ const getCategoryIcon = (category) => {
 const ProjectsPage = () => {
   const { isDark } = useTheme();
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const categories = useMemo(
     () => ['All', ...new Set(projectsData.map(project => project.category))],
@@ -39,6 +61,27 @@ const ProjectsPage = () => {
 
   return (
     <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+      <motion.button
+        onClick={scrollToTop}
+        className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg ${isDark
+          ? 'bg-white text-black hover:bg-gray-200'
+          : 'bg-black text-white hover:bg-gray-800'
+          } transition-colors duration-300`}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{
+          opacity: showScrollTop ? 1 : 0,
+          scale: showScrollTop ? 1 : 0
+        }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ duration: 0.2 }}
+        style={{
+          pointerEvents: showScrollTop ? 'auto' : 'none'
+        }}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={24} />
+      </motion.button>
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-3 md:mb-4 mt-4 md:mt-6 lg:mt-8 leading-tight ${isDark ? 'text-white' : 'text-gray-900'}`}>Projects</h1>

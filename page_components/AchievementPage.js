@@ -9,7 +9,8 @@ import {
     Shield,
     Code,
     Trophy,
-    User
+    User,
+    ArrowUp
 } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext';
 import { certificatesData, competitiveProgrammingData } from '@/data/projectsData';
@@ -17,6 +18,27 @@ import { certificatesData, competitiveProgrammingData } from '@/data/projectsDat
 const AchievementsPage = () => {
     const { isDark } = useTheme();
     const [activeTab, setActiveTab] = useState('all');
+    const [showScrollTop, setShowScrollTop] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowScrollTop(true);
+            } else {
+                setShowScrollTop(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     const tabs = [
         { id: 'all', label: 'All', icon: Award },
@@ -42,7 +64,28 @@ const AchievementsPage = () => {
 
     return (
         <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
-                <div className="max-w-7xl mx-auto">
+            <motion.button
+                onClick={scrollToTop}
+                className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg ${isDark
+                    ? 'bg-white text-black hover:bg-gray-200'
+                    : 'bg-black text-white hover:bg-gray-800'
+                    } transition-colors duration-300`}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{
+                    opacity: showScrollTop ? 1 : 0,
+                    scale: showScrollTop ? 1 : 0
+                }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                style={{
+                    pointerEvents: showScrollTop ? 'auto' : 'none'
+                }}
+                aria-label="Scroll to top"
+            >
+                <ArrowUp size={24} />
+            </motion.button>
+            <div className="max-w-7xl mx-auto">
                     {/* Header */}
 
                     <motion.div
