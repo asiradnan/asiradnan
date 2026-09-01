@@ -12,8 +12,8 @@ export default function HeroSection() {
 
   // Move roles inside useMemo or define it dynamically so it updates with theme changes
   const roles = React.useMemo(() => [
-    // { text: "Software Engineer", icon: Code2, color: isDark ? "text-blue-400" : "text-blue-600" },
-    { text: "Full Stack Developer", icon: Database, color: isDark ? "text-cyan-400" : "text-cyan-600" },
+    // { text: "Software Engineer", icon: Code2, color: isDark ?  "text-cyan-400" : "text-cyan-600" },
+    { text: "Full Stack Developer", icon: Database, color: isDark ? "text-blue-400" : "text-blue-600" },
     { text: "Native Android Developer", icon: Smartphone, color: isDark ? "text-green-400" : "text-green-600" }
   ], [isDark]);
 
