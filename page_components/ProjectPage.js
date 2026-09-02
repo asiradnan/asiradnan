@@ -151,7 +151,7 @@ const ProjectsPage = () => {
                     : 'bg-white/50 border-gray-200/50 hover:bg-white hover:border-gray-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/50'
                   }`}
               >
-                <div className="relative aspect-video w-full overflow-hidden bg-gray-100 dark:bg-gray-800 border-b dark:border-gray-800">
+                <div className={`relative aspect-video w-full overflow-hidden border-b ${isDark ? 'bg-gray-900 border-gray-800' : 'bg-gray-50 border-gray-200'}`}>
                   {project.image ? (
                     <Image src={project.image} alt={project.name} fill className="object-contain" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                   ) : (

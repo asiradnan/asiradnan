@@ -5,13 +5,13 @@ export const projectsData = [
     shortDescription: "Modern college management web app with role-based access, clubs, forums, and announcements.",
     fullDescription:
       `
-      – Built a comprehensive college management system using Django, deployed via Nginx on AWS
-      – Implemented RBAC to manage departments, classes, clubs, noticeboards, forum posts with comments
-      – Deployed PostgreSQL on Amazon RDS for scalable, reliable database management
-      – Images and files are stored and served via Amazon S3
-      – Integrated Celery with Redis to handle asynchronous email notifications via Amazon SES as background jobs
-      – Set up CI/CD pipelines using GitHub Actions to automate deployments
-      – Achieved 98% code coverage by writing comprehensive tests including asynchronous tasks
+      - Built a comprehensive college management system using Django, deployed via Nginx on AWS
+      - Implemented RBAC to manage departments, classes, clubs, noticeboards, forum posts with comments
+      - Deployed PostgreSQL on Amazon RDS for scalable, reliable database management
+      - Images and files are stored and served via Amazon S3
+      - Integrated Celery with Redis to handle asynchronous email notifications via Amazon SES as background jobs
+      - Set up CI/CD pipelines using GitHub Actions to automate deployments
+      - Achieved 98% code coverage by writing comprehensive tests including asynchronous tasks
     `,
     skills: ["Django", "Celery", "Redis", "AWS",
       // "Amazon S3", "Amazon RDS", "Amazon EC2", "Amazon SES", 
@@ -30,13 +30,13 @@ export const projectsData = [
   //   shortDescription: "A full-stack mental well-being platform with real-time chat, forums, and companion certification.",
   //   fullDescription:
   //     `
-  //     – Developed a full-stack mental well-being platform enabling users to share experiences, connect with companions, and promote emotional wellness
-  //     – Built a real-time chat system using Socket.IO for one-on-one conversations with typing indicators, chat history, and online presence tracking
-  //     – Designed a companion certification program with assessments, score tracking, and curated mental health training resources
-  //     – Implemented community forums with category-based posts, image sharing, upvotes, comments, and full CRUD functionality
-  //     – Integrated JWT authentication, email verification, password recovery, and secure file uploads with Multer for profile and forum media
-  //     – Created an admin dashboard for managing users, reports, training questions, and account suspensions with PDF export capabilities
-  //     – Developed using React.js, Node.js, Express.js, and MongoDB, with modular architecture and responsive UI built with Tailwind CSS
+  //     - Developed a full-stack mental well-being platform enabling users to share experiences, connect with companions, and promote emotional wellness
+  //     - Built a real-time chat system using Socket.IO for one-on-one conversations with typing indicators, chat history, and online presence tracking
+  //     - Designed a companion certification program with assessments, score tracking, and curated mental health training resources
+  //     - Implemented community forums with category-based posts, image sharing, upvotes, comments, and full CRUD functionality
+  //     - Integrated JWT authentication, email verification, password recovery, and secure file uploads with Multer for profile and forum media
+  //     - Created an admin dashboard for managing users, reports, training questions, and account suspensions with PDF export capabilities
+  //     - Developed using React.js, Node.js, Express.js, and MongoDB, with modular architecture and responsive UI built with Tailwind CSS
   //   `,
   //   skills: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "JWT", "Tailwind CSS", "Multer", "REST API", "Git"],
   //   githubLink: "https://github.com/asiradnan/SoulSpeak",
@@ -54,12 +54,12 @@ export const projectsData = [
     shortDescription: "Asir Tasks is a comprehensive task management system. This is the web version of it.",
     fullDescription:
       `
-      – Create, edit, complete, and delete tasks with due date and time.
-      – Tasks are sorted by due date, with separate tabs for complete and incomplete tasks.
-      – Tasks sync in across web and the Android app.
-      – Pop-up notifications with sound for upcoming tasks.
-      – Toggle between light and dark themes.
-      – Optimized for various screen sizes.
+      - Create, edit, complete, and delete tasks with due date and time.
+      - Tasks are sorted by due date, with separate tabs for complete and incomplete tasks.
+      - Tasks sync in across web and the Android app.
+      - Pop-up notifications with sound for upcoming tasks.
+      - Toggle between light and dark themes.
+      - Optimized for various screen sizes.
     `,
     skills: ["Django Rest Framework", "PostgreSQL", "Next.js", "Python", "JavaScript", "Authentication", "Git"],
     githubLink: "https://github.com/asiradnan/tasks",
@@ -77,12 +77,12 @@ export const projectsData = [
   //   shortDescription: "A comprehensive task management system with Android & Web platforms that managed more than 2,500 tasks.",
   //   fullDescription:
   //     `
-  //     – Designed a cross-platform task management system (Android & Web) that managed more than 2,500 tasks
-  //     – Implemented user authentication and task management APIs using FastAPI with a lightweight SQLite database
-  //     – Created a Next.js web frontend to support task management, profile update, and authentication flows
-  //     – Configured notifications, theme switching (dark/light), and tabbed views for completed/incomplete tasks
-  //     – Developed Kotlin-based Android app with an offline-first architecture; enabled seamless synchronization with the server
-  //     – Hosted backend and frontend on a DigitalOcean VPS with Nginx
+  //     - Designed a cross-platform task management system (Android & Web) that managed more than 2,500 tasks
+  //     - Implemented user authentication and task management APIs using FastAPI with a lightweight SQLite database
+  //     - Created a Next.js web frontend to support task management, profile update, and authentication flows
+  //     - Configured notifications, theme switching (dark/light), and tabbed views for completed/incomplete tasks
+  //     - Developed Kotlin-based Android app with an offline-first architecture; enabled seamless synchronization with the server
+  //     - Hosted backend and frontend on a DigitalOcean VPS with Nginx
   //   `,
   //   skills: ["FastAPI", "SQLite", "Next.js", "Kotlin", "Android", "Python", "JavaScript", "Nginx", "DigitalOcean", "Authentication", "Offline-First", "CI/CD", "Git"],
   //   githubLink: "https://github.com/asiradnan/todo_nextjs_frontend",
@@ -100,9 +100,9 @@ export const projectsData = [
     shortDescription: "A full-stack URL shortener with click analytics and usage tracking for user engagement insights.",
     fullDescription:
       `
-      – Developed a full-stack URL shortener using React and Django REST Framework
-      – Implemented click analytics and usage tracking, providing insights on user engagement through statistics
-      – Deployed the app on a self-hosted VPS with Nginx, ensuring responsive design, fast redirects and secure API integration
+      - Developed a full-stack URL shortener using React and Django REST Framework
+      - Implemented click analytics and usage tracking, providing insights on user engagement through statistics
+      - Deployed the app on a self-hosted VPS with Nginx, ensuring responsive design, fast redirects and secure API integration
     `,
     skills: ["React", "Django REST Framework", "Python", "JavaScript", "Analytics", "Statistics", "Nginx", "VPS", "API Development", "Git"],
     githubLink: "https://github.com/asiradnan/url-shortener",
@@ -136,12 +136,12 @@ export const projectsData = [
   //   shortDescription: "A scalable apartment management platform with RBAC, complaint handling, billing, and community features.",
   //   fullDescription:
   //     `
-  //     – Built and deployed a scalable apartment management platform using Next.js on a DigitalOcean VPS
-  //     – Implemented Role-Based Access Control (RBAC) for secure complaint handling, billing, and resident onboarding
-  //     – Developed a community forum with support for posts, comments, and media sharing for events
-  //     – Integrated automated email notifications for complaint status, billing updates, and resident approvals
-  //     – Designed responsive UI with modern components for managing apartments, residents, and maintenance requests
-  //     – Deployed with Nginx for optimized performance and reliability
+  //     - Built and deployed a scalable apartment management platform using Next.js on a DigitalOcean VPS
+  //     - Implemented Role-Based Access Control (RBAC) for secure complaint handling, billing, and resident onboarding
+  //     - Developed a community forum with support for posts, comments, and media sharing for events
+  //     - Integrated automated email notifications for complaint status, billing updates, and resident approvals
+  //     - Designed responsive UI with modern components for managing apartments, residents, and maintenance requests
+  //     - Deployed with Nginx for optimized performance and reliability
   //   `,
   //   skills: ["Next.js", "React", "Node.js", "MongoDB", "Tailwind CSS", "RBAC", "Email Integration", "Nginx", "DigitalOcean", "Git"],
   //   githubLink: "https://github.com/asiradnan/AMS",
