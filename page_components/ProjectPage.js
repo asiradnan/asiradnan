@@ -27,6 +27,18 @@ const ProjectsPage = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
+    const savedCategory = sessionStorage.getItem('projectCategory');
+    if (savedCategory) {
+      setSelectedCategory(savedCategory);
+    }
+  }, []);
+
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    sessionStorage.setItem('projectCategory', category);
+  };
+
+  useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setShowScrollTop(true);
@@ -101,7 +113,7 @@ const ProjectsPage = () => {
             return (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category)}
+                onClick={() => handleCategorySelect(category)}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${isSelected
                     ? isDark
                       ? 'bg-white text-black shadow-lg scale-105'
