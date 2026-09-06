@@ -114,7 +114,7 @@ const ProjectsPage = () => {
               <button
                 key={category}
                 onClick={() => handleCategorySelect(category)}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${isSelected
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold cursor-pointer transition-all duration-200 ${isSelected
                     ? isDark
                       ? 'bg-white text-black shadow-lg scale-105'
                       : 'bg-gray-900 text-white shadow-lg scale-105'
