@@ -48,7 +48,7 @@ export const projectsData = [
   //   motivation: "Created to provide a safe space for people to share their mental health experiences and connect with trained companions.",
   //   result: "Built a comprehensive platform with real-time communication, community engagement, and certification systems for mental health support."
   // },
-    {
+  {
     id: 2,
     name: "Asir Tasks (web)",
     shortDescription: "Asir Tasks is a comprehensive task management system. This is the web version of it.",
@@ -203,7 +203,7 @@ export const projectsData = [
     skills: ["Kotlin", "Jetpack Compose", "Android", "Git"],
     githubLink: "https://github.com/asiradnan/TasbihCounter",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.tasbihcounter",
-    image: "/projects/tasbihcounter.png", 
+    image: "/projects/tasbihcounter.png",
     status: "Completed",
     duration: "1 month",
     category: "Android"
@@ -259,6 +259,19 @@ export const projectsData = [
     status: "Completed",
     duration: "1 week",
     category: "Front End"
+  },
+  {
+    id: 16,
+    name: "Asir Tasks",
+    shortDescription: "An offline-first Android task management client built with Kotlin and Jetpack Compose.",
+    fullDescription: "The Android client for Asir Tasks, built with Kotlin and Jetpack Compose. Manage tasks offline with a local Room database, and sync in the background with the shared FastAPI backend whenever you're online. Features include alarm-based reminders, secure authentication, and dark mode.",
+    skills: ["Kotlin", "Jetpack Compose", "Room Database", "WorkManager"],
+    githubLink: "https://github.com/asiradnan/asirtasks",
+    liveLink: "https://play.google.com/store/apps/details?id=com.asiradnan.asirtasks",
+    image: "/projects/asirtasks-android.png",
+    status: "Completed",
+    duration: "",
+    category: "Android"
   }
 ];
 
