@@ -267,7 +267,7 @@ export const projectsData = [
     fullDescription: "The Android client for Asir Tasks, built with Kotlin and Jetpack Compose. Manage tasks offline with a local Room database, and sync in the background with the shared FastAPI backend whenever you're online. Features include alarm-based reminders, secure authentication, and dark mode.",
     skills: ["Android", "Kotlin", "Jetpack Compose", "Room Database", "WorkManager"],
     githubLink: "https://github.com/asiradnan/tasks-android/",
-    liveLink: "https://play.google.com/store/apps/details?id=com.asiradnan.asirtasks",
+    playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.asirtasks",
     image: "/projects/asirtasks-android.png",
     status: "Completed",
     duration: "",
