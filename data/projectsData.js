@@ -247,19 +247,19 @@ export const projectsData = [
     duration: "1 week",
     category: "Front End"
   },
-  {
-    id: 15,
-    name: "Quiz",
-    shortDescription: "A trivia quiz web application built using HTML, CSS, and JavaScript.",
-    fullDescription: "A trivia quiz web application built using HTML, CSS, and JavaScript. Test your knowledge across various topics with questions fetched live from the Open Trivia Database API.",
-    skills: ["HTML", "CSS", "JavaScript"],
-    githubLink: "https://github.com/asiradnan/quiz",
-    liveLink: "https://quiz.asiradnan.com",
-    image: "/projects/quiz.png",
-    status: "Completed",
-    duration: "1 week",
-    category: "Front End"
-  },
+  // {
+  //   id: 15,
+  //   name: "Quiz",
+  //   shortDescription: "A trivia quiz web application built using HTML, CSS, and JavaScript.",
+  //   fullDescription: "A trivia quiz web application built using HTML, CSS, and JavaScript. Test your knowledge across various topics with questions fetched live from the Open Trivia Database API.",
+  //   skills: ["HTML", "CSS", "JavaScript"],
+  //   githubLink: "https://github.com/asiradnan/quiz",
+  //   liveLink: "https://quiz.asiradnan.com",
+  //   image: "/projects/quiz.png",
+  //   status: "Completed",
+  //   duration: "1 week",
+  //   category: "Front End"
+  // },
   {
     id: 16,
     name: "Asir Tasks",
