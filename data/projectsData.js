@@ -56,7 +56,7 @@ export const projectsData = [
       `
       - Create, edit, complete, and delete tasks with due date and time.
       - Tasks are sorted by due date, with separate tabs for complete and incomplete tasks.
-      - Tasks sync in across web and the Android app.
+      - Tasks sync across web and the Android app.
       - Pop-up notifications with sound for upcoming tasks.
       - Toggle between light and dark themes.
       - Optimized for various screen sizes.
@@ -69,7 +69,7 @@ export const projectsData = [
     duration: "3 months",
     category: "Full Stack",
     motivation: "Why can't I have my own Google Tasks?",
-    result: "Built an Google Tasks alternative."
+    result: "Built a Google Tasks alternative."
   },
   // {
   //   id: 2,
@@ -185,7 +185,7 @@ export const projectsData = [
     id: 9,
     name: "Send Wish",
     shortDescription: "Send wishes to whoever you want without revealing your identity!",
-    fullDescription: "A anonymous email sender web application built using HTML, CSS, and Django. Send heartfelt wishes, greetings, or messages to anyone via email — without revealing your identity.",
+    fullDescription: "An anonymous email sender web application built using HTML, CSS, and Django. Send heartfelt wishes, greetings, or messages to anyone via email — without revealing your identity.",
     skills: ["Django", "HTML", "CSS", "Docker", "Google Cloud"],
     // technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "MVVM"],
     githubLink: "https://github.com/asiradnan/sendwish",
@@ -270,7 +270,7 @@ export const projectsData = [
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.asirtasks",
     image: "/projects/asirtasks-android.png",
     status: "Completed",
-    duration: "",
+    duration: "3 months",
     category: "Android"
   }
 ];

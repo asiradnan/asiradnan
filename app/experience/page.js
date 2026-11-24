@@ -3,7 +3,7 @@ import ExperiencePage from "@/page_components/ExperiencePage";
 export const metadata = {
   title: "Experience - Asir Adnan",
   description: "Explore Asir Adnan's professional work experience including Android Developer role at Altux Studio and Web Developer position at BRAC Business School. Detailed overview of responsibilities, achievements, and technologies used in each role including Kotlin, Django, and web development projects.",
-  keywords: "Asir Adnan experience, Android developer experience, web developer career, Altux Studio, BRAC Business School, Kotlin developer, Django developer, professional experience, software developer career history",
+  keywords: "Asir Adnan experience, Android developer experience, web developer career, BRAC Business School, Kotlin developer, Django developer, professional experience, software developer career history",
   openGraph: {
     title: "Work Experience - Asir Adnan | Professional Software Developer",
     description: "Professional experience as Android Developer and Web Developer with detailed achievements and technologies used in each role.",

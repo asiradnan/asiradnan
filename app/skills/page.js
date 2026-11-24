@@ -10,7 +10,7 @@ export const metadata = {
     url: "https://asiradnan.com/skills",
     images: [
       {
-        url: "https://asiradnan.com/default-og.jpg",
+        url: "https://asiradnan.com/default-og.png",
         width: 1200,
         height: 630,
         alt: "Asir Adnan Technical Skills Overview",
@@ -20,7 +20,7 @@ export const metadata = {
   twitter: {
     title: "Technical Skills - Asir Adnan",
     description: "30+ technical skills in full-stack development, Android, DevOps, and databases. Each skill backed by real projects and certifications.",
-    images: ["https://asiradnan.com/default-og.jpg"],
+    images: ["https://asiradnan.com/default-og.png"],
   },
   alternates: {
     canonical: "https://asiradnan.com/skills",
