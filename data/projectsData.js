@@ -69,7 +69,7 @@ export const projectsData = [
     duration: "3 months",
     category: "Full Stack",
     motivation: "Why can't I have my own Google Tasks?",
-    result: "Building an Google Tasks alternative."
+    result: "Built an Google Tasks alternative."
   },
   // {
   //   id: 2,
@@ -264,7 +264,7 @@ export const projectsData = [
     id: 16,
     name: "Asir Tasks",
     shortDescription: "An offline-first Android task management client built with Kotlin and Jetpack Compose.",
-    fullDescription: "The Android client for Asir Tasks, built with Kotlin and Jetpack Compose. Manage tasks offline with a local Room database, and sync in the background with the shared FastAPI backend whenever you're online. Features include alarm-based reminders, secure authentication, and dark mode.",
+    fullDescription: "The Android client for Asir Tasks, built with Kotlin and Jetpack Compose. Manage tasks offline with a local Room database, and sync in the background with the shared Django backend whenever you're online. Features include alarm-based reminders, secure authentication, and dark mode.",
     skills: ["Android", "Kotlin", "Jetpack Compose", "Room Database", "WorkManager"],
     githubLink: "https://github.com/asiradnan/tasks-android/",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.asirtasks",
@@ -329,7 +329,7 @@ export const certificatesData = [
     skills: ["Python", "Programming Fundamentals", "Data Types", "Control Flow", "Functions", "Lists", "Dictionaries"],
     image: "/certificates/PythonEssentials1.jpg",
     pdfLink: null,
-    verificationLink: "https://www.credly.com/badges/6c7fb15b-77e4-437d-a57f-1992f06286a4",
+    verificationLink: "https://www.credly.com/badges/f34ddd55-e352-4c7d-b7eb-4f8888881fb8",
     description: "Completed Python Essentials 1 course provided by Cisco Networking Academy in collaboration with OpenEDG Python Institute"
   },
   {
@@ -442,7 +442,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CC-XUOEIUJ1",
     skills: ["SQL", "Aggregations", "Joins", "Subqueries"],
-    image: "/certificates/sql_intermediate certificate_page-0001.jpg",
+    image: "/certificates/sql_intermediate.jpg",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CC-XUOEIUJ1",
     description: "Covers intermediate SQL concepts"
@@ -568,7 +568,7 @@ export const competitiveProgrammingData = [
     id: 3,
     platform: "CodeChef",
     username: "asiradnan",
-    profileLink: " https://www.codechef.com/users/asiradnan",
+    profileLink: "https://www.codechef.com/users/asiradnan",
     logo: "/platforms/codechef.png",
     stats: {
       Rating: "1569",
@@ -683,10 +683,10 @@ export const educationData = {
   institution: "BRAC University",
   location: "Dhaka, Bangladesh",
   startDate: "2022",
-  endDate: "2025",
-  status: "Expected Graduation: February 2026",
-  gpa: "3.76 out of 4.00",
-  achievements: ["Dean's List"],
+  endDate: "2027",
+  status: "Expected Graduation: February 2027",
+  // gpa: "3.76 out of 4.00",
+  // achievements: ["Dean's List"],
   relevantCourses: [
     "Algorithms",
     "Data Structures",

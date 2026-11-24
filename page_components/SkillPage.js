@@ -165,7 +165,7 @@ const SkillsPage = () => {
                             ? 'bg-gray-800/50 border-gray-700 hover:border-gray-600 hover:bg-gray-800' 
                             : 'bg-gray-50 border-gray-200 hover:border-gray-300 hover:bg-gray-100'
                         }`}
-                        onClick={() => window.open(`/projects`, '_blank')}
+                        onClick={() => window.open(`/projects/${project.id}`, '_blank')}
                       >
                         <div className="flex justify-between items-start gap-4">
                           <div className="flex-1 min-w-0">

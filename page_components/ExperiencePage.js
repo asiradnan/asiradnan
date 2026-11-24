@@ -64,7 +64,7 @@ export default function ExperiencePage() {
             description: "Building, fixing, testing and deploying web apps made with Django, Next.JS, ReactJS",
             achievements: [
                 "Achieved 5.0/5.0 rating with 100% response rate and success score of 8/10",
-                "Completed 6 orders earning $250 with 2 unique international clients",
+                "Completed 11 orders earning $800+ with 2 unique international clients",
                 "Built full-stack web applications with Django, React, and Next.js for the clients",
                 "Managed end-to-end project delivery including requirements gathering, development, testing, and deployment",
                 "Maintained high service quality standards ensuring on-time delivery and 100% client satisfaction"
