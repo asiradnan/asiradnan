@@ -553,15 +553,14 @@ export const competitiveProgrammingData = [
     profileLink: "https://leetcode.com/u/asiradnan/",
     logo: "/platforms/leetcode.png",
     stats: {
-      ProblemsSolved: "280+",
+      ProblemsSolved: "310+",
       EasyProblems: "85+",
-      MediumProblems: "180+",
-      HardProblems: "10+"
+      MediumProblems: "210+",
+      HardProblems: "15+"
     },
     achievements: [
-      "200+ Problems Solved",
-      // "Contest Participant",
-      // "Multiple badges earned"
+      "310+ Problems Solved",
+      "5 badges earned"
     ]
   },
   {
