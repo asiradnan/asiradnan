@@ -1,5 +1,7 @@
 import { projectsData } from '@/data/projectsData';
 
+export const dynamic = 'force-static';
+
 export default function sitemap() {
   const baseUrl = 'https://asiradnan.com';
   const lastModified = new Date();
