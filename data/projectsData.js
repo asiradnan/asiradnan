@@ -19,7 +19,7 @@ export const projectsData = [
     // technologies: ["Django", "Celery", "Redis", "AWS", "PostgreSQL", "Python", "HTML", "CSS", "JavaScript", "GitHub Actions", "Gunicorn", "Nginx"],
     githubLink: "https://github.com/asiradnan/PulseCampus",
     liveLink: "https://pulsecampus.asiradnan.com/",
-    image: "/projects/pulse_campus.png",
+    image: "/projects/pulse_campus.webp",
     status: "Completed",
     duration: "4 months",
     category: "Full Stack"
@@ -41,7 +41,7 @@ export const projectsData = [
   //   skills: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO", "JWT", "Tailwind CSS", "Multer", "REST API", "Git"],
   //   githubLink: "https://github.com/asiradnan/SoulSpeak",
   //   liveLink: "https://soulspeak.asiradnan.com",
-  //   image: "/projects/soul_speak.png",
+  //   image: "/projects/soul_speak.webp",
   //   status: "Completed",
   //   duration: "3 months",
   //   category: "Full Stack",
@@ -64,7 +64,7 @@ export const projectsData = [
     skills: ["Django Rest Framework", "PostgreSQL", "Next.js", "Python", "JavaScript", "Authentication", "Git"],
     githubLink: "https://github.com/asiradnan/tasks",
     liveLink: "https://tasks.asiradnan.com",
-    image: '/projects/asirtasks.png',
+    image: '/projects/asirtasks.webp',
     status: "Completed",
     duration: "3 months",
     category: "Full Stack",
@@ -87,7 +87,7 @@ export const projectsData = [
   //   skills: ["FastAPI", "SQLite", "Next.js", "Kotlin", "Android", "Python", "JavaScript", "Nginx", "DigitalOcean", "Authentication", "Offline-First", "CI/CD", "Git"],
   //   githubLink: "https://github.com/asiradnan/todo_nextjs_frontend",
   //   liveLink: "https://todo.asiradnan.com",
-  //   image: '/projects/todo_web.png',
+  //   image: '/projects/todo_web.webp',
   //   status: "Completed",
   //   duration: "3 months",
   //   category: "Full Stack",
@@ -107,7 +107,7 @@ export const projectsData = [
     skills: ["React", "Django REST Framework", "Python", "JavaScript", "Analytics", "Statistics", "Nginx", "VPS", "API Development", "Git"],
     githubLink: "https://github.com/asiradnan/url-shortener",
     liveLink: "https://chottourl.asiradnan.com",
-    image: "/projects/chotto_url.png",
+    image: "/projects/chotto_url.webp",
     status: "Completed",
     duration: "2 months",
     category: "Full Stack",
@@ -125,7 +125,7 @@ export const projectsData = [
     // technologies: ["Django", "HTML", "CSS", "JavaScript", "Amazon S3", "Amazon CloudFront", "CI/CD"],
     githubLink: "https://github.com/asiradnan/copypasta",
     liveLink: "https://copypasta.asiradnan.com",
-    image: "/projects/copy_pasta.png",
+    image: "/projects/copy_pasta.webp",
     status: "Completed",
     duration: "1 month",
     category: "Full Stack"
@@ -146,7 +146,7 @@ export const projectsData = [
   //   skills: ["Next.js", "React", "Node.js", "MongoDB", "Tailwind CSS", "RBAC", "Email Integration", "Nginx", "DigitalOcean", "Git"],
   //   githubLink: "https://github.com/asiradnan/AMS",
   //   liveLink: "https://ams.asiradnan.com",
-  //   image: "/projects/ams.png",
+  //   image: "/projects/ams.webp",
   //   status: "Completed",
   //   duration: "2 months",
   //   category: "Full Stack",
@@ -162,7 +162,7 @@ export const projectsData = [
     // technologies: ["Django", "HTML", "CSS", "JavaScript", "Nginx"],
     githubLink: "https://github.com/asiradnan/qrcode",
     liveLink: "https://qr.asiradnan.com/",
-    image: "/projects/qr.png",
+    image: "/projects/qr.webp",
     status: "Completed",
     duration: "1 month",
     category: "Full Stack"
@@ -176,7 +176,7 @@ export const projectsData = [
     // technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "MVVM"],
     githubLink: "https://github.com/asiradnan/Periodic-Table",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.periodictable",
-    image: "/projects/periodic_table_android.png",
+    image: "/projects/periodic_table_android.webp",
     status: "Completed",
     duration: "2 months",
     category: "Android"
@@ -190,7 +190,7 @@ export const projectsData = [
     // technologies: ["Kotlin", "Jetpack Compose", "Material 3", "Android", "MVVM"],
     githubLink: "https://github.com/asiradnan/sendwish",
     liveLink: "https://sendwish.asiradnan.com/",
-    image: "/projects/sendwish.png",
+    image: "/projects/sendwish.webp",
     status: "Completed",
     duration: "1 month",
     category: "Full Stack"
@@ -203,7 +203,7 @@ export const projectsData = [
     skills: ["Kotlin", "Jetpack Compose", "Android", "Git"],
     githubLink: "https://github.com/asiradnan/Tasbih-Counter",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.tasbihcounter",
-    image: "/projects/tasbihcounter.png",
+    image: "/projects/tasbihcounter.webp",
     status: "Completed",
     duration: "1 month",
     category: "Android"
@@ -216,7 +216,7 @@ export const projectsData = [
     skills: ["HTML", "CSS", "JavaScript", "Game Development"],
     githubLink: "https://github.com/asiradnan/Tic-Tac-Toe",
     liveLink: "https://tictactoe.asiradnan.com/",
-    image: "/projects/tictactoe.png",
+    image: "/projects/tictactoe.webp",
     status: "Completed",
     duration: "1 week",
     category: "Front End"
@@ -229,7 +229,7 @@ export const projectsData = [
   //   skills: ["HTML", "CSS", "JavaScript", "API Integration", "Responsive Design"],
   //   githubLink: "https://github.com/asiradnan/YouTube-Clone",
   //   liveLink: "https://yt.asiradnan.com",
-  //   image: "/projects/youtube_clone.png",
+  //   image: "/projects/youtube_clone.webp",
   //   status: "Completed",
   //   duration: "2 weeks",
   //   category: "Front End"
@@ -242,7 +242,7 @@ export const projectsData = [
     skills: ["HTML", "CSS", "JavaScript"],
     githubLink: "https://github.com/asiradnan/Calculator",
     liveLink: "https://calculator.asiradnan.com",
-    image: "/projects/calculator.png",
+    image: "/projects/calculator.webp",
     status: "Completed",
     duration: "1 week",
     category: "Front End"
@@ -255,7 +255,7 @@ export const projectsData = [
   //   skills: ["HTML", "CSS", "JavaScript"],
   //   githubLink: "https://github.com/asiradnan/quiz",
   //   liveLink: "https://quiz.asiradnan.com",
-  //   image: "/projects/quiz.png",
+  //   image: "/projects/quiz.webp",
   //   status: "Completed",
   //   duration: "1 week",
   //   category: "Front End"
@@ -268,7 +268,7 @@ export const projectsData = [
     skills: ["Android", "Kotlin", "Jetpack Compose", "Room Database", "WorkManager"],
     githubLink: "https://github.com/asiradnan/tasks-android/",
     playStoreLink: "https://play.google.com/store/apps/details?id=com.asiradnan.asirtasks",
-    image: "/projects/asirtasks-android.png",
+    image: "/projects/asirtasks-android.webp",
     status: "Completed",
     duration: "3 months",
     category: "Android"
@@ -287,7 +287,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "WSTHJPP10AEF",
     skills: ["Competitive Programming", "C++", "Algorithms", "Data Structures", "Teamwork"],
-    image: "/certificates/2024-ICPC Asia Dhaka RC-Asir Adnan-HONORABLE.jpg",
+    image: "/certificates/2024-ICPC Asia Dhaka RC-Asir Adnan-HONORABLE.webp",
     pdfLink: null,
     verificationLink: "https://icpc.global/ICPCID/WSTHJPP10AEF",
     description: "Participated as a regional contestant in the 2023 ICPC Asia Dhaka Regional Contest"
@@ -300,7 +300,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: null,
     skills: ["Competitive Programming", "C++", "Algorithms", "Data Structures", "Teamwork"],
-    image: "/certificates/ncpc.jpg",
+    image: "/certificates/ncpc.webp",
     pdfLink: null,
     verificationLink: null,
     description: "Participant in the 2023 National Collegiate Programming Contest"
@@ -313,7 +313,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "6c7fb15b-77e4-437d-a57f-1992f06286a4",
     skills: ["HTML", "CSS", "JavaScript", "Web Development", "Frontend"],
-    image: "/certificates/ibm.jpg",
+    image: "/certificates/ibm.webp",
     pdfLink: null,
     verificationLink: "https://www.credly.com/badges/6c7fb15b-77e4-437d-a57f-1992f06286a4",
     description: "Completed Web Development Fundamentals course provided by IBM SkillsBuild"
@@ -327,7 +327,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: null,
     skills: ["Python", "Programming Fundamentals", "Data Types", "Control Flow", "Functions", "Lists", "Dictionaries"],
-    image: "/certificates/PythonEssentials1.jpg",
+    image: "/certificates/PythonEssentials1.webp",
     pdfLink: null,
     verificationLink: "https://www.credly.com/badges/f34ddd55-e352-4c7d-b7eb-4f8888881fb8",
     description: "Completed Python Essentials 1 course provided by Cisco Networking Academy in collaboration with OpenEDG Python Institute"
@@ -340,7 +340,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "248ce0206dcc",
     skills: ["Algorithms", "Logic", "Problem Solving"],
-    image: "/certificates/problem_solving_basic certificate_page-0001.jpg",
+    image: "/certificates/problem_solving_basic certificate_page-0001.webp",
     verificationLink: "https://www.hackerrank.com/certificates/248ce0206dcc",
     description: "HackerRank certification in basic problem solving"
   },
@@ -352,7 +352,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "4d919ca4d757",
     skills: ["Algorithms", "Logic", "Problem Solving"],
-    image: "/certificates/problem_solving_intermediate certificate-1.png",
+    image: "/certificates/problem_solving_intermediate certificate-1.webp",
     verificationLink: "https://www.hackerrank.com/certificates/4d919ca4d757",
     description: "HackerRank certification in intermediate level problem solving"
   },
@@ -364,7 +364,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "27b427683df5",
     skills: ["Python", "Syntax", "Data Types"],
-    image: "/certificates/python_basic certificate (2)_page-0001.jpg",
+    image: "/certificates/python_basic certificate (2)_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.hackerrank.com/certificates/27b427683df5",
     description: "HackerRank certification in basic Python programming"
@@ -377,7 +377,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "81840051d371",
     skills: ["REST APIs", "HTTP", "JSON", "CRUD"],
-    image: "/certificates/rest_api_intermediate certificate_page-0001.jpg",
+    image: "/certificates/rest_api_intermediate certificate_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.hackerrank.com/certificates/81840051d371",
     description: "Intermediate-level certification on REST API usage and design"
@@ -390,7 +390,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "37eb45ef5b45",
     skills: ["SQL", "Queries", "Filtering", "Sorting"],
-    image: "/certificates/sql_basic certificate_page-0001.jpg",
+    image: "/certificates/sql_basic certificate_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.hackerrank.com/certificates/37eb45ef5b45",
     description: "Basic certification in SQL from HackerRank"
@@ -403,7 +403,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "548886971765",
     skills: ["Joins", "Aggregations", "Subqueries"],
-    image: "/certificates/sql_intermediate certificate_page-0001.jpg",
+    image: "/certificates/sql_intermediate certificate_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.hackerrank.com/certificates/548886971765",
     description: "Intermediate-level certification in SQL from HackerRank"
@@ -416,7 +416,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CT-T3RZ35SS",
     skills: ["Lists", "Dictionaries", "Tuples", "Sets"],
-    image: "/certificates/Python Data Structures_page-0001.jpg",
+    image: "/certificates/Python Data Structures_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CT-T3RZ35SS",
     description: "Covers common data structures in Python"
@@ -429,7 +429,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CC-RTHX9YWW",
     skills: ["JavaScript", "Variables", "Functions", "DOM"],
-    image: "/certificates/IntroductionToJavascript_page-0001.jpg",
+    image: "/certificates/IntroductionToJavascript_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CC-RTHX9YWW",
     description: "Introductory course in JavaScript basics"
@@ -442,7 +442,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CC-XUOEIUJ1",
     skills: ["SQL", "Aggregations", "Joins", "Subqueries"],
-    image: "/certificates/sql_intermediate.jpg",
+    image: "/certificates/sql_intermediate.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CC-XUOEIUJ1",
     description: "Covers intermediate SQL concepts"
@@ -455,7 +455,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CT-MC4WHKVG",
     skills: ["Python", "Basics", "Functions"],
-    image: "/certificates/Python for beginners_page-0001.jpg",
+    image: "/certificates/Python for beginners_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CT-MC4WHKVG",
     description: "Introductory Python programming course"
@@ -468,7 +468,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CT-K1WF8VQ2",
     skills: ["Python", "OOP", "Modules", "Error Handling"],
-    image: "/certificates/Intermediate Python_page-0001.jpg",
+    image: "/certificates/Intermediate Python_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CT-K1WF8VQ2",
     description: "Intermediate concepts in Python programming"
@@ -481,7 +481,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CT-C1PUBLRE",
     skills: ["C++", "Syntax", "Functions", "OOP"],
-    image: "/certificates/C++_page-0001.jpg",
+    image: "/certificates/C++_page-0001.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CT-C1PUBLRE",
     description: "C++ programming fundamentals course"
@@ -494,7 +494,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CC-OJHW1IGV",
     skills: ["SQL", "Tables", "Select", "Where", "Joins"],
-    image: "/certificates/Into_to_SQL_sololearn.png",
+    image: "/certificates/Into_to_SQL_sololearn.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CC-OJHW1IGV",
     description: "Basic introduction to SQL concepts"
@@ -507,7 +507,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CC-CMP7GVLJ",
     skills: ["Java", "Data Types", "Conditionals"],
-    image: "/certificates/intro_to_java.png",
+    image: "/certificates/intro_to_java.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CC-CMP7GVLJ",
     description: "Basic Java programming course"
@@ -520,7 +520,7 @@ export const certificatesData = [
     expiryDate: null,
     credentialId: "CC-PUXEY9XC",
     skills: ["SEO", "AI Tools", "Content Optimization"],
-    image: "/certificates/seo_with_ai_sololearn.png",
+    image: "/certificates/seo_with_ai_sololearn.webp",
     pdfLink: null,
     verificationLink: "https://www.sololearn.com/certificates/CC-PUXEY9XC",
     description: "Covers SEO techniques and AI integration"

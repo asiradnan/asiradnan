@@ -135,7 +135,7 @@ export default function ExperiencePage() {
     };
 
     return (
-        <div className={`w-full min-h-screen transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+        <div className="w-full min-h-screen bg-transparent">
             <section
                 id="experience-section"
                 className="w-full min-h-screen relative overflow-hidden"

@@ -1,7 +1,8 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Code2, Smartphone, Database, Brain, Trophy, ChevronDown, MessageSquare } from 'lucide-react';
+import { ChevronDown, MessageSquare, FileText, ArrowRight } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 
 export default function AboutSection() {
@@ -53,7 +54,7 @@ export default function AboutSection() {
     <section
       id="about-section"
       ref={sectionRef}
-      className={`py-16 sm:py-20 md:min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
+      className="py-16 sm:py-20 md:min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent"
     >
       {/* Main content */}
       <motion.div
@@ -88,46 +89,40 @@ My interests span backend architecture, REST APIs, cloud deployments, Android de
           {/* Buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex justify-center gap-4 flex-wrap"
+            className="flex justify-center gap-3 sm:gap-4 flex-wrap"
           >
-            {/* View My Skills (Scroll - Secondary) */}
+            {/* View Resume (Primary - Page Link) */}
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <Link
+                href="/resume"
+                className={`flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg ${isDark
+                  ? 'bg-white text-black hover:bg-gray-200'
+                  : 'bg-black text-white hover:bg-gray-800'
+                  } transition-colors duration-300`}
+              >
+                <FileText size={20} />
+                <span>View Resume</span>
+                <ArrowRight size={20} />
+              </Link>
+            </motion.div>
+
+            {/* Contact Me (Scroll - Secondary) */}
             <motion.button
-              className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg border-2 ${isDark
+              className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg border-2 cursor-pointer ${isDark
                 ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
                 : 'border-gray-500 text-gray-800 hover:bg-gray-100'
                 } transition-all duration-300`}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => {
-                const skillsSection = document.getElementById("contact-section");
-                skillsSection?.scrollIntoView({ behavior: "smooth", block: "center" });
+                const contactSection = document.getElementById("contact-section");
+                contactSection?.scrollIntoView({ behavior: "smooth", block: "center" });
               }}
             >
               <MessageSquare size={20} />
               Contact Me
               <ChevronDown size={20} />
             </motion.button>
-
-            {/* More About Me (Primary - New Page) */}
-            {/* <Link href="/about">
-              <motion.a
-                className={`flex items-center gap-3 px-7 py-3 rounded-full font-semibold text-lg ${isDark
-                  ? 'bg-white text-black hover:bg-gray-200'
-                  : 'bg-black text-white hover:bg-gray-800'
-                  } transition-all duration-300`}
-                whileHover={{ scale: 1.05, x: 4 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <UserRound size={22} />
-                More About Me
-                <motion.div
-                  animate={{ x: [0, 8, 0] }}
-                  transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
-                >
-                  <ArrowRight size={28} />
-                </motion.div>
-              </motion.a>
-            </Link> */}
           </motion.div>
         </motion.div>
       </motion.div>

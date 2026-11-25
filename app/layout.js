@@ -18,9 +18,25 @@ export const metadata = {
   description: "Asir Adnan portfolio as a software engineer/developer/full stack developer/backend developer",
 };
 
+const themeInitScript = `
+try {
+  var saved = localStorage.getItem('theme');
+  var isDark = saved ? saved === 'dark' : true;
+  var root = document.documentElement;
+  root.classList.toggle('dark', isDark);
+  root.classList.toggle('light', !isDark);
+  var meta = document.querySelector('meta[name="color-scheme"]');
+  if (meta) meta.content = isDark ? 'dark' : 'light';
+} catch (e) {}
+`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={jetbrainsMono.variable}>
+    <html lang="en" className={jetbrainsMono.variable} suppressHydrationWarning>
+      <head>
+        <meta name="color-scheme" content="light dark" />
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="font-mono antialiased">
         <ClarityProvider />
         <ThemeProvider>

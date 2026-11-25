@@ -61,7 +61,7 @@ const ProjectDetailPage = ({ project }) => {
   const { isDark } = useTheme();
 
   return (
-    <div className={`min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
+    <div className={`min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-transparent ${isDark ? 'text-white' : 'text-gray-900'}`}>
       <div className="max-w-5xl mx-auto">
 
         {/* Navigation */}
@@ -115,7 +115,7 @@ const ProjectDetailPage = ({ project }) => {
             animate="visible"
             custom={2}
           >
-            <Image src={project.image} alt={`Screenshot of ${project.name} — ${project.category}`} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 1024px" />
+            <Image src={project.image} alt={`Screenshot of ${project.name} — ${project.category}`} fill priority fetchPriority="high" className="object-contain" sizes="(max-width: 1024px) 100vw, 1024px" />
           </motion.div>
         )}
 

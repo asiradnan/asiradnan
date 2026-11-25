@@ -63,7 +63,7 @@ const AchievementsPage = () => {
     const { certificates, competitive } = getFilteredData();
 
     return (
-        <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+        <div className="w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-transparent">
             <motion.button
                 onClick={scrollToTop}
                 className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg ${isDark
@@ -254,6 +254,8 @@ const AchievementsPage = () => {
                                                         <img
                                                             src={certificate.image}
                                                             alt={certificate.name}
+                                                            loading="lazy"
+                                                            decoding="async"
                                                             className="w-full h-full object-cover"
                                                         />
                                                     ) : (

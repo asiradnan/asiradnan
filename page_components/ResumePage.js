@@ -167,7 +167,7 @@ export default function ResumePage() {
     };
 
     return (
-        <div className={`w-full min-h-screen flex items-center justify-center transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+        <div className="w-full min-h-screen flex items-center justify-center bg-transparent">
             <section
                 id="resume-section"
                 className="w-full min-h-screen flex items-center justify-center relative"

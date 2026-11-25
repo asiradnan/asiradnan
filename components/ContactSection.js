@@ -180,7 +180,7 @@ export default function ContactSection() {
         <section
             id="contact-section"
             ref={sectionRef}
-            className={`min-h-screen flex items-center justify-center relative overflow-hidden transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
+            className="min-h-screen flex items-center justify-center relative overflow-hidden bg-transparent"
         >
             {/* Scroll to Top Button */}
             <motion.button

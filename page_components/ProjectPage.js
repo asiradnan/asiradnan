@@ -72,7 +72,7 @@ const ProjectsPage = () => {
   );
 
   return (
-    <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}>
+    <div className="w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-transparent">
       <motion.button
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg ${isDark
@@ -138,8 +138,9 @@ const ProjectsPage = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projectsData.map((project) => {
+          {projectsData.map((project, index) => {
             const visible = selectedCategory === 'All' || project.category === selectedCategory;
+            const isLcpCandidate = index === 0;
             return (
               <Link
                 href={`/projects/${project.id}`}
@@ -153,7 +154,16 @@ const ProjectsPage = () => {
               >
                 <div className={`relative aspect-video w-full overflow-hidden border-b ${isDark ? 'bg-gray-900 border-gray-800' : 'bg-gray-50 border-gray-200'}`}>
                   {project.image ? (
-                    <Image src={project.image} alt={project.name} fill className="object-contain" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      fill
+                      priority={isLcpCandidate}
+                      fetchPriority={isLcpCandidate ? "high" : undefined}
+                      loading={isLcpCandidate ? undefined : "lazy"}
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
                   ) : (
                     <div className="flex items-center justify-center h-full">
                       <Code2 size={48} className="text-gray-400" />

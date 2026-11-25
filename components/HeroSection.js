@@ -1,7 +1,8 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Code2, Smartphone, Database, ChevronDown, Zap, Coffee, Phone, BrainCircuit, Cpu, User, Mail } from 'lucide-react';
+import { Smartphone, Database, ChevronDown, User, Folder, ArrowRight } from 'lucide-react';
 import { useTheme } from '@/components/ThemeContext'
 
 export default function HeroSection() {
@@ -72,7 +73,7 @@ export default function HeroSection() {
     <section
       id="hero-section"
       ref={sectionRef}
-      className={`min-h-screen flex items-center justify-center relative overflow-hidden py-20 md:py-0 transition-colors duration-300 ${isDark ? 'bg-black' : 'bg-white'}`}
+      className="min-h-screen flex items-center justify-center relative overflow-hidden py-20 md:py-0 bg-transparent"
     >
       {/* Main content */}
       <motion.div
@@ -139,8 +140,22 @@ export default function HeroSection() {
           variants={itemVariants}
           className="flex justify-center gap-3 sm:gap-4 flex-wrap"
         >
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/projects"
+              className={`flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg ${isDark
+                ? 'bg-white text-black hover:bg-gray-200'
+                : 'bg-black text-white hover:bg-gray-800'
+                } transition-colors duration-300`}
+            >
+              <Folder size={20} />
+              <span>View Projects</span>
+              <ArrowRight size={20} />
+            </Link>
+          </motion.div>
+
           <motion.button
-            className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg border-2 ${isDark
+            className={`flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg border-2 cursor-pointer ${isDark
               ? 'border-gray-400 text-gray-200 hover:bg-gray-700'
               : 'border-gray-500 text-gray-800 hover:bg-gray-100'
               } transition-all duration-300`}
@@ -154,22 +169,6 @@ export default function HeroSection() {
             <User size={22} />
             About Me
             <ChevronDown size={20} />
-          </motion.button>
-
-          <motion.button
-            className={`flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-base sm:text-lg ${isDark
-              ? 'bg-white text-black hover:bg-gray-200'
-              : 'bg-black text-white hover:bg-gray-800'
-              } transition-colors duration-300`}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => {
-              const contactSection = document.getElementById("contact-section");
-              contactSection?.scrollIntoView({ behavior: "smooth", block: "center" });
-            }}
-          >
-            <Mail size={20} />
-            <span>Contact</span>
           </motion.button>
         </motion.div>
 

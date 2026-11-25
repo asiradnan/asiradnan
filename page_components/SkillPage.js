@@ -313,9 +313,7 @@ const SkillsPage = () => {
 
 
   return (
-    <div className={`w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300 ${
-      isDark ? 'bg-black' : 'bg-white'
-    }`}>
+    <div className="w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-transparent">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
           <motion.div
