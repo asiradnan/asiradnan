@@ -72,7 +72,7 @@ const ProjectsPage = () => {
   );
 
   return (
-    <div className="w-full min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-transparent">
+    <div className="w-full min-h-screen pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-transparent">
       <motion.button
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-lg ${isDark

@@ -87,6 +87,18 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
+dialog:modal {
+  overscroll-behavior: contain;
+  margin: auto;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
 @supports not (scrollbar-color: auto) {
   html {
     scrollbar-width: auto;

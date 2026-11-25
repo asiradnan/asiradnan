@@ -173,7 +173,7 @@ export default function ResumePage() {
                 className="w-full min-h-screen flex items-center justify-center relative"
             >
                 <motion.div
-                    className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
+                    className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16"
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
